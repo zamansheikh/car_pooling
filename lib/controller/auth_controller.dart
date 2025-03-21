@@ -38,6 +38,14 @@ class AuthController extends GetxController {
       return;
     }
 
+    if (!checkBoxStatus.value) {
+      showCustomSnackBar(
+        "You must agree to the terms and conditions to continue",
+        isError: true,
+      );
+      return;
+    }
+
     final body = {
       "firstName": firstNameController.text,
       "lastName": lastNameController.text,
@@ -51,7 +59,7 @@ class AuthController extends GetxController {
 
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
-    showCustomSnackBar("User Signed in successfully", isError: false);
+    showCustomSnackBar("User created successfully", isError: false);
   }
 
   @override

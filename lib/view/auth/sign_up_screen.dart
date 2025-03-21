@@ -84,7 +84,7 @@ class SignUpScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> SignUpButton <<<<<<<<<<<<<===============
                         Obx(() {
                           return CustomButton(
-                            buttonTitle: "Sign In",
+                            buttonTitle: "Sign Up",
                             onTap: () {
                               controller.userSignUp(_formKey);
                             },
@@ -108,7 +108,7 @@ class SignUpScreen extends StatelessWidget {
                                 Get.toNamed(AppRoutes.signIn);
                               },
                               child: Text(
-                                "Sign In",
+                                "Sign Up",
                                 style: AppStyle.smallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),

@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-void showCustomSnackBar(
-  String? message, {
-  bool isError = true,
-  bool getXSnackBar = true,
-}) {
+void showCustomSnackBar(String? message, {bool isError = true}) {
   if (message != null && message.isNotEmpty) {
-    if (getXSnackBar) {
+    if (!isError) {
       Get.showSnackbar(
         GetSnackBar(
           backgroundColor: isError ? Colors.red.shade400 : Colors.green,
