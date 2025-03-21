@@ -8,6 +8,7 @@ class AuthController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   // =================>>>>>>>>>>>>> RX variables <<<<<<<<<<<<<===============
   RxBool isLoading = false.obs;

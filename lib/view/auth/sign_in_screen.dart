@@ -69,6 +69,8 @@ class SignInScreen extends StatelessWidget {
                               ],
                             ),
                             GestureDetector(
+                              onTap:
+                                  () => Get.toNamed(AppRoutes.forgotPassword),
                               child: Text(
                                 "Forget Password?",
                                 style: AppStyle.baseSmallMedium.copyWith(

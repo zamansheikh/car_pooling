@@ -33,7 +33,7 @@ class CustomInputField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // the title with the sizedbox will only be rendered when it is provided
-        if (title != null) Text(title!, style: AppStyle.smallRegular),
+        if (title != null) Text(title!, style: AppStyle.baseSmallRegular),
         if (title != null) SizedBox(height: 8.h),
         // To design the text field container is used
         Obx(() {
