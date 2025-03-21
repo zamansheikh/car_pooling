@@ -2,6 +2,7 @@ import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -12,6 +13,8 @@ class CustomButton extends StatelessWidget {
     this.isFilled = true,
     this.isRed = false,
     this.widthFactor = 1,
+    this.isActive = true,
+    this.isLoading = false,
   });
 
   final VoidCallback onTap;
@@ -20,6 +23,8 @@ class CustomButton extends StatelessWidget {
   final bool isFilled;
   final bool isRed;
   final double widthFactor;
+  final bool isActive;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class CustomButton extends StatelessWidget {
       child: FractionallySizedBox(
         widthFactor: widthFactor,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 16.h),
+          padding: EdgeInsets.symmetric(vertical: 10.h),
           decoration: BoxDecoration(
             color: (isFilled && !isRed) ? AppColors.primary : null,
             border: Border.all(
@@ -37,17 +42,23 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(isRounded ? 100 : 12),
           ),
           child: Center(
-            child: Text(
-              buttonTitle,
-              style: AppStyle.baseMedium.copyWith(
-                color:
-                    isFilled
-                        ? Colors.white
-                        : isRed
-                        ? AppColors.danger
-                        : AppColors.primary,
-              ),
-            ),
+            child:
+                isLoading
+                    ? LoadingAnimationWidget.staggeredDotsWave(
+                      color: Colors.white,
+                      size: 22,
+                    )
+                    : Text(
+                      buttonTitle,
+                      style: AppStyle.baseMedium.copyWith(
+                        color:
+                            isFilled
+                                ? Colors.white
+                                : isRed
+                                ? AppColors.danger
+                                : AppColors.primary,
+                      ),
+                    ),
           ),
         ),
       ),

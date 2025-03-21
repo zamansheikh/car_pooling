@@ -39,9 +39,10 @@ class CustomInputField extends StatelessWidget {
         Obx(() {
           final obscure = isObscure.value;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.primaryLight),
+              borderRadius: BorderRadius.circular(12),
             ),
             // Row is used for prefix icons and suffix icons
             child: Row(
@@ -57,7 +58,10 @@ class CustomInputField extends StatelessWidget {
                   child: TextFormField(
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
-                      hintText: "Enter your $title...",
+                      hintText:
+                          title != null
+                              ? "Enter your $title..."
+                              : "Enter here....",
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                     ),

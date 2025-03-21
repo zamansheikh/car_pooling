@@ -7,13 +7,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() {
   runApp(
     ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(428, 926),
       minTextAdapt: true,
       builder: (context, child) {
         return GetMaterialApp(
           initialBinding: AppBindings.bindings,
           getPages: AppRoutes.pages,
-          home: Scaffold(body: Center(child: Text('Hello World!'))),
+          initialRoute: AppRoutes.splashScreen,
         );
       },
     ),
