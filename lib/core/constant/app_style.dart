@@ -14,6 +14,17 @@ class AppStyle {
     color: Colors.black,
     fontWeight: FontWeight.w500,
   );
+  // Base small Fonts
+  static TextStyle baseSmallRegular = GoogleFonts.roboto(
+    fontSize: 14.sp,
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+  );
+  static TextStyle baseSmallMedium = GoogleFonts.roboto(
+    fontSize: 14.sp,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+  );
 
   // Small Fonts
   static TextStyle smallRegular = GoogleFonts.roboto(

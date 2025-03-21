@@ -11,22 +11,26 @@ import 'package:get/get.dart';
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
   final AuthController controller = Get.find<AuthController>();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+          // The list view is used to shift the layout at the bottom and enable scrolling behaviour
           child: ListView(
+            // reverse is used to shift the layout at the bottom
             reverse: true,
             children: [
+              // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
                   Text("Sign In Your Account", style: AppStyle.headerBold1),
                   SizedBox(height: 24.h),
                   Form(
-                    key: controller.formKey,
+                    key: _formKey,
                     child: Column(
                       children: [
                         // =================>>>>>>>>>>>>> Text Controller <<<<<<<<<<<<<===============
@@ -58,7 +62,7 @@ class SignInScreen extends StatelessWidget {
                                 }),
                                 Text(
                                   "Remember Me",
-                                  style: AppStyle.smallMedium.copyWith(
+                                  style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
                                 ),
@@ -67,7 +71,7 @@ class SignInScreen extends StatelessWidget {
                             GestureDetector(
                               child: Text(
                                 "Forget Password?",
-                                style: AppStyle.smallMedium.copyWith(
+                                style: AppStyle.baseSmallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),
                               ),
@@ -79,7 +83,9 @@ class SignInScreen extends StatelessWidget {
                         Obx(() {
                           return CustomButton(
                             buttonTitle: "Sign In",
-                            onTap: controller.userSignIn,
+                            onTap: () {
+                              controller.userSignIn(_formKey);
+                            },
                             isLoading: controller.isLoading.value,
                           );
                         }),
@@ -99,7 +105,9 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Get.toNamed(AppRoutes.signUp),
+                        onTap: () {
+                          Get.toNamed(AppRoutes.signUp);
+                        },
                         child: Text(
                           "Sign Up",
                           style: AppStyle.smallMedium.copyWith(
