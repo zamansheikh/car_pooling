@@ -3,11 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
-  // =================>>>>>>>>>>>>> Text Editing Controllers <<<<<<<<<<<<<===============
+  // =================>>>>>>>>>>>>> Normal Variables <<<<<<<<<<<<<===============
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
-  // =================>>>>>>>>>>>>> keys <<<<<<<<<<<<<===============
   final formKey = GlobalKey<FormState>();
 
   // =================>>>>>>>>>>>>> RX variables <<<<<<<<<<<<<===============

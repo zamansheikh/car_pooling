@@ -56,6 +56,7 @@ class CustomInputField extends StatelessWidget {
                 if (prefixIcon != null) SizedBox(width: 12.w),
                 Flexible(
                   child: TextFormField(
+                    controller: controller,
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
                       hintText:
