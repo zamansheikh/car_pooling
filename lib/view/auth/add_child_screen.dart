@@ -59,7 +59,7 @@ class AddChildScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         GestureDetector(
-                          onTap: () => controller.addChild(),
+                          onTap: () => controller.addChild(_formKey),
                           child: Row(
                             spacing: 4.w,
                             children: [

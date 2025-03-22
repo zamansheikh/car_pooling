@@ -184,7 +184,10 @@ class AuthController extends GetxController {
     );
   }
 
-  Future addChild() async {
+  Future addChild(formKey) async {
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
     final model = ChildModel(
       childFistName: firstNameController.text,
       childLastName: lastNameController.text,
