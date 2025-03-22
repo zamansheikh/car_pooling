@@ -20,7 +20,7 @@ class ChildCard extends StatelessWidget {
         color: AppColors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withAlpha((0.1 * 255).toInt()),
             spreadRadius: 1,
             blurRadius: 1,
             offset: Offset(0, 2),

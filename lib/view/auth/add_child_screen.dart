@@ -5,6 +5,7 @@ import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/view/auth/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -81,7 +82,10 @@ class AddChildScreen extends StatelessWidget {
                     ),
 
                     // Custom button
-                    CustomButton(buttonTitle: "Next", onTap: () {}),
+                    CustomButton(
+                      buttonTitle: "Next",
+                      onTap: () => Get.to(ForgotPasswordScreen(isReset: false)),
+                    ),
                   ],
                 ),
               ),

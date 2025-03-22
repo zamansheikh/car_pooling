@@ -4,6 +4,7 @@ import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
+import 'package:car_pooling/view/auth/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -70,7 +71,9 @@ class SignInScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap:
-                                  () => Get.toNamed(AppRoutes.forgotPassword),
+                                  () => Get.to(
+                                    ForgotPasswordScreen(isReset: true),
+                                  ),
                               child: Text(
                                 "Forget Password?",
                                 style: AppStyle.baseSmallMedium.copyWith(

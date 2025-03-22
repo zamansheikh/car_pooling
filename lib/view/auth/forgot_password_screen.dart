@@ -1,4 +1,5 @@
 import 'package:car_pooling/controller/auth_controller.dart';
+import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/components/custom_phone_input.dart';
@@ -9,8 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-  ForgotPasswordScreen({super.key});
+  ForgotPasswordScreen({super.key, required this.isReset});
   final AuthController controller = Get.find<AuthController>();
+  final bool isReset;
 
   // to keep track of verification method
   final RxBool isPhone = true.obs;
@@ -20,6 +22,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: customAppBar1(!isReset ? "Verification" : "Reset Password"),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -65,7 +68,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       controller.userGetOTP(
                         _formkey,
                         isPhone: isPhone.value,
-                        isReset: true,
+                        isReset: isReset,
                       );
                     },
                   );
