@@ -32,6 +32,16 @@ class CustomPhoneInputField extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
               counterText: '', // This removes the number length count
             ),
+            validator: (phone) {
+              if (phone != null) {
+                if (phone.number.isEmpty) {
+                  return 'Phone number is required';
+                } else if (!phone.isValidNumber()) {
+                  return 'Enter a valid phone number';
+                }
+              }
+              return null;
+            },
             keyboardType: TextInputType.number,
             initialCountryCode: 'TR', // Contry code for Turkey
             onChanged: (phone) {

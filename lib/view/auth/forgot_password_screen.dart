@@ -1,5 +1,6 @@
 import 'package:car_pooling/controller/auth_controller.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
+import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/components/custom_phone_input.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
@@ -11,37 +12,82 @@ class ForgotPasswordScreen extends StatelessWidget {
   ForgotPasswordScreen({super.key});
   final AuthController controller = Get.find<AuthController>();
 
+  // to keep track of verification method
+  final RxBool isPhone = true.obs;
+
+  final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Obx(() {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title for verification method
+                Text(
+                  isPhone.value
+                      ? "Enter your mobile number"
+                      : "Enter your Email",
+                  style: AppStyle.headerMedium5.copyWith(
+                    color: AppColors.darkGray,
+                  ),
+                ),
+                SizedBox(height: 24.h),
+                //input field based on the verification method
+                Form(
+                  key: _formkey,
+                  child: Column(
+                    children: [
+                      if (isPhone.value)
+                        CustomPhoneInputField(
+                          controller: controller.phoneController,
+                        ),
+                      if (!isPhone.value)
+                        CustomInputField(
+                          controller: controller.emailController,
+                        ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40.h),
 
-            children: [
-              Text(
-                "Enter your mobile number",
-                style: AppStyle.headerMedium5.copyWith(
-                  color: AppColors.darkGray,
+                Obx(() {
+                  return CustomButton(
+                    buttonTitle: "Next",
+                    isLoading: controller.isLoading.value,
+                    onTap: () {
+                      // OTP Request Function
+                      controller.userGetOTP(
+                        _formkey,
+                        isPhone: isPhone.value,
+                        isReset: true,
+                      );
+                    },
+                  );
+                }),
+                SizedBox(height: 40.h),
+                // Toggle the verification method between phone or email
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      isPhone.value = !isPhone.value;
+                    },
+                    child: Text(
+                      isPhone.value ? "Verify with Email" : "Verify with Phone",
+                      style: AppStyle.baseMedium.copyWith(
+                        color: AppColors.primary,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-              SizedBox(height: 24.h),
-            
-              CustomPhoneInputField(controller: controller.phoneController  ),
-              SizedBox(height: 40.h),
-              CustomButton(buttonTitle: "Next", onTap: () {}),
-              SizedBox(height: 40.h),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Verify with Email",
-                  style: AppStyle.baseMedium.copyWith(color: AppColors.primary),
-                ),
-              ),
-            ],
-          ),
+              ],
+            );
+          }),
         ),
       ),
     );
