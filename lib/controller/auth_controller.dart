@@ -48,6 +48,7 @@ class AuthController extends GetxController {
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
     showCustomSnackBar("User Signed in successfully", isError: false);
+    clearControllers();
   }
 
   Future userSignUp(formKey) async {
@@ -79,6 +80,7 @@ class AuthController extends GetxController {
     showCustomSnackBar("User created successfully", isError: false);
 
     Get.toNamed(AppRoutes.addChild);
+    clearControllers();
   }
 
   Future userGetOTP(formKey, {isPhone, isReset}) async {
@@ -137,6 +139,7 @@ class AuthController extends GetxController {
     isLoading.value = false;
 
     showCustomSnackBar("OTP Rsend to $sendTo", isError: false);
+    clearControllers();
   }
 
   Future confirmOTP({sendTo, isReset}) async {
@@ -151,8 +154,23 @@ class AuthController extends GetxController {
     isLoading.value = false;
 
     if (isReset) Get.toNamed(AppRoutes.createNewPass);
+    if (!isReset) {
+      showDialog(
+        context: Get.context!,
+        builder: (BuildContext context) {
+          return customAlertDialog(
+            title: "Congratulations!",
+            content:
+                "Your HadiKid account has been successfully created and verified!",
+            buttonText: "Ok",
+            route: () => Get.offAllNamed(AppRoutes.welcomeScreen),
+          );
+        },
+      );
+    }
 
     showCustomSnackBar("OTP Confirmed", isError: false);
+    clearControllers();
   }
 
   Future createNewpass() async {
@@ -182,6 +200,7 @@ class AuthController extends GetxController {
         );
       },
     );
+    clearControllers();
   }
 
   Future addChild(formKey) async {
