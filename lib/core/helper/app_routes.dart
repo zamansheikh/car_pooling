@@ -1,3 +1,4 @@
+import 'package:car_pooling/view/auth/add_child_screen.dart';
 import 'package:car_pooling/view/auth/create_new_password_screen.dart';
 import 'package:car_pooling/view/auth/forgot_password_screen.dart';
 // import 'package:car_pooling/view/auth/otp_screen.dart';
@@ -14,6 +15,7 @@ class AppRoutes {
   static String forgotPassword = "/forgot_pass";
   // static String otp = "/otp_screen";
   static String createNewPass = "/create_new_pass";
+  static String addChild = "/add_a_child";
 
   static List<GetPage> pages = [
     // =================>>>>>>>>>>>>> Auth Feature <<<<<<<<<<<<<===============
@@ -23,5 +25,6 @@ class AppRoutes {
     GetPage(name: forgotPassword, page: () => ForgotPasswordScreen()),
     // GetPage(name: otp, page: () => OtpScreen()),
     GetPage(name: createNewPass, page: () => CreateNewPasswordScreen()),
+    GetPage(name: addChild, page: () => AddChildScreen()),
   ];
 }

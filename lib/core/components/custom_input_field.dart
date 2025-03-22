@@ -1,5 +1,4 @@
 import 'package:car_pooling/core/constant/app_colors.dart';
-import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/utils/regex_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,8 +32,8 @@ class CustomInputField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // the title with the sizedbox will only be rendered when it is provided
-        if (title != null) Text(title!, style: AppStyle.baseSmallRegular),
-        if (title != null) SizedBox(height: 8.h),
+        // if (title != null) Text(title!, style: AppStyle.baseSmallRegular),
+        // if (title != null) SizedBox(height: 8.h),
         // To design the text field container is used
         Obx(() {
           final obscure = isObscure.value;

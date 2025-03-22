@@ -1,16 +1,11 @@
 import 'dart:async';
 
 import 'package:car_pooling/core/components/custom_alert_dialog.dart';
-import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/show_custom_snackbar.dart';
-import 'package:car_pooling/core/constant/app_colors.dart';
-import 'package:car_pooling/core/constant/app_icons.dart';
-import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
+import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/view/auth/otp_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -26,12 +21,14 @@ class AuthController extends GetxController {
   TextEditingController otpController = TextEditingController();
   TextEditingController newPassController = TextEditingController();
   TextEditingController confirmNewPassController = TextEditingController();
+  TextEditingController schoolNameController = TextEditingController();
 
   // =================>>>>>>>>>>>>> RX variables <<<<<<<<<<<<<===============
   RxBool isLoading = false.obs;
   RxBool checkBoxStatus = false.obs;
   RxInt secondsRemaining = 59.obs; // Timer duration
   RxBool isTimerActive = false.obs;
+  RxList<ChildModel> childList = <ChildModel>[].obs;
 
   // =================>>>>>>>>>>>>> Functions <<<<<<<<<<<<<===============
   Future userSignIn(formKey) async {
@@ -80,6 +77,8 @@ class AuthController extends GetxController {
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
     showCustomSnackBar("User created successfully", isError: false);
+
+    Get.toNamed(AppRoutes.addChild);
   }
 
   Future userGetOTP(formKey, {isPhone, isReset}) async {
@@ -185,8 +184,24 @@ class AuthController extends GetxController {
     );
   }
 
+  Future addChild() async {
+    final model = ChildModel(
+      childFistName: firstNameController.text,
+      childLastName: lastNameController.text,
+      childSchoolName: schoolNameController.text,
+      childPhoto: "",
+    );
+    childList.add(model);
+    clearControllers();
+  }
+
   @override
   void dispose() {
+    clearControllers();
+    super.dispose();
+  }
+
+  void clearControllers() {
     emailController.clear();
     passwordController.clear();
     firstNameController.clear();
@@ -195,6 +210,6 @@ class AuthController extends GetxController {
     otpController.clear();
     newPassController.clear();
     confirmNewPassController.clear();
-    super.dispose();
+    schoolNameController.clear();
   }
 }
