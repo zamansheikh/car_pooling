@@ -70,10 +70,10 @@ class SignInScreen extends StatelessWidget {
                               ],
                             ),
                             GestureDetector(
-                              onTap:
-                                  () => Get.to(
-                                    ForgotPasswordScreen(isReset: true),
-                                  ),
+                              onTap: () {
+                                controller.clearControllers();
+                                Get.to(ForgotPasswordScreen(isReset: true));
+                              },
                               child: Text(
                                 "Forget Password?",
                                 style: AppStyle.baseSmallMedium.copyWith(
