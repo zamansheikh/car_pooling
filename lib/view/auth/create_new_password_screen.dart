@@ -1,4 +1,5 @@
 import 'package:car_pooling/controller/auth_controller.dart';
+import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
@@ -15,6 +16,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: customAppBar1("Create New Password"),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 80.h),
@@ -23,6 +25,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
             children: [
               SizedBox(),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 spacing: 24.h,
                 children: [
@@ -32,11 +35,26 @@ class CreateNewPasswordScreen extends StatelessWidget {
                       color: AppColors.darkGray,
                     ),
                   ),
-                  CustomInputField(controller: controller.passwordController),
+                  CustomInputField(
+                    controller: controller.newPassController,
+                    title: "New password",
+                  ),
+                  CustomInputField(
+                    controller: controller.confirmNewPassController,
+                    title: "Confirm new password",
+                  ),
                 ],
               ),
 
-              CustomButton(buttonTitle: "Done", onTap: () {}),
+              Obx(() {
+                return CustomButton(
+                  buttonTitle: "Done",
+                  isLoading: controller.isLoading.value,
+                  onTap: () {
+                    controller.createNewpass();
+                  },
+                );
+              }),
             ],
           ),
         ),

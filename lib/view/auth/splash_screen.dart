@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.toNamed(AppRoutes.signIn);
+      Get.offAllNamed(AppRoutes.signIn);
     });
     return Scaffold(
       body: SafeArea(child: Center(child: Image.asset(AppAssets.appLogo))),

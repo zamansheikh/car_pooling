@@ -1,9 +1,16 @@
 import 'dart:async';
 
+import 'package:car_pooling/core/components/custom_alert_dialog.dart';
+import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/show_custom_snackbar.dart';
+import 'package:car_pooling/core/constant/app_colors.dart';
+import 'package:car_pooling/core/constant/app_icons.dart';
+import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/view/auth/otp_screen.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -17,6 +24,8 @@ class AuthController extends GetxController {
   TextEditingController lastNameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController otpController = TextEditingController();
+  TextEditingController newPassController = TextEditingController();
+  TextEditingController confirmNewPassController = TextEditingController();
 
   // =================>>>>>>>>>>>>> RX variables <<<<<<<<<<<<<===============
   RxBool isLoading = false.obs;
@@ -147,6 +156,35 @@ class AuthController extends GetxController {
     showCustomSnackBar("OTP Confirmed", isError: false);
   }
 
+  Future createNewpass() async {
+    final body = {
+      "newPass": newPassController.text,
+      "confirmPassword": confirmNewPassController.text,
+    };
+
+    debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
+
+    if (newPassController.text != confirmNewPassController.text) {
+      showCustomSnackBar("Passwords do not match", isError: true);
+      return;
+    }
+    isLoading.value = true;
+    await Future.delayed(Duration(seconds: 2));
+    isLoading.value = false;
+
+    showDialog(
+      context: Get.context!,
+      builder: (BuildContext context) {
+        return customAlertDialog(
+          title: "Password Changed",
+          content: "You have succesfully chamged your password",
+          buttonText: "Ok",
+          route: () => Get.toNamed(AppRoutes.signIn),
+        );
+      },
+    );
+  }
+
   @override
   void dispose() {
     emailController.clear();
@@ -155,6 +193,8 @@ class AuthController extends GetxController {
     lastNameController.clear();
     phoneController.clear();
     otpController.clear();
+    newPassController.clear();
+    confirmNewPassController.clear();
     super.dispose();
   }
 }
