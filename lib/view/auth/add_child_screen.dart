@@ -24,6 +24,7 @@ class AddChildScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
+            // This column is responsible for rendering the added child cards
             spacing: 24.h,
             children: [
               Obx(() {
@@ -36,6 +37,7 @@ class AddChildScreen extends StatelessWidget {
                 );
               }),
               Form(
+                // this form -> column is responsible for validating and taking child info
                 key: _formKey,
                 child: Column(
                   spacing: 16.h,
@@ -52,7 +54,7 @@ class AddChildScreen extends StatelessWidget {
                       controller: controller.schoolNameController,
                       title: "child's school name",
                     ),
-                    // add child data
+                    // add child data custom button
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
