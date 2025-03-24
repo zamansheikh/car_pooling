@@ -1,5 +1,6 @@
 import 'package:car_pooling/controller/carpooling_controller.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/model/child_model.dart';
@@ -98,7 +99,10 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                   );
                 }),
               ),
-              // =========>>>>>>>>> Choose child list <<<<<<<<<=========
+              // =========>>>>>>>>> Next Button <<<<<<<<<=========
+              SizedBox(height: 24.h),
+              CustomButton(buttonTitle: "Next", onTap: () {}),
+              SizedBox(height: 24.h),
             ],
           ),
         ),
