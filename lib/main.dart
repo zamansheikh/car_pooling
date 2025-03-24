@@ -1,3 +1,4 @@
+import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/core/utils/app_binding.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ void main() {
         return GetMaterialApp(
           initialBinding: AppBindings.bindings,
           getPages: AppRoutes.pages,
+          theme: ThemeData(scaffoldBackgroundColor: AppColors.background),
           initialRoute: AppRoutes.splashScreen,
         );
       },

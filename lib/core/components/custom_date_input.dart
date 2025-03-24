@@ -81,7 +81,7 @@ class _CustomDateInputState extends State<CustomDateInput> {
                       setState(() {
                         _selectedDate = picked;
                         widget.dateController.text = DateFormat(
-                          'dd-MM-yyyy',
+                          'MMMM d, yyyy',
                         ).format(picked);
                       });
                     }

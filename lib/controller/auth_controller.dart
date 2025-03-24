@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:car_pooling/core/components/custom_alert_dialog.dart';
 import 'package:car_pooling/core/components/show_custom_snackbar.dart';
+import 'package:car_pooling/core/constant/app_icons.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/view/auth/otp_screen.dart';
@@ -160,6 +161,7 @@ class AuthController extends GetxController {
         builder: (BuildContext context) {
           return customAlertDialog(
             title: "Congratulations!",
+            asset: AppIcons.congratsIcon,
             content:
                 "Your HadiKid account has been successfully created and verified!",
             buttonText: "Ok",
@@ -195,6 +197,7 @@ class AuthController extends GetxController {
         return customAlertDialog(
           title: "Password Changed",
           content: "You have succesfully chamged your password",
+          asset: AppIcons.congratsIcon,
           buttonText: "Ok",
           route: () => Get.toNamed(AppRoutes.signIn),
         );

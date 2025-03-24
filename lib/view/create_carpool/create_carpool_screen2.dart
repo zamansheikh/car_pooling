@@ -6,6 +6,7 @@ import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/components/custom_time_input.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -110,6 +111,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20),
+                  // This obx detects if custom, then it'll render extra ui
                   Obx(
                     () =>
                         controller.selectedOption.value == 'Custom'
@@ -179,7 +181,9 @@ class CreateCarpoolScreen2 extends StatelessWidget {
               CustomButton(
                 buttonTitle: "Preview & Invites",
                 isRounded: false,
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppRoutes.createCarpool3);
+                },
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:car_pooling/model/child_model.dart';
+import 'package:car_pooling/model/contact_model.dart';
 import 'package:car_pooling/model/role_model.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:flutter/widgets.dart';
@@ -9,6 +10,8 @@ class CarpoolingController extends GetxController {
   TextEditingController startLocationController = TextEditingController();
   TextEditingController endLocationController = TextEditingController();
   TextEditingController returnDateController = TextEditingController();
+  TextEditingController searchContactController = TextEditingController();
+  TextEditingController addMessageController = TextEditingController();
 
   RxList<ChildModel> availableChildren =
       <ChildModel>[
@@ -17,6 +20,20 @@ class CarpoolingController extends GetxController {
       ].obs;
   RxList<RoleModel> myRole =
       <RoleModel>[RoleModel(name: "Attend"), RoleModel(name: "Drive")].obs;
+
+  RxList<ContactModel> myContact =
+      <ContactModel>[
+        ContactModel(
+          firstName: "Adam",
+          lastName: "Brown",
+          cellNumber: "+880 178 020 2564",
+        ),
+        ContactModel(
+          firstName: "Adam",
+          lastName: "Brown",
+          cellNumber: "+880 178 020 2564",
+        ),
+      ].obs;
 
   RxString selectedOption = "Custom".obs;
   RxBool isReturnTrip = false.obs;
@@ -35,6 +52,8 @@ class CarpoolingController extends GetxController {
     endLocationController.clear();
     startLocationController.clear();
     returnDateController.clear();
+    searchContactController.clear();
+    addMessageController.clear();
   }
 
   @override

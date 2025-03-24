@@ -14,14 +14,18 @@ class CustomInputField extends StatelessWidget {
     this.title,
     this.prefixIcon,
     this.maxLines = 1,
+    this.hintText,
+    this.background,
   });
 
   final String? title;
+  final String? hintText;
   final bool isEmail;
   final bool isPassword;
   final String? prefixIcon;
   final int maxLines;
   final TextEditingController controller;
+  final Color? background;
 
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
@@ -38,10 +42,11 @@ class CustomInputField extends StatelessWidget {
         Obx(() {
           final obscure = isObscure.value;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.primaryLight),
               borderRadius: BorderRadius.circular(12),
+              color: background,
             ),
             // Row is used for prefix icons and suffix icons
             child: Row(
@@ -59,9 +64,10 @@ class CustomInputField extends StatelessWidget {
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
                       hintText:
-                          title != null
+                          hintText ??
+                          (title != null
                               ? "Enter your $title..."
-                              : "Enter here....",
+                              : "Enter here...."),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                     ),

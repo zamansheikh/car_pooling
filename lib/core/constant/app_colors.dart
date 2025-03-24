@@ -4,6 +4,8 @@ class AppColors {
   static Color primary = Color(0xFF66B2A3);
   static Color primaryDark = Color(0xFF3B8677);
 
+  static Color background = Color(0xFFF8F8F5);
+
   static Color white = Color(0xFFFCFCFC);
   static Color primaryLight = Color(0xFFE1E1E1);
   static Color lightGray = Color(0xFFE0E0E0);
