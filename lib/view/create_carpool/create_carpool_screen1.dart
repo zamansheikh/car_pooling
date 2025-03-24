@@ -3,6 +3,7 @@ import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -101,7 +102,13 @@ class CreateCarpoolScreen1 extends StatelessWidget {
               ),
               // =========>>>>>>>>> Next Button <<<<<<<<<=========
               SizedBox(height: 24.h),
-              CustomButton(buttonTitle: "Next", onTap: () {}),
+              CustomButton(
+                buttonTitle: "Next",
+                isRounded: false,
+                onTap: () {
+                  Get.toNamed(AppRoutes.createCarpool2);
+                },
+              ),
               SizedBox(height: 24.h),
             ],
           ),
