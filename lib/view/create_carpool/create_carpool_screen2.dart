@@ -155,6 +155,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   }),
                 ],
               ),
+              SizedBox(height: 12.h),
               Row(
                 spacing: 16.w,
                 children: [
