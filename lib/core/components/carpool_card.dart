@@ -1,3 +1,4 @@
+import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/image_renderer.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
@@ -15,6 +16,7 @@ class CarpoolCard extends StatelessWidget {
     required this.toLocation,
     required this.date,
     required this.time,
+    required this.canDrive,
   });
   final String image;
   final String eventName;
@@ -22,6 +24,7 @@ class CarpoolCard extends StatelessWidget {
   final String toLocation;
   final String date;
   final String time;
+  final bool canDrive;
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +33,15 @@ class CarpoolCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Profile Image
-          CircleAvatar(
-            radius: 32,
-            backgroundColor: AppColors.background, // Placeholder color
-            child:
-                image == ''
-                    ? Text(eventName[0], style: AppStyle.headerRegular3)
-                    : imageRenderer(url: image, borderRadius: 100, size: 64),
-          ),
+          if (!canDrive)
+            CircleAvatar(
+              radius: 32,
+              backgroundColor: AppColors.background, // Placeholder color
+              child:
+                  image == ''
+                      ? Text(eventName[0], style: AppStyle.headerRegular3)
+                      : imageRenderer(url: image, borderRadius: 100, size: 64),
+            ),
           SizedBox(width: 16),
           // Text and Icons Column
           Expanded(
@@ -84,6 +88,15 @@ class CarpoolCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 12),
+                if (canDrive)
+                  CustomButton(
+                    buttonTitle: 'Drive',
+                    isRounded: false,
+                    onTap: () {
+                      // Todo: add drive functionality
+                    },
+                  ),
               ],
             ),
           ),

@@ -27,8 +27,8 @@ class ScheduleScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: TabBarView(
             children: [
-              buildTabView(controller.carpoolList),
-              buildTabView(controller.carpoolList),
+              buildTabView(controller.carpoolList, true),
+              buildTabView(controller.carpoolList, false),
             ],
           ),
         ),
@@ -36,7 +36,7 @@ class ScheduleScreen extends StatelessWidget {
     );
   }
 
-  Widget buildTabView(List<CarpoolModel> carpools) {
+  Widget buildTabView(List<CarpoolModel> carpools, canDrive) {
     return carpools.isEmpty
         ? WelcomeScreen2()
         : ListView.builder(
@@ -44,6 +44,7 @@ class ScheduleScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = carpools[index];
             return CarpoolCard(
+              canDrive: canDrive,
               date: item.date,
               eventName: item.eventName,
               fromLocation: item.fromLocation,
