@@ -1,6 +1,8 @@
 import 'package:car_pooling/controller/inbox_controller.dart';
+import 'package:car_pooling/core/components/contact_card.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/model/chat_model.dart';
+import 'package:car_pooling/model/contact_model.dart';
 import 'package:car_pooling/view/inbox/local%20components/chat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,7 +28,7 @@ class InboxScreen extends StatelessWidget {
           child: TabBarView(
             children: [
               buildTabView(controller.myChatLists),
-              buildTabView(controller.myChatLists),
+              buildTabView2(controller.myContactInvitations),
             ],
           ),
         ),
@@ -46,6 +48,25 @@ class InboxScreen extends StatelessWidget {
               image: item.image,
               lstMsg: item.lastMessage,
               lstMsgTime: item.lastMsgTime,
+            );
+          },
+        );
+  }
+
+  Widget buildTabView2(List<ContactModel> contacts) {
+    return contacts.isEmpty
+        ? Center(child: Text('No chats yet'))
+        : ListView.builder(
+          itemCount: contacts.length,
+          itemBuilder: (context, index) {
+            final item = contacts[index];
+            return ContactCard(
+              fullName: "${item.firstName} ${item.lastName}",
+              image: item.image,
+              addContact: () {},
+              address: item.address,
+              distance: item.distance,
+              isRequest: true,
             );
           },
         );

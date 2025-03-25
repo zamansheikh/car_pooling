@@ -1,7 +1,8 @@
+import 'package:car_pooling/core/components/image_renderer.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/core/wrappers/card_wrapper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatCard extends StatelessWidget {
   const ChatCard({
@@ -18,29 +19,18 @@ class ChatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 4.h),
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(color: Colors.black12, blurRadius: 1, offset: Offset(0, 1)),
-        ],
-      ),
+    return CardWrapper(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Profile Image
           CircleAvatar(
-            // TODO: implement Image
             radius: 25,
             backgroundColor: AppColors.background, // Placeholder color
-            child: Icon(
-              Icons.person,
-              size: 30,
-              color: Colors.black,
-            ), // Placeholder icon since we don't have the actual image
+            child:
+                image == ''
+                    ? Text(fullName[0], style: AppStyle.headerRegular3)
+                    : imageRenderer(url: image, borderRadius: 100, size: 50),
           ),
           SizedBox(width: 12),
           // Text Column

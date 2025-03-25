@@ -14,6 +14,7 @@ import 'package:car_pooling/view/create_carpool/create_carpool_screen3.dart';
 import 'package:car_pooling/view/create_carpool/create_carpool_screen4.dart';
 import 'package:car_pooling/view/find_families/find_family_screen.dart';
 import 'package:car_pooling/view/inbox/inbox_screen.dart';
+import 'package:car_pooling/view/inbox/messages_screen.dart';
 import 'package:car_pooling/view/schedule/schedule_screen.dart';
 import 'package:get/get.dart';
 
@@ -36,6 +37,7 @@ class AppRoutes {
 
   // =================>>>>>>>>>>>>> Inbox <<<<<<<<<<<<<===============
   static String inbox = "/inbox";
+  static String messages = "/messages";
 
   // =================>>>>>>>>>>>>> Create carpool <<<<<<<<<<<<<===============
   static String createCarpool1 = "/craete_carpool_1";
@@ -62,6 +64,7 @@ class AppRoutes {
 
     // =================>>>>>>>>>>>>> Inbox <<<<<<<<<<<<<===============
     GetPage(name: inbox, page: () => InboxScreen()),
+    GetPage(name: messages, page: () => MessagesScreen()),
 
     // =================>>>>>>>>>>>>> Create carpool <<<<<<<<<<<<<===============
     GetPage(name: createCarpool1, page: () => CreateCarpoolScreen1()),

@@ -27,7 +27,6 @@ class FindFamilyScreen extends StatelessWidget {
             SizedBox(height: 12.h),
             Obx(() {
               return Column(
-                spacing: 12.h,
                 children:
                     controller.myContacts.map((el) {
                       return ContactCard(

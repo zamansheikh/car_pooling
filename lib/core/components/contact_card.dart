@@ -1,4 +1,8 @@
 import 'package:car_pooling/core/components/custom_button.dart';
+import 'package:car_pooling/core/components/image_renderer.dart';
+import 'package:car_pooling/core/constant/app_colors.dart';
+import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/core/wrappers/card_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,29 +14,18 @@ class ContactCard extends StatelessWidget {
     required this.image,
     required this.distance,
     required this.addContact,
+    this.isRequest = false,
   });
   final String fullName;
   final String address;
   final String image;
   final String distance;
   final VoidCallback addContact;
+  final bool isRequest;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 350, // Adjust width to match the design
-      padding: EdgeInsets.all(16), // Padding inside the card
-      decoration: BoxDecoration(
-        color: Color(0xFFF5F5F5), // Light beige/cream background
-        borderRadius: BorderRadius.circular(12), // Rounded corners
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 2,
-            offset: Offset(0, 1), // Slight shadow for elevation
-          ),
-        ],
-      ),
+    return CardWrapper(
       child: Column(
         mainAxisSize: MainAxisSize.min, // Fit content
         children: [
@@ -40,8 +33,18 @@ class ContactCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Profile Picture
-              // TODO: Implement image url function
-              CircleAvatar(radius: 32.r),
+              CircleAvatar(
+                radius: 32,
+                backgroundColor: AppColors.background, // Placeholder color
+                child:
+                    image == ''
+                        ? Text(fullName[0], style: AppStyle.headerRegular3)
+                        : imageRenderer(
+                          url: image,
+                          borderRadius: 100,
+                          size: 64,
+                        ),
+              ),
               SizedBox(width: 12), // Space between image and text
               Expanded(
                 child: Column(
@@ -101,7 +104,32 @@ class ContactCard extends StatelessWidget {
           ),
           SizedBox(height: 16), // Space between text and button
           // Add Contact Button
-          CustomButton(buttonTitle: "Add Contact", onTap: addContact),
+          if (!isRequest)
+            CustomButton(buttonTitle: "Add Contact", onTap: addContact),
+          if (isRequest)
+            Row(
+              spacing: 12.w,
+              children: [
+                Flexible(
+                  child: CustomButton(
+                    buttonTitle: "delete",
+                    isFilled: false,
+                    isRed: true,
+                    onTap: () {
+                      // Todo: implement delete request
+                    },
+                  ),
+                ),
+                Flexible(
+                  child: CustomButton(
+                    buttonTitle: "Confirm",
+                    onTap: () {
+                      // todo: implement todo confirm request
+                    },
+                  ),
+                ),
+              ],
+            ),
         ],
       ),
     );

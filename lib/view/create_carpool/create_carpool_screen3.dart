@@ -3,6 +3,7 @@ import 'package:car_pooling/core/components/custom_alert_dialog.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
+import 'package:car_pooling/core/components/image_renderer.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_icons.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
@@ -48,16 +49,22 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                                     spacing: 12.w,
                                     children: [
                                       CircleAvatar(
-                                        radius: 28,
-                                        backgroundColor: AppColors.background,
+                                        radius: 28.r,
+                                        backgroundColor:
+                                            AppColors
+                                                .background, // Placeholder color
                                         child:
-                                            el.image == "Unknown"
+                                            el.image == ''
                                                 ? Text(
                                                   "${el.firstName[0]}${el.lastName[0]}",
-                                                  style: AppStyle.largeMedium,
+                                                  style:
+                                                      AppStyle.headerRegular3,
                                                 )
-                                                : Container(),
-                                        // TODO: Implement network image
+                                                : imageRenderer(
+                                                  url: el.image,
+                                                  borderRadius: 100,
+                                                  size: 56,
+                                                ),
                                       ),
                                       Column(
                                         crossAxisAlignment:

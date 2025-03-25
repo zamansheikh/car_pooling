@@ -7,7 +7,7 @@ class ContactModel {
   final String distance;
 
   ContactModel({
-    this.image = 'Unknown',
+    this.image = '',
     this.firstName = 'Unknown',
     this.lastName = 'Unknown',
     this.cellNumber = 'Unknown',

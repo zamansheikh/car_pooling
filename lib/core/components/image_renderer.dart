@@ -9,7 +9,7 @@ Widget imageRenderer({url, size = 112, width, borderRadius}) {
     ),
     child: Image.network(
       (url == null || url == "")
-          ? "https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg"
+          ? "https://w0.peakpx.com/wallpaper/961/507/HD-wallpaper-sung-jin-woo-solo-leveling-thumbnail.jpg"
           : imageUrl(
             url,
           ), // Assuming imageUrl() just returns the URL string; adjust if it does more

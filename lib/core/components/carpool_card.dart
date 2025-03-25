@@ -1,5 +1,7 @@
+import 'package:car_pooling/core/components/image_renderer.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/core/wrappers/card_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
@@ -23,34 +25,18 @@ class CarpoolCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 6.h),
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 1,
-            offset: Offset(0, 2),
-            color: const Color.fromARGB(41, 0, 0, 0),
-          ),
-        ],
-      ),
-
+    return CardWrapper(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Profile Image
           CircleAvatar(
-            // TODO: Implement image
             radius: 32,
-            backgroundColor: Colors.brown[300], // Placeholder color
-            child: Icon(
-              Icons.person,
-              size: 40,
-              color: Colors.white,
-            ), // Placeholder icon since we don't have the actual image
+            backgroundColor: AppColors.background, // Placeholder color
+            child:
+                image == ''
+                    ? Text(eventName[0], style: AppStyle.headerRegular3)
+                    : imageRenderer(url: image, borderRadius: 100, size: 64),
           ),
           SizedBox(width: 16),
           // Text and Icons Column

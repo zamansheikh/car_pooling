@@ -3,7 +3,7 @@ class ChildModel {
     this.childFistName = 'Unknown',
     this.childLastName = 'Unknown',
     this.childSchoolName = 'Unknown',
-    this.childPhoto = 'Unknown',
+    this.childPhoto = '',
     this.fullName = 'Unknown',
     this.isSelected = false,
   });

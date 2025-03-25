@@ -10,7 +10,7 @@ class CarpoolModel {
 
   CarpoolModel({
     this.eventName = 'Unnamed Event',
-    this.image = 'default_image.png',
+    this.image = '',
     this.fromLocation = 'Unknown Location',
     this.toLocation = 'Unknown Destination',
     String? date,
