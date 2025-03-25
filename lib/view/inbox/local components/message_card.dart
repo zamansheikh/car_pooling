@@ -1,3 +1,6 @@
+import 'package:car_pooling/core/components/image_renderer.dart';
+import 'package:car_pooling/core/constant/app_colors.dart';
+import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 
 class ChatMessage extends StatelessWidget {
@@ -5,6 +8,8 @@ class ChatMessage extends StatelessWidget {
   final String message;
   final String time;
   final bool showCheckmark;
+  final String name;
+  final String image;
 
   const ChatMessage({
     super.key,
@@ -12,6 +17,8 @@ class ChatMessage extends StatelessWidget {
     required this.message,
     required this.time,
     this.showCheckmark = false,
+    required this.name,
+    required this.image,
   });
 
   @override
@@ -24,13 +31,13 @@ class ChatMessage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (isIncoming) ...[
-            Text(
-              'GF',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
+            CircleAvatar(
+              radius: 15,
+              backgroundColor: AppColors.background, // Placeholder color
+              child:
+                  image == ''
+                      ? Text(name[0], style: AppStyle.largeMedium)
+                      : imageRenderer(url: image, borderRadius: 100, size: 30),
             ),
             SizedBox(width: 8),
           ],
@@ -44,15 +51,12 @@ class ChatMessage extends StatelessWidget {
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
-                  color: isIncoming ? Colors.grey[200] : Colors.blue,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   message,
-                  style: TextStyle(
-                    color: isIncoming ? Colors.black87 : Colors.white,
-                    fontSize: 14,
-                  ),
+                  style: TextStyle(color: Colors.black87, fontSize: 14),
                 ),
               ),
               SizedBox(height: 4),

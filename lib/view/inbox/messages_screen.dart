@@ -1,4 +1,7 @@
 import 'package:car_pooling/controller/inbox_controller.dart';
+import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/constant/app_colors.dart';
+import 'package:car_pooling/view/inbox/local%20components/message_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +13,8 @@ class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Chat')),
+      backgroundColor: AppColors.background,
+      appBar: customAppBar1("Chat"),
       body: Column(
         children: [
           // Chat Messages
@@ -22,10 +26,12 @@ class MessagesScreen extends StatelessWidget {
                     controller.messages.length + 1, // +1 for the date header
                 itemBuilder: (context, index) {
                   if (index == 0) {
+                    final messageIndex = index;
+                    final message = controller.messages[messageIndex];
                     // Date Header
                     return Center(
                       child: Text(
-                        '08 Dec 2023',
+                        message.time,
                         style: TextStyle(fontSize: 12, color: Colors.black54),
                       ),
                     );
@@ -38,6 +44,8 @@ class MessagesScreen extends StatelessWidget {
                       controller.removeMessage(messageIndex);
                     },
                     child: ChatMessage(
+                      image: message.image,
+                      name: message.senderName,
                       isIncoming: message.isIncoming,
                       message: message.message,
                       time: message.time,
