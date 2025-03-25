@@ -1,3 +1,4 @@
+import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
 import 'package:car_pooling/model/role_model.dart';
@@ -46,6 +47,13 @@ class CarpoolingController extends GetxController {
     "Every week",
     "Custom",
   ];
+
+  Future previewAndInvites(formKey) async {
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
+    Get.toNamed(AppRoutes.createCarpool3);
+  }
 
   void clearController() {
     eventNameController.clear();
