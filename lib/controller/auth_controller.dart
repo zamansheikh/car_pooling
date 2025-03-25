@@ -50,6 +50,7 @@ class AuthController extends GetxController {
 
     showCustomSnackBar("User Signed in successfully", isError: false);
     clearControllers();
+    Get.toNamed(AppRoutes.homeSCreen);
   }
 
   Future userSignUp(formKey) async {

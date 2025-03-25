@@ -6,6 +6,7 @@ import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_icons.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/core/wrappers/option_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -131,7 +132,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                       buildDetails(
                         key: "On",
                         value:
-                            "${controller.returnDateController.text} at ${controller.timePicker.value.hour}:${controller.timePicker.value.minute} ${controller.timePicker.value.period == DayPeriod.pm ? "PM" : "AM"}",
+                            "${controller.returnDateController.text} at ${controller.timePicker.value.hour % 12}:${controller.timePicker.value.minute} ${controller.timePicker.value.period == DayPeriod.pm ? "PM" : "AM"}",
                       ),
                     ],
                   ),
@@ -159,6 +160,9 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                       buttonText: "Back To Home",
                       content: "Invitation is Successfull",
                       title: "Invita",
+                      route: () {
+                        Get.toNamed(AppRoutes.homeSCreen);
+                      },
                       // TODO: Implement Home route and connect with home route
                     );
                   },

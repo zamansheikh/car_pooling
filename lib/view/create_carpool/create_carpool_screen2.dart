@@ -14,6 +14,7 @@ import 'package:get/get.dart';
 class CreateCarpoolScreen2 extends StatelessWidget {
   CreateCarpoolScreen2({super.key});
   final CarpoolingController controller = Get.find<CarpoolingController>();
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -168,12 +169,14 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                    child: CustomTimeInput(
-                      time: controller.timePicker.value,
-                      onChange: (p0) {
-                        controller.timePicker.value = p0;
-                      },
-                    ),
+                    child: Obx(() {
+                      return CustomTimeInput(
+                        time: controller.timePicker.value,
+                        onChange: (p0) {
+                          controller.timePicker.value = p0;
+                        },
+                      );
+                    }),
                   ),
                 ],
               ),

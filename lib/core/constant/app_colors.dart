@@ -12,7 +12,7 @@ class AppColors {
 
   static Color danger = Color(0xFFF53838);
 
-  static Color dark = Color(0xFFF53838);
+  static Color dark = Color(0xFF0C0C0C);
 
   static Color gray = Color(0xFF707070);
   static Color darkGray = Color(0xFF757575);

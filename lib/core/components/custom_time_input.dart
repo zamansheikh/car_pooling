@@ -37,7 +37,10 @@ class CustomTimeInput extends StatelessWidget {
           border: Border.all(color: AppColors.lightGray),
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Text("Enter your time", style: AppStyle.baseRegular),
+        child: Text(
+          "${time.hour % 12}:${time.minute} ${time.period == DayPeriod.am ? "AM" : "PM"}",
+          style: AppStyle.baseRegular,
+        ),
       ),
     );
   }
