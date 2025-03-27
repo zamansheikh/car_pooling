@@ -1,6 +1,7 @@
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/utils/regex_validators.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -16,6 +17,8 @@ class CustomInputField extends StatelessWidget {
     this.maxLines = 1,
     this.hintText,
     this.background,
+    this.isNumber = false,
+    this.onChanged,
   });
 
   final String? title;
@@ -26,6 +29,8 @@ class CustomInputField extends StatelessWidget {
   final int maxLines;
   final TextEditingController controller;
   final Color? background;
+  final bool isNumber;
+  final Function(String)? onChanged;
 
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
@@ -60,6 +65,12 @@ class CustomInputField extends StatelessWidget {
                 if (prefixIcon != null) SizedBox(width: 12.w),
                 Flexible(
                   child: TextFormField(
+                    onChanged: onChanged,
+                    keyboardType: isNumber ? TextInputType.number : null,
+                    inputFormatters:
+                        isNumber
+                            ? [FilteringTextInputFormatter.digitsOnly]
+                            : null,
                     controller: controller,
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(

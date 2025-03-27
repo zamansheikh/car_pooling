@@ -22,6 +22,9 @@ import 'package:car_pooling/view/menu/my_children_screen.dart';
 import 'package:car_pooling/view/menu/my_contact_list_screen.dart';
 import 'package:car_pooling/view/menu/my_information_screen.dart';
 import 'package:car_pooling/view/menu/my_porfile_screen.dart';
+import 'package:car_pooling/view/menu/package_screen.dart';
+import 'package:car_pooling/view/menu/payment_screen.dart';
+import 'package:car_pooling/view/menu/privacy_policy_screen.dart';
 import 'package:car_pooling/view/schedule/schedule_screen.dart';
 import 'package:get/get.dart';
 
@@ -34,6 +37,7 @@ class AppRoutes {
   static String addChild = "/add_a_child";
   static String welcomeScreen = "/welcome_screen";
   static String welcomeScreen2 = "/welcome_screen_2";
+  static String privacyPolicy = "/privacy_policy";
 
   static String homeSCreen = '/home_screen';
   // =================>>>>>>>>>>>>> Find Families <<<<<<<<<<<<<===============
@@ -60,6 +64,8 @@ class AppRoutes {
   static String editChild = "/edit_child";
   static String myContactList = "/my_contact_list";
   static String accountSetting = "/account_setting";
+  static String packages = "/package_screen";
+  static String payment = "/payment_screen";
 
   static List<GetPage> pages = [
     // =================>>>>>>>>>>>>> Auth Feature <<<<<<<<<<<<<===============
@@ -96,5 +102,8 @@ class AppRoutes {
     GetPage(name: editChild, page: () => EditChildScreen()),
     GetPage(name: myContactList, page: () => MyContactListScreen()),
     GetPage(name: accountSetting, page: () => AccountSettingScreen()),
+    GetPage(name: packages, page: () => PackageScreen()),
+    GetPage(name: payment, page: () => PaymentScreen()),
+    GetPage(name: privacyPolicy, page: () => PrivacyPolicyScreen()),
   ];
 }

@@ -15,6 +15,7 @@ class CustomDateInput extends StatefulWidget {
     this.iconStart = false,
     this.isLargeIcon = false,
     this.isEnabled = true,
+    this.onChanged,
   });
 
   final TextEditingController dateController;
@@ -24,6 +25,7 @@ class CustomDateInput extends StatefulWidget {
   final bool iconStart;
   final bool isLargeIcon;
   final bool isEnabled;
+  final Function(String)? onChanged;
 
   @override
   State<CustomDateInput> createState() => _CustomDateInputState();
@@ -47,7 +49,7 @@ class _CustomDateInputState extends State<CustomDateInput> {
           ),
         if (widget.title.isNotEmpty) SizedBox(height: 8),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 4.h),
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.lightGray),
             borderRadius: BorderRadius.circular(12),
@@ -64,6 +66,7 @@ class _CustomDateInputState extends State<CustomDateInput> {
               Flexible(
                 // Text Field
                 child: TextFormField(
+                  onChanged: widget.onChanged,
                   enabled: widget.isEnabled,
                   controller: widget.dateController,
                   readOnly: true,
@@ -82,7 +85,7 @@ class _CustomDateInputState extends State<CustomDateInput> {
                       setState(() {
                         _selectedDate = picked;
                         widget.dateController.text = DateFormat(
-                          'MMMM d, yyyy',
+                          'MM/d',
                         ).format(picked);
                       });
                     }

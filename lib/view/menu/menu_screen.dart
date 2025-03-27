@@ -51,7 +51,7 @@ class MenuScreen extends StatelessWidget {
             icon: Icons.credit_card,
             showChevron: true,
             onPress: () {
-              print('Payment pressed');
+              Get.toNamed(AppRoutes.payment);
             },
           ),
           MenuOption(

@@ -4,7 +4,6 @@ import 'package:car_pooling/model/carpool_model.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -18,6 +17,12 @@ class MenuProfileController extends GetxController {
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController schoolNameController = TextEditingController();
 
+  final TextEditingController cardNumberController = TextEditingController();
+  final TextEditingController expiryDateController = TextEditingController();
+  final TextEditingController cardHolderNameController =
+      TextEditingController();
+  final TextEditingController ccvCodeController = TextEditingController();
+
   // Observable variables
   RxList<CarpoolModel> myCarPoolHistory = <CarpoolModel>[].obs;
   RxList<ChildModel> myChildrenList = <ChildModel>[].obs;
@@ -26,6 +31,8 @@ class MenuProfileController extends GetxController {
   RxBool homeAddressVisible = false.obs;
 
   // Account Setting variables
+  RxBool isLimitedAccess = true.obs;
+  RxString isYearly = "Yearly".obs;
   // Notification of Changes
   RxBool carpoolChanges = false.obs;
   RxBool familyChanges = false.obs;
@@ -50,6 +57,12 @@ class MenuProfileController extends GetxController {
   // Preferences
   RxBool emailNotifications = false.obs;
   RxBool pushNotifications = false.obs;
+
+  // variables to render on credit card
+  RxString cardNumber = ''.obs;
+  RxString expiryDate = ''.obs;
+  RxString cardHolderName = ''.obs;
+  RxString cvvCode = ''.obs;
 
   Future pickImage() async {
     final ImagePicker picker = ImagePicker();
