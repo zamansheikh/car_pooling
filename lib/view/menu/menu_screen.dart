@@ -1,6 +1,8 @@
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/view/menu/local_compoent/menu_option.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -19,7 +21,7 @@ class MenuScreen extends StatelessWidget {
               icon: Icons.directions_car,
               showChevron: true,
               onPress: () {
-                print('My Carpools pressed');
+                Get.toNamed(AppRoutes.myCarpools);
               },
             ),
             MenuOption(
