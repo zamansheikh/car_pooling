@@ -1,6 +1,7 @@
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
@@ -46,7 +47,7 @@ class _CustomDateInputState extends State<CustomDateInput> {
           ),
         if (widget.title.isNotEmpty) SizedBox(height: 8),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.lightGray),
             borderRadius: BorderRadius.circular(12),

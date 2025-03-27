@@ -16,6 +16,9 @@ import 'package:car_pooling/view/find_families/find_family_screen.dart';
 import 'package:car_pooling/view/inbox/inbox_screen.dart';
 import 'package:car_pooling/view/inbox/messages_screen.dart';
 import 'package:car_pooling/view/menu/my_carpools_screen.dart';
+import 'package:car_pooling/view/menu/my_children_screen.dart';
+import 'package:car_pooling/view/menu/my_information_screen.dart';
+import 'package:car_pooling/view/menu/my_porfile_screen.dart';
 import 'package:car_pooling/view/schedule/schedule_screen.dart';
 import 'package:get/get.dart';
 
@@ -49,6 +52,8 @@ class AppRoutes {
   // =================>>>>>>>>>>>>> Menu <<<<<<<<<<<<<===============
   static String myCarpools = "/my_car_pools";
   static String myProfiles = "/my_profile";
+  static String myInformation = "/my_information";
+  static String myChildren = "/my_children";
 
   static List<GetPage> pages = [
     // =================>>>>>>>>>>>>> Auth Feature <<<<<<<<<<<<<===============
@@ -78,5 +83,8 @@ class AppRoutes {
     GetPage(name: createCarpool4, page: () => CreateCarpoolScreen4()),
     // =================>>>>>>>>>>>>> Menu <<<<<<<<<<<<<===============
     GetPage(name: myCarpools, page: () => MyCarpoolsScreen()),
+    GetPage(name: myProfiles, page: () => MyPorfileScreen()),
+    GetPage(name: myInformation, page: () => MyInformationScreen()),
+    GetPage(name: myChildren, page: () => MyChildrenScreen()),
   ];
 }
