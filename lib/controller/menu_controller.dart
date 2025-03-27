@@ -1,8 +1,20 @@
+import 'dart:io';
+
 import 'package:car_pooling/model/carpool_model.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class MenuProfileController extends GetxController {
   RxList<CarpoolModel> myCarPoolHistory = <CarpoolModel>[].obs;
+  Rx<File?> profileImage = Rx<File?>(null);
+
+  Future pickImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      profileImage.value = File(image.path);
+    }
+  }
 
   @override
   void onInit() {

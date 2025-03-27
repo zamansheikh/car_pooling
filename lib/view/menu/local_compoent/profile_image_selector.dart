@@ -1,16 +1,25 @@
+import 'dart:io';
+
 import 'package:car_pooling/core/components/image_renderer.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileImageSelector extends StatelessWidget {
+  // Custom profile image selector
+  // just pass in the prop and create image obs variable and pass it to the image property
+  // and create an image selector function to pick the image
   const ProfileImageSelector({
     super.key,
     required this.radius,
     required this.onImageSelect,
+    this.image,
+    required this.myImageLink,
   });
   final double radius;
   final VoidCallback onImageSelect;
+  final File? image;
+  final String myImageLink;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +27,28 @@ class ProfileImageSelector extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: radius.r,
-          child: imageRenderer(
-            url: "",
-            size: (radius * 2).h,
-            borderRadius: 100,
-          ),
+          child:
+              image == null
+                  ? imageRenderer(
+                    url: "",
+                    size: (radius * 2).h,
+                    borderRadius: 100,
+                  )
+                  : ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.file(
+                      image!,
+                      height: (radius * 2).h,
+                      width: (radius * 2).w,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
         ),
         Positioned(
           right: 5.w,
           bottom: 5.h,
           child: InkWell(
-            onTap: () {},
+            onTap: onImageSelect,
             child: Container(
               padding: EdgeInsets.all(5.r),
               decoration: BoxDecoration(
