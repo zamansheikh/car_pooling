@@ -58,9 +58,7 @@ class MenuScreen extends StatelessWidget {
             title: 'Support',
             icon: Icons.support_agent,
             showChevron: true,
-            onPress: () {
-              print('Support pressed');
-            },
+            onPress: () {},
           ),
           MenuOption(
             title: 'Privacy Policy',
@@ -93,9 +91,7 @@ class MenuScreen extends StatelessWidget {
             title: 'Share HadiKid with Friends',
             icon: Icons.share,
             showChevron: true,
-            onPress: () {
-              print('Share HadiKid with Friends pressed');
-            },
+            onPress: () {},
           ),
           MenuOption(
             title: 'Logout',
