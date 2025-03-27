@@ -43,7 +43,7 @@ class MenuScreen extends StatelessWidget {
             icon: Icons.settings,
             showChevron: true,
             onPress: () {
-              print('Account Setting pressed');
+              Get.toNamed(AppRoutes.accountSetting);
             },
           ),
           MenuOption(

@@ -1,10 +1,14 @@
+import 'package:car_pooling/core/components/custom_alert_dialog.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/image_renderer.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
+import 'package:car_pooling/core/constant/app_icons.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/wrappers/card_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ContactCard extends StatelessWidget {
   const ContactCard({
@@ -14,6 +18,7 @@ class ContactCard extends StatelessWidget {
     required this.image,
     required this.distance,
     this.hasDelete = false,
+    this.hasAddContact = false,
     this.isRequest = false,
   });
   final String fullName;
@@ -21,6 +26,7 @@ class ContactCard extends StatelessWidget {
   final String image;
   final String distance;
   final bool hasDelete;
+  final bool hasAddContact;
   final bool isRequest;
 
   @override
@@ -75,26 +81,62 @@ class ContactCard extends StatelessWidget {
                     SizedBox(height: 4), // Space between name and address
                     // Address with location pin
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 2.h),
-                          child: Icon(
-                            Icons.location_on,
-                            size: 16,
-                            color: Colors.grey[600],
+                        Flexible(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 2.h),
+                                child: Icon(
+                                  Icons.location_on,
+                                  size: 16,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                              SizedBox(width: 4),
+                              Expanded(
+                                child: Text(
+                                  address,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey[600],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        SizedBox(width: 4),
-                        Expanded(
-                          child: Text(
-                            address,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[600],
+                        if (hasDelete)
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return customAlertDialog(
+                                    title: "Delete Contact",
+                                    content:
+                                        "Are you sure you want to delete this contact?",
+                                    asset: AppIcons.deleteIcon,
+                                    buttonText: "Delete",
+                                    isConfirm: true,
+                                    route: () {
+                                      Get.back();
+                                    },
+                                  );
+                                },
+                              );
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: AppColors.primaryLight,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: SvgPicture.asset(AppIcons.deleteIcon),
                             ),
                           ),
-                        ),
                       ],
                     ),
                   ],
@@ -104,7 +146,7 @@ class ContactCard extends StatelessWidget {
           ),
           SizedBox(height: 16), // Space between text and button
           // Add Contact Button
-          if (!isRequest)
+          if (!isRequest && hasAddContact)
             CustomButton(buttonTitle: "Add Contact", onTap: () {}),
           if (isRequest)
             Row(

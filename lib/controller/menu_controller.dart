@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:car_pooling/model/carpool_model.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -24,12 +25,56 @@ class MenuProfileController extends GetxController {
   Rx<File?> profileImage = Rx<File?>(null);
   RxBool homeAddressVisible = false.obs;
 
+  // Account Setting variables
+  // Notification of Changes
+  RxBool carpoolChanges = false.obs;
+  RxBool familyChanges = false.obs;
+  RxBool drivingChanges = false.obs;
+
+  // Driving Reminders
+  RxBool driving10Min = false.obs;
+  RxBool driving1Hour = true.obs;
+  RxBool driving24Hours = false.obs;
+
+  // Participation Reminders
+  RxBool participation10Min = false.obs;
+  RxBool participation1Hour = false.obs;
+  RxBool participation24Hours = true.obs;
+
+  // Carpool Notes Notifications
+  RxBool notifyNewMessages = false.obs;
+
+  // Live Tracking
+  RxBool childPickupDropoff = false.obs;
+
+  // Preferences
+  RxBool emailNotifications = false.obs;
+  RxBool pushNotifications = false.obs;
+
   Future pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       profileImage.value = File(image.path);
     }
+  }
+
+  Future deleteContact() async {
+    // Delete contact logic
+    Get.defaultDialog(
+      title: "Delete Contact",
+      middleText: "Are you sure you want to delete this contact?",
+      textCancel: "Cancel",
+      textConfirm: "Delete",
+      confirmTextColor: Colors.white,
+      onConfirm: () {
+        // Perform delete action here
+        Get.back(); // Close the dialog
+      },
+      onCancel: () {
+        Get.back(); // Close the dialog
+      },
+    );
   }
 
   @override
