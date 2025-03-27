@@ -1,12 +1,23 @@
 import 'dart:io';
 
 import 'package:car_pooling/model/carpool_model.dart';
+import 'package:car_pooling/model/child_model.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MenuProfileController extends GetxController {
+  // Normal Variables
+
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+
+  // Observable variables
   RxList<CarpoolModel> myCarPoolHistory = <CarpoolModel>[].obs;
+  RxList<ChildModel> myChildrenList = <ChildModel>[].obs;
   Rx<File?> profileImage = Rx<File?>(null);
+  RxBool homeAddressVisible = false.obs;
 
   Future pickImage() async {
     final ImagePicker picker = ImagePicker();
@@ -21,6 +32,7 @@ class MenuProfileController extends GetxController {
     super.onInit();
     // Initialize your data or perform any setup here
     fetchCarPoolHistory();
+    fetchMyChildrenData();
   }
 
   void fetchCarPoolHistory() {
@@ -99,5 +111,38 @@ class MenuProfileController extends GetxController {
       ),
     ]);
     myCarPoolHistory.refresh();
+  }
+
+  void fetchMyChildrenData() {
+    // Dummy data list
+    final List<ChildModel> dummyChildren = [
+      ChildModel(
+        childFistName: 'Emma',
+        childLastName: 'Smith',
+        fullName: 'Emma Smith',
+        childSchoolName: 'Sunny Hill Elementary',
+        childPhoto: 'emma_photo.jpg',
+        isSelected: false,
+      ),
+      ChildModel(
+        childFistName: 'Liam',
+        childLastName: 'Johnson',
+        fullName: 'Liam Johnson',
+        childSchoolName: 'Maple Grove School',
+        childPhoto: 'liam_photo.jpg',
+        isSelected: false,
+      ),
+      ChildModel(
+        childFistName: 'Olivia',
+        childLastName: 'Brown',
+        fullName: 'Olivia Brown',
+        childSchoolName: 'Oakwood Academy',
+        childPhoto: 'olivia_photo.jpg',
+        isSelected: false,
+      ),
+    ];
+
+    // Add all dummy data to the observable list
+    myChildrenList.addAll(dummyChildren);
   }
 }

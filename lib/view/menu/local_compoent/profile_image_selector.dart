@@ -45,8 +45,10 @@ class ProfileImageSelector extends StatelessWidget {
                   ),
         ),
         Positioned(
-          right: 5.w,
-          bottom: 5.h,
+          // Division is used to change the position cordinate and the size
+          // as the radius changes
+          right: (radius / 14).w,
+          bottom: (radius / 14).h,
           child: InkWell(
             onTap: onImageSelect,
             child: Container(
@@ -55,7 +57,11 @@ class ProfileImageSelector extends StatelessWidget {
                 color: AppColors.primary,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.edit, color: Colors.white, size: 22.sp),
+              child: Icon(
+                Icons.edit,
+                color: Colors.white,
+                size: (radius / 3).sp,
+              ),
             ),
           ),
         ),
