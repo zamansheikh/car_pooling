@@ -11,9 +11,13 @@ AppBar customAppBar1(
   title, {
   hasBack = true,
   hasTabBar = false,
+  hasShadow = false,
   List<Widget>? tabs,
 }) {
   return AppBar(
+    backgroundColor: AppColors.white,
+    elevation: hasShadow ? 3.0 : 0,
+    shadowColor: hasShadow ? Colors.black.withOpacity(0.7) : null,
     leading:
         hasBack
             ? GestureDetector(
@@ -37,5 +41,3 @@ AppBar customAppBar1(
             : null,
   );
 }
-
-
