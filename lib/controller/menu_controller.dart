@@ -24,6 +24,8 @@ class MenuProfileController extends GetxController {
   final TextEditingController ccvCodeController = TextEditingController();
 
   // Observable variables
+  RxString selectedLanguage = 'Türkçe'.obs;
+
   RxList<CarpoolModel> myCarPoolHistory = <CarpoolModel>[].obs;
   RxList<ChildModel> myChildrenList = <ChildModel>[].obs;
   RxList<ContactModel> myContactList = <ContactModel>[].obs;

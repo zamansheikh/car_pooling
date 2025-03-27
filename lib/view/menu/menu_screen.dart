@@ -102,7 +102,14 @@ class MenuScreen extends StatelessWidget {
             icon: Icons.logout,
             showChevron: true,
             onPress: () {
-              print('Logout pressed');
+              showModal(
+                title: "Logout",
+                subtitle: "Are you sure you want to logout?",
+                buttonText: "Logout",
+                buttonAction: () {
+                  Get.offAllNamed(AppRoutes.signIn);
+                },
+              );
             },
           ),
           MenuOption(
@@ -111,11 +118,95 @@ class MenuScreen extends StatelessWidget {
             textColor: Colors.red,
             iconColor: Colors.red,
             onPress: () {
-              print('Delete My Account pressed');
+              showModal(
+                title: "Delete Account",
+                subtitle: "Are you sure you want to delete your account?",
+                buttonText: "Delete",
+                buttonAction: () {
+                  Get.offAllNamed(AppRoutes.signIn);
+                },
+              );
             },
           ),
         ],
       ),
+    );
+  }
+
+  showModal({title, subtitle, buttonText, buttonAction}) {
+    showModalBottomSheet(
+      context: Get.context!,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize:
+                MainAxisSize.min, // Modal takes only the space it needs
+            children: [
+              // Logout Title
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                ),
+              ),
+              SizedBox(height: 16),
+              // Confirmation Message
+              Text(subtitle, style: TextStyle(fontSize: 16)),
+              SizedBox(height: 24),
+              // Buttons Row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // Cancel Button
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () {
+                        Navigator.pop(context); // Close the modal
+                      },
+                      style: OutlinedButton.styleFrom(
+                        side: BorderSide(color: Colors.grey),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 16),
+                  // YES, LOGOUT Button
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: buttonAction,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.teal, // Match the button color
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      child: Text(
+                        buttonText,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16),
+            ],
+          ),
+        );
+      },
     );
   }
 }
