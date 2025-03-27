@@ -67,7 +67,7 @@ class MenuScreen extends StatelessWidget {
             icon: Icons.privacy_tip,
             showChevron: true,
             onPress: () {
-              print('Privacy Policy pressed');
+              Get.toNamed(AppRoutes.privacyPolicy);
             },
           ),
           MenuOption(
@@ -75,7 +75,7 @@ class MenuScreen extends StatelessWidget {
             icon: Icons.description,
             showChevron: true,
             onPress: () {
-              print('Terms & Conditions pressed');
+              Get.toNamed(AppRoutes.termsCondition);
             },
           ),
           MenuOption(
@@ -86,7 +86,7 @@ class MenuScreen extends StatelessWidget {
               style: TextStyle(fontSize: 14, color: Colors.black54),
             ),
             onPress: () {
-              print('Language pressed');
+              Get.toNamed(AppRoutes.language);
             },
           ),
           MenuOption(

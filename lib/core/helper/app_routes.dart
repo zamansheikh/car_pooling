@@ -17,6 +17,7 @@ import 'package:car_pooling/view/inbox/inbox_screen.dart';
 import 'package:car_pooling/view/inbox/messages_screen.dart';
 import 'package:car_pooling/view/menu/account_setting_screen.dart';
 import 'package:car_pooling/view/menu/edit_child_screen.dart';
+import 'package:car_pooling/view/menu/languge_screen.dart';
 import 'package:car_pooling/view/menu/my_carpools_screen.dart';
 import 'package:car_pooling/view/menu/my_children_screen.dart';
 import 'package:car_pooling/view/menu/my_contact_list_screen.dart';
@@ -25,6 +26,7 @@ import 'package:car_pooling/view/menu/my_porfile_screen.dart';
 import 'package:car_pooling/view/menu/package_screen.dart';
 import 'package:car_pooling/view/menu/payment_screen.dart';
 import 'package:car_pooling/view/menu/privacy_policy_screen.dart';
+import 'package:car_pooling/view/menu/terms_condition.dart';
 import 'package:car_pooling/view/schedule/schedule_screen.dart';
 import 'package:get/get.dart';
 
@@ -37,7 +39,6 @@ class AppRoutes {
   static String addChild = "/add_a_child";
   static String welcomeScreen = "/welcome_screen";
   static String welcomeScreen2 = "/welcome_screen_2";
-  static String privacyPolicy = "/privacy_policy";
 
   static String homeSCreen = '/home_screen';
   // =================>>>>>>>>>>>>> Find Families <<<<<<<<<<<<<===============
@@ -66,6 +67,9 @@ class AppRoutes {
   static String accountSetting = "/account_setting";
   static String packages = "/package_screen";
   static String payment = "/payment_screen";
+  static String privacyPolicy = "/privacy_policy";
+  static String termsCondition = "/terms_condition";
+  static String language = "/language";
 
   static List<GetPage> pages = [
     // =================>>>>>>>>>>>>> Auth Feature <<<<<<<<<<<<<===============
@@ -105,5 +109,7 @@ class AppRoutes {
     GetPage(name: packages, page: () => PackageScreen()),
     GetPage(name: payment, page: () => PaymentScreen()),
     GetPage(name: privacyPolicy, page: () => PrivacyPolicyScreen()),
+    GetPage(name: termsCondition, page: () => TermsConditionScreem()),
+    GetPage(name: language, page: () => LangugeScreen()),
   ];
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TermsConditionScreem extends StatelessWidget {
-  const TermsConditionScreem({super.key});
+class LangugeScreen extends StatelessWidget {
+  const LangugeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
