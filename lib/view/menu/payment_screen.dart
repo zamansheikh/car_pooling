@@ -38,7 +38,6 @@ class PaymentScreen extends StatelessWidget {
                     false, // Set to false to show the front view (default)
                 onCreditCardWidgetChange: (CreditCardBrand brand) {
                   // Callback to handle card brand changes (e.g., Visa, Mastercard)
-                  print("Card brand changed to: ${brand.brandName}");
                 },
               );
             }),
