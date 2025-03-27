@@ -12,6 +12,7 @@ AppBar customAppBar1(
   hasBack = true,
   hasTabBar = false,
   hasShadow = false,
+  hasInvite = false,
   List<Widget>? tabs,
 }) {
   return AppBar(
@@ -39,5 +40,28 @@ AppBar customAppBar1(
               tabs: tabs!,
             )
             : null,
+    actions:
+        hasInvite
+            ? [
+              InkWell(
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.w,
+                    vertical: 7.h,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    "Invite",
+                    style: AppStyle.baseSmallMedium.copyWith(
+                      color: AppColors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ]
+            : [],
   );
 }

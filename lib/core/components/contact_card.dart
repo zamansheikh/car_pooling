@@ -13,14 +13,14 @@ class ContactCard extends StatelessWidget {
     required this.address,
     required this.image,
     required this.distance,
-    required this.addContact,
+    this.hasDelete = false,
     this.isRequest = false,
   });
   final String fullName;
   final String address;
   final String image;
   final String distance;
-  final VoidCallback addContact;
+  final bool hasDelete;
   final bool isRequest;
 
   @override
@@ -105,7 +105,7 @@ class ContactCard extends StatelessWidget {
           SizedBox(height: 16), // Space between text and button
           // Add Contact Button
           if (!isRequest)
-            CustomButton(buttonTitle: "Add Contact", onTap: addContact),
+            CustomButton(buttonTitle: "Add Contact", onTap: () {}),
           if (isRequest)
             Row(
               spacing: 12.w,

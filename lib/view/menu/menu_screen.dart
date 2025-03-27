@@ -35,7 +35,7 @@ class MenuScreen extends StatelessWidget {
             icon: Icons.contacts,
             showChevron: true,
             onPress: () {
-              print('My Contact List pressed');
+              Get.toNamed(AppRoutes.myContactList);
             },
           ),
           MenuOption(

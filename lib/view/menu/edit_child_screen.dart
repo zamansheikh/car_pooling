@@ -1,5 +1,7 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/components/custom_button.dart';
+import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/view/menu/local_compoent/profile_image_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,17 +19,42 @@ class EditChildScreen extends StatelessWidget {
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ProfileImageSelector(
-                radius: 40,
-                onImageSelect: controller.pickImage,
-                image: controller.profileImage.value,
-                myImageLink: "",
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  spacing: 15.h,
+                  children: [
+                    Obx(() {
+                      return ProfileImageSelector(
+                        radius: 40,
+                        onImageSelect: controller.pickImage,
+                        image: controller.profileImage.value,
+                        myImageLink: "",
+                      );
+                    }),
+
+                    CustomInputField(
+                      controller: controller.firstNameController,
+                      hintText: "First Name",
+                    ),
+                    CustomInputField(
+                      controller: controller.lastNameController,
+                      hintText: "Last Name",
+                    ),
+                    CustomInputField(
+                      controller: controller.schoolNameController,
+                      hintText: "School Name",
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+
+            CustomButton(buttonTitle: "Save", onTap: () {}),
+            SizedBox(height: 30.h),
+          ],
         ),
       ),
     );

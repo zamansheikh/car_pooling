@@ -16,45 +16,41 @@ class ChildCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Get.toNamed(AppRoutes.editChild);
-      },
-      child: CardWrapper(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              spacing: 12.w,
-              children: [
-                CircleAvatar(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${el.childFistName} ${el.childLastName}',
-                      style: AppStyle.largeMedium,
-                    ),
-                    Text(
-                      el.childSchoolName,
-                      style: AppStyle.baseMedium.copyWith(
-                        color: AppColors.gray,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              spacing: 8.h,
-              children: [
-                SvgPicture.asset(AppIcons.editIcon),
-                SvgPicture.asset(AppIcons.deleteIcon),
-              ],
-            ),
-          ],
-        ),
+    return CardWrapper(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            spacing: 12.w,
+            children: [
+              CircleAvatar(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${el.childFistName} ${el.childLastName}',
+                    style: AppStyle.largeMedium,
+                  ),
+                  Text(
+                    el.childSchoolName,
+                    style: AppStyle.baseMedium.copyWith(color: AppColors.gray),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            spacing: 8.h,
+            children: [
+              InkWell(
+                onTap: () => Get.toNamed(AppRoutes.editChild),
+                child: SvgPicture.asset(AppIcons.editIcon),
+              ),
+              SvgPicture.asset(AppIcons.deleteIcon),
+            ],
+          ),
+        ],
       ),
     );
   }

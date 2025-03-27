@@ -63,7 +63,6 @@ class InboxScreen extends StatelessWidget {
             return ContactCard(
               fullName: "${item.firstName} ${item.lastName}",
               image: item.image,
-              addContact: () {},
               address: item.address,
               distance: item.distance,
               isRequest: true,

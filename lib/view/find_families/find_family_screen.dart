@@ -34,7 +34,6 @@ class FindFamilyScreen extends StatelessWidget {
                         address: el.address,
                         image: el.image,
                         distance: el.distance,
-                        addContact: () {},
                       );
                     }).toList(),
               );

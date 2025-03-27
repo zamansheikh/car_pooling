@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:car_pooling/model/carpool_model.dart';
 import 'package:car_pooling/model/child_model.dart';
+import 'package:car_pooling/model/contact_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -12,10 +13,14 @@ class MenuProfileController extends GetxController {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController schoolNameController = TextEditingController();
 
   // Observable variables
   RxList<CarpoolModel> myCarPoolHistory = <CarpoolModel>[].obs;
   RxList<ChildModel> myChildrenList = <ChildModel>[].obs;
+  RxList<ContactModel> myContactList = <ContactModel>[].obs;
   Rx<File?> profileImage = Rx<File?>(null);
   RxBool homeAddressVisible = false.obs;
 
@@ -33,6 +38,7 @@ class MenuProfileController extends GetxController {
     // Initialize your data or perform any setup here
     fetchCarPoolHistory();
     fetchMyChildrenData();
+    fetchMyContactList();
   }
 
   void fetchCarPoolHistory() {
@@ -144,5 +150,28 @@ class MenuProfileController extends GetxController {
 
     // Add all dummy data to the observable list
     myChildrenList.addAll(dummyChildren);
+  }
+
+  void fetchMyContactList() {
+    final List<ContactModel> contacts = [
+      ContactModel(
+        image:
+            "https://example.com/image.jpg", // Replace with a valid image URL
+        firstName: "John",
+        lastName: "Doe",
+        cellNumber: "+1 234 567 8900",
+        address: "123 Main St, Springfield",
+        distance: "2.5 km",
+      ),
+      ContactModel(
+        firstName: "Jane",
+        lastName: "Smith",
+        cellNumber: "+1 987 654 3210",
+        address: "456 Oak Ave, Rivertown",
+        distance: "1.8 km",
+      ),
+    ];
+
+    myContactList.addAll(contacts);
   }
 }
