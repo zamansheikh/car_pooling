@@ -11,7 +11,7 @@ class MyChildrenScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My Children"),
+      appBar: customAppBar1("My Children".tr),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
         child: ListView.builder(

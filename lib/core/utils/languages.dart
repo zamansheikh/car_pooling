@@ -167,6 +167,14 @@ class Languages extends Translations {
           "Are you sure you want to delete your account?",
       "Delete": "Delete",
       'Cancel': 'Cancel',
+      "As a Driver": "As a Driver",
+      "History": "History",
+      "Upcoming": "Upcoming",
+      'No data yet': 'No data yet',
+      // my information
+      "My Children": "My Children",
+      "My contact list": "My contact list",
+      "My Information": "My Information",
     },
     'tr_TR': {},
   };

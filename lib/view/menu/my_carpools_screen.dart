@@ -16,14 +16,14 @@ class MyCarpoolsScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: customAppBar1(
-          "My Carpools",
+          "My Carpools".tr,
           hasBack: true,
           hasTabBar: true,
           hasShadow: true,
           tabs: [
-            Tab(text: "Upcoming"),
-            Tab(text: "History"),
-            Tab(text: "As a Driver"),
+            Tab(text: "Upcoming".tr),
+            Tab(text: "History".tr),
+            Tab(text: "As a Driver".tr),
           ],
         ),
         body: Padding(
@@ -42,7 +42,7 @@ class MyCarpoolsScreen extends StatelessWidget {
 
   Widget buildTabView(List<CarpoolModel> carpool) {
     return carpool.isEmpty
-        ? Center(child: Text('No chats yet'))
+        ? Center(child: Text('No data yet'.tr))
         : ListView.builder(
           itemCount: carpool.length,
           itemBuilder: (context, index) {

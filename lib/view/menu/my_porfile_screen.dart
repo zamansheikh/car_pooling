@@ -11,20 +11,20 @@ class MyPorfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My Profile"),
+      appBar: customAppBar1("My Profile".tr),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
         child: Column(
           children: [
             MenuOption(
-              title: "My Information",
+              title: "My Information".tr,
               icon: Icons.person_outline,
               onPress: () {
                 Get.toNamed(AppRoutes.myInformation);
               },
             ),
             MenuOption(
-              title: "My Children",
+              title: "My Children".tr,
               icon: Icons.person_outline,
               onPress: () {
                 Get.toNamed(AppRoutes.myChildren);
