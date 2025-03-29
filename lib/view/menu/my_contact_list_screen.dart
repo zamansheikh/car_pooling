@@ -14,19 +14,26 @@ class MyContactListScreen extends StatelessWidget {
       appBar: customAppBar1("My contact list", hasInvite: true),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: ListView.builder(
-          itemCount: controller.myContactList.length,
-          itemBuilder: (context, index) {
-            final contact = controller.myContactList[index];
-            return ContactCard(
-              fullName: "${contact.firstName} ${contact.lastName}",
-              address: contact.address,
-              image: contact.image,
-              distance: contact.distance,
-              hasDelete: true,
-            );
-          },
-        ),
+        child: Obx(() {
+          return ListView.builder(
+            itemCount: controller.myContactList.length,
+            itemBuilder: (context, index) {
+              final contact = controller.myContactList[index];
+              return ContactCard(
+                fullName: "${contact.firstName} ${contact.lastName}",
+                address: contact.address,
+                image: contact.image,
+                distance: contact.distance,
+                hasDelete: true,
+                onDelete: () {
+                  controller.myContactList.removeAt(index);
+                  controller.myContactList.refresh();
+                  Get.back();
+                },
+              );
+            },
+          );
+        }),
       ),
     );
   }

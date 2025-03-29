@@ -27,18 +27,12 @@ class PaymentScreen extends StatelessWidget {
                 obscureCardCvv: false,
                 obscureCardNumber: false,
                 obscureInitialCardNumber: false,
-                cardNumber:
-                    controller.cardNumber.value, // Valid Visa test card number
-                expiryDate:
-                    controller.expiryDate.value, // Future date (December 2026)
-                cardHolderName:
-                    controller.cardHolderName.value, // Dummy cardholder name
-                cvvCode: controller.cvvCode.value, // Dummy CVV code
-                showBackView:
-                    false, // Set to false to show the front view (default)
-                onCreditCardWidgetChange: (CreditCardBrand brand) {
-                  // Callback to handle card brand changes (e.g., Visa, Mastercard)
-                },
+                cardNumber: controller.cardNumber.value,
+                expiryDate: controller.expiryDate.value,
+                cardHolderName: controller.cardHolderName.value,
+                cvvCode: controller.cvvCode.value,
+                showBackView: false,
+                onCreditCardWidgetChange: (CreditCardBrand brand) {},
               );
             }),
 

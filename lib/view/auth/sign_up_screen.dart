@@ -27,7 +27,7 @@ class SignUpScreen extends StatelessWidget {
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
-                  Text("Sign Up Your Account", style: AppStyle.headerBold1),
+                  Text("Sign Up Your Account".tr, style: AppStyle.headerBold1),
                   SizedBox(height: 24.h),
                   Form(
                     key: _formKey,
@@ -36,22 +36,22 @@ class SignUpScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> Text Controller <<<<<<<<<<<<<===============
                         CustomInputField(
                           controller: controller.firstNameController,
-                          title: "First Name",
+                          hintText: "First Name".tr,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.lastNameController,
-                          title: "Last Name",
+                          hintText: "Last Name".tr,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.emailController,
-                          title: "Email",
+                          hintText: "Email".tr,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.passwordController,
-                          title: "Password",
+                          hintText: "Password".tr,
                         ),
                         SizedBox(height: 12.h),
                         // =================>>>>>>>>>>>>> Terms & Conditions <<<<<<<<<<<<<===============
@@ -72,7 +72,7 @@ class SignUpScreen extends StatelessWidget {
                             }),
                             Flexible(
                               child: Text(
-                                "I agree to HadiKid's Terms & Conditions and Privacy Policy",
+                                "Agreement".tr,
                                 style: AppStyle.baseSmallMedium.copyWith(
                                   color: AppColors.gray,
                                 ),
@@ -84,7 +84,7 @@ class SignUpScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> SignUpButton <<<<<<<<<<<<<===============
                         Obx(() {
                           return CustomButton(
-                            buttonTitle: "Sign Up",
+                            buttonTitle: "Sign Up".tr,
                             onTap: () {
                               controller.userSignUp(_formKey);
                             },
@@ -98,7 +98,7 @@ class SignUpScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Don't have an account?",
+                              "Don't have an account?".tr,
                               style: AppStyle.smallRegular.copyWith(
                                 color: AppColors.gray,
                               ),
@@ -108,7 +108,7 @@ class SignUpScreen extends StatelessWidget {
                                 Get.toNamed(AppRoutes.signIn);
                               },
                               child: Text(
-                                "Sign Up",
+                                "Sign Up".tr,
                                 style: AppStyle.smallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),

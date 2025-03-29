@@ -63,7 +63,8 @@ class MyInformationScreen extends StatelessWidget {
 
                 CustomPhoneInputField(controller: controller.phoneController),
                 // TODO: Continue working in this page
-                homeAddressSection(),
+
+                // homeAddressSection(),
               ],
             ),
           ],

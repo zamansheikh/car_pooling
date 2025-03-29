@@ -54,7 +54,6 @@ AlertDialog customAlertDialog({
               isFilled: false,
               isRed: true,
               onTap: () {
-                // TODO: Implement Delete contact
                 route();
               },
             ),

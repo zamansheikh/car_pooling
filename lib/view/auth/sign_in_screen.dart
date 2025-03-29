@@ -28,7 +28,7 @@ class SignInScreen extends StatelessWidget {
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
-                  Text("Sign In Your Account", style: AppStyle.headerBold1),
+                  Text("Sign In Your Account".tr, style: AppStyle.headerBold1),
                   SizedBox(height: 24.h),
                   Form(
                     key: _formKey,
@@ -37,12 +37,12 @@ class SignInScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> Text Controller <<<<<<<<<<<<<===============
                         CustomInputField(
                           controller: controller.emailController,
-                          title: "Email",
+                          hintText: "Email".tr,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.passwordController,
-                          title: "Password",
+                          hintText: "Password".tr,
                         ),
                         // =================>>>>>>>>>>>>> Row - check, forgot <<<<<<<<<<<<<===============
                         SizedBox(height: 4.h),
@@ -62,7 +62,7 @@ class SignInScreen extends StatelessWidget {
                                   );
                                 }),
                                 Text(
-                                  "Remember Me",
+                                  "Remember Me".tr,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
@@ -75,7 +75,7 @@ class SignInScreen extends StatelessWidget {
                                 Get.to(ForgotPasswordScreen(isReset: true));
                               },
                               child: Text(
-                                "Forget Password?",
+                                "Forget Password?".tr,
                                 style: AppStyle.baseSmallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),
@@ -87,7 +87,7 @@ class SignInScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> SignInButton <<<<<<<<<<<<<===============
                         Obx(() {
                           return CustomButton(
-                            buttonTitle: "Sign In",
+                            buttonTitle: "Sign In".tr,
                             onTap: () {
                               controller.userSignIn(_formKey);
                             },
@@ -104,7 +104,7 @@ class SignInScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an account?",
+                        "Don't have an account?".tr,
                         style: AppStyle.smallRegular.copyWith(
                           color: AppColors.gray,
                         ),
@@ -114,7 +114,7 @@ class SignInScreen extends StatelessWidget {
                           Get.toNamed(AppRoutes.signUp);
                         },
                         child: Text(
-                          "Sign Up",
+                          "Sign Up".tr,
                           style: AppStyle.smallMedium.copyWith(
                             color: AppColors.primary,
                           ),

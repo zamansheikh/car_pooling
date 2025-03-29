@@ -20,6 +20,7 @@ class ContactCard extends StatelessWidget {
     this.hasDelete = false,
     this.hasAddContact = false,
     this.isRequest = false,
+    this.onDelete,
   });
   final String fullName;
   final String address;
@@ -28,6 +29,7 @@ class ContactCard extends StatelessWidget {
   final bool hasDelete;
   final bool hasAddContact;
   final bool isRequest;
+  final VoidCallback? onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -117,13 +119,15 @@ class ContactCard extends StatelessWidget {
                                   return customAlertDialog(
                                     title: "Delete Contact",
                                     content:
-                                        "Are you sure you want to delete this contact?",
+                                        "Do you sure you want to delete this contact?",
                                     asset: AppIcons.deleteIcon,
                                     buttonText: "Delete",
                                     isConfirm: true,
-                                    route: () {
-                                      Get.back();
-                                    },
+                                    route:
+                                        onDelete ??
+                                        () {
+                                          Get.back();
+                                        },
                                   );
                                 },
                               );
