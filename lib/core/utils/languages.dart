@@ -201,6 +201,7 @@ class Languages extends Translations {
       "Add Contact": "Add Contact",
       "Confirm": "Confirm",
       'Drive': 'Drive',
+      'Delete My Account': 'Delete My Account',
     },
     'tr_TR': {
       // Common
@@ -398,6 +399,8 @@ class Languages extends Translations {
       "Add Contact": "Kişi Ekle",
       "Confirm": "Onayla",
       'Drive': 'Sür',
+
+      'Delete My Account': 'Hesabımı Sil',
     },
   };
 }

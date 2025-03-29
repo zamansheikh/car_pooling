@@ -94,7 +94,7 @@ class MenuScreen extends StatelessWidget {
             onPress: () {},
           ),
           MenuOption(
-            title: 'Logout',
+            title: 'Logout'.tr,
             icon: Icons.logout,
             showChevron: true,
             onPress: () {
@@ -109,7 +109,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Delete My Account',
+            title: 'Delete My Account'.tr,
             icon: Icons.delete,
             textColor: Colors.red,
             iconColor: Colors.red,
