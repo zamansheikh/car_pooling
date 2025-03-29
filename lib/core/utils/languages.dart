@@ -390,6 +390,14 @@ class Languages extends Translations {
       "Card Number": "Kart Numarası",
       "CCV Code": "CCV Kodu",
       "Expiry Date": "Son Kullanma Tarihi",
+
+      //Custom Component
+      "Delete Contact": "Kişiyi Sil",
+      "Do you sure you want to delete this contact?":
+          "Bu kişiyi silmek istediğinizden emin misiniz?",
+      "Add Contact": "Kişi Ekle",
+      "Confirm": "Onayla",
+      'Drive': 'Sür',
     },
   };
 }
