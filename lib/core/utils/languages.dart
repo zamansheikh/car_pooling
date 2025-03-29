@@ -124,6 +124,25 @@ class Languages extends Translations {
       "Schedule": "Schedule",
       "Attending": "Attending",
       "Driving": "Driving",
+
+      // Account Setting Screen
+      "Account Settings": "Account Settings",
+      'Notification of Changes': 'Notification of Changes',
+      'Changes to carpools I set up': 'Changes to carpools I set up',
+      'Changes affecting my family': 'Changes affecting my family',
+      'Changes affecting my driving': 'Changes affecting my driving',
+      'Driving Reminders': 'Driving Reminders',
+      "minutes before": "minutes before",
+      "hour before": "hour before",
+      "hours before": "hours before",
+      'Carpool Notes Notifications': 'Carpool Notes Notifications',
+      'Notify me of new messages': 'Notify me of new messages',
+      'Child Pickup / Drop-off': 'Child Pickup / Drop-off',
+      'Preference': 'Preference',
+      'Receive notifications and invitations via:':
+          'Receive notifications and invitations via:',
+      "Push": "Push",
+      "Manage Subscription": "Manage Subscription",
     },
     'tr_TR': {},
   };

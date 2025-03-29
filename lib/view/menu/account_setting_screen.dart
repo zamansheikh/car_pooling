@@ -15,7 +15,7 @@ class AccountSettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Account Settings"),
+      appBar: customAppBar1("Account Settings".tr),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -27,24 +27,24 @@ class AccountSettingScreen extends StatelessWidget {
                 SizedBox(),
                 // Notification of Changes Section
                 SectionContainer(
-                  title: 'Notification of Changes',
+                  title: 'Notification of Changes'.tr,
                   children: [
                     ToggleOption(
-                      title: 'Changes to carpools I set up',
+                      title: 'Changes to carpools I set up'.tr,
                       value: controller.carpoolChanges.value,
                       isLocked: controller.isLimitedAccess.value,
                       onChanged:
                           (value) => controller.carpoolChanges.value = value,
                     ),
                     ToggleOption(
-                      title: 'Changes affecting my family',
+                      title: 'Changes affecting my family'.tr,
                       value: controller.familyChanges.value,
                       isLocked: controller.isLimitedAccess.value,
                       onChanged:
                           (value) => controller.familyChanges.value = value,
                     ),
                     ToggleOption(
-                      title: 'Changes affecting my driving',
+                      title: 'Changes affecting my driving'.tr,
                       value: controller.drivingChanges.value,
                       isLocked: controller.isLimitedAccess.value,
                       onChanged:
@@ -55,22 +55,22 @@ class AccountSettingScreen extends StatelessWidget {
 
                 // Driving Reminders Section
                 SectionContainer(
-                  title: 'Driving Reminders',
+                  title: 'Driving Reminders'.tr,
                   children: [
                     ToggleOption(
-                      title: '10 minutes before',
+                      title: '10 ${"minutes before".tr}',
                       value: controller.driving10Min.value,
                       onChanged:
                           (value) => controller.driving10Min.value = value,
                     ),
                     ToggleOption(
-                      title: '1 hour before',
+                      title: '1 ${"hour before".tr}',
                       value: controller.driving1Hour.value,
                       onChanged:
                           (value) => controller.driving1Hour.value = value,
                     ),
                     ToggleOption(
-                      title: '24 hours before',
+                      title: '24 ${"hours before".tr}',
                       value: controller.driving24Hours.value,
                       onChanged:
                           (value) => controller.driving24Hours.value = value,
@@ -83,21 +83,21 @@ class AccountSettingScreen extends StatelessWidget {
                   title: 'Participation Reminders',
                   children: [
                     ToggleOption(
-                      title: '10 minutes before',
+                      title: '10 ${"minutes before".tr}',
                       value: controller.participation10Min.value,
                       onChanged:
                           (value) =>
                               controller.participation10Min.value = value,
                     ),
                     ToggleOption(
-                      title: '1 hour before',
+                      title: '1 ${"hour before".tr}',
                       value: controller.participation1Hour.value,
                       onChanged:
                           (value) =>
                               controller.participation1Hour.value = value,
                     ),
                     ToggleOption(
-                      title: '24 hours before',
+                      title: '24 ${"hours before".tr}',
                       value: controller.participation24Hours.value,
                       onChanged:
                           (value) =>
@@ -108,10 +108,10 @@ class AccountSettingScreen extends StatelessWidget {
 
                 // Carpool Notes Notifications Section
                 SectionContainer(
-                  title: 'Carpool Notes Notifications',
+                  title: 'Carpool Notes Notifications'.tr,
                   children: [
                     ToggleOption(
-                      title: 'Notify me of new messages',
+                      title: 'Notify me of new messages'.tr,
                       value: controller.notifyNewMessages.value,
                       onChanged:
                           (value) => controller.notifyNewMessages.value = value,
@@ -124,7 +124,7 @@ class AccountSettingScreen extends StatelessWidget {
                   title: 'Live Tracking',
                   children: [
                     ToggleOption(
-                      title: 'Child Pickup / Drop-off',
+                      title: 'Child Pickup / Drop-off'.tr,
                       value: controller.childPickupDropoff.value,
                       isLocked: controller.isLimitedAccess.value,
                       onChanged:
@@ -136,28 +136,28 @@ class AccountSettingScreen extends StatelessWidget {
 
                 // Preference Section
                 SectionContainer(
-                  title: 'Preference',
+                  title: 'Preference'.tr,
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(
                         left: 16.0,
                         top: 8.0,
                         bottom: 8.0,
                       ),
                       child: Text(
-                        'Receive notifications and invitations via:',
+                        'Receive notifications and invitations via:'.tr,
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
                     ToggleOption(
-                      title: 'Email',
+                      title: 'Email'.tr,
                       value: controller.emailNotifications.value,
                       onChanged:
                           (value) =>
                               controller.emailNotifications.value = value,
                     ),
                     ToggleOption(
-                      title: 'Push',
+                      title: 'Push'.tr,
                       value: controller.pushNotifications.value,
                       onChanged:
                           (value) => controller.pushNotifications.value = value,
@@ -166,7 +166,10 @@ class AccountSettingScreen extends StatelessWidget {
                 ),
 
                 // Custom Button
-                CustomButton(buttonTitle: "Manage Subscription", onTap: () {}),
+                CustomButton(
+                  buttonTitle: "Manage Subscription".tr,
+                  onTap: () {},
+                ),
                 SizedBox(height: 20.h),
               ],
             );
