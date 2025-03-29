@@ -193,6 +193,14 @@ class Languages extends Translations {
       "Card Number": "Card Number",
       "CCV Code": "CCV Code",
       "Expiry Date": "Expiry Date",
+
+      // Custom components
+      "Delete Contact": "Delete Contact",
+      "Do you sure you want to delete this contact?":
+          "Do you sure you want to delete this contact?",
+      "Add Contact": "Add Contact",
+      "Confirm": "Confirm",
+      'Drive': 'Drive',
     },
     'tr_TR': {
       // Common

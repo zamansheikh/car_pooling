@@ -5,6 +5,7 @@ import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/wrappers/card_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:intl/intl.dart';
 
 class CarpoolCard extends StatelessWidget {
@@ -91,7 +92,7 @@ class CarpoolCard extends StatelessWidget {
                 SizedBox(height: 12),
                 if (canDrive)
                   CustomButton(
-                    buttonTitle: 'Drive',
+                    buttonTitle: 'Drive'.tr,
                     isRounded: false,
                     onTap: () {
                       // Todo: add drive functionality

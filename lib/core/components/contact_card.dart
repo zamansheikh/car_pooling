@@ -117,11 +117,12 @@ class ContactCard extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return customAlertDialog(
-                                    title: "Delete Contact",
+                                    title: "Delete Contact".tr,
                                     content:
-                                        "Do you sure you want to delete this contact?",
+                                        "Do you sure you want to delete this contact?"
+                                            .tr,
                                     asset: AppIcons.deleteIcon,
-                                    buttonText: "Delete",
+                                    buttonText: "Delete".tr,
                                     isConfirm: true,
                                     route:
                                         onDelete ??
@@ -151,14 +152,14 @@ class ContactCard extends StatelessWidget {
           SizedBox(height: 16), // Space between text and button
           // Add Contact Button
           if (!isRequest && hasAddContact)
-            CustomButton(buttonTitle: "Add Contact", onTap: () {}),
+            CustomButton(buttonTitle: "Add Contact".tr, onTap: () {}),
           if (isRequest)
             Row(
               spacing: 12.w,
               children: [
                 Flexible(
                   child: CustomButton(
-                    buttonTitle: "delete",
+                    buttonTitle: "Delete".tr,
                     isFilled: false,
                     isRed: true,
                     onTap: () {
@@ -168,7 +169,7 @@ class ContactCard extends StatelessWidget {
                 ),
                 Flexible(
                   child: CustomButton(
-                    buttonTitle: "Confirm",
+                    buttonTitle: "Confirm".tr,
                     onTap: () {
                       // todo: implement todo confirm request
                     },

@@ -4,6 +4,7 @@ import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final Function(int) onChanged;
@@ -35,7 +36,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     AppIcons.findfamilyIcon,
                     color: AppColors.white,
                   ),
-          label: 'Find Families',
+          label: 'Find Families'.tr,
         ),
         BottomNavigationBarItem(
           icon:
@@ -48,7 +49,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     AppIcons.scheduleIcon,
                     color: AppColors.white,
                   ),
-          label: 'Schedule',
+          label: 'Schedule'.tr,
         ),
         BottomNavigationBarItem(
           icon: Container(
@@ -72,7 +73,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     AppIcons.inboxIcon,
                     color: AppColors.white,
                   ),
-          label: 'Inbox',
+          label: 'Inbox'.tr,
         ),
         BottomNavigationBarItem(
           icon:
@@ -82,7 +83,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     color: AppColors.primary,
                   )
                   : SvgPicture.asset(AppIcons.menuIcon, color: AppColors.white),
-          label: 'Menu',
+          label: 'Menu'.tr,
         ),
       ],
       onTap: onChanged,
