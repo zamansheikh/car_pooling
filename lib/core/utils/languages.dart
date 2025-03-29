@@ -8,6 +8,10 @@ class Languages extends Translations {
       "Next": "Next",
       "Done": "Done",
       "resend": "Resend",
+      "Create Carpool": "Create Carpool",
+      "New child": "New child",
+      "Add new child(ren)": "Add new child(ren)",
+      "My Role": "My Role",
 
       // Sign in and Sign up screen
       "Sign Up Your Account": "Set Up Your Account",
@@ -23,6 +27,7 @@ class Languages extends Translations {
       "Dont have an account?": "Don't have an account?",
       "Sign Up": "Sign Up",
       "Sign In": "Sign In",
+
       // Add a child screen
       "Add a child": "Add a child",
       "Child's first name": "Child's first name",
@@ -35,6 +40,7 @@ class Languages extends Translations {
       "Create new password here": "Create new password here",
       "New password": "New password",
       "Confirm new password": "Confirm new password",
+
       // Forgot password screen
       "Verification": "Verification",
       "Reset Password": "Reset Password",
@@ -45,6 +51,28 @@ class Languages extends Translations {
       "OTP reset code has been sent to": "OTP reset code has been sent to",
       "Please enter the code below": "Please enter the code below",
       "Times remaining": "Times remaining",
+
+      // Welcome screen 01
+      "How to Works": "How it Works",
+      "Create a carpool between two points.":
+          "Create a carpool between two points.",
+      "Invite your friends to carpool with you.":
+          "Invite your friends to carpool with you.",
+      "Friends join and add their child's location.":
+          "Friends join and add their child's location.",
+      "Parents Volunteer to Drive. We Send reminders and optimized routes.":
+          "Parents Volunteer to Drive. We Send reminders and optimized routes.",
+      "Step": "Step",
+
+      // Welcome screen 01
+      "Welcome to HadiKid": "Welcome to HadiKid",
+      "Let's get you started. No carpools yet! Get started by creating a carpool and sending invite.":
+          "Let's get you started. No carpools yet! Get started by creating a carpool and sending invite.",
+
+      // Create carpool screen 01
+      "Which child(ren) will attend the event?*":
+          "Which child(ren) will attend the event?*",
     },
+    'tr_TR': {},
   };
 }

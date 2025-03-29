@@ -22,6 +22,7 @@ class LangugeScreen extends StatelessWidget {
                 onChanged: (value) {
                   if (value != null) {
                     controller.selectedLanguage.value = value;
+                    Get.updateLocale(Locale("tr", "TR"));
                   }
                 },
               ),
@@ -35,6 +36,7 @@ class LangugeScreen extends StatelessWidget {
                 onChanged: (value) {
                   if (value != null) {
                     controller.selectedLanguage.value = value;
+                    Get.updateLocale(Locale("en", "US"));
                   }
                 },
               ),

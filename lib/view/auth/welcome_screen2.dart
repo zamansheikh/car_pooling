@@ -21,13 +21,14 @@ class WelcomeScreen2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Welcome to HadiKid🎉",
+                "${"Welcome to HadiKid".tr}🎉",
                 style: AppStyle.headerBold1,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 24.h),
               Text(
-                "Let's get you started. No carpools yet! Get started by creating a carpool and sending invite.",
+                "Let's get you started. No carpools yet! Get started by creating a carpool and sending invite."
+                    .tr,
                 style: AppStyle.baseRegular.copyWith(color: AppColors.darkGray),
                 textAlign: TextAlign.center,
               ),
@@ -35,7 +36,7 @@ class WelcomeScreen2 extends StatelessWidget {
               Image.asset(AppAssets.appLogo),
               SizedBox(height: 48.h),
               CustomButton(
-                buttonTitle: "Create Carpool",
+                buttonTitle: "Create Carpool".tr,
                 onTap: () {
                   Get.toNamed(AppRoutes.createCarpool1);
                 },

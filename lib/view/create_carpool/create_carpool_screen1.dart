@@ -18,7 +18,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create carpool", hasBack: false),
+      appBar: customAppBar1("Create carpool".tr, hasBack: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
@@ -56,7 +56,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                       onTap: () {
                         // TODO: take the user to add child screen
                         controller.availableChildren.add(
-                          ChildModel(fullName: "New child"),
+                          ChildModel(fullName: "New child".tr),
                         );
                         controller.availableChildren.refresh();
                       },
@@ -66,7 +66,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                         children: [
                           Icon(Icons.add, color: AppColors.primaryDark),
                           Text(
-                            "Add new child(ren)",
+                            "Add new child(ren)".tr,
                             style: AppStyle.baseMedium.copyWith(
                               color: AppColors.primary,
                             ),
@@ -78,7 +78,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 24.h),
-              Text("My Role", style: AppStyle.largeMedium),
+              Text("My Role".tr, style: AppStyle.largeMedium),
               SizedBox(height: 12.h),
               // =========>>>>>>>>> Choose my role <<<<<<<<<=========
               // TODO: Implment chosing only one, stop multiple chosing
@@ -105,7 +105,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
               // =========>>>>>>>>> Next Button <<<<<<<<<=========
               SizedBox(height: 24.h),
               CustomButton(
-                buttonTitle: "Next",
+                buttonTitle: "Next".tr,
                 isRounded: false,
                 onTap: () {
                   Get.toNamed(AppRoutes.createCarpool2);
