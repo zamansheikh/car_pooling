@@ -20,7 +20,7 @@ class AddChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Add a child"),
+      appBar: customAppBar1("Add a child".tr),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -45,15 +45,15 @@ class AddChildScreen extends StatelessWidget {
                   children: [
                     CustomInputField(
                       controller: controller.firstNameController,
-                      title: "Child's first name",
+                      hintText: "Child's first name".tr,
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      title: "child's last name",
+                      hintText: "child's last name".tr,
                     ),
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      title: "child's school name",
+                      hintText: "child's school name".tr,
                     ),
                     // add child data custom button
                     Row(
@@ -70,7 +70,7 @@ class AddChildScreen extends StatelessWidget {
                                 size: 18,
                               ),
                               Text(
-                                "Add child",
+                                "Add child".tr,
                                 style: AppStyle.baseSmallRegular.copyWith(
                                   color: AppColors.primary,
                                 ),
@@ -83,7 +83,7 @@ class AddChildScreen extends StatelessWidget {
 
                     // Custom button
                     CustomButton(
-                      buttonTitle: "Next",
+                      buttonTitle: "Next".tr,
                       onTap: () => Get.to(ForgotPasswordScreen(isReset: false)),
                     ),
                   ],
