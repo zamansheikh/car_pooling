@@ -10,12 +10,12 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("menu", hasBack: false),
+      appBar: customAppBar1("Menu".tr, hasBack: false),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
         children: [
           MenuOption(
-            title: 'My Carpools',
+            title: 'My Carpools'.tr,
             icon: Icons.directions_car,
             showChevron: true,
             onPress: () {
@@ -23,7 +23,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'My Profile',
+            title: 'My Profile'.tr,
             icon: Icons.person_outline,
             showChevron: true,
             onPress: () {
@@ -31,7 +31,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'My Contact List',
+            title: 'My Contact List'.tr,
             icon: Icons.contacts,
             showChevron: true,
             onPress: () {
@@ -39,7 +39,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Account Setting',
+            title: 'Account Setting'.tr,
             icon: Icons.settings,
             showChevron: true,
             onPress: () {
@@ -47,7 +47,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Payment',
+            title: 'Payment'.tr,
             icon: Icons.credit_card,
             showChevron: true,
             onPress: () {
@@ -55,13 +55,13 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Support',
+            title: 'Support'.tr,
             icon: Icons.support_agent,
             showChevron: true,
             onPress: () {},
           ),
           MenuOption(
-            title: 'Privacy Policy',
+            title: 'Privacy Policy'.tr,
             icon: Icons.privacy_tip,
             showChevron: true,
             onPress: () {
@@ -69,7 +69,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Terms & Conditions',
+            title: 'Terms & Conditions'.tr,
             icon: Icons.description,
             showChevron: true,
             onPress: () {
@@ -77,7 +77,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Language',
+            title: 'Language'.tr,
             icon: Icons.language,
             extra: Text(
               'English (US)',
@@ -88,7 +88,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Share HadiKid with Friends',
+            title: 'Share HadiKid with Friends'.tr,
             icon: Icons.share,
             showChevron: true,
             onPress: () {},
@@ -99,9 +99,9 @@ class MenuScreen extends StatelessWidget {
             showChevron: true,
             onPress: () {
               showModal(
-                title: "Logout",
-                subtitle: "Are you sure you want to logout?",
-                buttonText: "Logout",
+                title: "Logout".tr,
+                subtitle: "Are you sure you want to logout?".tr,
+                buttonText: "Logout".tr,
                 buttonAction: () {
                   Get.offAllNamed(AppRoutes.signIn);
                 },
@@ -115,9 +115,9 @@ class MenuScreen extends StatelessWidget {
             iconColor: Colors.red,
             onPress: () {
               showModal(
-                title: "Delete Account",
-                subtitle: "Are you sure you want to delete your account?",
-                buttonText: "Delete",
+                title: "Delete Account".tr,
+                subtitle: "Are you sure you want to delete your account?".tr,
+                buttonText: "Delete".tr,
                 buttonAction: () {
                   Get.offAllNamed(AppRoutes.signIn);
                 },
@@ -173,7 +173,7 @@ class MenuScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 12),
                       ),
                       child: Text(
-                        'Cancel',
+                        'Cancel'.tr,
                         style: TextStyle(color: Colors.black),
                       ),
                     ),

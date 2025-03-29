@@ -143,6 +143,30 @@ class Languages extends Translations {
           'Receive notifications and invitations via:',
       "Push": "Push",
       "Manage Subscription": "Manage Subscription",
+      "Edit Child": "Edit Child",
+      "School Name": "School Name",
+      "Save": "Save",
+
+      // Languages screen
+      "Language": "Language",
+
+      // Menu Screen
+      'My Carpools': 'My Carpools',
+      'My Profile': 'My Profile',
+      'My Contact List': 'My Contact List',
+      'Account Setting': 'Account Setting',
+      'Payment': 'Payment',
+      'Support': 'Support',
+      'Privacy Policy': 'Privacy Policy',
+      'Terms & Conditions': 'Terms & Conditions',
+      'Share HadiKid with Friends': 'Share HadiKid with Friends',
+      "Logout": "Logout",
+      "Are you sure you want to logout?": "Are you sure you want to logout?",
+      "Delete Account": "Delete Account",
+      "Are you sure you want to delete your account?":
+          "Are you sure you want to delete your account?",
+      "Delete": "Delete",
+      'Cancel': 'Cancel',
     },
     'tr_TR': {},
   };
