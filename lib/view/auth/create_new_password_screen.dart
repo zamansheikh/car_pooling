@@ -16,7 +16,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create New Password"),
+      appBar: customAppBar1("Create New Password".tr),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 80.h),
@@ -30,25 +30,25 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 spacing: 24.h,
                 children: [
                   Text(
-                    "Create new password here",
+                    "Create new password here".tr,
                     style: AppStyle.baseRegular.copyWith(
                       color: AppColors.darkGray,
                     ),
                   ),
                   CustomInputField(
                     controller: controller.newPassController,
-                    title: "New password",
+                    title: "New password".tr,
                   ),
                   CustomInputField(
                     controller: controller.confirmNewPassController,
-                    title: "Confirm new password",
+                    title: "Confirm new password".tr,
                   ),
                 ],
               ),
 
               Obx(() {
                 return CustomButton(
-                  buttonTitle: "Done",
+                  buttonTitle: "Done".tr,
                   isLoading: controller.isLoading.value,
                   onTap: () {
                     controller.createNewpass();

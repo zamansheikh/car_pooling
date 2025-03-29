@@ -29,7 +29,7 @@ class OtpScreen extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "OTP reset code has been sent to $sendTo \n Please enter the code below",
+                    "${"OTP reset code has been sent to".tr} $sendTo \n ${"Please enter the code below".tr}",
                     style: AppStyle.baseRegular.copyWith(
                       color: AppColors.darkGray,
                     ),
@@ -49,7 +49,7 @@ class OtpScreen extends StatelessWidget {
                       child:
                           controller.isTimerActive.value
                               ? Text(
-                                "Times remaining: 00:${controller.secondsRemaining} s",
+                                "${"Times remaining".tr}: 00:${controller.secondsRemaining} s",
                                 style: AppStyle.baseSmallRegular.copyWith(
                                   color: AppColors.gray,
                                 ),
@@ -59,7 +59,7 @@ class OtpScreen extends StatelessWidget {
                                   controller.resendOTP(sendTo);
                                 },
                                 child: Text(
-                                  "resend",
+                                  "resend".tr,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.primary,
                                   ),
@@ -70,7 +70,7 @@ class OtpScreen extends StatelessWidget {
                   SizedBox(height: 40.h),
                   Obx(() {
                     return CustomButton(
-                      buttonTitle: "Next",
+                      buttonTitle: "Next".tr,
                       isLoading: controller.isLoading.value,
                       onTap: () {
                         controller.confirmOTP(isReset: isReset, sendTo: sendTo);

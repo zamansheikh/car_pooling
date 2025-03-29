@@ -6,6 +6,8 @@ class Languages extends Translations {
     'en_US': {
       // Common
       "Next": "Next",
+      "Done": "Done",
+      "resend": "Resend",
 
       // Sign in and Sign up screen
       "Sign Up Your Account": "Set Up Your Account",
@@ -27,6 +29,22 @@ class Languages extends Translations {
       "child's last name": "Child's last name",
       "child's school name": "Child's school name",
       "Add child": "Add child",
+
+      // Create new password screen
+      "Create New Password": "Create New Password",
+      "Create new password here": "Create new password here",
+      "New password": "New password",
+      "Confirm new password": "Confirm new password",
+      // Forgot password screen
+      "Verification": "Verification",
+      "Reset Password": "Reset Password",
+      "Enter your mobile number": "Enter your mobile number",
+      "Enter your Email": "Enter your Email",
+      "Verify with Email": "Verify with Email",
+      "Verify with Phone": "Verify with Phone",
+      "OTP reset code has been sent to": "OTP reset code has been sent to",
+      "Please enter the code below": "Please enter the code below",
+      "Times remaining": "Times remaining",
     },
   };
 }

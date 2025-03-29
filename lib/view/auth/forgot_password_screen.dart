@@ -22,7 +22,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(!isReset ? "Verification" : "Reset Password"),
+      appBar: customAppBar1(!isReset ? "Verification".tr : "Reset Password".tr),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -34,8 +34,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                 // Title for verification method
                 Text(
                   isPhone.value
-                      ? "Enter your mobile number"
-                      : "Enter your Email",
+                      ? "Enter your mobile number".tr
+                      : "Enter your Email".tr,
                   style: AppStyle.headerMedium5.copyWith(
                     color: AppColors.darkGray,
                   ),
@@ -61,7 +61,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
                 Obx(() {
                   return CustomButton(
-                    buttonTitle: "Next",
+                    buttonTitle: "Next".tr,
                     isLoading: controller.isLoading.value,
                     onTap: () {
                       // OTP Request Function
@@ -81,7 +81,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                       isPhone.value = !isPhone.value;
                     },
                     child: Text(
-                      isPhone.value ? "Verify with Email" : "Verify with Phone",
+                      isPhone.value
+                          ? "Verify with Email".tr
+                          : "Verify with Phone".tr,
                       style: AppStyle.baseMedium.copyWith(
                         color: AppColors.primary,
                       ),
