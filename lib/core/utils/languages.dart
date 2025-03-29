@@ -194,6 +194,194 @@ class Languages extends Translations {
       "CCV Code": "CCV Code",
       "Expiry Date": "Expiry Date",
     },
-    'tr_TR': {},
+    'tr_TR': {
+      // Common
+      "Next": "İleri",
+      "Done": "Tamam",
+      "resend": "Yeniden Gönder",
+      "Create Carpool": "Araba Paylaşımı Oluştur",
+      "New child": "Yeni çocuk",
+      "Add new child(ren)": "Yeni çocuk(lar) ekle",
+      "My Role": "Rolüm",
+      "What": "Ne",
+      "Okay": "Tamam",
+      "Later": "Sonra",
+      "Send": "Gönder",
+      "Invites": "Davetler",
+      "Search": "Ara",
+
+      // Sign in and Sign up screen
+      "Sign Up Your Account": "Hesabınızı Oluşturun",
+      "Sign In Your Account": "Hesabınıza Giriş Yapın",
+      "First Name": "Ad",
+      "Last Name": "Soyad",
+      "Email": "E-posta",
+      "Password": "Şifre",
+      "Forgot Password?": "Şifrenizi mi Unuttunuz?",
+      "Remember Me": "Beni Hatırla",
+      "Agreement":
+          "HadiKid'in Kullanım Şartları ve Gizlilik Politikasını kabul ediyorum",
+      "Already have an account?": "Zaten bir hesabınız var mı?",
+      "Dont have an account?": "Hesabınız yok mu?",
+      "Sign Up": "Kayıt Ol",
+      "Sign In": "Giriş Yap",
+
+      // Add a child screen
+      "Add a child": "Çocuk Ekle",
+      "Child's first name": "Çocuğun Adı",
+      "child's last name": "Çocuğun Soyadı",
+      "child's school name": "Çocuğun Okul Adı",
+      "Add child": "Çocuk Ekle",
+
+      // Create new password screen
+      "Create New Password": "Yeni Şifre Oluştur",
+      "Create new password here": "Burada yeni şifre oluşturun",
+      "New password": "Yeni şifre",
+      "Confirm new password": "Yeni şifreyi onayla",
+
+      // Forgot password screen
+      "Verification": "Doğrulama",
+      "Reset Password": "Şifreyi Sıfırla",
+      "Enter your mobile number": "Telefon numaranızı girin",
+      "Enter your Email": "E-postanızı girin",
+      "Verify with Email": "E-posta ile Doğrula",
+      "Verify with Phone": "Telefon ile Doğrula",
+      "OTP reset code has been sent to": "OTP sıfırlama kodu gönderildi:",
+      "Please enter the code below": "Lütfen aşağıdaki kodu girin",
+      "Times remaining": "Kalan süre",
+
+      // Welcome screens
+      "How to Works": "Nasıl Çalışır?",
+      "Create a carpool between two points.":
+          "İki nokta arasında araba paylaşımı oluşturun.",
+      "Invite your friends to carpool with you.":
+          "Arkadaşlarınızı araba paylaşımına davet edin.",
+      "Friends join and add their child's location.":
+          "Arkadaşlar katılsın ve çocuklarının konumunu eklesin.",
+      "Parents Volunteer to Drive. We Send reminders and optimized routes.":
+          "Ebeveynler Sürücü Olarak Gönüllü Olsun. Biz hatırlatmalar ve optimize edilmiş rotalar gönderiyoruz.",
+      "Step": "Adım",
+      "Welcome to HadiKid": "HadiKid'e Hoş Geldiniz",
+      "Let's get you started. No carpools yet! Get started by creating a carpool and sending invite.":
+          "Başlayalım. Henüz araba paylaşımı yok! Bir araba paylaşımı oluşturarak ve davetiye göndererek başlayın.",
+
+      // Create carpool screens
+      "Which child(ren) will attend the event?*":
+          "Hangi çocuk(lar) etkinliğe katılacak?*",
+      "Event Name": "Etkinlik Adı",
+      "Where": "Nerede",
+      "Start Location": "Başlangıç Konumu",
+      "End Location": "Bitiş Konumu",
+      "Would you like to set this location as your home address?":
+          "Bu konumu ev adresiniz olarak ayarlamak ister misiniz?",
+      "When": "Ne zaman",
+      "Does not repeat": "Tekrarlanmaz",
+      "Daily": "Günlük",
+      "Every week": "Haftalık",
+      "Custom": "Özel",
+      'Create return trip': 'Dönüş yolculuğu oluştur',
+      "Enter Return date": "Dönüş tarihini girin",
+      "Preview & Invites": "Önizleme & Davetler",
+      "Invite": "Davet Et",
+      "Searching the parent": "Ebeveyn aranıyor",
+      "Add Contacts": "Kişi Ekle",
+      "Add Message": "Mesaj Ekle",
+      "Carpool Details": "Araba Paylaşım Detayları",
+      "From": "Başlangıç",
+      "To": "Bitiş",
+      "On": "Tarih",
+      "Edit": "Düzenle",
+      "Back To Home": "Ana Sayfaya Dön",
+      "Invitation is Successfull": "Davet Başarılı",
+      "Invita": "Davetiye",
+
+      // Find Family screen
+      "Find Families": "Aile Bul",
+
+      // Inbox Screen
+      "Inbox": "Gelen Kutusu",
+      "Chats": "Sohbetler",
+      "Invitations": "Davetler",
+      'No chats yet': 'Henüz sohbet yok',
+      'No invitations yet': 'Henüz davet yok',
+      "Message": "Mesaj",
+
+      // Schedule Screen
+      "Schedule": "Program",
+      "Attending": "Katılıyor",
+      "Driving": "Sürüş",
+
+      // Account Setting Screen
+      "Account Settings": "Hesap Ayarları",
+      'Notification of Changes': 'Değişiklik Bildirimleri',
+      'Changes to carpools I set up':
+          'Oluşturduğum araba paylaşımlarındaki değişiklikler',
+      'Changes affecting my family': 'Ailemi etkileyen değişiklikler',
+      'Changes affecting my driving': 'Sürüşümü etkileyen değişiklikler',
+      'Driving Reminders': 'Sürüş Hatırlatıcıları',
+      "minutes before": "dakika önce",
+      "hour before": "saat önce",
+      "hours before": "saat önce",
+      'Carpool Notes Notifications': 'Araba Paylaşım Notu Bildirimleri',
+      'Notify me of new messages': 'Yeni mesajlar için beni bilgilendir',
+      'Child Pickup / Drop-off': 'Çocuk Alma/Bırakma',
+      'Preference': 'Tercih',
+      'Receive notifications and invitations via:':
+          'Bildirim ve davetleri şu yolla al:',
+      "Push": "Push",
+      "Manage Subscription": "Aboneliği Yönet",
+      "Edit Child": "Çocuğu Düzenle",
+      "School Name": "Okul Adı",
+      "Save": "Kaydet",
+
+      // Languages screen
+      "Language": "Dil",
+
+      // Menu Screen
+      'My Carpools': 'Araba Paylaşımlarım',
+      'My Profile': 'Profilim',
+      'My Contact List': 'Kişi Listem',
+      'Account Setting': 'Hesap Ayarları',
+      'Payment': 'Ödeme',
+      'Support': 'Destek',
+      'Privacy Policy': 'Gizlilik Politikası',
+      'Terms & Conditions': 'Kullanım Şartları',
+      'Share HadiKid with Friends': 'HadiKid\'i Arkadaşlarınla Paylaş',
+      "Logout": "Çıkış Yap",
+      "Are you sure you want to logout?":
+          "Çıkış yapmak istediğinizden emin misiniz?",
+      "Delete Account": "Hesabı Sil",
+      "Are you sure you want to delete your account?":
+          "Hesabınızı silmek istediğinizden emin misiniz?",
+      "Delete": "Sil",
+      'Cancel': 'İptal',
+      "As a Driver": "Sürücü Olarak",
+      "History": "Geçmiş",
+      "Upcoming": "Yaklaşan",
+      'No data yet': 'Henüz veri yok',
+
+      // my information
+      "My Children": "Çocuklarım",
+      "My contact list": "Kişi listem",
+      "My Information": "Bilgilerim",
+      "Packages": "Paketler",
+      "Hadikid Free": "Hadikid Ücretsiz",
+      "Hadikid Premium": "Hadikid Premium",
+      'HadiKid No Ads': 'HadiKid Reklamsız',
+
+      // Packages screen
+      'Add message': 'Mesaj ekle',
+      'Carpool History': 'Araba Paylaşım Geçmişi',
+      'Added Notification': 'Bildirim Eklendi',
+      'Live Tracking': 'Canlı Takip',
+      "Upgrade plan": "Planı yükselt",
+
+      // Payment screen
+      "Update": "Güncelle",
+      "Card Holder Name": "Kart Sahibi Adı",
+      "Card Number": "Kart Numarası",
+      "CCV Code": "CCV Kodu",
+      "Expiry Date": "Son Kullanma Tarihi",
+    },
   };
 }
