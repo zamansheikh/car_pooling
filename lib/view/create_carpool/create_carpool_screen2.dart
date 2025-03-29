@@ -17,7 +17,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create Carpool"),
+      appBar: customAppBar1("Create Carpool".tr),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
@@ -30,9 +30,9 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 Row(
                   spacing: 4.w,
                   children: [
-                    Text("What", style: AppStyle.largeMedium),
+                    Text("What".tr, style: AppStyle.largeMedium),
                     Text(
-                      "(Event Name)",
+                      "(${"Event Name".tr})",
                       style: AppStyle.baseRegular.copyWith(
                         color: AppColors.gray,
                       ),
@@ -42,24 +42,25 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.eventNameController,
-                  title: "Event Name",
+                  hintText: "Event Name".tr,
                 ),
                 SizedBox(height: 24.h),
                 // Where
-                Text("Where", style: AppStyle.largeMedium),
+                Text("Where".tr, style: AppStyle.largeMedium),
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.startLocationController,
-                  title: "Start Location",
+                  hintText: "Start Location".tr,
                 ),
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.endLocationController,
-                  title: "End Location",
+                  hintText: "End Location".tr,
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  "Would you like to set this location as your home address?",
+                  "Would you like to set this location as your home address?"
+                      .tr,
                   style: AppStyle.baseSmallRegular.copyWith(
                     color: AppColors.gray,
                   ),
@@ -71,7 +72,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     InkWell(
                       onTap: () {},
                       child: Text(
-                        "Okay",
+                        "Okay".tr,
                         style: AppStyle.baseRegular.copyWith(
                           color: AppColors.primary,
                         ),
@@ -80,7 +81,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     InkWell(
                       onTap: () {},
                       child: Text(
-                        "Later",
+                        "Later".tr,
                         style: AppStyle.baseRegular.copyWith(
                           color: AppColors.primary,
                         ),
@@ -89,7 +90,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 24.h),
-                Text("When", style: AppStyle.largeMedium),
+                Text("When".tr, style: AppStyle.largeMedium),
                 // ==========>>>>>>>>> repeat option selector <<<<<<<<=========
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -101,8 +102,8 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildOption("Does not repeat"),
-                            buildOption("Daily"),
+                            buildOption("Does not repeat".tr),
+                            buildOption("Daily".tr),
                           ],
                         ),
                         Column(
@@ -143,7 +144,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      'Create return trip',
+                      'Create return trip'.tr,
                       style: TextStyle(
                         fontSize: 18.0,
                       ), // Adjust font size as needed
@@ -168,7 +169,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     Flexible(
                       child: CustomDateInput(
                         dateController: controller.returnDateController,
-                        hintText: "Enter Return date...",
+                        hintText: "${"Enter Return date".tr}...",
                       ),
                     ),
                     Flexible(
@@ -185,7 +186,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
                 CustomButton(
-                  buttonTitle: "Preview & Invites",
+                  buttonTitle: "Preview & Invites".tr,
                   isRounded: false,
                   onTap: () {
                     controller.previewAndInvites(_formKey);
@@ -221,7 +222,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
               ),
             ),
             Text(
-              option,
+              option.tr,
               style: AppStyle.baseMedium.copyWith(color: AppColors.darkGray),
             ),
           ],

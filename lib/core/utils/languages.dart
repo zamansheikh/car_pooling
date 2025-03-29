@@ -12,6 +12,9 @@ class Languages extends Translations {
       "New child": "New child",
       "Add new child(ren)": "Add new child(ren)",
       "My Role": "My Role",
+      "What": "What",
+      "Okay": "Okay",
+      "Later": "Later",
 
       // Sign in and Sign up screen
       "Sign Up Your Account": "Set Up Your Account",
@@ -72,6 +75,22 @@ class Languages extends Translations {
       // Create carpool screen 01
       "Which child(ren) will attend the event?*":
           "Which child(ren) will attend the event?*",
+
+      // Create carpool screen 02
+      "Event Name": "Event Name",
+      "Where": "Where",
+      "Start Location": "Start Location",
+      "End Location": "End Location",
+      "Would you like to set this location as your home address?":
+          "Would you like to set this location as your home address?",
+      "When": "When",
+      "Does not repeat": "Does not repeat",
+      "Daily": "Daily",
+      "Every week": "Every week",
+      "Custom": "Custom",
+      'Create return trip': 'Create return trip',
+      "Enter Return date": "Enter Return date",
+      "Preview & Invites": "Preview & Invites",
     },
     'tr_TR': {},
   };
