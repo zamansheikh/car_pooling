@@ -175,6 +175,24 @@ class Languages extends Translations {
       "My Children": "My Children",
       "My contact list": "My contact list",
       "My Information": "My Information",
+      "Packages": "Packages",
+      "Hadikid Free": "Hadikid Free",
+      "Hadikid Premium": "Hadikid Premium",
+      'HadiKid No Ads': 'HadiKid No Ads',
+
+      // Packages screen
+      'Add message': 'Add message',
+      'Carpool History': 'Carpool History',
+      'Added Notification': 'Added Notification',
+      'Live Tracking': 'Live Tracking',
+      "Upgrade plan": "Upgrade plan",
+
+      // Payment screen
+      "Update": "Update",
+      "Card Holder Name": "Card Holder Name",
+      "Card Number": "Card Number",
+      "CCV Code": "CCV Code",
+      "Expiry Date": "Expiry Date",
     },
     'tr_TR': {},
   };
