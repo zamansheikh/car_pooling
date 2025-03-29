@@ -18,10 +18,10 @@ class ScheduleScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: customAppBar1(
-          "Schedule",
+          "Schedule".tr,
           hasBack: false,
           hasTabBar: true,
-          tabs: [Tab(text: "Attending"), Tab(text: "Driving")],
+          tabs: [Tab(text: "Attending".tr), Tab(text: "Driving".tr)],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),

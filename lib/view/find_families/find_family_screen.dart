@@ -13,7 +13,7 @@ class FindFamilyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Find Families", hasBack: false),
+      appBar: customAppBar1("Find Families".tr, hasBack: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
         child: Column(
@@ -22,7 +22,7 @@ class FindFamilyScreen extends StatelessWidget {
             CustomInputField(
               controller: controller.familySearchController,
               prefixIcon: AppIcons.serchIcon,
-              hintText: "Search...",
+              hintText: "${"Search".tr}...",
             ),
             SizedBox(height: 12.h),
             Obx(() {

@@ -20,7 +20,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Invite"),
+      appBar: customAppBar1("Invite".tr),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
         child: Column(
@@ -30,7 +30,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
             SizedBox(height: 12.h),
             CustomInputField(
               controller: controller.searchContactController,
-              hintText: "Searching the parent",
+              hintText: "Searching the parent".tr,
               prefixIcon: AppIcons.serchIcon,
             ),
             SizedBox(height: 24.h),
@@ -97,7 +97,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                       spacing: 12,
                       children: [
                         Icon(Icons.add),
-                        Text("Add Contacts", style: AppStyle.baseMedium),
+                        Text("Add Contacts".tr, style: AppStyle.baseMedium),
                       ],
                     ),
                   ),
@@ -106,7 +106,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
             ),
             SizedBox(height: 24.h),
             // Add message goes here
-            Text("Add Message", style: AppStyle.largeMedium),
+            Text("Add Message".tr, style: AppStyle.largeMedium),
             SizedBox(height: 12.h),
             CustomInputField(
               controller: controller.addMessageController,
@@ -123,21 +123,21 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 8.h,
                     children: [
-                      Text("Carpool Details", style: AppStyle.largeMedium),
+                      Text("Carpool Details".tr, style: AppStyle.largeMedium),
                       buildDetails(
-                        key: "Event Name",
+                        key: "Event Name".tr,
                         value: controller.eventNameController.text,
                       ),
                       buildDetails(
-                        key: "From",
+                        key: "From".tr,
                         value: controller.startLocationController.text,
                       ),
                       buildDetails(
-                        key: "To",
+                        key: "To".tr,
                         value: controller.endLocationController.text,
                       ),
                       buildDetails(
-                        key: "On",
+                        key: "On".tr,
                         value:
                             "${controller.returnDateController.text} at ${controller.timePicker.value.hour % 12}:${controller.timePicker.value.minute} ${controller.timePicker.value.period == DayPeriod.pm ? "PM" : "AM"}",
                       ),
@@ -146,7 +146,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                   GestureDetector(
                     onTap: () => Get.back(),
                     child: Text(
-                      "Edit",
+                      "Edit".tr,
                       style: AppStyle.baseMedium.copyWith(
                         color: AppColors.primary,
                       ),
@@ -157,15 +157,16 @@ class CreateCarpoolScreen3 extends StatelessWidget {
             ),
             SizedBox(height: 24.h),
             CustomButton(
-              buttonTitle: "Send ${controller.myContact.length} Invites",
+              buttonTitle:
+                  "${"Send".tr} ${controller.myContact.length} ${"Invites".tr}",
               onTap: () {
                 showDialog(
                   context: Get.context!,
                   builder: (context) {
                     return customAlertDialog(
                       asset: AppIcons.congratsIcon,
-                      buttonText: "Back To Home",
-                      content: "Invitation is Successfull",
+                      buttonText: "Back To Home".tr,
+                      content: "Invitation is Successfull".tr,
                       title: "Invita",
                       route: () {
                         Get.toNamed(AppRoutes.homeSCreen);

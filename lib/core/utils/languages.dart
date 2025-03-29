@@ -15,6 +15,10 @@ class Languages extends Translations {
       "What": "What",
       "Okay": "Okay",
       "Later": "Later",
+      "Send": "Send",
+      "Invites": "Invites",
+
+      "Search": "Search",
 
       // Sign in and Sign up screen
       "Sign Up Your Account": "Set Up Your Account",
@@ -91,6 +95,35 @@ class Languages extends Translations {
       'Create return trip': 'Create return trip',
       "Enter Return date": "Enter Return date",
       "Preview & Invites": "Preview & Invites",
+      // Create carpool screen 03
+      "Invite": "Invite",
+      "Searching the parent": "Searching the parent",
+      "Add Contacts": "Add Contacts",
+      "Add Message": "Add Message",
+      "Carpool Details": "Carpool Details",
+      "From": "From",
+      "To": "To",
+      "On": "On",
+      "Edit": "Edit",
+      "Back To Home": "Back To Home",
+      "Invitation is Successfull": "Invitation is Successfull",
+      "Invita": "Invita",
+
+      // Find Family screen
+      "Find Families": "Find Families",
+
+      // Inbox Screen
+      "Inbox": "Inbox",
+      "Chats": "Chats",
+      "Invitations": "Invitations",
+      'No chats yet': 'No chats yet',
+      'No invitations yet': 'No invitations yet',
+      "Message": "Message",
+
+      // Schedule Screen
+      "Schedule": "Schedule",
+      "Attending": "Attending",
+      "Driving": "Driving",
     },
     'tr_TR': {},
   };

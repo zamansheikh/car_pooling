@@ -14,7 +14,7 @@ class MessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: customAppBar1("Chat"),
+      appBar: customAppBar1("Chats".tr),
       body: Column(
         children: [
           // Chat Messages
@@ -65,7 +65,7 @@ class MessagesScreen extends StatelessWidget {
                   child: TextField(
                     controller: controller.textController,
                     decoration: InputDecoration(
-                      hintText: 'Message...',
+                      hintText: '${"Message".tr}...',
                       hintStyle: TextStyle(color: Colors.black54),
                       filled: true,
                       fillColor: Colors.grey[200],
