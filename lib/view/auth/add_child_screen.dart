@@ -33,7 +33,14 @@ class AddChildScreen extends StatelessWidget {
                   spacing: 4.h,
                   children:
                       controller.childList
-                          .map((el) => ChildCard(el: el))
+                          .map(
+                            (el) => ChildCard(
+                              el: el,
+                              onTapDelete: () {
+                                controller.childList.remove(el);
+                              },
+                            ),
+                          )
                           .toList(),
                 );
               }),

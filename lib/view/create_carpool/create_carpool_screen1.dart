@@ -54,11 +54,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                     }),
                     GestureDetector(
                       onTap: () {
-                        // TODO: take the user to add child screen
-                        controller.availableChildren.add(
-                          ChildModel(fullName: "New child".tr),
-                        );
-                        controller.availableChildren.refresh();
+                        Get.toNamed(AppRoutes.editChild);
                       },
                       // This row is the button to add more children
                       child: Row(
@@ -80,22 +76,23 @@ class CreateCarpoolScreen1 extends StatelessWidget {
               SizedBox(height: 24.h),
               Text("My Role".tr, style: AppStyle.largeMedium),
               SizedBox(height: 12.h),
+
               // =========>>>>>>>>> Choose my role <<<<<<<<<=========
-              // TODO: Implment chosing only one, stop multiple chosing
               OptionWrapper(
                 child: Obx(() {
                   return Column(
-                    children: List.generate(controller.myRole.length, (index) {
-                      final el = controller.myRole[index];
+                    children: List.generate(["Attend", "Drive"].length, (
+                      index,
+                    ) {
+                      final el = ["Attend", "Drive"][index];
                       return BuildOptionChildrenRole(
                         onChange: (val) {
                           if (val != null) {
-                            el.isSelected = val;
-                            controller.myRole.refresh();
+                            controller.mySelectedRole.value = el;
                           }
                         },
-                        status: el.isSelected,
-                        title: el.name,
+                        status: controller.mySelectedRole.value == el,
+                        title: el,
                         showDivider: index != (controller.myRole.length - 1),
                       );
                     }),
