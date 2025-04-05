@@ -18,7 +18,7 @@ AppBar customAppBar1(
   return AppBar(
     backgroundColor: AppColors.white,
     elevation: hasShadow ? 3.0 : 0,
-    shadowColor: hasShadow ? Colors.black.withOpacity(0.7) : null,
+    shadowColor: hasShadow ? Colors.black.withAlpha((0.7 * 255).toInt()) : null,
     leading:
         hasBack
             ? GestureDetector(

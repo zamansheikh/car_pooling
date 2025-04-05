@@ -32,6 +32,9 @@ class MenuProfileController extends GetxController {
   Rx<File?> profileImage = Rx<File?>(null);
   RxBool homeAddressVisible = false.obs;
 
+  RxString dropDownAddressType = "Home".obs;
+  RxString dropDownState = "New York".obs;
+
   // Account Setting variables
   RxBool isLimitedAccess = true.obs;
   RxString isYearly = "Yearly".obs;

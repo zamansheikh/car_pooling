@@ -14,14 +14,21 @@ class MyChildrenScreen extends StatelessWidget {
       appBar: customAppBar1("My Children".tr),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-        child: ListView.builder(
-          itemCount: controller.myChildrenList.length,
+        child: Obx(() {
+          return ListView.builder(
+            itemCount: controller.myChildrenList.length,
 
-          itemBuilder: (context, index) {
-            final child = controller.myChildrenList[index];
-            return ChildCard(el: child);
-          },
-        ),
+            itemBuilder: (context, index) {
+              final child = controller.myChildrenList[index];
+              return ChildCard(
+                el: child,
+                onTapDelete: () {
+                  controller.myChildrenList.removeAt(index);
+                },
+              );
+            },
+          );
+        }),
       ),
     );
   }

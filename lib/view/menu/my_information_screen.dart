@@ -1,5 +1,7 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/components/custom_button.dart';
+import 'package:car_pooling/core/components/custom_dropdown.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/components/custom_phone_input.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
@@ -62,9 +64,57 @@ class MyInformationScreen extends StatelessWidget {
                 ),
 
                 CustomPhoneInputField(controller: controller.phoneController),
-                // TODO: Continue working in this page
 
-                // homeAddressSection(),
+                Obx(
+                  () => CustomDropDownInput(
+                    options: ["Home", "Office"],
+                    initialValue: controller.dropDownAddressType.value,
+                    onChanged: (str) {
+                      controller.dropDownAddressType.value = str!;
+                    },
+                  ),
+                ),
+
+                CustomInputField(
+                  controller: TextEditingController(),
+                  hintText: "9",
+                ),
+
+                CustomInputField(
+                  controller: TextEditingController(),
+                  hintText: "New York",
+                ),
+
+                Obx(
+                  () => CustomDropDownInput(
+                    options: ["New York", "New jersey"],
+                    initialValue: controller.dropDownState.value,
+                    onChanged: (str) {
+                      controller.dropDownState.value = str!;
+                    },
+                  ),
+                ),
+
+                CustomInputField(
+                  controller: TextEditingController(),
+                  hintText: "3313",
+                ),
+                // Add Address button
+                GestureDetector(
+                  onTap: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(),
+                      Row(
+                        spacing: 6,
+                        children: [Icon(Icons.add), Text("add address")],
+                      ),
+                    ],
+                  ),
+                ),
+                //  Save button
+                CustomButton(buttonTitle: "Done", onTap: () {}),
               ],
             ),
           ],

@@ -10,9 +10,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class ChildCard extends StatelessWidget {
-  const ChildCard({super.key, required this.el});
+  const ChildCard({super.key, required this.el, this.onTapDelete});
 
   final ChildModel el;
+  final VoidCallback? onTapDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,11 @@ class ChildCard extends StatelessWidget {
                 onTap: () => Get.toNamed(AppRoutes.editChild),
                 child: SvgPicture.asset(AppIcons.editIcon),
               ),
-              SvgPicture.asset(AppIcons.deleteIcon),
+              if (onTapDelete != null)
+                InkWell(
+                  onTap: onTapDelete,
+                  child: SvgPicture.asset(AppIcons.deleteIcon),
+                ),
             ],
           ),
         ],
