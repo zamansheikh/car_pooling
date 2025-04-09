@@ -13,6 +13,7 @@ void main() {
       minTextAdapt: true,
       builder: (context, child) {
         return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
           translations: Languages(),
           locale: const Locale('en', 'US'),
           fallbackLocale: const Locale('en', 'US'),

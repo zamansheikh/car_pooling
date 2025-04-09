@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:car_pooling/core/helper/prefs_helper.dart';
 import 'package:car_pooling/model/carpool_model.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
@@ -24,7 +25,7 @@ class MenuProfileController extends GetxController {
   final TextEditingController ccvCodeController = TextEditingController();
 
   // Observable variables
-  RxString selectedLanguage = 'English (EN)'.obs;
+  RxString selectedLanguage = ''.obs;
 
   RxList<CarpoolModel> myCarPoolHistory = <CarpoolModel>[].obs;
   RxList<ChildModel> myChildrenList = <ChildModel>[].obs;
@@ -96,8 +97,20 @@ class MenuProfileController extends GetxController {
   }
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+
+    final lang = await PrefsHelper.getString(PrefsKey.language);
+    if (lang.isNotEmpty) {
+      selectedLanguage.value = lang;
+      if (lang == "Türkçe") {
+        Get.updateLocale(const Locale("tr", "TR"));
+      } else {
+        Get.updateLocale(const Locale("en", "US"));
+      }
+    } else {
+      selectedLanguage.value = 'English (EN)';
+    }
     // Initialize your data or perform any setup here
     fetchCarPoolHistory();
     fetchMyChildrenData();
