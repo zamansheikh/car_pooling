@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:car_pooling/core/constant/api_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jovial_svg/jovial_svg.dart';
 
 String imageUrl(String? url) {
   if (url == null || url.isEmpty) {
@@ -23,6 +26,23 @@ Widget svgViewer({
     asset,
     height: height,
     width: width,
+    // Only apply colorFilter if a color is provided
+    colorFilter:
+        color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
+  );
+}
+
+Widget svgNetworkViewer({
+  required String asset,
+  double? height,
+  double? width,
+  Color? color,
+}) {
+  return JovialSvgPicture.network(
+    asset,
+    height: height,
+    width: width,
+    // Only apply colorFilter if a color is provided
     colorFilter:
         color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
   );
