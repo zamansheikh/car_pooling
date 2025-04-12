@@ -1,4 +1,6 @@
 import 'package:car_pooling/core/constant/api_constants.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 String imageUrl(String? url) {
   if (url == null || url.isEmpty) {
@@ -9,4 +11,19 @@ String imageUrl(String? url) {
     }
     return ApiConstants.baseAssetURL + url;
   }
+}
+
+Widget svgViewer({
+  required String asset,
+  double? height,
+  double? width,
+  Color? color,
+}) {
+  return SvgPicture.asset(
+    asset,
+    height: height,
+    width: width,
+    colorFilter:
+        color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
+  );
 }
