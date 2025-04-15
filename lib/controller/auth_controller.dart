@@ -110,6 +110,7 @@ class AuthController extends GetxController {
     Get.to(
       OtpScreen(
         isReset: isReset,
+        isPhone: isPhone,
         sendTo: isPhone ? phoneController.text : emailController.text,
       ),
     );
@@ -172,7 +173,7 @@ class AuthController extends GetxController {
       );
     }
 
-    showCustomSnackBar("OTP Confirmed", isError: false);
+    showCustomSnackBar("OTP Confirmed!", isError: false);
     clearControllers();
   }
 

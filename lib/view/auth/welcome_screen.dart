@@ -12,6 +12,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: SizedBox(
           width: Get.width,
@@ -31,11 +32,14 @@ class WelcomeScreen extends StatelessWidget {
                 child: Column(
                   spacing: 16.h,
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
+                    Image.asset("assets/common/logo.png"),
+                    SizedBox(height: 64.h),
                     Text(
                       "How to Works".tr,
                       style: AppStyle.headerRegular3.copyWith(
-                        color: AppColors.primary,
+                        color: AppColors.primaryDark,
                       ),
                     ),
 
@@ -82,7 +86,7 @@ class WelcomeScreen extends StatelessWidget {
         ),
         Text(
           body,
-          style: AppStyle.baseMedium.copyWith(color: AppColors.primaryDark),
+          style: AppStyle.baseMedium.copyWith(color: AppColors.primary),
         ),
       ],
     );

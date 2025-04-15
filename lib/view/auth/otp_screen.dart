@@ -9,8 +9,14 @@ import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatelessWidget {
-  OtpScreen({super.key, required this.isReset, required this.sendTo});
+  OtpScreen({
+    super.key,
+    required this.isReset,
+    required this.sendTo,
+    required this.isPhone,
+  });
   final bool isReset;
+  final bool isPhone;
   // This variable only shows which number/email the otp has been sent to
   final String sendTo;
 
@@ -29,7 +35,9 @@ class OtpScreen extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "${"An OTP code has been sent to".tr} $sendTo ${" to reset password. If you don't see it in your inbox, please check your junk or spam folder. Enter the code below to continue.".tr}",
+                    !isPhone
+                        ? "${"An OTP code has been sent to".tr} $sendTo ${" to reset password. If you don't see it in your inbox, please check your junk or spam folder. Enter the code below to continue.".tr}"
+                        : "${"An OTP code has been sent to".tr} $sendTo ${" to reset your password. Enter the code below to continue.".tr}",
                     style: AppStyle.baseRegular.copyWith(
                       color: AppColors.darkGray,
                     ),
