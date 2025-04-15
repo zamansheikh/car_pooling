@@ -109,7 +109,7 @@ class AuthController extends GetxController {
 
     Get.to(
       OtpScreen(
-        isReset: false,
+        isReset: isReset,
         sendTo: isPhone ? phoneController.text : emailController.text,
       ),
     );
@@ -196,10 +196,10 @@ class AuthController extends GetxController {
       context: Get.context!,
       builder: (BuildContext context) {
         return customAlertDialog(
-          title: "Password Changed",
-          content: "You have succesfully chamged your password",
+          title: "Password Changed!",
+          content: "You have successfully changed your password",
           asset: AppIcons.congratsIcon,
-          buttonText: "Ok",
+          buttonText: "OK",
           route: () => Get.toNamed(AppRoutes.signIn),
         );
       },

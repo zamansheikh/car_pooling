@@ -74,11 +74,7 @@ class CustomInputField extends StatelessWidget {
                     controller: controller,
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
-                      hintText:
-                          hintText ??
-                          (title != null
-                              ? "Enter your $title..."
-                              : "Enter here...."),
+                      hintText: hintText ?? title ?? "",
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                     ),

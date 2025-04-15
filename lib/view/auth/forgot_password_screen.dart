@@ -22,7 +22,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(!isReset ? "Verification".tr : "Reset password".tr),
+      appBar: customAppBar1(isReset ? "Reset password".tr : "Verification".tr),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
