@@ -1,9 +1,10 @@
+import 'dart:io';
+
 import 'package:car_pooling/core/constant/app_assets.dart';
-import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/core/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:vector_graphics/vector_graphics_compat.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -16,8 +17,14 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(48.0),
-          child: Center(child: svgViewer(asset: AppAssets.logo)),
+          padding: EdgeInsets.all(48.0),
+          child: Center(
+            child: VectorGraphic(
+              height: 200,
+              width: 200,
+              loader: SvgFileLoader(File(AppAssets.logo)),
+            ),
+          ),
         ),
       ),
     );
