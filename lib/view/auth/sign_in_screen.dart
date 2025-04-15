@@ -64,7 +64,7 @@ class SignInScreen extends StatelessWidget {
                                   );
                                 }),
                                 Text(
-                                  "Remember Me".tr,
+                                  "Remember me".tr,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
@@ -77,7 +77,7 @@ class SignInScreen extends StatelessWidget {
                                 Get.to(ForgotPasswordScreen(isReset: true));
                               },
                               child: Text(
-                                "Forget Password?".tr,
+                                "Forgot password?".tr,
                                 style: AppStyle.baseSmallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),

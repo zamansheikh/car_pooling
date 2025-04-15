@@ -48,7 +48,7 @@ class AuthController extends GetxController {
 
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
-    showCustomSnackBar("User Signed in successfully", isError: false);
+    showCustomSnackBar("Signed in successfully", isError: false);
     clearControllers();
     Get.toNamed(AppRoutes.homeSCreen);
   }
@@ -109,7 +109,7 @@ class AuthController extends GetxController {
 
     Get.to(
       OtpScreen(
-        isReset: isReset,
+        isReset: false,
         sendTo: isPhone ? phoneController.text : emailController.text,
       ),
     );
@@ -146,7 +146,7 @@ class AuthController extends GetxController {
 
   Future confirmOTP({sendTo, isReset}) async {
     if (otpController.text.length < 4) {
-      showCustomSnackBar("Eter otp");
+      showCustomSnackBar("Enter OTP", isError: true);
       return;
     }
     final body = {"otp": int.parse(otpController.text), "sendTo": sendTo};
