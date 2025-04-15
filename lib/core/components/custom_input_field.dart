@@ -100,9 +100,9 @@ class CustomInputField extends StatelessWidget {
                         }
                       }
                       if (isPassword) {
-                        if (value.length < 8) {
+                        if (!RegexValidators.isValidPassword(value)) {
                           // password validating on length
-                          return "Please Enter valid $value";
+                          return "Must be 8+ chars with upper, lower, number & symbol.";
                         }
                       }
                       // default return of null

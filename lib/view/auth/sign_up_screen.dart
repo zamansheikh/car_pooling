@@ -24,11 +24,12 @@ class SignUpScreen extends StatelessWidget {
           // The list view is used to shift the layout at the bottom and enable scrolling behaviour
           child: ListView(
             // reverse is used to shift the layout at the bottom
-            reverse: true,
+            reverse: false,
             children: [
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
+                  SizedBox(height: 48.h),
                   Text(
                     "Let’s set up an account".tr,
                     style: AppStyle.headerBold2,
@@ -57,6 +58,7 @@ class SignUpScreen extends StatelessWidget {
                         CustomInputField(
                           controller: controller.passwordController,
                           hintText: "Password".tr,
+                          isPassword: true,
                         ),
                         SizedBox(height: 12.h),
                         // =================>>>>>>>>>>>>> Terms & Conditions <<<<<<<<<<<<<===============

@@ -23,12 +23,13 @@ class SignInScreen extends StatelessWidget {
           // The list view is used to shift the layout at the bottom and enable scrolling behaviour
           child: ListView(
             // reverse is used to shift the layout at the bottom
-            reverse: true,
+            reverse: false,
             children: [
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
-                  Text("Sign In Your Account".tr, style: AppStyle.headerBold1),
+                  SizedBox(height: 72.h),
+                  Text("Sign In Your Account".tr, style: AppStyle.headerBold2),
                   SizedBox(height: 24.h),
                   Form(
                     key: _formKey,
@@ -42,6 +43,7 @@ class SignInScreen extends StatelessWidget {
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.passwordController,
+                          isPassword: true,
                           hintText: "Password".tr,
                         ),
                         // =================>>>>>>>>>>>>> Row - check, forgot <<<<<<<<<<<<<===============
