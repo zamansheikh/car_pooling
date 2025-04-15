@@ -7,6 +7,8 @@ import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -27,7 +29,10 @@ class SignUpScreen extends StatelessWidget {
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
-                  Text("Sign Up Your Account".tr, style: AppStyle.headerBold1),
+                  Text(
+                    "Let’s set up an account".tr,
+                    style: AppStyle.headerBold2,
+                  ),
                   SizedBox(height: 24.h),
                   Form(
                     key: _formKey,
@@ -56,7 +61,7 @@ class SignUpScreen extends StatelessWidget {
                         SizedBox(height: 12.h),
                         // =================>>>>>>>>>>>>> Terms & Conditions <<<<<<<<<<<<<===============
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           spacing: 4.w,
                           children: [
@@ -71,10 +76,51 @@ class SignUpScreen extends StatelessWidget {
                               );
                             }),
                             Flexible(
-                              child: Text(
-                                "Agreement".tr,
-                                style: AppStyle.baseSmallMedium.copyWith(
-                                  color: AppColors.gray,
+                              child: RichText(
+                                text: TextSpan(
+                                  text: "I agree to HadiKid's ",
+                                  style: AppStyle.baseSmallMedium.copyWith(
+                                    color: AppColors.gray,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: "Terms & Conditions",
+                                      style: AppStyle.baseSmallMedium.copyWith(
+                                        color: AppColors.primary.withOpacity(
+                                          0.8,
+                                        ),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                      recognizer:
+                                          TapGestureRecognizer()
+                                            ..onTap = () {
+                                              launchUrl(
+                                                Uri.parse(
+                                                  'https://hadikid.com/hizmet-sartlari.html',
+                                                ),
+                                              );
+                                            },
+                                    ),
+                                    TextSpan(text: " and "),
+                                    TextSpan(
+                                      text: "Privacy Policy",
+                                      style: AppStyle.baseSmallMedium.copyWith(
+                                        color: AppColors.primary.withOpacity(
+                                          0.8,
+                                        ),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                      recognizer:
+                                          TapGestureRecognizer()
+                                            ..onTap = () {
+                                              launchUrl(
+                                                Uri.parse(
+                                                  'https://hadikid.com/gizlilik-politikasi.html',
+                                                ),
+                                              );
+                                            },
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -98,7 +144,7 @@ class SignUpScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Don't have an account?".tr,
+                              "Already have an account?".tr,
                               style: AppStyle.smallRegular.copyWith(
                                 color: AppColors.gray,
                               ),
@@ -108,7 +154,7 @@ class SignUpScreen extends StatelessWidget {
                                 Get.toNamed(AppRoutes.signIn);
                               },
                               child: Text(
-                                "Sign Up".tr,
+                                "Sign In".tr,
                                 style: AppStyle.smallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),

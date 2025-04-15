@@ -57,6 +57,11 @@ class AppStyle {
     color: Colors.black,
     fontWeight: FontWeight.w700,
   );
+  static TextStyle headerBold2 = GoogleFonts.roboto(
+    fontSize: 42.sp,
+    color: Colors.black,
+    fontWeight: FontWeight.w700,
+  );
   static TextStyle headerSemibold1 = GoogleFonts.roboto(
     fontSize: 48.sp,
     color: Colors.black,
