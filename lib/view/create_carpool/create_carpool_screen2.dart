@@ -31,12 +31,12 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   spacing: 4.w,
                   children: [
                     Text("What".tr, style: AppStyle.largeMedium),
-                    Text(
-                      "(${"Event Name".tr})",
-                      style: AppStyle.baseRegular.copyWith(
-                        color: AppColors.gray,
-                      ),
-                    ),
+                    // Text(
+                    //   "(${"Event Name".tr})",
+                    //   style: AppStyle.baseRegular.copyWith(
+                    //     color: AppColors.gray,
+                    //   ),
+                    // ),
                   ],
                 ),
                 SizedBox(height: 12.h),

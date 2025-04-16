@@ -32,7 +32,10 @@ class SignUpScreen extends StatelessWidget {
                   SizedBox(height: 48.h),
                   Text(
                     "Let’s set up an account".tr,
-                    style: AppStyle.headerBold2,
+                    style: AppStyle.headerBold2.copyWith(
+                      fontSize: 32.sp,
+                      color: Color(0xFF67c28d),
+                    ),
                   ),
                   SizedBox(height: 24.h),
                   Form(

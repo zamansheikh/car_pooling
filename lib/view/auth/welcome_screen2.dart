@@ -25,18 +25,22 @@ class WelcomeScreen2 extends StatelessWidget {
                 style: AppStyle.headerBold1.copyWith(fontSize: 40.sp),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 24.h),
+              SizedBox(height: 4.h),
               Text(
-                "Let's get you started.".tr,
+                "Let's get you started!".tr,
                 style: AppStyle.baseRegular.copyWith(
                   color: AppColors.darkGray,
-                  fontSize: 40.sp,
+                  fontSize: 32.sp,
                 ),
                 textAlign: TextAlign.center,
               ),
-              Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Image.asset(AppAssets.logoPng),
+              SizedBox(
+                height: 200,
+                width: 300,
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Image.asset(AppAssets.logoPng),
+                ),
               ),
               Text(
                 "Get started by inviting friends to join your carpool.".tr,
