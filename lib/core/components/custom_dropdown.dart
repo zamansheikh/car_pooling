@@ -1,6 +1,5 @@
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustomDropDownInput extends StatelessWidget {
   /*
