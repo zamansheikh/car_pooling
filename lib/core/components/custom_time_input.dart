@@ -10,7 +10,9 @@ class CustomTimeInput extends StatelessWidget {
     super.key,
     required this.time,
     required this.onChange,
+    required this.isEnabled,
   });
+  final bool isEnabled;
 
   final Time time;
   final Function(Time) onChange;

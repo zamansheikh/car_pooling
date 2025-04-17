@@ -182,14 +182,18 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   spacing: 16.w,
                   children: [
                     Flexible(
-                      child: CustomDateInput(
-                        dateController: controller.returnDateController,
-                        hintText: "${"Enter Return date".tr}...",
-                      ),
+                      child: Obx(() {
+                        return CustomDateInput(
+                          dateController: controller.returnDateController,
+                          hintText: "${"Enter Return date".tr}...",
+                          isEnabled: controller.isReturnTrip.value,
+                        );
+                      }),
                     ),
                     Flexible(
                       child: Obx(() {
                         return CustomTimeInput(
+                          isEnabled: controller.isReturnTrip.value,
                           time: controller.timePicker.value,
                           onChange: (p0) {
                             controller.timePicker.value = p0;
