@@ -13,7 +13,7 @@ class CarpoolingController extends GetxController {
   TextEditingController returnDateController = TextEditingController();
   TextEditingController searchContactController = TextEditingController();
   TextEditingController addMessageController = TextEditingController();
-
+  RxString startLocationText = "".obs;
   RxString mySelectedRole = "Attend".obs;
 
   RxList<ChildModel> availableChildren =

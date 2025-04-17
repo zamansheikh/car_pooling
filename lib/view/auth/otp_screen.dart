@@ -30,8 +30,9 @@ class OtpScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
           child: ListView(
-            reverse: true,
+            reverse: false,
             children: [
+              SizedBox(height: 94.h),
               Column(
                 children: [
                   Text(

@@ -14,8 +14,15 @@ class CreateCarpoolScreen2 extends StatelessWidget {
   CreateCarpoolScreen2({super.key});
   final CarpoolingController controller = Get.find<CarpoolingController>();
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    // Add a listener to update an observable variable
+    controller.startLocationController.addListener(() {
+      controller.startLocationText.value =
+          controller.startLocationController.text;
+    });
+
     return Scaffold(
       appBar: customAppBar1("Create Carpool".tr),
       body: Padding(
@@ -29,15 +36,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 SizedBox(height: 24.h),
                 Row(
                   spacing: 4.w,
-                  children: [
-                    Text("What".tr, style: AppStyle.largeMedium),
-                    // Text(
-                    //   "(${"Event Name".tr})",
-                    //   style: AppStyle.baseRegular.copyWith(
-                    //     color: AppColors.gray,
-                    //   ),
-                    // ),
-                  ],
+                  children: [Text("What".tr, style: AppStyle.largeMedium)],
                 ),
                 SizedBox(height: 12.h),
                 CustomInputField(
@@ -57,39 +56,55 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   controller: controller.endLocationController,
                   hintText: "End Location".tr,
                 ),
-                SizedBox(height: 8.h),
-                Text(
-                  "Would you like to set this location as your home address?"
-                      .tr,
-                  style: AppStyle.baseSmallRegular.copyWith(
-                    color: AppColors.gray,
-                  ),
-                ),
                 SizedBox(height: 12.h),
-                Row(
-                  spacing: 24.w,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Okay".tr,
-                        style: AppStyle.baseRegular.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Later".tr,
-                        style: AppStyle.baseRegular.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 24.h),
+
+                Obx(() {
+                  return controller.startLocationText.value.length > 3
+                      ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Would you like to set this location as your home address?"
+                                .tr,
+                            style: AppStyle.baseSmallRegular.copyWith(
+                              color: AppColors.gray,
+                            ),
+                          ),
+                          SizedBox(height: 8.h),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: Row(
+                              spacing: 24.w,
+                              children: [
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    "Okay".tr,
+                                    style: AppStyle.baseRegular.copyWith(
+                                      color: AppColors.primary,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    "Later".tr,
+                                    style: AppStyle.baseRegular.copyWith(
+                                      color: AppColors.primary,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                      : SizedBox.shrink();
+                }),
+                if (controller.startLocationText.value.length > 3)
+                  SizedBox(height: 12.h),
+                if (controller.startLocationText.value.length > 3)
+                  SizedBox(height: 24.h),
                 Text("When".tr, style: AppStyle.largeMedium),
                 // ==========>>>>>>>>> repeat option selector <<<<<<<<=========
                 Column(

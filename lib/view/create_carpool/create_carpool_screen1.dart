@@ -53,7 +53,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                     }),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoutes.editChild);
+                        Get.toNamed(AppRoutes.addChild);
                       },
                       // This row is the button to add more children
                       child: Row(
