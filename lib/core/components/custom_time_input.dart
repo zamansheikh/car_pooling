@@ -21,6 +21,7 @@ class CustomTimeInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        if (!isEnabled) return;
         Navigator.of(context).push(
           showPicker(
             context: context,
@@ -39,10 +40,7 @@ class CustomTimeInput extends StatelessWidget {
           border: Border.all(color: AppColors.lightGray),
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Text(
-          "${time.hour % 12}:${time.minute} ${time.period == DayPeriod.am ? "AM" : "PM"}",
-          style: AppStyle.baseRegular,
-        ),
+        child: Text("${time.hour}:${time.minute}", style: AppStyle.baseRegular),
       ),
     );
   }

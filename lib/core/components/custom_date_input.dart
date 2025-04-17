@@ -47,9 +47,9 @@ class _CustomDateInputState extends State<CustomDateInput> {
               color: Color(0xFF333333),
             ),
           ),
-        if (widget.title.isNotEmpty) SizedBox(height: 8),
+        if (widget.title.isNotEmpty) SizedBox(height: 4),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 4.h),
+          padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 0.h),
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.lightGray),
             borderRadius: BorderRadius.circular(12),
