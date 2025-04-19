@@ -25,7 +25,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Which child(ren) will attend the event?*",
+                "Which child(ren) will attend the event?*".tr,
                 style: AppStyle.largeMedium,
               ),
               SizedBox(height: 12.h),

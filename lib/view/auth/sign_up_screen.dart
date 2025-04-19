@@ -83,13 +83,13 @@ class SignUpScreen extends StatelessWidget {
                             Flexible(
                               child: RichText(
                                 text: TextSpan(
-                                  text: "I agree to HadiKid's ",
+                                  text: "I agree to HadiKid's ".tr,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
                                   children: [
                                     TextSpan(
-                                      text: "Terms & Conditions",
+                                      text: "Terms & Conditions".tr,
                                       style: AppStyle.baseSmallMedium.copyWith(
                                         color: AppColors.primary.withOpacity(
                                           0.8,
@@ -106,9 +106,9 @@ class SignUpScreen extends StatelessWidget {
                                               );
                                             },
                                     ),
-                                    TextSpan(text: " and "),
+                                    TextSpan(text: " and ".tr),
                                     TextSpan(
-                                      text: "Privacy Policy",
+                                      text: "Privacy Policy".tr,
                                       style: AppStyle.baseSmallMedium.copyWith(
                                         color: AppColors.primary.withOpacity(
                                           0.8,
