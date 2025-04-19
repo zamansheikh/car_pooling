@@ -80,7 +80,7 @@ class AccountSettingScreen extends StatelessWidget {
 
                 // Participation Reminders Section
                 SectionContainer(
-                  title: 'Participation Reminders',
+                  title: 'Participation Reminders'.tr,
                   children: [
                     ToggleOption(
                       title: '10 ${"minutes before".tr}',

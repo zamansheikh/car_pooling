@@ -114,7 +114,7 @@ class MyInformationScreen extends StatelessWidget {
                   ),
                 ),
                 //  Save button
-                CustomButton(buttonTitle: "Done", onTap: () {}),
+                CustomButton(buttonTitle: "Done".tr, onTap: () {}),
               ],
             ),
           ],
@@ -135,10 +135,10 @@ class MyInformationScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Home Address", style: AppStyle.headerBold5),
+                Text("Home Address".tr, style: AppStyle.headerBold5),
                 SizedBox(height: 4.h),
                 Text(
-                  "Your home address will allow you to send or receive ‘Add Contact’ requests to connect with HadiKid families nearby.",
+                  "Your home address will allow you to send or receive ‘Add Contact’ requests to connect with HadiKid families nearby.".tr,
                   style: AppStyle.smallRegular.copyWith(
                     color: Colors.grey[600], // Gray color for description
                   ),

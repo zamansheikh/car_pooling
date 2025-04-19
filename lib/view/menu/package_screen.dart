@@ -43,7 +43,7 @@ class PackageScreen extends StatelessWidget {
         FeatureItem(text: 'Add message'.tr),
         SizedBox(height: 24),
         Text(
-          'Choose between monthly or yearly billing and start enjoying your premium features.',
+          'Choose between monthly or yearly billing and start enjoying your premium features.'.tr,
           style: AppStyle.baseRegular.copyWith(color: AppColors.primaryDark),
         ),
         SizedBox(height: 16),
