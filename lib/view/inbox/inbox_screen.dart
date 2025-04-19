@@ -3,6 +3,7 @@ import 'package:car_pooling/core/components/contact_card.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/model/chat_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
+import 'package:car_pooling/model/carpool_invitation_model.dart';
 import 'package:car_pooling/view/inbox/local%20components/chat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,13 +16,17 @@ class InboxScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: customAppBar1(
           "Inbox".tr,
           hasBack: false,
           hasTabBar: true,
-          tabs: [Tab(text: "Chats".tr), Tab(text: "Invitations".tr)],
+          tabs: [
+            Tab(text: "Chats".tr),
+            Tab(text: "Contact Invites".tr),
+            Tab(text: "Carpool Invites".tr),
+          ],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -29,11 +34,30 @@ class InboxScreen extends StatelessWidget {
             children: [
               buildTabView(controller.myChatLists),
               buildTabView2(controller.myContactInvitations),
+              buildTabView3(controller.myCarpoolInvitations),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget buildTabView3(List<CarpoolInvitationModel> invitations) {
+    return invitations.isEmpty
+        ? Center(child: Text('No carpool invitations yet'.tr))
+        : ListView.builder(
+          itemCount: invitations.length,
+          itemBuilder: (context, index) {
+            final item = invitations[index];
+            return ContactCard(
+              fullName: "${item.firstName} ${item.lastName}",
+              image: item.image,
+              address: item.address,
+              distance: item.distance,
+              isRequest: true,
+            );
+          },
+        );
   }
 
   Widget buildTabView(List<ChatModel> carpools) {

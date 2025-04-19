@@ -29,7 +29,13 @@ class SignInScreen extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 72.h),
-                  Text("Sign In Your Account".tr, style: AppStyle.headerBold2),
+                  Text(
+                    "Sign In Your Account".tr,
+                    style: AppStyle.headerBold2.copyWith(
+                      fontSize: 32.sp,
+                      color: Color(0xFF67c28d),
+                    ),
+                  ),
                   SizedBox(height: 24.h),
                   Form(
                     key: _formKey,

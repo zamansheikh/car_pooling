@@ -24,7 +24,7 @@ class MyPorfileScreen extends StatelessWidget {
               },
             ),
             MenuOption(
-              title: "My Children".tr,
+              title: "My Family Members".tr,
               icon: Icons.person_outline,
               onPress: () {
                 Get.toNamed(AppRoutes.myChildren);

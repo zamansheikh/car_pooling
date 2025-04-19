@@ -133,7 +133,8 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     SizedBox(height: 20),
                     // This obx detects if custom, then it'll render extra ui
                     Obx(() {
-                      if (controller.selectedOption.value != 'Custom') {
+                      if (controller.selectedOption.value != 'Custom' &&
+                          controller.selectedOption.value != 'Every week') {
                         return SizedBox.shrink();
                       }
 
@@ -191,47 +192,50 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                             }),
                           ),
                           SizedBox(height: 16.h),
-                          Text("Repeat Until".tr, style: AppStyle.baseMedium),
-                          SizedBox(height: 8.h),
-                          GestureDetector(
-                            onTap: () async {
-                              DateTime? picked = await showDatePicker(
-                                context: Get.context!,
-                                initialDate: DateTime.now(),
-                                firstDate: DateTime.now(),
-                                lastDate: DateTime(2100),
-                              );
-                              if (picked != null) {
-                                controller.customEndDate.value = picked;
-                              }
-                            },
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 12.w,
-                                vertical: 14.h,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.grey[200],
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(Icons.calendar_today, size: 20),
-                                  SizedBox(width: 8.w),
-                                  Text(
-                                    controller.customEndDate.value != null
-                                        ? controller.customEndDate.value!
-                                            .toLocal()
-                                            .toString()
-                                            .split(" ")[0]
-                                        : "Select a date".tr,
-                                    style: AppStyle.baseRegular,
-                                  ),
-                                ],
+                          if (controller.selectedOption.value != 'Every week')
+                            Text("Repeat Until".tr, style: AppStyle.baseMedium),
+                          if (controller.selectedOption.value != 'Every week')
+                            SizedBox(height: 8.h),
+                          if (controller.selectedOption.value != 'Every week')
+                            GestureDetector(
+                              onTap: () async {
+                                DateTime? picked = await showDatePicker(
+                                  context: Get.context!,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime.now(),
+                                  lastDate: DateTime(2100),
+                                );
+                                if (picked != null) {
+                                  controller.customEndDate.value = picked;
+                                }
+                              },
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 12.w,
+                                  vertical: 14.h,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[200],
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(Icons.calendar_today, size: 20),
+                                    SizedBox(width: 8.w),
+                                    Text(
+                                      controller.customEndDate.value != null
+                                          ? controller.customEndDate.value!
+                                              .toLocal()
+                                              .toString()
+                                              .split(" ")[0]
+                                          : "Select a date".tr,
+                                      style: AppStyle.baseRegular,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       );
                     }),

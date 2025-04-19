@@ -15,7 +15,7 @@ class MenuScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
         children: [
           MenuOption(
-            title: 'My Carpools'.tr,
+            title: 'Carpools'.tr,
             icon: Icons.directions_car,
             showChevron: true,
             onPress: () {
@@ -23,7 +23,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'My Profile'.tr,
+            title: 'Profile'.tr,
             icon: Icons.person_outline,
             showChevron: true,
             onPress: () {
@@ -31,7 +31,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'My Contact List'.tr,
+            title: 'Contact List'.tr,
             icon: Icons.contacts,
             showChevron: true,
             onPress: () {

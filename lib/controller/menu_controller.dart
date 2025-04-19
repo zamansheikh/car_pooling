@@ -4,6 +4,7 @@ import 'package:car_pooling/core/helper/prefs_helper.dart';
 import 'package:car_pooling/model/carpool_model.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
+import 'package:car_pooling/model/spouse_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -29,6 +30,7 @@ class MenuProfileController extends GetxController {
 
   RxList<CarpoolModel> myCarPoolHistory = <CarpoolModel>[].obs;
   RxList<ChildModel> myChildrenList = <ChildModel>[].obs;
+  RxList<SpouseModel> mySpouseList = <SpouseModel>[].obs;
   RxList<ContactModel> myContactList = <ContactModel>[].obs;
   Rx<File?> profileImage = Rx<File?>(null);
   RxBool homeAddressVisible = false.obs;
@@ -115,6 +117,7 @@ class MenuProfileController extends GetxController {
     fetchCarPoolHistory();
     fetchMyChildrenData();
     fetchMyContactList();
+    fetchMySpouseData();
   }
 
   void fetchCarPoolHistory() {
@@ -226,6 +229,23 @@ class MenuProfileController extends GetxController {
 
     // Add all dummy data to the observable list
     myChildrenList.addAll(dummyChildren);
+  }
+
+  void fetchMySpouseData() {
+    // Dummy data list
+    final List<SpouseModel> dummySpouse = [
+      SpouseModel(
+        childFistName: 'Jacky',
+        childLastName: 'Naila',
+        fullName: 'Jacky Naila',
+        childSchoolName: 'Sunny Hill Elementary',
+        childPhoto: 'emma_photo.jpg',
+        isSelected: false,
+      ),
+    ];
+
+    // Add all dummy data to the observable list
+    mySpouseList.addAll(dummySpouse);
   }
 
   void fetchMyContactList() {
