@@ -36,7 +36,7 @@ class CustomPhoneInputField extends StatelessWidget {
               if (phone != null) {
                 if (phone.number.isEmpty) {
                   return 'Phone number is required';
-                } else if (!phone.isValidNumber()) {
+                } else if (phone.number.length > 11 && !phone.isValidNumber()) {
                   return 'Enter a valid phone number';
                 }
               }

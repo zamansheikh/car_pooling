@@ -52,7 +52,7 @@ AlertDialog customAlertDialog({
             child: CustomButton(
               buttonTitle: buttonText,
               isFilled: false,
-              isRed: true,
+              isRed: false,
               onTap: () {
                 route();
               },

@@ -22,7 +22,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(!isReset ? "Verification".tr : "Reset Password".tr),
+      appBar: customAppBar1(isReset ? "Reset password".tr : "Verification".tr),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -35,7 +35,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 Text(
                   isPhone.value
                       ? "Enter your mobile number".tr
-                      : "Enter your Email".tr,
+                      : "Enter your email".tr,
                   style: AppStyle.headerMedium5.copyWith(
                     color: AppColors.darkGray,
                   ),
@@ -52,12 +52,14 @@ class ForgotPasswordScreen extends StatelessWidget {
                         ),
                       if (!isPhone.value)
                         CustomInputField(
+                          isEmail: true,
+                          hintText: "example@email.com",
                           controller: controller.emailController,
                         ),
                     ],
                   ),
                 ),
-                SizedBox(height: 40.h),
+                SizedBox(height: 24.h),
 
                 Obx(() {
                   return CustomButton(
@@ -73,7 +75,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     },
                   );
                 }),
-                SizedBox(height: 40.h),
+                SizedBox(height: 24.h),
                 // Toggle the verification method between phone or email
                 Center(
                   child: TextButton(

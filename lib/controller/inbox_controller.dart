@@ -1,3 +1,4 @@
+import 'package:car_pooling/model/carpool_invitation_model.dart';
 import 'package:car_pooling/model/chat_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
 import 'package:car_pooling/model/message_model.dart';
@@ -20,7 +21,6 @@ class InboxController extends GetxController {
           image:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2IhVC1-MwIU4lXET8N6pI-1rzjetYi2ZvQ&s",
         ),
-        ContactModel(),
         ContactModel(
           address: "4140 Parker Rd. Allentown, New Mexico 31134",
           cellNumber: "+880 178 020 2564",
@@ -30,6 +30,34 @@ class InboxController extends GetxController {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2IhVC1-MwIU4lXET8N6pI-1rzjetYi2ZvQ&s",
         ),
         ContactModel(
+          address: "4140 Parker Rd. Allentown, New Mexico 31134",
+          cellNumber: "+880 178 020 2564",
+          distance: "2.5Km",
+          firstName: "Dewan Nasif",
+          image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2IhVC1-MwIU4lXET8N6pI-1rzjetYi2ZvQ&s",
+        ),
+      ].obs;
+
+  RxList<CarpoolInvitationModel> myCarpoolInvitations =
+      <CarpoolInvitationModel>[
+        CarpoolInvitationModel(
+          address: "4140 Parker Rd. Allentown, New Mexico 31134",
+          cellNumber: "+880 178 020 2564",
+          distance: "2.5Km",
+          firstName: "Dewan Nasif",
+          image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2IhVC1-MwIU4lXET8N6pI-1rzjetYi2ZvQ&s",
+        ),
+        CarpoolInvitationModel(
+          address: "4140 Parker Rd. Allentown, New Mexico 31134",
+          cellNumber: "+880 178 020 2564",
+          distance: "2.5Km",
+          firstName: "Dewan Nasif",
+          image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2IhVC1-MwIU4lXET8N6pI-1rzjetYi2ZvQ&s",
+        ),
+        CarpoolInvitationModel(
           address: "4140 Parker Rd. Allentown, New Mexico 31134",
           cellNumber: "+880 178 020 2564",
           distance: "2.5Km",
@@ -71,6 +99,7 @@ class InboxController extends GetxController {
       ),
     ]);
   }
+
   void removeMessage(int index) {
     messages.removeAt(index);
   }

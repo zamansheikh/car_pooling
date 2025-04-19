@@ -1,3 +1,4 @@
+
 import 'package:car_pooling/core/constant/api_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,6 +24,7 @@ Widget svgViewer({
     asset,
     height: height,
     width: width,
+    // Only apply colorFilter if a color is provided
     colorFilter:
         color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
   );

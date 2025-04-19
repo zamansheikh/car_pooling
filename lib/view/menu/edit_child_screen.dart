@@ -15,7 +15,7 @@ class EditChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Edit Child".tr),
+      appBar: customAppBar1("Edit child".tr),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),

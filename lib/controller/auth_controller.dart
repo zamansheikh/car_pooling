@@ -48,7 +48,7 @@ class AuthController extends GetxController {
 
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
-    showCustomSnackBar("User Signed in successfully", isError: false);
+    showCustomSnackBar("Signed in successfully", isError: false);
     clearControllers();
     Get.toNamed(AppRoutes.homeSCreen);
   }
@@ -110,6 +110,7 @@ class AuthController extends GetxController {
     Get.to(
       OtpScreen(
         isReset: isReset,
+        isPhone: isPhone,
         sendTo: isPhone ? phoneController.text : emailController.text,
       ),
     );
@@ -146,7 +147,7 @@ class AuthController extends GetxController {
 
   Future confirmOTP({sendTo, isReset}) async {
     if (otpController.text.length < 4) {
-      showCustomSnackBar("Eter otp");
+      showCustomSnackBar("Enter OTP", isError: true);
       return;
     }
     final body = {"otp": int.parse(otpController.text), "sendTo": sendTo};
@@ -172,7 +173,7 @@ class AuthController extends GetxController {
       );
     }
 
-    showCustomSnackBar("OTP Confirmed", isError: false);
+    showCustomSnackBar("OTP Confirmed!", isError: false);
     clearControllers();
   }
 
@@ -196,10 +197,10 @@ class AuthController extends GetxController {
       context: Get.context!,
       builder: (BuildContext context) {
         return customAlertDialog(
-          title: "Password Changed",
-          content: "You have succesfully chamged your password",
+          title: "Password Changed!",
+          content: "You have successfully changed your password",
           asset: AppIcons.congratsIcon,
-          buttonText: "Ok",
+          buttonText: "OK",
           route: () => Get.toNamed(AppRoutes.signIn),
         );
       },

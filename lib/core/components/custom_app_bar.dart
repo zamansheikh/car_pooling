@@ -13,10 +13,12 @@ AppBar customAppBar1(
   hasTabBar = false,
   hasShadow = false,
   hasInvite = false,
+  backgroundColor = Colors.white,
   List<Widget>? tabs,
 }) {
   return AppBar(
-    backgroundColor: AppColors.white,
+    backgroundColor: backgroundColor,
+    forceMaterialTransparency: true,
     elevation: hasShadow ? 3.0 : 0,
     shadowColor: hasShadow ? Colors.black.withAlpha((0.7 * 255).toInt()) : null,
     leading:

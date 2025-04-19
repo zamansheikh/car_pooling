@@ -13,8 +13,13 @@ class CarpoolingController extends GetxController {
   TextEditingController returnDateController = TextEditingController();
   TextEditingController searchContactController = TextEditingController();
   TextEditingController addMessageController = TextEditingController();
-
+  RxString startLocationText = "".obs;
   RxString mySelectedRole = "Attend".obs;
+  // Observable for selected days of the week
+  RxSet<int> selectedDays = <int>{}.obs; // 0 = Sunday, 6 = Saturday
+
+  // Observable for end date
+  Rx<DateTime?> customEndDate = Rx<DateTime?>(null);
 
   RxList<ChildModel> availableChildren =
       <ChildModel>[

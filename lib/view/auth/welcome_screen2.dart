@@ -21,26 +21,43 @@ class WelcomeScreen2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "${"Welcome to HadiKid".tr}🎉",
-                style: AppStyle.headerBold1,
+                "Welcome to HadiKid".tr,
+                style: AppStyle.headerBold1.copyWith(fontSize: 40.sp),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 4.h),
+              Text(
+                "Let's get you started!".tr,
+                style: AppStyle.baseRegular.copyWith(
+                  color: AppColors.darkGray,
+                  fontSize: 32.sp,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 200,
+                width: 300,
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Image.asset(AppAssets.logoPng),
+                ),
+              ),
+              Text(
+                "Get started by inviting friends to join your carpool.".tr,
+                style: AppStyle.baseRegular.copyWith(
+                  color: AppColors.darkGray,
+                  fontSize: 16.sp,
+                ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 24.h),
-              Text(
-                "Let's get you started. No carpools yet! Get started by creating a carpool and sending invite."
-                    .tr,
-                style: AppStyle.baseRegular.copyWith(color: AppColors.darkGray),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 48.h),
-              Image.asset(AppAssets.appLogo),
-              SizedBox(height: 48.h),
               CustomButton(
                 buttonTitle: "Create Carpool".tr,
                 onTap: () {
                   Get.toNamed(AppRoutes.createCarpool1);
                 },
               ),
+              SizedBox(height: 16.h),
             ],
           ),
         ),

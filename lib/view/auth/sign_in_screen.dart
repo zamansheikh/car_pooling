@@ -23,12 +23,19 @@ class SignInScreen extends StatelessWidget {
           // The list view is used to shift the layout at the bottom and enable scrolling behaviour
           child: ListView(
             // reverse is used to shift the layout at the bottom
-            reverse: true,
+            reverse: false,
             children: [
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
-                  Text("Sign In Your Account".tr, style: AppStyle.headerBold1),
+                  SizedBox(height: 72.h),
+                  Text(
+                    "Sign In Your Account".tr,
+                    style: AppStyle.headerBold2.copyWith(
+                      fontSize: 32.sp,
+                      color: Color(0xFF67c28d),
+                    ),
+                  ),
                   SizedBox(height: 24.h),
                   Form(
                     key: _formKey,
@@ -42,6 +49,7 @@ class SignInScreen extends StatelessWidget {
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.passwordController,
+                          isPassword: true,
                           hintText: "Password".tr,
                         ),
                         // =================>>>>>>>>>>>>> Row - check, forgot <<<<<<<<<<<<<===============
@@ -62,7 +70,7 @@ class SignInScreen extends StatelessWidget {
                                   );
                                 }),
                                 Text(
-                                  "Remember Me".tr,
+                                  "Remember me".tr,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
@@ -75,7 +83,7 @@ class SignInScreen extends StatelessWidget {
                                 Get.to(ForgotPasswordScreen(isReset: true));
                               },
                               child: Text(
-                                "Forget Password?".tr,
+                                "Forgot password?".tr,
                                 style: AppStyle.baseSmallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),

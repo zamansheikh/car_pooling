@@ -14,8 +14,15 @@ class CreateCarpoolScreen2 extends StatelessWidget {
   CreateCarpoolScreen2({super.key});
   final CarpoolingController controller = Get.find<CarpoolingController>();
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    // Add a listener to update an observable variable
+    controller.startLocationController.addListener(() {
+      controller.startLocationText.value =
+          controller.startLocationController.text;
+    });
+
     return Scaffold(
       appBar: customAppBar1("Create Carpool".tr),
       body: Padding(
@@ -29,15 +36,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 SizedBox(height: 24.h),
                 Row(
                   spacing: 4.w,
-                  children: [
-                    Text("What".tr, style: AppStyle.largeMedium),
-                    Text(
-                      "(${"Event Name".tr})",
-                      style: AppStyle.baseRegular.copyWith(
-                        color: AppColors.gray,
-                      ),
-                    ),
-                  ],
+                  children: [Text("What".tr, style: AppStyle.largeMedium)],
                 ),
                 SizedBox(height: 12.h),
                 CustomInputField(
@@ -57,39 +56,55 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   controller: controller.endLocationController,
                   hintText: "End Location".tr,
                 ),
-                SizedBox(height: 8.h),
-                Text(
-                  "Would you like to set this location as your home address?"
-                      .tr,
-                  style: AppStyle.baseSmallRegular.copyWith(
-                    color: AppColors.gray,
-                  ),
-                ),
                 SizedBox(height: 12.h),
-                Row(
-                  spacing: 24.w,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Okay".tr,
-                        style: AppStyle.baseRegular.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Later".tr,
-                        style: AppStyle.baseRegular.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 24.h),
+
+                Obx(() {
+                  return controller.startLocationText.value.length > 3
+                      ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Would you like to set this location as your home address?"
+                                .tr,
+                            style: AppStyle.baseSmallRegular.copyWith(
+                              color: AppColors.gray,
+                            ),
+                          ),
+                          SizedBox(height: 8.h),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: Row(
+                              spacing: 24.w,
+                              children: [
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    "Okay".tr,
+                                    style: AppStyle.baseRegular.copyWith(
+                                      color: AppColors.primary,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    "Later".tr,
+                                    style: AppStyle.baseRegular.copyWith(
+                                      color: AppColors.primary,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                      : SizedBox.shrink();
+                }),
+                if (controller.startLocationText.value.length > 3)
+                  SizedBox(height: 12.h),
+                if (controller.startLocationText.value.length > 3)
+                  SizedBox(height: 24.h),
                 Text("When".tr, style: AppStyle.largeMedium),
                 // ==========>>>>>>>>> repeat option selector <<<<<<<<=========
                 Column(
@@ -117,26 +132,113 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     // This obx detects if custom, then it'll render extra ui
-                    Obx(
-                      () =>
-                          controller.selectedOption.value == 'Custom'
-                              ? Container(
-                                padding: EdgeInsets.all(12),
+                    Obx(() {
+                      if (controller.selectedOption.value != 'Custom' &&
+                          controller.selectedOption.value != 'Every week') {
+                        return SizedBox.shrink();
+                      }
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Select Days".tr, style: AppStyle.baseMedium),
+                          SizedBox(height: 8.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: List.generate(7, (index) {
+                              final dayLabels = [
+                                'S',
+                                'M',
+                                'T',
+                                'W',
+                                'T',
+                                'F',
+                                'S',
+                              ];
+                              final isSelected = controller.selectedDays
+                                  .contains(index);
+
+                              return GestureDetector(
+                                onTap: () {
+                                  if (isSelected) {
+                                    controller.selectedDays.remove(index);
+                                  } else {
+                                    controller.selectedDays.add(index);
+                                  }
+                                },
+                                child: Container(
+                                  width: 40.w,
+                                  height: 40.w,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        isSelected
+                                            ? AppColors.primary
+                                            : Colors.grey[300],
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Text(
+                                    dayLabels[index],
+                                    style: TextStyle(
+                                      color:
+                                          isSelected
+                                              ? Colors.white
+                                              : Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                          ),
+                          SizedBox(height: 16.h),
+                          if (controller.selectedOption.value != 'Every week')
+                            Text("Repeat Until".tr, style: AppStyle.baseMedium),
+                          if (controller.selectedOption.value != 'Every week')
+                            SizedBox(height: 8.h),
+                          if (controller.selectedOption.value != 'Every week')
+                            GestureDetector(
+                              onTap: () async {
+                                DateTime? picked = await showDatePicker(
+                                  context: Get.context!,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime.now(),
+                                  lastDate: DateTime(2100),
+                                );
+                                if (picked != null) {
+                                  controller.customEndDate.value = picked;
+                                }
+                              },
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 12.w,
+                                  vertical: 14.h,
+                                ),
                                 decoration: BoxDecoration(
                                   color: Colors.grey[200],
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Text('S M T W T F S 01-Jun-24'),
-                                    SizedBox(width: 8),
-                                    Icon(Icons.edit, size: 20),
+                                  children: [
+                                    Icon(Icons.calendar_today, size: 20),
+                                    SizedBox(width: 8.w),
+                                    Text(
+                                      controller.customEndDate.value != null
+                                          ? controller.customEndDate.value!
+                                              .toLocal()
+                                              .toString()
+                                              .split(" ")[0]
+                                          : "Select a date".tr,
+                                      style: AppStyle.baseRegular,
+                                    ),
                                   ],
                                 ),
-                              )
-                              : SizedBox.shrink(),
-                    ),
+                              ),
+                            ),
+                        ],
+                      );
+                    }),
                   ],
                 ),
                 // =========>>>>>>>> Create return trip <<<<<<<<<==========
@@ -167,14 +269,18 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   spacing: 16.w,
                   children: [
                     Flexible(
-                      child: CustomDateInput(
-                        dateController: controller.returnDateController,
-                        hintText: "${"Enter Return date".tr}...",
-                      ),
+                      child: Obx(() {
+                        return CustomDateInput(
+                          dateController: controller.returnDateController,
+                          hintText: "${"Enter Return date".tr}...",
+                          isEnabled: controller.isReturnTrip.value,
+                        );
+                      }),
                     ),
                     Flexible(
                       child: Obx(() {
                         return CustomTimeInput(
+                          isEnabled: controller.isReturnTrip.value,
                           time: controller.timePicker.value,
                           onChange: (p0) {
                             controller.timePicker.value = p0;

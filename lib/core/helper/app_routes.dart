@@ -103,7 +103,6 @@ class AppRoutes {
     GetPage(name: myInformation, page: () => MyInformationScreen()),
     GetPage(name: myChildren, page: () => MyChildrenScreen()),
     GetPage(name: editChild, page: () => EditChildScreen()),
-    GetPage(name: editChild, page: () => EditChildScreen()),
     GetPage(name: myContactList, page: () => MyContactListScreen()),
     GetPage(name: accountSetting, page: () => AccountSettingScreen()),
     GetPage(name: packages, page: () => PackageScreen()),

@@ -21,163 +21,165 @@ class CreateCarpoolScreen3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar1("Invite".tr),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Who", style: AppStyle.largeMedium),
-            SizedBox(height: 12.h),
-            CustomInputField(
-              controller: controller.searchContactController,
-              hintText: "Searching the parent".tr,
-              prefixIcon: AppIcons.serchIcon,
-            ),
-            SizedBox(height: 24.h),
-            OptionWrapper(
-              // the upper column is for adding add contact button at the end
-              child: Column(
-                children: [
-                  // This inner column is for rendering the contacts
-                  Column(
-                    children:
-                        controller.myContact
-                            .map(
-                              (el) => Column(
-                                children: [
-                                  Row(
-                                    spacing: 12.w,
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 28.r,
-                                        backgroundColor:
-                                            AppColors
-                                                .background, // Placeholder color
-                                        child:
-                                            el.image == ''
-                                                ? Text(
-                                                  "${el.firstName[0]}${el.lastName[0]}",
-                                                  style:
-                                                      AppStyle.headerRegular3,
-                                                )
-                                                : imageRenderer(
-                                                  url: el.image,
-                                                  borderRadius: 100,
-                                                  size: 56,
-                                                ),
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "${el.firstName} ${el.lastName}",
-                                            style: AppStyle.baseMedium,
-                                          ),
-                                          Text(
-                                            "${el.cellNumber} ",
-                                            style: AppStyle.baseSmallRegular,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Divider(),
-                                ],
-                              ),
-                            )
-                            .toList(),
-                  ),
-                  // add more button goes here
-                  GestureDetector(
-                    onTap: () {
-                      // TODO: add "add contact functionality"
-                    },
-                    child: Row(
-                      spacing: 12,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Who", style: AppStyle.largeMedium),
+              SizedBox(height: 12.h),
+              CustomInputField(
+                controller: controller.searchContactController,
+                hintText: "Searching the parent".tr,
+                prefixIcon: AppIcons.serchIcon,
+              ),
+              SizedBox(height: 24.h),
+              OptionWrapper(
+                // the upper column is for adding add contact button at the end
+                child: Column(
+                  children: [
+                    // This inner column is for rendering the contacts
+                    Column(
+                      children:
+                          controller.myContact
+                              .map(
+                                (el) => Column(
+                                  children: [
+                                    Row(
+                                      spacing: 12.w,
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 28.r,
+                                          backgroundColor:
+                                              AppColors
+                                                  .background, // Placeholder color
+                                          child:
+                                              el.image == ''
+                                                  ? Text(
+                                                    "${el.firstName[0]}${el.lastName[0]}",
+                                                    style:
+                                                        AppStyle.headerRegular3,
+                                                  )
+                                                  : imageRenderer(
+                                                    url: el.image,
+                                                    borderRadius: 100,
+                                                    size: 56,
+                                                  ),
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "${el.firstName} ${el.lastName}",
+                                              style: AppStyle.baseMedium,
+                                            ),
+                                            Text(
+                                              "${el.cellNumber} ",
+                                              style: AppStyle.baseSmallRegular,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(),
+                                  ],
+                                ),
+                              )
+                              .toList(),
+                    ),
+                    // add more button goes here
+                    GestureDetector(
+                      onTap: () {
+                        // TODO: add "add contact functionality"
+                      },
+                      child: Row(
+                        spacing: 12,
+                        children: [
+                          Icon(Icons.add),
+                          Text("Add Contacts".tr, style: AppStyle.baseMedium),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 24.h),
+              // Add message goes here
+              Text("Add Message".tr, style: AppStyle.largeMedium),
+              SizedBox(height: 12.h),
+              CustomInputField(
+                controller: controller.addMessageController,
+                maxLines: 5,
+                background: AppColors.white,
+              ),
+              SizedBox(height: 24.h),
+              // carpool details goes here
+              OptionWrapper(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      spacing: 8.h,
                       children: [
-                        Icon(Icons.add),
-                        Text("Add Contacts".tr, style: AppStyle.baseMedium),
+                        Text("Carpool Details".tr, style: AppStyle.largeMedium),
+                        buildDetails(
+                          key: "Event Name".tr,
+                          value: controller.eventNameController.text,
+                        ),
+                        buildDetails(
+                          key: "From".tr,
+                          value: controller.startLocationController.text,
+                        ),
+                        buildDetails(
+                          key: "To".tr,
+                          value: controller.endLocationController.text,
+                        ),
+                        buildDetails(
+                          key: "On".tr,
+                          value:
+                              "${controller.returnDateController.text} at ${controller.timePicker.value.hour % 12}:${controller.timePicker.value.minute} ${controller.timePicker.value.period == DayPeriod.pm ? "PM" : "AM"}",
+                        ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 24.h),
-            // Add message goes here
-            Text("Add Message".tr, style: AppStyle.largeMedium),
-            SizedBox(height: 12.h),
-            CustomInputField(
-              controller: controller.addMessageController,
-              maxLines: 5,
-              background: AppColors.white,
-            ),
-            SizedBox(height: 24.h),
-            // carpool details goes here
-            OptionWrapper(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: 8.h,
-                    children: [
-                      Text("Carpool Details".tr, style: AppStyle.largeMedium),
-                      buildDetails(
-                        key: "Event Name".tr,
-                        value: controller.eventNameController.text,
-                      ),
-                      buildDetails(
-                        key: "From".tr,
-                        value: controller.startLocationController.text,
-                      ),
-                      buildDetails(
-                        key: "To".tr,
-                        value: controller.endLocationController.text,
-                      ),
-                      buildDetails(
-                        key: "On".tr,
-                        value:
-                            "${controller.returnDateController.text} at ${controller.timePicker.value.hour % 12}:${controller.timePicker.value.minute} ${controller.timePicker.value.period == DayPeriod.pm ? "PM" : "AM"}",
-                      ),
-                    ],
-                  ),
-                  GestureDetector(
-                    onTap: () => Get.back(),
-                    child: Text(
-                      "Edit".tr,
-                      style: AppStyle.baseMedium.copyWith(
-                        color: AppColors.primary,
+                    GestureDetector(
+                      onTap: () => Get.back(),
+                      child: Text(
+                        "Edit".tr,
+                        style: AppStyle.baseMedium.copyWith(
+                          color: AppColors.primary,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 24.h),
-            CustomButton(
-              buttonTitle:
-                  "${"Send".tr} ${controller.myContact.length} ${"Invites".tr}",
-              onTap: () {
-                showDialog(
-                  context: Get.context!,
-                  builder: (context) {
-                    return customAlertDialog(
-                      asset: AppIcons.congratsIcon,
-                      buttonText: "Back To Home".tr,
-                      content: "Invitation is Successfull".tr,
-                      title: "Invita",
-                      route: () {
-                        Get.toNamed(AppRoutes.homeSCreen);
-                      },
-                      // TODO: Implement Home route and connect with home route
-                    );
-                  },
-                );
-              },
-            ),
-          ],
+              SizedBox(height: 24.h),
+              CustomButton(
+                buttonTitle:
+                    "${"Send".tr} ${controller.myContact.length} ${"Invites".tr}",
+                onTap: () {
+                  showDialog(
+                    context: Get.context!,
+                    builder: (context) {
+                      return customAlertDialog(
+                        asset: AppIcons.congratsIcon,
+                        buttonText: "Home".tr,
+                        content: "Invitation is Successfull!".tr,
+                        title: "Invite Sent!".tr,
+                        route: () {
+                          Get.toNamed(AppRoutes.homeSCreen);
+                        },
+                        // TODO: Implement Home route and connect with home route
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

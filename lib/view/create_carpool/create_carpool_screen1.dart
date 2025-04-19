@@ -5,7 +5,6 @@ import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/core/wrappers/option_wrapper.dart';
-import 'package:car_pooling/model/child_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -54,7 +53,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                     }),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoutes.editChild);
+                        Get.toNamed(AppRoutes.addChild);
                       },
                       // This row is the button to add more children
                       child: Row(

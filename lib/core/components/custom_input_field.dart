@@ -10,6 +10,7 @@ class CustomInputField extends StatelessWidget {
   CustomInputField({
     super.key,
     required this.controller,
+    this.validator,
     this.isEmail = false,
     this.isPassword = false,
     this.title,
@@ -23,6 +24,7 @@ class CustomInputField extends StatelessWidget {
 
   final String? title;
   final String? hintText;
+  final FormFieldValidator<String>? validator;
   final bool isEmail;
   final bool isPassword;
   final String? prefixIcon;
@@ -74,11 +76,7 @@ class CustomInputField extends StatelessWidget {
                     controller: controller,
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
-                      hintText:
-                          hintText ??
-                          (title != null
-                              ? "Enter your $title..."
-                              : "Enter here...."),
+                      hintText: hintText ?? title ?? "",
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                     ),
@@ -88,26 +86,29 @@ class CustomInputField extends StatelessWidget {
                     //  The maxlines determines the number of lines that can occupy the field
                     maxLines: maxLines,
                     // This is to validate fields based conditions
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        // if the value of field is empty
-                        return "This field cannot be empty";
-                      }
-                      if (isEmail) {
-                        if (!RegexValidators.isValidEmail(value)) {
-                          // if email and not validated then the following the error will be shown
-                          return "Please Enter valid $value";
-                        }
-                      }
-                      if (isPassword) {
-                        if (value.length < 8) {
-                          // password validating on length
-                          return "Please Enter valid $value";
-                        }
-                      }
-                      // default return of null
-                      return null;
-                    },
+                    validator:
+                        !isPassword
+                            ? validator
+                            : (value) {
+                              if (value == null || value.isEmpty) {
+                                // if the value of field is empty
+                                return "This field cannot be empty";
+                              }
+                              if (isEmail) {
+                                if (!RegexValidators.isValidEmail(value)) {
+                                  // if email and not validated then the following the error will be shown
+                                  return "Please Enter valid $value";
+                                }
+                              }
+                              if (isPassword) {
+                                if (!RegexValidators.isValidPassword(value)) {
+                                  // password validating on length
+                                  return "Must be 8+ chars with upper, lower, number & symbol.";
+                                }
+                              }
+                              // default return of null
+                              return null;
+                            },
                   ),
                 ),
                 // for obscure and unobscure text
