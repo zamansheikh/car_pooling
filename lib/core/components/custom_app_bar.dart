@@ -34,7 +34,7 @@ AppBar customAppBar1(
     bottom:
         hasTabBar
             ? TabBar(
-              dividerColor: Colors ansparent,
+              dividerColor: Colors.transparent,
               indicatorColor: AppColors.primary,
               indicatorSize: TabBarIndicatorSize.tab,
               labelColor: AppColors.primary,

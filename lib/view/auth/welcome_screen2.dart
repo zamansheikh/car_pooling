@@ -44,7 +44,7 @@ class WelcomeScreen2 extends StatelessWidget {
                 ),
               ),
               Text(
-                "Get started by inviting friends to join your carpool." ,
+                AppLocalizations.of(context)!.getStartedByInvitingFriendsToJoinYourCarpool ,
                 style: AppStyle.baseRegular.copyWith(
                   color: AppColors.darkGray,
                   fontSize: 16.sp,
@@ -53,7 +53,7 @@ class WelcomeScreen2 extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               CustomButton(
-                buttonTitle: "Create Carpool" ,
+                buttonTitle: AppLocalizations.of(context)!.createCarpool ,
                 onTap: () {
                   Get.toNamed(AppRoutes.createCarpool1);
                 },

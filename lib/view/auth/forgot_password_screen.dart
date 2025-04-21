@@ -8,6 +8,7 @@ import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   ForgotPasswordScreen({super.key, required this.isReset});
@@ -22,7 +23,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(isReset ? "Reset password"  : "Verification" ),
+      appBar: customAppBar1(isReset ? AppLocalizations.of(context)!.resetPassword  : AppLocalizations.of(context)!.verification ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -34,8 +35,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                 // Title for verification method
                 Text(
                   isPhone.value
-                      ? "Enter your mobile number" 
-                      : "Enter your email" ,
+                      ? AppLocalizations.of(context)!.enterYourMobileNumber 
+                      : AppLocalizations.of(context)!.enterYourEmail ,
                   style: AppStyle.headerMedium5.copyWith(
                     color: AppColors.darkGray,
                   ),
@@ -63,7 +64,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
                 Obx(() {
                   return CustomButton(
-                    buttonTitle: "Next" ,
+                    buttonTitle: AppLocalizations.of(context)!.next ,
                     isLoading: controller.isLoading.value,
                     onTap: () {
                       // OTP Request Function
@@ -84,8 +85,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                     },
                     child: Text(
                       isPhone.value
-                          ? "Verify with Email" 
-                          : "Verify with Phone" ,
+                          ? AppLocalizations.of(context)!.verifyWithEmail 
+                          : AppLocalizations.of(context)!.verifyWithPhone ,
                       style: AppStyle.baseMedium.copyWith(
                         color: AppColors.primary,
                       ),

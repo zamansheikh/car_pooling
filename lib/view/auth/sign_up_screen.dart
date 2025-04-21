@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -31,7 +32,7 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 48.h),
                   Text(
-                    "Let’s set up an account" ,
+                    AppLocalizations.of(context)!.letSSetUpAnAccount ,
                     style: AppStyle.headerBold2.copyWith(
                       fontSize: 32.sp,
                       color: Color(0xFF67c28d),
@@ -83,7 +84,7 @@ class SignUpScreen extends StatelessWidget {
                             Flexible(
                               child: RichText(
                                 text: TextSpan(
-                                  text: "I agree to HadiKid's " ,
+                                  text: AppLocalizations.of(context)!.iAgreeToHadikidS ,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
@@ -135,7 +136,7 @@ class SignUpScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> SignUpButton <<<<<<<<<<<<<===============
                         Obx(() {
                           return CustomButton(
-                            buttonTitle: "Sign Up" ,
+                            buttonTitle: AppLocalizations.of(context)!.signUp ,
                             onTap: () {
                               controller.userSignUp(_formKey);
                             },
@@ -149,7 +150,7 @@ class SignUpScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Already have an account?" ,
+                              AppLocalizations.of(context)!.alreadyHaveAnAccount ,
                               style: AppStyle.smallRegular.copyWith(
                                 color: AppColors.gray,
                               ),
@@ -159,7 +160,7 @@ class SignUpScreen extends StatelessWidget {
                                 Get.toNamed(AppRoutes.signIn);
                               },
                               child: Text(
-                                "Sign In" ,
+                                AppLocalizations.of(context)!.signIn ,
                                 style: AppStyle.smallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),

@@ -7,6 +7,7 @@ import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
   CreateNewPasswordScreen({super.key});
@@ -16,7 +17,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create new password" ),
+      appBar: customAppBar1(AppLocalizations.of(context)!.createNewPassword ),
       backgroundColor: AppColors.white,
       body: SafeArea(
         child: Padding(
@@ -30,7 +31,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 spacing: 24.h,
                 children: [
                   Text(
-                    "Create new password here" ,
+                    AppLocalizations.of(context)!.createNewPasswordHere ,
                     style: AppStyle.baseRegular.copyWith(
                       color: AppColors.darkGray,
                     ),
@@ -51,7 +52,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
 
               Obx(() {
                 return CustomButton(
-                  buttonTitle: "Done" ,
+                  buttonTitle: AppLocalizations.of(context)!.done ,
                   isLoading: controller.isLoading.value,
                   onTap: () {
                     controller.createNewpass();
