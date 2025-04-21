@@ -332,6 +332,6 @@ class Languages extends Translations {
       "Schedule": "Program",
       "Attending": "Katılıyor",
       "Driving": "Sürüş",
-    },,
+    },
   };
 }

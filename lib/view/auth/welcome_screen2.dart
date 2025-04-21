@@ -6,6 +6,7 @@ import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WelcomeScreen2 extends StatelessWidget {
   const WelcomeScreen2({super.key});
@@ -21,13 +22,13 @@ class WelcomeScreen2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Welcome to HadiKid".tr,
+                AppLocalizations.of(context)!.welcomeToHadikid ,
                 style: AppStyle.headerBold1.copyWith(fontSize: 40.sp),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 4.h),
               Text(
-                "Let's get you started!".tr,
+                AppLocalizations.of(context)!.letSGetYouStarted,
                 style: AppStyle.baseRegular.copyWith(
                   color: AppColors.darkGray,
                   fontSize: 32.sp,
@@ -43,7 +44,7 @@ class WelcomeScreen2 extends StatelessWidget {
                 ),
               ),
               Text(
-                "Get started by inviting friends to join your carpool.".tr,
+                "Get started by inviting friends to join your carpool." ,
                 style: AppStyle.baseRegular.copyWith(
                   color: AppColors.darkGray,
                   fontSize: 16.sp,
@@ -52,7 +53,7 @@ class WelcomeScreen2 extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               CustomButton(
-                buttonTitle: "Create Carpool".tr,
+                buttonTitle: "Create Carpool" ,
                 onTap: () {
                   Get.toNamed(AppRoutes.createCarpool1);
                 },

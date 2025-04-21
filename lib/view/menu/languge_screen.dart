@@ -10,7 +10,7 @@ class LangugeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Language".tr),
+      appBar: customAppBar1("Language" ),
       body: Obx(
         () => Column(
           children: [

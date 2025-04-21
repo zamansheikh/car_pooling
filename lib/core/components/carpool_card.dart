@@ -92,7 +92,7 @@ class CarpoolCard extends StatelessWidget {
                 SizedBox(height: 12),
                 if (canDrive)
                   CustomButton(
-                    buttonTitle: 'Drive'.tr,
+                    buttonTitle: 'Drive' ,
                     isRounded: false,
                     onTap: () {
                       // Todo: add drive functionality

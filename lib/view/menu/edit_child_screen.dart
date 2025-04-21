@@ -15,7 +15,7 @@ class EditChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Edit child".tr),
+      appBar: customAppBar1("Edit child" ),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -37,22 +37,22 @@ class EditChildScreen extends StatelessWidget {
 
                     CustomInputField(
                       controller: controller.firstNameController,
-                      hintText: "First Name".tr,
+                      hintText: "First Name" ,
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      hintText: "Last Name".tr,
+                      hintText: "Last Name" ,
                     ),
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      hintText: "School Name".tr,
+                      hintText: "School Name" ,
                     ),
                   ],
                 ),
               ),
             ),
 
-            CustomButton(buttonTitle: "Save".tr, onTap: () {}),
+            CustomButton(buttonTitle: "Save" , onTap: () {}),
             SizedBox(height: 30.h),
           ],
         ),

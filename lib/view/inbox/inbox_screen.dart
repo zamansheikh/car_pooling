@@ -19,13 +19,13 @@ class InboxScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: customAppBar1(
-          "Inbox".tr,
+          "Inbox" ,
           hasBack: false,
           hasTabBar: true,
           tabs: [
-            Tab(text: "Chats".tr),
-            Tab(text: "Contact Invites".tr),
-            Tab(text: "Carpool Invites".tr),
+            Tab(text: "Chats" ),
+            Tab(text: "Contact Invites" ),
+            Tab(text: "Carpool Invites" ),
           ],
         ),
         body: Padding(
@@ -44,7 +44,7 @@ class InboxScreen extends StatelessWidget {
 
   Widget buildTabView3(List<CarpoolInvitationModel> invitations) {
     return invitations.isEmpty
-        ? Center(child: Text('No carpool invitations yet'.tr))
+        ? Center(child: Text('No carpool invitations yet' ))
         : ListView.builder(
           itemCount: invitations.length,
           itemBuilder: (context, index) {
@@ -62,7 +62,7 @@ class InboxScreen extends StatelessWidget {
 
   Widget buildTabView(List<ChatModel> carpools) {
     return carpools.isEmpty
-        ? Center(child: Text('No chats yet'.tr))
+        ? Center(child: Text('No chats yet' ))
         : ListView.builder(
           itemCount: carpools.length,
           itemBuilder: (context, index) {
@@ -79,7 +79,7 @@ class InboxScreen extends StatelessWidget {
 
   Widget buildTabView2(List<ContactModel> contacts) {
     return contacts.isEmpty
-        ? Center(child: Text('No invitations yet'.tr))
+        ? Center(child: Text('No invitations yet' ))
         : ListView.builder(
           itemCount: contacts.length,
           itemBuilder: (context, index) {

@@ -40,7 +40,7 @@ AlertDialog customAlertDialog({
             SizedBox(
               width: Get.width / 3.3,
               child: CustomButton(
-                buttonTitle: "Cancel".tr,
+                buttonTitle: "Cancel" ,
 
                 onTap: () {
                   Get.back();

@@ -20,7 +20,7 @@ class AddChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Add a child".tr),
+      appBar: customAppBar1("Add a child" ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -52,15 +52,15 @@ class AddChildScreen extends StatelessWidget {
                   children: [
                     CustomInputField(
                       controller: controller.firstNameController,
-                      hintText: "Child's first name".tr,
+                      hintText: "Child's first name" ,
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      hintText: "child's last name".tr,
+                      hintText: "child's last name" ,
                     ),
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      hintText: "child's school name".tr,
+                      hintText: "child's school name" ,
                     ),
                     // add child data custom button
                     Row(
@@ -77,7 +77,7 @@ class AddChildScreen extends StatelessWidget {
                                 size: 18,
                               ),
                               Text(
-                                "Add child".tr,
+                                "Add child" ,
                                 style: AppStyle.baseSmallRegular.copyWith(
                                   color: AppColors.primary,
                                 ),
@@ -90,7 +90,7 @@ class AddChildScreen extends StatelessWidget {
 
                     // Custom button
                     CustomButton(
-                      buttonTitle: "Next".tr,
+                      buttonTitle: "Next" ,
                       onTap: () => Get.to(ForgotPasswordScreen(isReset: false)),
                     ),
                   ],

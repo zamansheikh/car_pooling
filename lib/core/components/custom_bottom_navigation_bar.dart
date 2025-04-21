@@ -36,7 +36,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     AppIcons.findfamilyIcon,
                     color: AppColors.white,
                   ),
-          label: 'Find Families'.tr,
+          label: 'Find Families' ,
         ),
         BottomNavigationBarItem(
           icon:
@@ -49,7 +49,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     AppIcons.scheduleIcon,
                     color: AppColors.white,
                   ),
-          label: 'Schedule'.tr,
+          label: 'Schedule' ,
         ),
         BottomNavigationBarItem(
           icon: Container(
@@ -73,7 +73,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     AppIcons.inboxIcon,
                     color: AppColors.white,
                   ),
-          label: 'Inbox'.tr,
+          label: 'Inbox' ,
         ),
         BottomNavigationBarItem(
           icon:
@@ -83,7 +83,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     color: AppColors.primary,
                   )
                   : SvgPicture.asset(AppIcons.menuIcon, color: AppColors.white),
-          label: 'Menu'.tr,
+          label: 'Menu' ,
         ),
       ],
       onTap: onChanged,

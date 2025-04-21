@@ -19,9 +19,9 @@ class PackageScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: customAppBar1(
-          "Packages".tr,
+          "Packages" ,
           hasTabBar: true,
-          tabs: [Tab(text: "Hadikid Free".tr), Tab(text: "Hadikid Premium".tr)],
+          tabs: [Tab(text: "Hadikid Free" ), Tab(text: "Hadikid Premium" )],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
@@ -36,14 +36,14 @@ class PackageScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Feature List
-        FeatureItem(text: 'HadiKid No Ads'.tr),
-        FeatureItem(text: 'Live Tracking'.tr),
-        FeatureItem(text: 'Added Notification'.tr),
-        FeatureItem(text: 'Carpool History'.tr),
-        FeatureItem(text: 'Add message'.tr),
+        FeatureItem(text: 'HadiKid No Ads' ),
+        FeatureItem(text: 'Live Tracking' ),
+        FeatureItem(text: 'Added Notification' ),
+        FeatureItem(text: 'Carpool History' ),
+        FeatureItem(text: 'Add message' ),
         SizedBox(height: 24),
         Text(
-          'Choose between monthly or yearly billing and start enjoying your premium features.'.tr,
+          'Choose between monthly or yearly billing and start enjoying your premium features.' ,
           style: AppStyle.baseRegular.copyWith(color: AppColors.primaryDark),
         ),
         SizedBox(height: 16),
@@ -79,7 +79,7 @@ class PackageScreen extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: CustomButton(
-            buttonTitle: "Upgrade plan".tr,
+            buttonTitle: "Upgrade plan" ,
             onTap: () {
               Get.toNamed(AppRoutes.payment);
             },

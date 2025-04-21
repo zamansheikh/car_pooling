@@ -25,7 +25,7 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(isReset ? "Resset password".tr : "Verification".tr),
+      appBar: customAppBar1(isReset ? "Resset password"  : "Verification" ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
@@ -37,8 +37,8 @@ class OtpScreen extends StatelessWidget {
                 children: [
                   Text(
                     !isPhone
-                        ? "${"An OTP code has been sent to".tr} $sendTo ${" to reset password. If you don't see it in your inbox, please check your junk or spam folder. Enter the code below to continue.".tr}"
-                        : "${"An OTP code has been sent to".tr} $sendTo ${" to reset your password. Enter the code below to continue.".tr}",
+                        ? "${"An OTP code has been sent to" } $sendTo ${" to reset password. If you don't see it in your inbox, please check your junk or spam folder. Enter the code below to continue." }"
+                        : "${"An OTP code has been sent to" } $sendTo ${" to reset your password. Enter the code below to continue." }",
                     style: AppStyle.baseRegular.copyWith(
                       color: AppColors.darkGray,
                     ),
@@ -58,7 +58,7 @@ class OtpScreen extends StatelessWidget {
                       child:
                           controller.isTimerActive.value
                               ? Text(
-                                "${"Times remaining".tr}: 00:${controller.secondsRemaining} s",
+                                "${"Times remaining" }: 00:${controller.secondsRemaining} s",
                                 style: AppStyle.baseSmallRegular.copyWith(
                                   color: AppColors.gray,
                                 ),
@@ -68,7 +68,7 @@ class OtpScreen extends StatelessWidget {
                                   controller.resendOTP(sendTo);
                                 },
                                 child: Text(
-                                  "resend".tr,
+                                  "resend" ,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.primary,
                                   ),
@@ -79,7 +79,7 @@ class OtpScreen extends StatelessWidget {
                   SizedBox(height: 40.h),
                   Obx(() {
                     return CustomButton(
-                      buttonTitle: "Next".tr,
+                      buttonTitle: "Next" ,
                       isLoading: controller.isLoading.value,
                       onTap: () {
                         controller.confirmOTP(isReset: isReset, sendTo: sendTo);

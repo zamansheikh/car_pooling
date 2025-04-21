@@ -19,7 +19,7 @@ class MyInformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My Information".tr),
+      appBar: customAppBar1("My Information" ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
         child: ListView(
@@ -114,7 +114,7 @@ class MyInformationScreen extends StatelessWidget {
                   ),
                 ),
                 //  Save button
-                CustomButton(buttonTitle: "Done".tr, onTap: () {}),
+                CustomButton(buttonTitle: "Done" , onTap: () {}),
               ],
             ),
           ],
@@ -135,10 +135,10 @@ class MyInformationScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Home Address".tr, style: AppStyle.headerBold5),
+                Text("Home Address" , style: AppStyle.headerBold5),
                 SizedBox(height: 4.h),
                 Text(
-                  "Your home address will allow you to send or receive ‘Add Contact’ requests to connect with HadiKid families nearby.".tr,
+                  "Your home address will allow you to send or receive ‘Add Contact’ requests to connect with HadiKid families nearby." ,
                   style: AppStyle.smallRegular.copyWith(
                     color: Colors.grey[600], // Gray color for description
                   ),

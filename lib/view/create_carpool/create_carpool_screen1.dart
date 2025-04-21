@@ -17,7 +17,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create carpool".tr, hasBack: false),
+      appBar: customAppBar1("Create carpool" , hasBack: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
@@ -25,7 +25,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Which child(ren) will attend the event?*".tr,
+                "Which child(ren) will attend the event?*" ,
                 style: AppStyle.largeMedium,
               ),
               SizedBox(height: 12.h),
@@ -61,7 +61,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                         children: [
                           Icon(Icons.add, color: AppColors.primaryDark),
                           Text(
-                            "Add new child(ren)".tr,
+                            "Add new child(ren)" ,
                             style: AppStyle.baseMedium.copyWith(
                               color: AppColors.primary,
                             ),
@@ -73,7 +73,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 24.h),
-              Text("My Role".tr, style: AppStyle.largeMedium),
+              Text("My Role" , style: AppStyle.largeMedium),
               SizedBox(height: 12.h),
 
               // =========>>>>>>>>> Choose my role <<<<<<<<<=========
@@ -101,7 +101,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
               // =========>>>>>>>>> Next Button <<<<<<<<<=========
               SizedBox(height: 24.h),
               CustomButton(
-                buttonTitle: "Next".tr,
+                buttonTitle: "Next" ,
                 isRounded: false,
                 onTap: () {
                   Get.toNamed(AppRoutes.createCarpool2);

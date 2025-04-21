@@ -37,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                     Image.asset("assets/common/logo.png"),
                     SizedBox(height: 64.h),
                     Text(
-                      "How to Works".tr,
+                      "How to Works" ,
                       style: AppStyle.headerRegular3.copyWith(
                         color: AppColors.primaryDark,
                       ),
@@ -45,24 +45,24 @@ class WelcomeScreen extends StatelessWidget {
 
                     buildSteps(
                       step: 1,
-                      body: "Create a carpool between two points.".tr,
+                      body: "Create a carpool between two points." ,
                     ),
                     buildSteps(
                       step: 2,
-                      body: "Invite your friends to carpool with you.".tr,
+                      body: "Invite your friends to carpool with you." ,
                     ),
                     buildSteps(
                       step: 3,
-                      body: "Friends join and add their child's location.".tr,
+                      body: "Friends join and add their child's location." ,
                     ),
                     buildSteps(
                       step: 4,
                       body:
                           "Parents Volunteer to Drive. We Send reminders and optimized routes."
-                              .tr,
+                               ,
                     ),
                     CustomButton(
-                      buttonTitle: "Next".tr,
+                      buttonTitle: "Next" ,
                       onTap: () => Get.toNamed(AppRoutes.welcomeScreen2),
                     ),
                   ],
@@ -81,7 +81,7 @@ class WelcomeScreen extends StatelessWidget {
       spacing: 8.h,
       children: [
         Text(
-          "${"Step".tr} - 0$step",
+          "${"Step" } - 0$step",
           style: AppStyle.largeMedium.copyWith(color: AppColors.primaryDark),
         ),
         Text(

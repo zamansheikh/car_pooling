@@ -15,7 +15,7 @@ class PaymentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Payment".tr),
+      appBar: customAppBar1("Payment" ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
@@ -38,7 +38,7 @@ class PaymentScreen extends StatelessWidget {
 
             CustomInputField(
               controller: controller.cardHolderNameController,
-              hintText: "Card Holder Name".tr,
+              hintText: "Card Holder Name" ,
               onChanged: (p0) {
                 controller.cardHolderName.value = p0;
               },
@@ -46,7 +46,7 @@ class PaymentScreen extends StatelessWidget {
             CustomInputField(
               isNumber: true,
               controller: controller.cardNumberController,
-              hintText: "Card Number".tr,
+              hintText: "Card Number" ,
               onChanged: (p0) {
                 controller.cardNumber.value = p0;
               },
@@ -57,7 +57,7 @@ class PaymentScreen extends StatelessWidget {
                 Flexible(
                   child: CustomDateInput(
                     dateController: controller.expiryDateController,
-                    hintText: "Expiry Date".tr,
+                    hintText: "Expiry Date" ,
                     onChanged: (p0) {
                       controller.expiryDate.value = p0;
                     },
@@ -68,7 +68,7 @@ class PaymentScreen extends StatelessWidget {
                   child: CustomInputField(
                     isNumber: true,
                     controller: controller.ccvCodeController,
-                    hintText: "CCV Code".tr,
+                    hintText: "CCV Code" ,
                     onChanged: (p0) {
                       controller.cvvCode.value = p0;
                     },
@@ -76,7 +76,7 @@ class PaymentScreen extends StatelessWidget {
                 ),
               ],
             ),
-            CustomButton(buttonTitle: "Update".tr, onTap: () {}),
+            CustomButton(buttonTitle: "Update" , onTap: () {}),
           ],
         ),
       ),

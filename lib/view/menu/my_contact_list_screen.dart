@@ -11,7 +11,7 @@ class MyContactListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My contact list".tr, hasInvite: true),
+      appBar: customAppBar1("My contact list" , hasInvite: true),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Obx(() {

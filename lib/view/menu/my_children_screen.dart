@@ -20,11 +20,11 @@ class MyChildrenScreen extends StatelessWidget {
       length: 2, // Number of tabs
       child: Scaffold(
         appBar: customAppBar1(
-          "My Family Members".tr,
+          "My Family Members" ,
           hasTabBar: true, // Ensure this tells customAppBar1 to add a TabBar
           tabs: [
-            Tab(text: "Children".tr), // First tab
-            Tab(text: "Spouse".tr), // Second tab
+            Tab(text: "Children" ), // First tab
+            Tab(text: "Spouse" ), // Second tab
           ],
         ),
         body: Padding(
@@ -36,7 +36,7 @@ class MyChildrenScreen extends StatelessWidget {
               Obx(() {
                 // Display message if the list is empty
                 if (controller.myChildrenList.isEmpty) {
-                  return Center(child: Text("No children added yet.".tr));
+                  return Center(child: Text("No children added yet." ));
                 }
                 // Build the list if not empty
                 return ListView.builder(
@@ -62,7 +62,7 @@ class MyChildrenScreen extends StatelessWidget {
               Obx(() {
                 // Display message if the list is empty
                 if (controller.myChildrenList.isEmpty) {
-                  return Center(child: Text("No children added yet.".tr));
+                  return Center(child: Text("No children added yet." ));
                 }
                 // Build the list if not empty
                 return ListView.builder(
