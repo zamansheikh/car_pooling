@@ -1,10 +1,15 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/child_card.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/components/show_custom_snackbar.dart';
 import 'package:car_pooling/core/components/spouse_card.dart';
+import 'package:car_pooling/core/constant/app_colors.dart';
+import 'package:car_pooling/core/helper/app_routes.dart';
+import 'package:car_pooling/view/menu/edit_child_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyChildrenScreen extends StatelessWidget {
   MyChildrenScreen({super.key});
@@ -20,11 +25,11 @@ class MyChildrenScreen extends StatelessWidget {
       length: 2, // Number of tabs
       child: Scaffold(
         appBar: customAppBar1(
-          "My Family Members" ,
+          "My Family Members",
           hasTabBar: true, // Ensure this tells customAppBar1 to add a TabBar
           tabs: [
-            Tab(text: "Children" ), // First tab
-            Tab(text: "Spouse" ), // Second tab
+            Tab(text: "Children"), // First tab
+            Tab(text: "Spouse"), // Second tab
           ],
         ),
         body: Padding(
@@ -36,7 +41,7 @@ class MyChildrenScreen extends StatelessWidget {
               Obx(() {
                 // Display message if the list is empty
                 if (controller.myChildrenList.isEmpty) {
-                  return Center(child: Text("No children added yet." ));
+                  return Center(child: Text("No children added yet."));
                 }
                 // Build the list if not empty
                 return ListView.builder(
@@ -51,7 +56,21 @@ class MyChildrenScreen extends StatelessWidget {
                       el: child,
                       onTapDelete: () {
                         // Consider adding confirmation dialog before deleting
-                        controller.myChildrenList.removeAt(index);
+                        if (controller.myChildrenList.length > 1) {
+                          showDeleteConfirmationDialog(
+                            title: "Are you sure to remove your child? ",
+                            onDelete: () {
+                              controller.myChildrenList.removeAt(index);
+                            },
+                          );
+                        } else {
+                          showCustomSnackBar(
+                            "At least one child must be saved.",
+                          );
+                        }
+                      },
+                      onTapEdit: (){
+                        Get.toNamed(AppRoutes.editChild);
                       },
                     );
                   },
@@ -62,10 +81,21 @@ class MyChildrenScreen extends StatelessWidget {
               Obx(() {
                 // Display message if the list is empty
                 if (controller.myChildrenList.isEmpty) {
-                  return Center(child: Text("No children added yet." ));
+                  return Center(child: Text("No children added yet."));
                 }
                 // Build the list if not empty
-                return ListView.builder(
+                return controller.mySpouseList.isEmpty? Center(child: TextButton(
+                  onPressed: (){
+                    Get.to(()=> EditChildScreen(isSpouse: true,));
+                  },
+                  child: Row(
+                    spacing: 3,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.add, color: AppColors.darkGray),
+                      Text('Create spouse', style: TextStyle(color: AppColors.darkGray,))
+                    ],
+                  )),) :ListView.builder(
                   itemCount: controller.mySpouseList.length,
                   itemBuilder: (context, index) {
                     // Prevent index out of bounds if list is modified concurrently
@@ -75,10 +105,17 @@ class MyChildrenScreen extends StatelessWidget {
                     final spouse = controller.mySpouseList[index];
                     return SpouseCard(
                       el: spouse,
+                    
                       onTapDelete: () {
                         // Consider adding confirmation dialog before deleting
-                        controller.mySpouseList.removeAt(index);
+                        showDeleteConfirmationDialog(
+                          onDelete: () {
+                            controller.mySpouseList.removeAt(index);
+                          },
+                          title: " Are you sure to remove your spouse?",
+                        );
                       },
+                      
                     );
                   },
                 );
@@ -89,4 +126,78 @@ class MyChildrenScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void showDeleteConfirmationDialog({
+  required VoidCallback onDelete,
+  required String title,
+}) {
+  showDialog(
+    context: Get.context!,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        title: Text(
+          title,
+          style: GoogleFonts.roboto(fontWeight: FontWeight.w500),
+        ),
+        content: const Text(
+          "This action cannot be undone.",
+          style: TextStyle(fontSize: 16.0),
+        ),
+        actions: [
+          Row(
+            spacing: 12.w,
+            children: [
+              dialogButton(
+                onTap: () {
+                  Get.back();
+                },
+                titleText: "Cancel",
+                isDanger: false,
+              ),
+              dialogButton(
+                onTap: () {
+                  onDelete();
+                  Get.back();
+                },
+                titleText: "Delete",
+              ),
+            ],
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Expanded dialogButton({
+  required titleText,
+  required onTap,
+  bool isDanger = true,
+}) {
+  return Expanded(
+    child: GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10.h),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          border: isDanger ? null : Border.all(color: AppColors.darkGray),
+          color: isDanger ? AppColors.danger : null,
+        ),
+        child: Center(
+          child: Text(
+            titleText,
+            style: TextStyle(
+              color: isDanger ? Colors.white : AppColors.darkGray,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
 }

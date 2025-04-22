@@ -20,6 +20,7 @@ class CustomInputField extends StatelessWidget {
     this.background,
     this.isNumber = false,
     this.onChanged,
+    this.maxLength,
   });
 
   final String? title;
@@ -33,6 +34,7 @@ class CustomInputField extends StatelessWidget {
   final Color? background;
   final bool isNumber;
   final Function(String)? onChanged;
+  final int? maxLength;
 
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
@@ -49,7 +51,7 @@ class CustomInputField extends StatelessWidget {
         Obx(() {
           final obscure = isObscure.value;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.primaryLight),
               borderRadius: BorderRadius.circular(12),
@@ -85,26 +87,26 @@ class CustomInputField extends StatelessWidget {
 
                     //  The maxlines determines the number of lines that can occupy the field
                     maxLines: maxLines,
+                    // shows 
+                    maxLength: maxLength,
                     // This is to validate fields based conditions
                     validator:
-                        !isPassword
-                            ? validator
-                            : (value) {
+                      (value) {
                               if (value == null || value.isEmpty) {
                                 // if the value of field is empty
-                                return "This field cannot be empty";
+                                return "This field cannot be empty.";
                               }
                               if (isEmail) {
-                                if (!RegexValidators.isValidEmail(value)) {
+                                if (!RegexValidators.isValidEmail(value) ) {
                                   // if email and not validated then the following the error will be shown
-                                  return "Please Enter valid $value";
-                                }
+                                  return "Please Enter valid $value.";
+                                } 
                               }
                               if (isPassword) {
                                 if (!RegexValidators.isValidPassword(value)) {
                                   // password validating on length
                                   return "Must be 8+ chars with upper, lower, number & symbol.";
-                                }
+                                } 
                               }
                               // default return of null
                               return null;

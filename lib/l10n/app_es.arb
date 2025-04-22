@@ -15,7 +15,7 @@
   "signUp": "Sign Up",
   "alreadyHaveAnAccount": "Already have an account?",
   "signIn": "Sign In",
-  "signInYourAccount": "Sign In Your Account",
+  "signInYourAccount": "Sign in your account",
   "rememberMe": "Remember me",
   "forgotPassword": "Forgot password?",
   "donTHaveAnAccount": "Don't have an account?",
@@ -34,5 +34,8 @@
   "createNewPasswordHere": "Create new password here",
   "done": "Done",
   "addAChild": "Add a child",
-  "addChild": "Add child"
+  "addChild": "Add a child",
+  "howItWorks": "How It Works",
+  "whichChildRenWillAttendTheEvent": "Which child(ren) will attend the event?*",
+  "addAnAddress": "add an address"
 }

@@ -6,7 +6,7 @@
   "createACarpoolBetweenTwoPoints": "Create a carpool between two points.",
   "inviteYourFriendsToCarpoolWithYou": "Invite your friends to carpool with you.",
   "friendsJoinAndAddTheirChildSLocation": "Friends join and add their child's location.",
-  "parentsVolunteerToDriveWeSendRemindersAndOptimizedRoutes": "Parents Volunteer to Drive. We Send reminders and optimized routes.",
+  "parentsVolunteerToDriveWeSendRemindersAndOptimizedRoutes": "Parents Volunteer to Drive. We send reminders and optimized routes.",
   "next": "Next",
   "letSSetUpAnAccount": "Let's set up an account",
   "iAgreeToHadikidS": "I agree to HadiKid's ",
@@ -15,7 +15,7 @@
   "signUp": "Sign Up",
   "alreadyHaveAnAccount": "Already have an account?",
   "signIn": "Sign In",
-  "signInYourAccount": "Sign In Your Account",
+  "signInYourAccount": "Sign in your account",
   "rememberMe": "Remember me",
   "forgotPassword": "Forgot password?",
   "donTHaveAnAccount": "Don't have an account?",
@@ -24,7 +24,7 @@
   "anOtpCodeHasBeenSentTo": "An OTP code has been sent to",
   "toResetPasswordIfYouDonTSeeItInYourInboxPleaseCheckYourJunkOrSpamFolderEnterTheCodeBelowToContinue": " to reset password. If you don't see it in your inbox, please check your junk or spam folder. Enter the code below to continue.",
   "toResetYourPasswordEnterTheCodeBelowToContinue": " to reset your password. Enter the code below to continue.",
-  "resend": "resend",
+  "resend": "Resend",
   "resetPassword": "Reset password",
   "enterYourMobileNumber": "Enter your mobile number",
   "enterYourEmail": "Enter your email",
@@ -34,5 +34,8 @@
   "createNewPasswordHere": "Create new password here",
   "done": "Done",
   "addAChild": "Add a child",
-  "addChild": "Add child"
+  "addChild": "Add a child",
+  "howItWorks": "How It Works",
+  "whichChildRenWillAttendTheEvent": "Which child(ren) will attend the event?*",
+  "addAnAddress": "add an address"
 }

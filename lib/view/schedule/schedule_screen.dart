@@ -15,19 +15,20 @@ class ScheduleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       // DefaultTabController is needed to use tabbar with appbar
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: customAppBar1(
           "Schedule" ,
           hasBack: false,
           hasTabBar: true,
-          tabs: [Tab(text: "Attending" ), Tab(text: "Driving" )],
+          tabs: [Tab(text: "Attending" ), Tab(text: "Organizing" ), Tab(text: "Driving" )],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: TabBarView(
             children: [
               buildTabView(controller.carpoolList, true),
+              buildTabView(controller.carpoolList, false),
               buildTabView(controller.carpoolList, false),
             ],
           ),

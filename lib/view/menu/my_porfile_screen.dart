@@ -11,7 +11,7 @@ class MyPorfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My Profile" ),
+      appBar: customAppBar1("Profile" ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
         child: Column(

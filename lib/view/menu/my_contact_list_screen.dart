@@ -1,6 +1,7 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/contact_card.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/view/menu/my_children_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,7 @@ class MyContactListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My contact list" , hasInvite: true),
+      appBar: customAppBar1("Contact list" , hasInvite: true),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Obx(() {
@@ -26,9 +27,11 @@ class MyContactListScreen extends StatelessWidget {
                 distance: contact.distance,
                 hasDelete: true,
                 onDelete: () {
-                  controller.myContactList.removeAt(index);
+                 showDeleteConfirmationDialog(onDelete: (){
+                   controller.myContactList.removeAt(index);
                   controller.myContactList.refresh();
-                  Get.back();
+               
+                 }, title: "Are you sure you want to delete this contact?");
                 },
               );
             },

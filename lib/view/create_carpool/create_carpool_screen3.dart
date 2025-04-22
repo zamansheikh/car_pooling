@@ -31,7 +31,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
               SizedBox(height: 12.h),
               CustomInputField(
                 controller: controller.searchContactController,
-                hintText: "Searching the parent" ,
+                hintText: "Search contact" ,
                 prefixIcon: AppIcons.serchIcon,
               ),
               SizedBox(height: 24.h),
@@ -90,28 +90,29 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                               .toList(),
                     ),
                     // add more button goes here
-                    GestureDetector(
-                      onTap: () {
-                        // TODO: add "add contact functionality"
-                      },
-                      child: Row(
-                        spacing: 12,
-                        children: [
-                          Icon(Icons.add),
-                          Text("Add Contacts" , style: AppStyle.baseMedium),
-                        ],
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     // TODO: add "add contact functionality"
+                    //   },
+                    //   child: Row(
+                    //     spacing: 12,
+                    //     children: [
+                    //       Icon(Icons.add),
+                    //       Text("Add Contacts" , style: AppStyle.baseMedium),
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
               SizedBox(height: 24.h),
               // Add message goes here
-              Text("Add Message" , style: AppStyle.largeMedium),
+              Text("Add Note" , style: AppStyle.largeMedium),
               SizedBox(height: 12.h),
               CustomInputField(
                 controller: controller.addMessageController,
                 maxLines: 5,
+                maxLength: 300,
                 background: AppColors.white,
               ),
               SizedBox(height: 24.h),
@@ -167,7 +168,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                       return customAlertDialog(
                         asset: AppIcons.congratsIcon,
                         buttonText: "Home" ,
-                        content: "Invitation is Successfull!" ,
+                        content: " Invitation has been successfully sent." ,
                         title: "Invite Sent!" ,
                         route: () {
                           Get.toNamed(AppRoutes.homeSCreen);

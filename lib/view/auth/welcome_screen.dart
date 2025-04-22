@@ -38,9 +38,10 @@ class WelcomeScreen extends StatelessWidget {
                     Image.asset("assets/common/logo.png"),
                     SizedBox(height: 64.h),
                     Text(
-                      "How to Works" ,
+                      AppLocalizations.of(context)!.howItWorks ,
                       style: AppStyle.headerRegular3.copyWith(
                         color: AppColors.primaryDark,
+                        fontSize: 28.sp
                       ),
                     ),
 

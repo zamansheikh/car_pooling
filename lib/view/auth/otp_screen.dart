@@ -26,7 +26,7 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(isReset ? AppLocalizations.of(context)!.ressetPassword  : AppLocalizations.of(context)!.verification ),
+      appBar: customAppBar1(isReset ? AppLocalizations.of(context)!.resetPassword  : AppLocalizations.of(context)!.verification ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),

@@ -41,7 +41,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.eventNameController,
-                  hintText: "Event Name" ,
+                  hintText: "Event name" ,
                 ),
                 SizedBox(height: 24.h),
                 // Where
@@ -49,12 +49,12 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.startLocationController,
-                  hintText: "Start Location" ,
+                  hintText: "Start location" ,
                 ),
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.endLocationController,
-                  hintText: "End Location" ,
+                  hintText: "End location" ,
                 ),
                 SizedBox(height: 12.h),
 

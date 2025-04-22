@@ -108,13 +108,15 @@ class MyInformationScreen extends StatelessWidget {
                       SizedBox(),
                       Row(
                         spacing: 6,
-                        children: [Icon(Icons.add), Text("add address")],
+                        children: [Icon(Icons.add), Text("Add an address")],
                       ),
                     ],
                   ),
                 ),
                 //  Save button
-                CustomButton(buttonTitle: "Done" , onTap: () {}),
+                CustomButton(buttonTitle: "Save & Back" , onTap: () {
+                  Get.back();
+                }),
               ],
             ),
           ],

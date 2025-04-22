@@ -3,6 +3,7 @@ import 'package:car_pooling/core/components/contact_card.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/constant/app_icons.dart';
+import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -22,8 +23,10 @@ class FindFamilyScreen extends StatelessWidget {
             CustomInputField(
               controller: controller.familySearchController,
               prefixIcon: AppIcons.serchIcon,
-              hintText: "${"Search" }...",
+              hintText: "${"Search name, email or phone" }...",
             ),
+            SizedBox(height: 4,),
+            Text(" Type a name, 10-digit phone number or email address to search.", style: AppStyle.smallRegular,),
             SizedBox(height: 12.h),
             Obx(() {
               return Column(

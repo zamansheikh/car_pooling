@@ -30,7 +30,7 @@ class SignInScreen extends StatelessWidget {
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
-                  SizedBox(height: 72.h),
+                  SizedBox(height: 52.h),
                   Text(
                     AppLocalizations.of(context)!.signInYourAccount ,
                     style: AppStyle.headerBold2.copyWith(

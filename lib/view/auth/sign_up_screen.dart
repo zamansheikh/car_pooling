@@ -57,6 +57,7 @@ class SignUpScreen extends StatelessWidget {
                         CustomInputField(
                           controller: controller.emailController,
                           hintText: "Email" ,
+                          isEmail: true,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(

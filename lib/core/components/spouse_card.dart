@@ -4,6 +4,7 @@ import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/core/wrappers/card_wrapper.dart';
 import 'package:car_pooling/model/spouse_model.dart';
+import 'package:car_pooling/view/menu/edit_child_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,10 +33,10 @@ class SpouseCard extends StatelessWidget {
                     '${el.childFistName} ${el.childLastName}',
                     style: AppStyle.largeMedium,
                   ),
-                  Text(
-                    el.childSchoolName,
-                    style: AppStyle.baseMedium.copyWith(color: AppColors.gray),
-                  ),
+                  // Text(
+                  //   el.childSchoolName,
+                  //   style: AppStyle.baseMedium.copyWith(color: AppColors.gray),
+                  // ),
                 ],
               ),
             ],
@@ -45,7 +46,7 @@ class SpouseCard extends StatelessWidget {
             spacing: 8.h,
             children: [
               InkWell(
-                onTap: () => Get.toNamed(AppRoutes.editChild),
+                onTap: () => Get.to(() =>EditChildScreen(isSpouse: true,)),
                 child: SvgPicture.asset(AppIcons.editIcon),
               ),
               if (onTapDelete != null)

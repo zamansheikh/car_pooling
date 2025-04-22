@@ -57,11 +57,11 @@ class AddChildScreen extends StatelessWidget {
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      hintText: "child's last name" ,
+                      hintText: "Child's last name" ,
                     ),
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      hintText: "child's school name" ,
+                      hintText: "Child's school name" ,
                     ),
                     // add child data custom button
                     Row(

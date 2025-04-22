@@ -48,7 +48,7 @@ class AuthController extends GetxController {
 
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
-    showCustomSnackBar("Signed in successfully", isError: false);
+    showCustomSnackBar("Signed in successfully!", isError: false);
     clearControllers();
     Get.toNamed(AppRoutes.homeSCreen);
   }
@@ -60,7 +60,7 @@ class AuthController extends GetxController {
 
     if (!checkBoxStatus.value) {
       showCustomSnackBar(
-        "You must agree to the terms and conditions to continue",
+        "You must agree to the Terms & Conditions and Privacy Policy to continue",
         isError: true,
       );
       return;
@@ -90,7 +90,7 @@ class AuthController extends GetxController {
       return;
     }
     if (isPhone && phoneController.text.length < 4) {
-      showCustomSnackBar("Enter Number");
+      showCustomSnackBar("Please enter your phone number.");
       return;
     }
 
@@ -115,7 +115,7 @@ class AuthController extends GetxController {
       ),
     );
 
-    showCustomSnackBar("OTP sent successfully", isError: false);
+    showCustomSnackBar("OTP sent successfully!", isError: false);
   }
 
   Future resendOTP(sendTo) async {
@@ -147,7 +147,7 @@ class AuthController extends GetxController {
 
   Future confirmOTP({sendTo, isReset}) async {
     if (otpController.text.length < 4) {
-      showCustomSnackBar("Enter OTP", isError: true);
+      showCustomSnackBar("Please enter OTP.", isError: true);
       return;
     }
     final body = {"otp": int.parse(otpController.text), "sendTo": sendTo};
@@ -173,11 +173,14 @@ class AuthController extends GetxController {
       );
     }
 
-    showCustomSnackBar("OTP Confirmed!", isError: false);
+    showCustomSnackBar("OTP confirmed!", isError: false);
     clearControllers();
   }
 
-  Future createNewpass() async {
+  Future createNewpass(formkey) async {
+        if (!formkey.currentState!.validate()) {
+      return;
+    }
     final body = {
       "newPass": newPassController.text,
       "confirmPassword": confirmNewPassController.text,
@@ -186,7 +189,7 @@ class AuthController extends GetxController {
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
     if (newPassController.text != confirmNewPassController.text) {
-      showCustomSnackBar("Passwords do not match", isError: true);
+      showCustomSnackBar("Passwords do not match.", isError: true);
       return;
     }
     isLoading.value = true;
@@ -198,7 +201,7 @@ class AuthController extends GetxController {
       builder: (BuildContext context) {
         return customAlertDialog(
           title: "Password Changed!",
-          content: "You have successfully changed your password",
+          content: "You have successfully changed your password.",
           asset: AppIcons.congratsIcon,
           buttonText: "OK",
           route: () => Get.toNamed(AppRoutes.signIn),

@@ -8,14 +8,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class EditChildScreen extends StatelessWidget {
-  EditChildScreen({super.key});
+  EditChildScreen({super.key, this.isSpouse  = false});
+
+  final bool isSpouse;
 
   final MenuProfileController controller = Get.put(MenuProfileController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Edit child" ),
+      appBar: customAppBar1(isSpouse? "Edit Spouse" : "Edit child"),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -37,22 +39,23 @@ class EditChildScreen extends StatelessWidget {
 
                     CustomInputField(
                       controller: controller.firstNameController,
-                      hintText: "First Name" ,
+                      hintText: "First Name",
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      hintText: "Last Name" ,
+                      hintText: "Last Name",
                     ),
+                    if(!isSpouse)
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      hintText: "School Name" ,
+                      hintText: "School Name",
                     ),
+                    CustomButton(buttonTitle: "Save", onTap: () {}),
                   ],
                 ),
               ),
             ),
 
-            CustomButton(buttonTitle: "Save" , onTap: () {}),
             SizedBox(height: 30.h),
           ],
         ),

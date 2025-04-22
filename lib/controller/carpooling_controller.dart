@@ -1,3 +1,4 @@
+import 'package:car_pooling/core/components/show_custom_snackbar.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
@@ -54,6 +55,25 @@ class CarpoolingController extends GetxController {
     "Every week",
     "Custom",
   ];
+
+  Future create1Tocreate2() async {
+    bool isSelected = false;
+
+    for (int i  = 0; i< availableChildren.length; i++ ) {
+      if(availableChildren[i].isSelected) {
+        isSelected = true;
+      }
+    }
+
+
+    if(isSelected) {
+
+    Get.toNamed(AppRoutes.createCarpool2);
+    } else {
+      showCustomSnackBar("Select at least one child to continue!", isError: true);
+    }
+    
+  }
 
   Future previewAndInvites(formKey) async {
     if (!formKey.currentState!.validate()) {

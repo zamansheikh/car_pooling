@@ -8,6 +8,7 @@ import 'package:car_pooling/core/wrappers/option_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreateCarpoolScreen1 extends StatelessWidget {
   CreateCarpoolScreen1({super.key});
@@ -17,7 +18,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create carpool" , hasBack: false),
+      appBar: customAppBar1("Create Carpool" , hasBack: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
@@ -25,7 +26,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Which child(ren) will attend the event?*" ,
+                AppLocalizations.of(context)!.whichChildRenWillAttendTheEvent ,
                 style: AppStyle.largeMedium,
               ),
               SizedBox(height: 12.h),
@@ -61,7 +62,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                         children: [
                           Icon(Icons.add, color: AppColors.primaryDark),
                           Text(
-                            "Add new child(ren)" ,
+                            "Add a child" ,
                             style: AppStyle.baseMedium.copyWith(
                               color: AppColors.primary,
                             ),
@@ -101,10 +102,10 @@ class CreateCarpoolScreen1 extends StatelessWidget {
               // =========>>>>>>>>> Next Button <<<<<<<<<=========
               SizedBox(height: 24.h),
               CustomButton(
-                buttonTitle: "Next" ,
+                buttonTitle: AppLocalizations.of(context)!.next ,
                 isRounded: false,
                 onTap: () {
-                  Get.toNamed(AppRoutes.createCarpool2);
+                  controller.create1Tocreate2();
                 },
               ),
               SizedBox(height: 24.h),
