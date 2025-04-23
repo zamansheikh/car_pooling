@@ -113,17 +113,19 @@ class ContactCard extends StatelessWidget {
                         if (hasDelete)
                           InkWell(
                             onTap: () {
+                             
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return customAlertDialog(
                                     title: "Delete Contact" ,
                                     content:
-                                        "Do you sure you want to delete this contact?"
+                                        "Are you sure you want to delete this contact?"
                                              ,
                                     asset: AppIcons.deleteIcon,
                                     buttonText: "Delete" ,
                                     isConfirm: true,
+                                    isDelete: true,
                                     route:
                                         onDelete ??
                                         () {
