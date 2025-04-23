@@ -1,8 +1,10 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
+import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/view/menu/local_compoent/section_container.dart';
 import 'package:car_pooling/view/menu/local_compoent/toggle_options.dart';
+import 'package:car_pooling/view/menu/package_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -113,6 +115,7 @@ class AccountSettingScreen extends StatelessWidget {
                     ToggleOption(
                       title: 'Notify me of new messages' ,
                       value: controller.notifyNewMessages.value,
+                      isLocked: controller.isLimitedAccess.value,
                       onChanged:
                           (value) => controller.notifyNewMessages.value = value,
                     ),
@@ -168,7 +171,9 @@ class AccountSettingScreen extends StatelessWidget {
                 // Custom Button
                 CustomButton(
                   buttonTitle: "Manage Subscription" ,
-                  onTap: () {},
+                  onTap: () {
+                     Get.to(()=> PackageScreen(initialIndex: 1,));
+                  },
                 ),
                 SizedBox(height: 20.h),
               ],

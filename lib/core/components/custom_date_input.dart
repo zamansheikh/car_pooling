@@ -18,7 +18,7 @@ class CustomDateInput extends StatefulWidget {
     this.initialDate,
     this.dateFormat = 'MM/dd/yyyy',
     this.monthYearOnly = false, // New parameter to control picker mode
-    this.monthYearFormat = 'MMMM yyyy', // Format for month/year mode
+    this.monthYearFormat = 'MM/yyyy', // Format for month/year mode
   });
 
   final TextEditingController dateController;
@@ -187,7 +187,7 @@ class _CustomDateInputState extends State<CustomDateInput> {
           decoration: InputDecoration(
             hintText: widget.hintText,
             hintStyle: GoogleFonts.roboto(
-              fontSize: 14.sp,
+              fontSize: 16.sp,
               color: AppColors.gray,
             ),
             border: OutlineInputBorder(

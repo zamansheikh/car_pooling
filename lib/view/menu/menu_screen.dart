@@ -1,8 +1,11 @@
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/view/menu/local_compoent/menu_option.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -10,12 +13,12 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Menu" , hasBack: false),
+      appBar: customAppBar1("Menu", hasBack: false),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
         children: [
           MenuOption(
-            title: 'Carpools' ,
+            title: 'Carpools',
             icon: Icons.directions_car,
             showChevron: true,
             onPress: () {
@@ -23,7 +26,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Profile' ,
+            title: 'Profile',
             icon: Icons.person_outline,
             showChevron: true,
             onPress: () {
@@ -31,7 +34,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Contact List' ,
+            title: 'Contact List',
             icon: Icons.contacts,
             showChevron: true,
             onPress: () {
@@ -39,7 +42,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Account Setting' ,
+            title: 'Account Setting',
             icon: Icons.settings,
             showChevron: true,
             onPress: () {
@@ -47,7 +50,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Payment' ,
+            title: 'Payment',
             icon: Icons.credit_card,
             showChevron: true,
             onPress: () {
@@ -55,29 +58,56 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Support' ,
+            title: 'Support',
             icon: Icons.support_agent,
             showChevron: true,
-            onPress: () {},
+            onPress: () async {
+              final Uri url = Uri.parse('https://hadikid.com/destek.html');
+              if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                debugPrint('Could not launch $url');
+                // You might want to show a message to the user
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   SnackBar(content: Text('Could not open support page')),
+                // );
+              }
+            },
           ),
           MenuOption(
-            title: 'Privacy Policy' ,
+            title: 'Privacy Policy',
             icon: Icons.privacy_tip,
             showChevron: true,
-            onPress: () {
-              Get.toNamed(AppRoutes.privacyPolicy);
+            onPress: () async {
+              final Uri url = Uri.parse(
+                'https://hadikid.com/gizlilik-politikasi.html',
+              );
+              if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                debugPrint('Could not launch $url');
+                // You might want to show a message to the user
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   SnackBar(content: Text('Could not open support page')),
+                // );
+              }
             },
           ),
           MenuOption(
-            title: 'Terms & Conditions' ,
+            title: 'Terms & Conditions',
             icon: Icons.description,
             showChevron: true,
-            onPress: () {
-              Get.toNamed(AppRoutes.termsCondition);
+            onPress: () async {
+              final Uri url = Uri.parse(
+                'https://hadikid.com/hizmet-sartlari.html',
+              );
+              if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                debugPrint('Could not launch $url');
+                // You might want to show a message to the user
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   SnackBar(content: Text('Could not open support page')),
+                // );
+              }
             },
           ),
           MenuOption(
-            title: 'Language' ,
+            title: 'Language',
             icon: Icons.language,
             extra: Text(
               'English (US)',
@@ -88,20 +118,24 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Share HadiKid with Friends' ,
+            title: 'Share HadiKid with Friends',
             icon: Icons.share,
             showChevron: true,
-            onPress: () {},
+            onPress: () async {
+             await SharePlus.instance.share(
+                ShareParams(text: "Check out HadiKid! https://hadikid.com/"),
+              );
+            },
           ),
           MenuOption(
-            title: 'Logout' ,
+            title: 'Logout',
             icon: Icons.logout,
             showChevron: true,
             onPress: () {
               showModal(
-                title: "Logout" ,
-                subtitle: "Are you sure you want to logout?" ,
-                buttonText: "Logout" ,
+                title: "Logout",
+                subtitle: "Are you sure you want to logout?",
+                buttonText: "Logout",
                 buttonAction: () {
                   Get.offAllNamed(AppRoutes.signIn);
                 },
@@ -109,15 +143,16 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Delete My Account' ,
+            title: 'Delete My Account',
             icon: Icons.delete,
             textColor: Colors.red,
             iconColor: Colors.red,
             onPress: () {
               showModal(
-                title: "Delete Account" ,
-                subtitle: "Are you sure you want to delete your account?" ,
-                buttonText: "Delete" ,
+                title: "Delete Account",
+                subtitle: "Are you sure you want to delete your account?",
+                buttonText: "Delete",
+                isDelete: true,
                 buttonAction: () {
                   Get.offAllNamed(AppRoutes.signIn);
                 },
@@ -129,7 +164,7 @@ class MenuScreen extends StatelessWidget {
     );
   }
 
-  showModal({title, subtitle, buttonText, buttonAction}) {
+  showModal({title, subtitle, buttonText, buttonAction, isDelete = false}) {
     showModalBottomSheet(
       context: Get.context!,
       shape: RoundedRectangleBorder(
@@ -173,7 +208,7 @@ class MenuScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 12),
                       ),
                       child: Text(
-                        'Cancel' ,
+                        'Cancel',
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
@@ -184,7 +219,10 @@ class MenuScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: buttonAction,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.teal, // Match the button color
+                        backgroundColor:
+                            isDelete
+                                ? AppColors.danger
+                                : Colors.teal, // Match the button color
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),

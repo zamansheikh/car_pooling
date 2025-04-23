@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 10.h),
           decoration: BoxDecoration(
-            color: (isFilled && !isRed) ? AppColors.primary : null,
+            color: (isFilled && !isRed) ? AppColors.primary : (isFilled && isRed) ? AppColors.danger: null ,
             border: Border.all(
               color: isRed ? AppColors.danger : AppColors.primary,
             ),

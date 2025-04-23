@@ -58,6 +58,7 @@ class PaymentScreen extends StatelessWidget {
                   child: CustomDateInput(
                     dateController: controller.expiryDateController,
                     hintText: "Expiry Date" ,
+                    monthYearOnly: true,
                     onChanged: (p0) {
                       controller.expiryDate.value = p0;
                     },
@@ -68,7 +69,7 @@ class PaymentScreen extends StatelessWidget {
                   child: CustomInputField(
                     isNumber: true,
                     controller: controller.ccvCodeController,
-                    hintText: "CCV Code" ,
+                    hintText: "CCV" ,
                     onChanged: (p0) {
                       controller.cvvCode.value = p0;
                     },
