@@ -8,6 +8,7 @@ import 'package:car_pooling/view/auth/sign_up_screen.dart';
 import 'package:car_pooling/view/auth/splash_screen.dart';
 import 'package:car_pooling/view/auth/welcome_screen.dart';
 import 'package:car_pooling/view/auth/welcome_screen2.dart';
+import 'package:car_pooling/view/create_carpool/carpool_details_screen.dart';
 import 'package:car_pooling/view/create_carpool/create_carpool_screen1.dart';
 import 'package:car_pooling/view/create_carpool/create_carpool_screen2.dart';
 import 'package:car_pooling/view/create_carpool/create_carpool_screen3.dart';
@@ -56,6 +57,7 @@ class AppRoutes {
   static String createCarpool2 = "/craete_carpool_2";
   static String createCarpool3 = "/craete_carpool_3";
   static String createCarpool4 = "/craete_carpool_4";
+  static String carpoolDetails = "/carpool_details";
 
   // =================>>>>>>>>>>>>> Menu <<<<<<<<<<<<<===============
   static String myCarpools = "/my_car_pools";
@@ -97,6 +99,7 @@ class AppRoutes {
     GetPage(name: createCarpool2, page: () => CreateCarpoolScreen2()),
     GetPage(name: createCarpool3, page: () => CreateCarpoolScreen3()),
     GetPage(name: createCarpool4, page: () => CreateCarpoolScreen4()),
+    GetPage(name: carpoolDetails, page: () => CarpoolDetailsScreen()),
     // =================>>>>>>>>>>>>> Menu <<<<<<<<<<<<<===============
     GetPage(name: myCarpools, page: () => MyCarpoolsScreen()),
     GetPage(name: myProfiles, page: () => MyPorfileScreen()),
