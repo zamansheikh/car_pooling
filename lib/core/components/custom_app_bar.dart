@@ -14,6 +14,7 @@ AppBar customAppBar1(
   hasShadow = false,
   hasInvite = false,
   backgroundColor = Colors.white,
+  Widget? button,
   List<Widget>? tabs,
 }) {
   return AppBar(
@@ -43,8 +44,8 @@ AppBar customAppBar1(
             )
             : null,
     actions:
-        hasInvite
-            ? [
+        [
+              if(hasInvite)
               InkWell(
                 child: Container(
                   margin: EdgeInsets.only(right: 26.w),
@@ -64,7 +65,8 @@ AppBar customAppBar1(
                   ),
                 ),
               ),
+              button ?? SizedBox.shrink(),
             ]
-            : [],
+            
   );
 }
