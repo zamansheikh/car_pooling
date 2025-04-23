@@ -9,4 +9,7 @@ class AppIcons {
   static String scheduleIcon = "assets/icons/schedule_Icon.svg";
   static String inboxIcon = "assets/icons/inbox_icon.svg";
   static String menuIcon = "assets/icons/menu_icon.svg";
+
+  // Extra icons
+  static String mapIcon = "assets/icons/map_icon.svg";
 }
