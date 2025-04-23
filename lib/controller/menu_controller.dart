@@ -252,7 +252,7 @@ class MenuProfileController extends GetxController {
     final List<ContactModel> contacts = [
       ContactModel(
         image:
-            "https://example.com/image.jpg", // Replace with a valid image URL
+            "https://thispersondoesnotexist.com/", // Replace with a valid image URL
         firstName: "John",
         lastName: "Doe",
         cellNumber: "+1 234 567 8900",
@@ -265,6 +265,7 @@ class MenuProfileController extends GetxController {
         cellNumber: "+1 987 654 3210",
         address: "456 Oak Ave, Rivertown",
         distance: "1.8 km",
+        image: "https://thispersondoesnotexist.com/",
       ),
     ];
 
