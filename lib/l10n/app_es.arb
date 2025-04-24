@@ -101,5 +101,21 @@
   "noDataYet": "No data yet",
   "editSpouse": "Edit Spouse",
   "editChild": "Edit child",
-  "save": "Save"
+  "save": "Save",
+  "language": "Language",
+  "menu": "Menu",
+  "carpools": "Carpools",
+  "profile": "Profile",
+  "contactList": "Contact List",
+  "accountSetting": "Account Setting",
+  "payment": "Payment",
+  "support": "Support",
+  "shareHadikidWithFriends": "Share HadiKid with Friends",
+  "logout": "Logout",
+  "areYouSureYouWantToLogout": "Are you sure you want to logout?",
+  "deleteMyAccount": "Delete My Account",
+  "areYouSureYouWantToDeleteYourAccount": "Are you sure you want to delete your account?",
+  "deleteAccount": "Delete Account",
+  "delete": "Delete",
+  "cancel": "Cancel"
 }

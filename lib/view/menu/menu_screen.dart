@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -14,12 +15,12 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Menu", hasBack: false),
+      appBar: customAppBar1(AppLocalizations.of(context)!.menu, hasBack: false),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
         children: [
           MenuOption(
-            title: 'Carpools',
+            title: AppLocalizations.of(context)!.carpools,
             icon: Icons.directions_car,
             showChevron: true,
             onPress: () {
@@ -27,7 +28,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Carpool History',
+            title: AppLocalizations.of(context)!.carpoolHistory,
             icon: Icons.directions_car,
             isPremium: true,
             showChevron: true,
@@ -42,7 +43,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Profile',
+            title: AppLocalizations.of(context)!.profile,
             icon: Icons.person_outline,
             showChevron: true,
             onPress: () {
@@ -50,7 +51,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Contact List',
+            title: AppLocalizations.of(context)!.contactList,
             icon: Icons.contacts,
             showChevron: true,
             onPress: () {
@@ -58,7 +59,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Account Setting',
+            title: AppLocalizations.of(context)!.accountSetting,
             icon: Icons.settings,
             showChevron: true,
             onPress: () {
@@ -66,7 +67,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Payment',
+            title: AppLocalizations.of(context)!.payment,
             icon: Icons.credit_card,
             showChevron: true,
             onPress: () {
@@ -74,7 +75,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Support',
+            title: AppLocalizations.of(context)!.support,
             icon: Icons.support_agent,
             showChevron: true,
             onPress: () async {
@@ -89,7 +90,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Privacy Policy',
+            title: AppLocalizations.of(context)!.privacyPolicy,
             icon: Icons.privacy_tip,
             showChevron: true,
             onPress: () async {
@@ -106,7 +107,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Terms & Conditions',
+            title: AppLocalizations.of(context)!.termsConditions,
             icon: Icons.description,
             showChevron: true,
             onPress: () async {
@@ -123,7 +124,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Language',
+            title: AppLocalizations.of(context)!.language,
             icon: Icons.language,
             extra: Text(
               'English (US)',
@@ -134,7 +135,7 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Share HadiKid with Friends',
+            title: AppLocalizations.of(context)!.shareHadikidWithFriends,
             icon: Icons.share,
             showChevron: true,
             onPress: () async {
@@ -144,14 +145,14 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Logout',
+            title: AppLocalizations.of(context)!.logout,
             icon: Icons.logout,
             showChevron: true,
             onPress: () {
               showModal(
-                title: "Logout",
-                subtitle: "Are you sure you want to logout?",
-                buttonText: "Logout",
+                title: AppLocalizations.of(context)!.logout,
+                subtitle: AppLocalizations.of(context)!.areYouSureYouWantToLogout,
+                buttonText: AppLocalizations.of(context)!.logout,
                 buttonAction: () {
                   Get.offAllNamed(AppRoutes.signIn);
                 },
@@ -159,15 +160,15 @@ class MenuScreen extends StatelessWidget {
             },
           ),
           MenuOption(
-            title: 'Delete My Account',
+            title: AppLocalizations.of(context)!.deleteMyAccount,
             icon: Icons.delete,
             textColor: Colors.red,
             iconColor: Colors.red,
             onPress: () {
               showModal(
-                title: "Delete Account",
-                subtitle: "Are you sure you want to delete your account?",
-                buttonText: "Delete",
+                title: AppLocalizations.of(context)!.deleteAccount,
+                subtitle: AppLocalizations.of(context)!.areYouSureYouWantToDeleteYourAccount,
+                buttonText: AppLocalizations.of(context)!.delete,
                 isDelete: true,
                 buttonAction: () {
                   Get.offAllNamed(AppRoutes.signIn);
@@ -224,7 +225,7 @@ class MenuScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 12),
                       ),
                       child: Text(
-                        'Cancel',
+                        AppLocalizations.of(context)!.cancel,
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
