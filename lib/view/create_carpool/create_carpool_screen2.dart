@@ -241,6 +241,46 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                     }),
                   ],
                 ),
+                // =========>>>>>>>> start date time <<<<<<<<<==========
+                SizedBox(height: 24.h,),
+                Text("Starting", style: AppStyle.largeMedium ,),
+                SizedBox(height: 16.h,),
+                Obx(() {
+                  return CustomDateInput(
+                    dateController: controller.startDate,
+                    hintText: "${"Enter Return date" }...",
+                    isEnabled: true,
+                  );
+                }),
+                SizedBox(height: 16.w,),
+                  Row(
+                  spacing: 16.w,
+                  children: [
+                    
+                    Flexible(
+                      child: Obx(() {
+                        return CustomTimeInput(
+                          isEnabled: true,
+                          time: controller.startTime.value,
+                          onChange: (p0) {
+                            controller.startTime.value = p0;
+                          },
+                        );
+                      }),
+                    ),
+                    Flexible(
+                      child: Obx(() {
+                        return CustomTimeInput(
+                          isEnabled: true,
+                          time: controller.dropOffTime.value,
+                          onChange: (p0) {
+                            controller.dropOffTime.value = p0;
+                          },
+                        );
+                      }),
+                    ),
+                  ],
+                ),
                 // =========>>>>>>>> Create return trip <<<<<<<<<==========
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

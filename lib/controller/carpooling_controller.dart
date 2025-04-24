@@ -14,6 +14,9 @@ class CarpoolingController extends GetxController {
   TextEditingController returnDateController = TextEditingController();
   TextEditingController searchContactController = TextEditingController();
   TextEditingController addMessageController = TextEditingController();
+  TextEditingController startDate = TextEditingController();
+
+
   RxString startLocationText = "".obs;
   RxString mySelectedRole = "Attend".obs;
   // Observable for selected days of the week
@@ -47,6 +50,10 @@ class CarpoolingController extends GetxController {
   RxString selectedOption = "Custom".obs;
   RxBool isReturnTrip = false.obs;
   final Rx<Time> timePicker =
+      Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
+  final Rx<Time> startTime =
+      Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
+  final Rx<Time> dropOffTime =
       Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
 
   final List<String> availableOptions = [
