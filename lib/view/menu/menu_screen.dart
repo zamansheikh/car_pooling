@@ -32,13 +32,13 @@ class MenuScreen extends StatelessWidget {
             isPremium: true,
             showChevron: true,
             onPress: () {
-              // showDialog(
-              //       context: context,
-              //       builder: (BuildContext context) {
-              //         return upgradeDialog();
-              //       },
-              //     );
-              Get.toNamed(AppRoutes.carpoolHistory);
+              showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return upgradeDialog();
+                    },
+                  );
+              // Get.toNamed(AppRoutes.carpoolHistory);
             },
           ),
           MenuOption(
