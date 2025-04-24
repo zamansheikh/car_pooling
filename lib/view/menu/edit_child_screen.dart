@@ -6,6 +6,7 @@ import 'package:car_pooling/view/menu/local_compoent/profile_image_selector.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EditChildScreen extends StatelessWidget {
   EditChildScreen({super.key, this.isSpouse  = false});
@@ -17,7 +18,7 @@ class EditChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(isSpouse? "Edit Spouse" : "Edit child"),
+      appBar: customAppBar1(isSpouse? AppLocalizations.of(context)!.editSpouse : AppLocalizations.of(context)!.editChild),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -50,7 +51,7 @@ class EditChildScreen extends StatelessWidget {
                       controller: controller.schoolNameController,
                       hintText: "School Name",
                     ),
-                    CustomButton(buttonTitle: "Save", onTap: () {}),
+                    CustomButton(buttonTitle: AppLocalizations.of(context)!.save, onTap: () {}),
                   ],
                 ),
               ),

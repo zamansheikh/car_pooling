@@ -246,13 +246,12 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 SizedBox(height: 24.h,),
                 Text(AppLocalizations.of(context)!.starting, style: AppStyle.largeMedium ,),
                 SizedBox(height: 16.h,),
-                Obx(() {
-                  return CustomDateInput(
+               CustomDateInput(
                     dateController: controller.startDate,
                     hintText: "${"Enter Return date" }...",
                     isEnabled: true,
-                  );
-                }),
+                  ),
+             
                 SizedBox(height: 16.w,),
                   Row(
                   spacing: 16.w,

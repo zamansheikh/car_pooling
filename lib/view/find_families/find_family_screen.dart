@@ -7,6 +7,7 @@ import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FindFamilyScreen extends StatelessWidget {
   FindFamilyScreen({super.key});
@@ -14,7 +15,7 @@ class FindFamilyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Find Families" , hasBack: false),
+      appBar: customAppBar1(AppLocalizations.of(context)!.findFamilies , hasBack: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
         child: Column(
@@ -26,7 +27,7 @@ class FindFamilyScreen extends StatelessWidget {
               hintText: "${"Search name, email or phone" }...",
             ),
             SizedBox(height: 4,),
-            Text(" Type a name, 10-digit phone number or email address to search.", style: AppStyle.smallRegular,),
+            Text(AppLocalizations.of(context)!.typeAName10DigitPhoneNumberOrEmailAddressToSearch, style: AppStyle.smallRegular,),
             SizedBox(height: 12.h),
             Obx(() {
               return Column(

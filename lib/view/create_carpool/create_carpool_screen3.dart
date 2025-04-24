@@ -12,6 +12,7 @@ import 'package:car_pooling/core/wrappers/option_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreateCarpoolScreen3 extends StatelessWidget {
   CreateCarpoolScreen3({super.key});
@@ -20,7 +21,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Invite" ),
+      appBar: customAppBar1(AppLocalizations.of(context)!.invite ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
@@ -107,7 +108,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               // Add message goes here
-              Text("Add Note" , style: AppStyle.largeMedium),
+              Text(AppLocalizations.of(context)!.addNote , style: AppStyle.largeMedium),
               SizedBox(height: 12.h),
               CustomInputField(
                 controller: controller.addMessageController,
@@ -125,21 +126,21 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       spacing: 8.h,
                       children: [
-                        Text("Carpool Details" , style: AppStyle.largeMedium),
+                        Text(AppLocalizations.of(context)!.carpoolDetails , style: AppStyle.largeMedium),
                         buildDetails(
-                          key: "Event Name" ,
+                          key: AppLocalizations.of(context)!.eventName ,
                           value: controller.eventNameController.text,
                         ),
                         buildDetails(
-                          key: "From" ,
+                          key: AppLocalizations.of(context)!.from ,
                           value: controller.startLocationController.text,
                         ),
                         buildDetails(
-                          key: "To" ,
+                          key: AppLocalizations.of(context)!.to ,
                           value: controller.endLocationController.text,
                         ),
                         buildDetails(
-                          key: "On" ,
+                          key: AppLocalizations.of(context)!.on ,
                           value:
                               "${controller.returnDateController.text} at ${controller.timePicker.value.hour % 12}:${controller.timePicker.value.minute} ${controller.timePicker.value.period == DayPeriod.pm ? "PM" : "AM"}",
                         ),
@@ -148,7 +149,7 @@ class CreateCarpoolScreen3 extends StatelessWidget {
                     GestureDetector(
                       onTap: () => Get.back(),
                       child: Text(
-                        "Edit" ,
+                        AppLocalizations.of(context)!.edit ,
                         style: AppStyle.baseMedium.copyWith(
                           color: AppColors.primary,
                         ),
@@ -160,16 +161,16 @@ class CreateCarpoolScreen3 extends StatelessWidget {
               SizedBox(height: 24.h),
               CustomButton(
                 buttonTitle:
-                    "${"Send" } ${controller.myContact.length} ${"Invites" }",
+                    "${AppLocalizations.of(context)!.send} ${controller.myContact.length} ${AppLocalizations.of(context)!.invites }",
                 onTap: () {
                   showDialog(
                     context: Get.context!,
                     builder: (context) {
                       return customAlertDialog(
                         asset: AppIcons.congratsIcon,
-                        buttonText: "Home" ,
-                        content: " Invitation has been successfully sent." ,
-                        title: "Invite Sent!" ,
+                        buttonText: AppLocalizations.of(context)!.home ,
+                        content: AppLocalizations.of(context)!.invitationHasBeenSuccessfullySent ,
+                        title: AppLocalizations.of(context)!.inviteSent ,
                         route: () {
                           Get.toNamed(AppRoutes.homeSCreen);
                         },
