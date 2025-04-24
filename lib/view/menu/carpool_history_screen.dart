@@ -34,7 +34,7 @@ class CarpoolHistoryScreen extends StatelessWidget {
 
   Widget buildTabView(List<CarpoolModel> carpool) {
     return carpool.isEmpty
-        ? Center(child: Text(AppLocalizations.of(context)!.noDataYet))
+        ? Center(child: Text(AppLocalizations.of(Get.context!)!.noDataYet))
         : ListView.builder(
           itemCount: carpool.length,
           itemBuilder: (context, index) {

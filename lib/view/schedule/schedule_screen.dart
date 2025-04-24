@@ -6,6 +6,7 @@ import 'package:car_pooling/view/auth/welcome_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ScheduleScreen extends StatelessWidget {
   ScheduleScreen({super.key});
@@ -21,7 +22,7 @@ class ScheduleScreen extends StatelessWidget {
           "Schedule" ,
           hasBack: false,
           hasTabBar: true,
-          tabs: [Tab(text: "Attending" ), Tab(text: "Organizing" ), Tab(text: "Driving" )],
+          tabs: [Tab(text: AppLocalizations.of(context)!.attending ), Tab(text: AppLocalizations.of(context)!.organizing ), Tab(text: AppLocalizations.of(context)!.driving )],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),

@@ -1,7 +1,6 @@
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/core/utils/app_binding.dart';
-import 'package:car_pooling/core/utils/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
@@ -16,8 +15,6 @@ void main() {
       builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          translations: Languages(),
-         
           fallbackLocale: const Locale('en', 'US'),
           initialBinding: AppBindings.bindings,
           getPages: AppRoutes.pages,

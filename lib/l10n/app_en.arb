@@ -129,5 +129,9 @@
   "areYouSureToRemoveYourSpouse": " Are you sure to remove your spouse?",
   "thisActionCannotBeUndone": "This action cannot be undone.",
   "myInformation": "My Information",
-  "saveBack": "Save & Back"
+  "saveBack": "Save & Back",
+  "update": "Update",
+  "organizing": "Organizing",
+  "attending": "Attending",
+  "driving": "Driving"
 }

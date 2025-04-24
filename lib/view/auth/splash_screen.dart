@@ -8,8 +8,8 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
-      // TODO: Change to sign in screen
-      Get.offAllNamed(AppRoutes.homeSCreen);
+
+      Get.offAllNamed(AppRoutes.signIn);
     });
     return Scaffold(
       body: SafeArea(
