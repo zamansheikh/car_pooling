@@ -37,5 +37,17 @@
   "addChild": "Add a child",
   "howItWorks": "How It Works",
   "whichChildRenWillAttendTheEvent": "Which child(ren) will attend the event?*",
-  "addAnAddress": "add an address"
+  "addAnAddress": "add an address",
+  "carpoolDetails": "Carpool Details",
+  "location": "Location",
+  "from": "From",
+  "time": "Time",
+  "driver": "Driver",
+  "attendees": "Attendees",
+  "deleteDriver": "Delete Driver",
+  "areYouSureYouWantToRemoveYourselfFromThisCarpool": "Are you sure you want to remove yourself from this carpool?",
+  "removeAttendee": "Remove Attendee",
+  "areYouSureYouWantToRemoveThisAttendee": "Are you sure you want to remove this attendee?",
+  "invite": "invite",
+  "dropOffComplete": "Drop-Off Complete"
 }

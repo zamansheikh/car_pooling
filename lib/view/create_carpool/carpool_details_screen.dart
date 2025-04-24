@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CarpoolDetailsScreen extends StatelessWidget {
   const CarpoolDetailsScreen({super.key});
@@ -18,7 +19,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar1(
-        "Carpool Details",
+        AppLocalizations.of(context)!.carpoolDetails,
         button: GestureDetector(
           onTap: () {},
           child: Container(
@@ -101,7 +102,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
 
                 SizedBox(height: 24.h),
                 Text(
-                  "Location",
+                  AppLocalizations.of(context)!.location,
                   style: GoogleFonts.roboto(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
@@ -115,7 +116,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
                   children: [
                     SvgPicture.asset(AppIcons.carIcon),
                     Text(
-                      "From",
+                      AppLocalizations.of(context)!.from,
                       style: AppStyle.baseRegular.copyWith(
                         color: AppColors.gray,
                       ),
@@ -138,7 +139,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
 
                 SizedBox(height: 24.h),
                 Text(
-                  "Time",
+                  AppLocalizations.of(context)!.time,
                   style: GoogleFonts.roboto(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
@@ -166,7 +167,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Driver",
+                          AppLocalizations.of(context)!.driver,
                           style: GoogleFonts.roboto(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
@@ -176,13 +177,13 @@ class CarpoolDetailsScreen extends StatelessWidget {
                         // can remove on tap if logged in as driver
                         GestureDetector(
                           onTap: () {
-                            //TODO: Show delete dialog
+                         
                             showDialog(
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: Text("Delete Driver"),
-                                  content: Text("Are you sure you want to remove yourself from this carpool?"),
+                                  title: Text(AppLocalizations.of(context)!.deleteDriver),
+                                  content: Text(AppLocalizations.of(context)!.areYouSureYouWantToRemoveYourselfFromThisCarpool),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
@@ -192,7 +193,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
                                     ),
                                     TextButton(
                                       onPressed: () {
-                                        // TODO: Add logic to delete driver
+                                 
                                         Navigator.of(context).pop(); // Close the dialog
                                       },
                                       child: Text("Delete"),
@@ -227,7 +228,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Attendees",
+                          AppLocalizations.of(context)!.attendees,
                           style: GoogleFonts.roboto(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
@@ -242,8 +243,8 @@ class CarpoolDetailsScreen extends StatelessWidget {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: Text("Remove Attendee"),
-                                  content: Text("Are you sure you want to remove this attendee?"),
+                                  title: Text(AppLocalizations.of(context)!.removeAttendee),
+                                  content: Text(AppLocalizations.of(context)!.areYouSureYouWantToRemoveThisAttendee),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
@@ -293,7 +294,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
                   children: [
                     SvgPicture.asset(AppIcons.inviteIcon),
                     Text(
-                      "invite",
+                      AppLocalizations.of(context)!.invite,
                       style: AppStyle.baseRegular.copyWith(
                         color: AppColors.gray,
                       ),
@@ -317,7 +318,7 @@ class CarpoolDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            child: CustomButton(buttonTitle: "Drop-Off Complete", onTap: () {}),
+            child: CustomButton(buttonTitle: AppLocalizations.of(context)!.dropOffComplete, onTap: () {}),
           ),
         ],
       ),
