@@ -2,6 +2,7 @@ import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/view/menu/local_compoent/menu_option.dart';
+import 'package:car_pooling/view/menu/local_compoent/upgrade_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -23,6 +24,21 @@ class MenuScreen extends StatelessWidget {
             showChevron: true,
             onPress: () {
               Get.toNamed(AppRoutes.myCarpools);
+            },
+          ),
+          MenuOption(
+            title: 'Carpool History',
+            icon: Icons.directions_car,
+            isPremium: true,
+            showChevron: true,
+            onPress: () {
+              // showDialog(
+              //       context: context,
+              //       builder: (BuildContext context) {
+              //         return upgradeDialog();
+              //       },
+              //     );
+              Get.toNamed(AppRoutes.carpoolHistory);
             },
           ),
           MenuOption(
