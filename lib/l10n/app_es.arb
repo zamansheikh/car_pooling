@@ -50,5 +50,14 @@
   "areYouSureYouWantToRemoveThisAttendee": "Are you sure you want to remove this attendee?",
   "invite": "invite",
   "dropOffComplete": "Drop-Off Complete",
-  "myRole": "My Role"
+  "myRole": "My Role",
+  "what": "What",
+  "where": "Where",
+  "wouldYouLikeToSetThisLocationAsYourHomeAddress": "Would you like to set this location as your home address?",
+  "okay": "Okay",
+  "later": "Later",
+  "when": "When",
+  "previewInvites": "Preview & Invites",
+  "createReturnTrip": "Create return trip",
+  "starting": "Starting"
 }
