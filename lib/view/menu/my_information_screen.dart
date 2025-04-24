@@ -10,6 +10,7 @@ import 'package:car_pooling/view/menu/local_compoent/profile_image_selector.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyInformationScreen extends StatelessWidget {
   MyInformationScreen({super.key});
@@ -19,7 +20,7 @@ class MyInformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My Information" ),
+      appBar: customAppBar1(AppLocalizations.of(context)!.myInformation ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
         child: ListView(
@@ -114,7 +115,7 @@ class MyInformationScreen extends StatelessWidget {
                   ),
                 ),
                 //  Save button
-                CustomButton(buttonTitle: "Save & Back" , onTap: () {
+                CustomButton(buttonTitle: AppLocalizations.of(context)!.saveBack , onTap: () {
                   Get.back();
                 }),
               ],

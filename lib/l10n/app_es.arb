@@ -106,7 +106,7 @@
   "menu": "Menu",
   "carpools": "Carpools",
   "profile": "Profile",
-  "contactList": "Contact List",
+  "contactList": "Contact list",
   "accountSetting": "Account Setting",
   "payment": "Payment",
   "support": "Support",
@@ -117,5 +117,17 @@
   "areYouSureYouWantToDeleteYourAccount": "Are you sure you want to delete your account?",
   "deleteAccount": "Delete Account",
   "delete": "Delete",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "myCarpools": "My Carpools",
+  "upcoming": "Upcoming",
+  "asADriver": "As a Driver",
+  "myFamilyMembers": "My Family Members",
+  "children": "Children",
+  "spouse": "Spouse",
+  "atLeastOneChildMustBeSaved": "At least one child must be saved.",
+  "createSpouse": "Create spouse",
+  "areYouSureToRemoveYourSpouse": " Are you sure to remove your spouse?",
+  "thisActionCannotBeUndone": "This action cannot be undone.",
+  "myInformation": "My Information",
+  "saveBack": "Save & Back"
 }

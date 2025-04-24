@@ -5,6 +5,7 @@ import 'package:car_pooling/model/carpool_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyCarpoolsScreen extends StatelessWidget {
   MyCarpoolsScreen({super.key});
@@ -16,13 +17,13 @@ class MyCarpoolsScreen extends StatelessWidget {
       length:2,
       child: Scaffold(
         appBar: customAppBar1(
-          "My Carpools" ,
+          AppLocalizations.of(context)!.myCarpools ,
           hasBack: true,
           hasTabBar: true,
           hasShadow: true,
           tabs: [
-            Tab(text: "Upcoming" ),
-            Tab(text: "As a Driver" ),
+            Tab(text: AppLocalizations.of(context)!.upcoming ),
+            Tab(text: AppLocalizations.of(context)!.asADriver ),
           ],
         ),
         body: Padding(
@@ -42,7 +43,7 @@ class MyCarpoolsScreen extends StatelessWidget {
 
   Widget buildTabView(List<CarpoolModel> carpool) {
     return carpool.isEmpty
-        ? Center(child: Text('No data yet' ))
+        ? Center(child: Text(AppLocalizations.of(Get.context!)!.noDataYet ))
         : ListView.builder(
           itemCount: carpool.length,
           itemBuilder: (context, index) {

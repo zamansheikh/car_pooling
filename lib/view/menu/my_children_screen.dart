@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyChildrenScreen extends StatelessWidget {
   MyChildrenScreen({super.key});
@@ -25,11 +26,11 @@ class MyChildrenScreen extends StatelessWidget {
       length: 2, // Number of tabs
       child: Scaffold(
         appBar: customAppBar1(
-          "My Family Members",
+          AppLocalizations.of(context)!.myFamilyMembers,
           hasTabBar: true, // Ensure this tells customAppBar1 to add a TabBar
           tabs: [
-            Tab(text: "Children"), // First tab
-            Tab(text: "Spouse"), // Second tab
+            Tab(text: AppLocalizations.of(context)!.children), // First tab
+            Tab(text: AppLocalizations.of(context)!.spouse), // Second tab
           ],
         ),
         body: Padding(
@@ -65,7 +66,7 @@ class MyChildrenScreen extends StatelessWidget {
                           );
                         } else {
                           showCustomSnackBar(
-                            "At least one child must be saved.",
+                            AppLocalizations.of(context)!.atLeastOneChildMustBeSaved,
                           );
                         }
                       },
@@ -93,7 +94,7 @@ class MyChildrenScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.add, color: AppColors.darkGray),
-                      Text('Create spouse', style: TextStyle(color: AppColors.darkGray,))
+                      Text(AppLocalizations.of(context)!.createSpouse, style: TextStyle(color: AppColors.darkGray,))
                     ],
                   )),) :ListView.builder(
                   itemCount: controller.mySpouseList.length,
@@ -112,7 +113,7 @@ class MyChildrenScreen extends StatelessWidget {
                           onDelete: () {
                             controller.mySpouseList.removeAt(index);
                           },
-                          title: " Are you sure to remove your spouse?",
+                          title: AppLocalizations.of(context)!.areYouSureToRemoveYourSpouse,
                         );
                       },
                       
@@ -143,8 +144,8 @@ void showDeleteConfirmationDialog({
           title,
           style: GoogleFonts.roboto(fontWeight: FontWeight.w500),
         ),
-        content: const Text(
-          "This action cannot be undone.",
+        content:  Text(
+          AppLocalizations.of(context)!.thisActionCannotBeUndone,
           style: TextStyle(fontSize: 16.0),
         ),
         actions: [
@@ -155,7 +156,7 @@ void showDeleteConfirmationDialog({
                 onTap: () {
                   Get.back();
                 },
-                titleText: "Cancel",
+                titleText: AppLocalizations.of(context)!.cancel,
                 isDanger: false,
               ),
               dialogButton(
@@ -163,7 +164,7 @@ void showDeleteConfirmationDialog({
                   onDelete();
                   Get.back();
                 },
-                titleText: "Delete",
+                titleText: AppLocalizations.of(context)!.delete,
               ),
             ],
           ),
