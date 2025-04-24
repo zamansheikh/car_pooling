@@ -12,4 +12,10 @@ class AppIcons {
 
   // Extra icons
   static String mapIcon = "assets/icons/map_icon.svg";
+  static String carIcon = "assets/icons/car_icon.svg";
+  static String inviteIcon = "assets/icons/invite_icon.svg";
+  static String mailIcon = "assets/icons/mail_icon.svg";
+  static String personIcon = "assets/icons/person_icon.svg";
+  static String timeIcon = "assets/icons/time_icon.svg";
+
 }
