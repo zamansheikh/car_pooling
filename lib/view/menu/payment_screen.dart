@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PaymentScreen extends StatelessWidget {
   PaymentScreen({super.key});
@@ -15,7 +16,7 @@ class PaymentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Payment".tr),
+      appBar: customAppBar1(AppLocalizations.of(context)!.payment ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
@@ -38,7 +39,7 @@ class PaymentScreen extends StatelessWidget {
 
             CustomInputField(
               controller: controller.cardHolderNameController,
-              hintText: "Card Holder Name".tr,
+              hintText: "Card Holder Name" ,
               onChanged: (p0) {
                 controller.cardHolderName.value = p0;
               },
@@ -46,7 +47,7 @@ class PaymentScreen extends StatelessWidget {
             CustomInputField(
               isNumber: true,
               controller: controller.cardNumberController,
-              hintText: "Card Number".tr,
+              hintText: "Card Number" ,
               onChanged: (p0) {
                 controller.cardNumber.value = p0;
               },
@@ -57,7 +58,8 @@ class PaymentScreen extends StatelessWidget {
                 Flexible(
                   child: CustomDateInput(
                     dateController: controller.expiryDateController,
-                    hintText: "Expiry Date".tr,
+                    hintText: "Expiry Date" ,
+                    monthYearOnly: true,
                     onChanged: (p0) {
                       controller.expiryDate.value = p0;
                     },
@@ -68,7 +70,7 @@ class PaymentScreen extends StatelessWidget {
                   child: CustomInputField(
                     isNumber: true,
                     controller: controller.ccvCodeController,
-                    hintText: "CCV Code".tr,
+                    hintText: "CCV" ,
                     onChanged: (p0) {
                       controller.cvvCode.value = p0;
                     },
@@ -76,7 +78,7 @@ class PaymentScreen extends StatelessWidget {
                 ),
               ],
             ),
-            CustomButton(buttonTitle: "Update".tr, onTap: () {}),
+            CustomButton(buttonTitle: AppLocalizations.of(context)!.update , onTap: () {}),
           ],
         ),
       ),

@@ -14,6 +14,7 @@ AppBar customAppBar1(
   hasShadow = false,
   hasInvite = false,
   backgroundColor = Colors.white,
+  Widget? button,
   List<Widget>? tabs,
 }) {
   return AppBar(
@@ -43,10 +44,11 @@ AppBar customAppBar1(
             )
             : null,
     actions:
-        hasInvite
-            ? [
+        [
+              if(hasInvite)
               InkWell(
                 child: Container(
+                  margin: EdgeInsets.only(right: 26.w),
                   padding: EdgeInsets.symmetric(
                     horizontal: 20.w,
                     vertical: 7.h,
@@ -56,14 +58,15 @@ AppBar customAppBar1(
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
-                    "Invite",
+                    "Add Contact",
                     style: AppStyle.baseSmallMedium.copyWith(
                       color: AppColors.white,
                     ),
                   ),
                 ),
               ),
+              button ?? SizedBox.shrink(),
             ]
-            : [],
+            
   );
 }

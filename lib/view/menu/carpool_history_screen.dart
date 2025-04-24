@@ -1,49 +1,40 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/carpool_card.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/components/custom_date_input.dart';
+import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/model/carpool_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class MyCarpoolsScreen extends StatelessWidget {
-  MyCarpoolsScreen({super.key});
-
+class CarpoolHistoryScreen extends StatelessWidget {
+  CarpoolHistoryScreen({super.key});
   final MenuProfileController controller = Get.find<MenuProfileController>();
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length:2,
-      child: Scaffold(
-        appBar: customAppBar1(
-          AppLocalizations.of(context)!.myCarpools ,
-          hasBack: true,
-          hasTabBar: true,
-          hasShadow: true,
-          tabs: [
-            Tab(text: AppLocalizations.of(context)!.upcoming ),
-            Tab(text: AppLocalizations.of(context)!.asADriver ),
-          ],
-        ),
-        body: Padding(
+    return Scaffold(
+      appBar: customAppBar1(AppLocalizations.of(context)!.carpoolHistory, hasBack: true, hasShadow: true),
+      body:Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: TabBarView(
+          child: Column(
             children: [
-              Obx(() => buildTabView(controller.myCarPoolHistory)),
-
-              Obx(() => buildTabView(controller.myCarPoolHistory)),
+              CustomDateInput(dateController: TextEditingController(), hintText: "Sort by date"),
+              SizedBox(height: 6.h,),
+              Text(AppLocalizations.of(context)!.youCanViewUpToThreeMonthsOfPastCarpoolEvents, style: AppStyle.smallRegular,),
+              SizedBox(height: 12.h),
+              Obx(() => Expanded(child: buildTabView(controller.myCarPoolHistory))),
             ],
-           
           ),
         ),
-      ),
+      
     );
   }
 
   Widget buildTabView(List<CarpoolModel> carpool) {
     return carpool.isEmpty
-        ? Center(child: Text(AppLocalizations.of(Get.context!)!.noDataYet ))
+        ? Center(child: Text(AppLocalizations.of(Get.context!)!.noDataYet))
         : ListView.builder(
           itemCount: carpool.length,
           itemBuilder: (context, index) {

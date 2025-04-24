@@ -1,6 +1,5 @@
-import 'package:car_pooling/core/constant/app_colors.dart'; // Ensure this path is correct
+import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart'; // Not needed for readOnly field
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -9,61 +8,156 @@ class CustomDateInput extends StatefulWidget {
   const CustomDateInput({
     super.key,
     required this.dateController,
-    this.validator, // Validator to be passed from the parent Form
+    this.validator,
     required this.hintText,
     this.title = "",
-    // Icon parameters (keep commented if not currently used)
-    // this.icon,
-    // this.iconStart = false,
-    // this.isLargeIcon = false,
     this.isEnabled = true,
     this.onChanged,
-    this.firstDate, // Optional: Allow specifying first selectable date
-    this.lastDate, // Optional: Allow specifying last selectable date
-    this.initialDate, // Optional: Allow specifying initial picker date
-    this.dateFormat = 'MM/dd/yyyy', // Default date format
+    this.firstDate,
+    this.lastDate,
+    this.initialDate,
+    this.dateFormat = 'MM/dd/yyyy',
+    this.monthYearOnly = false, // New parameter to control picker mode
+    this.monthYearFormat = 'MM/yyyy', // Format for month/year mode
   });
 
   final TextEditingController dateController;
-  final FormFieldValidator<String>? validator; // Will be used by TextFormField
-  // final IconData? icon; // Make nullable if optional
+  final FormFieldValidator<String>? validator;
   final String hintText;
   final String title;
-  // final bool iconStart;
-  // final bool isLargeIcon;
   final bool isEnabled;
   final Function(String)? onChanged;
   final DateTime? firstDate;
   final DateTime? lastDate;
   final DateTime? initialDate;
-  final String dateFormat; // Make format configurable
+  final String dateFormat;
+  final bool monthYearOnly; // Whether to show only month/year picker
+  final String monthYearFormat; // Format string for month/year display
 
   @override
   State<CustomDateInput> createState() => _CustomDateInputState();
 }
 
 class _CustomDateInputState extends State<CustomDateInput> {
-  DateTime? _selectedDate; // Keep track of the selected date internally
+  DateTime? _selectedDate;
 
   @override
   void initState() {
     super.initState();
-    // Try to parse the initial date from the controller if it's not empty
     _parseInitialDateFromController();
   }
 
   void _parseInitialDateFromController() {
     if (widget.dateController.text.isNotEmpty) {
       try {
-        _selectedDate = DateFormat(
-          widget.dateFormat,
-        ).parse(widget.dateController.text);
+        // Use the appropriate format based on monthYearOnly flag
+        String format = widget.monthYearOnly ? widget.monthYearFormat : widget.dateFormat;
+        _selectedDate = DateFormat(format).parse(widget.dateController.text);
       } catch (e) {
         // Handle or log parsing error if the initial text doesn't match the format
         debugPrint("Error parsing initial date from controller: $e");
         _selectedDate = null; // Reset if parsing fails
       }
     }
+  }
+
+  // New method to handle month/year selection
+  Future<void> _selectMonthYear(BuildContext context) async {
+    final DateTime now = DateTime.now();
+    final initialDate = widget.initialDate ?? _selectedDate ?? now;
+    final firstDate = widget.firstDate ?? DateTime(2000);
+    final lastDate = widget.lastDate ?? DateTime(2101);
+
+    // Start with year selection
+    int? selectedYear = await showDialog<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return _buildYearPicker(
+          context, 
+          initialDate.year,
+          firstDate.year,
+          lastDate.year,
+        );
+      },
+    );
+
+    // If user cancels year selection, exit
+    if (selectedYear == null) return;
+
+    // Now select month
+    int? selectedMonth = await showDialog<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return _buildMonthPicker(context, initialDate.month);
+      },
+    );
+
+    // If user cancels month selection, exit
+    if (selectedMonth == null) return;
+
+    // Create the new date with day set to 1
+    final DateTime picked = DateTime(selectedYear, selectedMonth, 1);
+    
+    setState(() {
+      _selectedDate = picked;
+      // Format as month/year
+      widget.dateController.text = DateFormat(widget.monthYearFormat).format(picked);
+      if (widget.onChanged != null) {
+        widget.onChanged!(widget.dateController.text);
+      }
+    });
+  }
+
+  // Helper method to build the year picker dialog
+  Widget _buildYearPicker(BuildContext context, int initialYear, int firstYear, int lastYear) {
+    return AlertDialog(
+      title: Text('Select Year'),
+      content: Container(
+        // Wrap ListView in a Container with fixed height
+        width: double.minPositive,
+        height: 300.h,
+        child: ListView.builder(
+          itemCount: lastYear - firstYear + 1,
+          itemBuilder: (BuildContext context, int index) {
+            final year = firstYear + index;
+            return ListTile(
+              title: Center(child: Text(year.toString())),
+              selected: year == initialYear,
+              onTap: () => Navigator.of(context).pop(year),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  // Helper method to build the month picker dialog
+  Widget _buildMonthPicker(BuildContext context, int initialMonth) {
+    final List<String> months = [
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August',
+      'September', 'October', 'November', 'December'
+    ];
+
+    return AlertDialog(
+      title: Text('Select Month'),
+      content: SizedBox(
+        width: double.minPositive,
+        height: 300.h,
+        child: ListView.builder(
+          itemCount: 12,
+          itemBuilder: (BuildContext context, int index) {
+            // Month index is 0-based in the list but 1-based in DateTime
+            final monthIndex = index + 1;
+            return ListTile(
+              title: Center(child: Text(months[index])),
+              selected: monthIndex == initialMonth,
+              onTap: () => Navigator.of(context).pop(monthIndex),
+            );
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -73,38 +167,30 @@ class _CustomDateInputState extends State<CustomDateInput> {
       children: [
         if (widget.title.isNotEmpty)
           Padding(
-            padding: const EdgeInsets.only(
-              bottom: 6.0,
-            ), // Add some bottom padding
+            padding: const EdgeInsets.only(bottom: 6.0),
             child: Text(
               widget.title,
               style: GoogleFonts.roboto(
-                // Consider using AppStyle if available
                 fontSize: 14.sp,
-                fontWeight:
-                    FontWeight
-                        .w500, // Medium weight might look better for titles
-                color: AppColors.darkGray, // Use colors from your theme
+                fontWeight: FontWeight.w500,
+                color: AppColors.darkGray,
               ),
             ),
           ),
-        // Use TextFormField directly for better integration with Form
         TextFormField(
           controller: widget.dateController,
-          readOnly: true, // Important: User picks date, doesn't type
+          readOnly: true,
           enabled: widget.isEnabled,
           style: GoogleFonts.roboto(
-            // Style for the input text
             fontSize: 14.sp,
             color: widget.isEnabled ? AppColors.darkGray : Colors.grey.shade600,
           ),
           decoration: InputDecoration(
             hintText: widget.hintText,
             hintStyle: GoogleFonts.roboto(
-              fontSize: 14.sp,
-              color: AppColors.gray, // Lighter color for hint text
+              fontSize: 16.sp,
+              color: AppColors.gray,
             ),
-            // Consistent border styling
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide(color: AppColors.lightGray),
@@ -118,7 +204,7 @@ class _CustomDateInputState extends State<CustomDateInput> {
               borderSide: BorderSide(
                 color: AppColors.primary,
                 width: 1.5,
-              ), // Highlight focus
+              ),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.r),
@@ -129,61 +215,47 @@ class _CustomDateInputState extends State<CustomDateInput> {
               borderSide: BorderSide(color: Colors.red.shade700, width: 1.5),
             ),
             disabledBorder: OutlineInputBorder(
-              // Style when disabled
               borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide(color: Colors.grey.shade300),
             ),
-            // Fill color to visually distinguish disabled state
             filled: !widget.isEnabled,
             fillColor: Colors.grey.shade100,
             contentPadding: EdgeInsets.symmetric(
               horizontal: 14.w,
               vertical: 12.h,
-            ), // Adjust padding
-            // Suffix icon to indicate date picker
+            ),
             suffixIcon: Icon(
-              Icons
-                  .calendar_today_outlined, // Use outlined version for modern look
+              Icons.calendar_today_outlined,
               color: widget.isEnabled ? AppColors.darkGray : Colors.grey,
               size: 20.sp,
             ),
-            // Remove icon logic from here if using suffixIcon
-            // prefixIcon: widget.iconStart ? Icon(...) : null,
           ),
-          // *** THE CORE FIX: Use the validator passed in via the widget ***
           validator: widget.validator,
-          onTap:
-              widget
-                      .isEnabled // Only allow tap if enabled
-                  ? () async {
-                    // Dismiss keyboard if another field had focus
-                    FocusScope.of(context).requestFocus(FocusNode());
+          onTap: widget.isEnabled
+              ? () async {
+                  FocusScope.of(context).requestFocus(FocusNode());
 
+                  // Branch based on monthYearOnly flag
+                  if (widget.monthYearOnly) {
+                    await _selectMonthYear(context);
+                  } else {
+                    // Original date picker logic
                     final DateTime? picked = await showDatePicker(
                       context: context,
-                      // Use provided initial date, then internal state, then default
-                      initialDate:
-                          widget.initialDate ?? _selectedDate ?? DateTime.now(),
-                      firstDate:
-                          widget.firstDate ??
-                          DateTime(2000), // Use provided or default
-                      lastDate:
-                          widget.lastDate ??
-                          DateTime(2101), // Use provided or default
-                      // Optional: Apply themeing consistent with your app
+                      initialDate: widget.initialDate ?? _selectedDate ?? DateTime.now(),
+                      firstDate: widget.firstDate ?? DateTime(2000),
+                      lastDate: widget.lastDate ?? DateTime(2101),
                       builder: (context, child) {
                         return Theme(
                           data: Theme.of(context).copyWith(
                             colorScheme: Theme.of(context).colorScheme.copyWith(
-                              primary: AppColors.primary, // Header background
-                              onPrimary: Colors.white, // Header text
-                              onSurface: AppColors.darkGray, // Calendar text
+                              primary: AppColors.primary,
+                              onPrimary: Colors.white,
+                              onSurface: AppColors.darkGray,
                             ),
                             textButtonTheme: TextButtonThemeData(
                               style: TextButton.styleFrom(
-                                foregroundColor:
-                                    AppColors
-                                        .primary, // Button text (OK, Cancel)
+                                foregroundColor: AppColors.primary,
                               ),
                             ),
                           ),
@@ -192,26 +264,18 @@ class _CustomDateInputState extends State<CustomDateInput> {
                       },
                     );
 
-                    // If a date is picked, update state and controller
                     if (picked != null) {
                       setState(() {
                         _selectedDate = picked;
-                        // Format the date using the specified format
-                        widget.dateController.text = DateFormat(
-                          widget.dateFormat,
-                        ).format(picked);
-                        // Call onChanged callback if provided
+                        widget.dateController.text = DateFormat(widget.dateFormat).format(picked);
                         if (widget.onChanged != null) {
                           widget.onChanged!(widget.dateController.text);
                         }
                       });
-                      // Optional: After setting text, manually trigger validation if needed immediately
-                      // (usually not necessary as Form.validate() handles it on submit)
-                      // Form.of(context)?.validate();
                     }
                   }
-                  : null, // Disable onTap if widget is not enabled
-          // No need for keyboardType or inputFormatters on a readOnly field
+                }
+              : null,
         ),
       ],
     );

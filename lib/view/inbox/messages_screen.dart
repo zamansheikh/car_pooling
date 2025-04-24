@@ -4,6 +4,7 @@ import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/view/inbox/local%20components/message_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MessagesScreen extends StatelessWidget {
   MessagesScreen({super.key});
@@ -14,7 +15,7 @@ class MessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: customAppBar1("Chats".tr),
+      appBar: customAppBar1(AppLocalizations.of(context)!.chats ),
       body: Column(
         children: [
           // Chat Messages
@@ -65,7 +66,7 @@ class MessagesScreen extends StatelessWidget {
                   child: TextField(
                     controller: controller.textController,
                     decoration: InputDecoration(
-                      hintText: '${"Message".tr}...',
+                      hintText: '${"Message" }...',
                       hintStyle: TextStyle(color: Colors.black54),
                       filled: true,
                       fillColor: Colors.grey[200],

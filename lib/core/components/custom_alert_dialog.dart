@@ -13,6 +13,8 @@ AlertDialog customAlertDialog({
   buttonText = "OK",
   route,
   isConfirm = false,
+
+  isDelete = false,
 }) {
   return AlertDialog(
     icon:
@@ -40,7 +42,8 @@ AlertDialog customAlertDialog({
             SizedBox(
               width: Get.width / 3.3,
               child: CustomButton(
-                buttonTitle: "Cancel".tr,
+                buttonTitle: "Cancel" ,
+                isFilled: false,
 
                 onTap: () {
                   Get.back();
@@ -51,8 +54,8 @@ AlertDialog customAlertDialog({
             width: Get.width / 3.3,
             child: CustomButton(
               buttonTitle: buttonText,
-              isFilled: false,
-              isRed: false,
+              isFilled: true,
+              isRed: isDelete,
               onTap: () {
                 route();
               },

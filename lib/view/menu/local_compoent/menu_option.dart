@@ -1,3 +1,4 @@
+import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class MenuOption extends StatelessWidget {
   final Widget? extra; // For trailing widgets like text or chevron
   final bool showChevron; // To conditionally show the chevron
   final VoidCallback onPress;
+  final bool isPremium;
 
   const MenuOption({
     super.key,
@@ -19,6 +21,7 @@ class MenuOption extends StatelessWidget {
     this.extra,
     this.showChevron = false,
     required this.onPress,
+    this.isPremium = false,
   });
 
   @override
@@ -40,6 +43,8 @@ class MenuOption extends StatelessWidget {
             ] else if (showChevron) ...[
               // Icon(Icons.chevron_right, color: Colors.black54, size: 24),
             ],
+            if(isPremium) 
+            Icon(Icons.lock, size: 14, color: AppColors.primaryDark),
           ],
         ),
       ),

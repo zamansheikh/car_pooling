@@ -6,16 +6,19 @@ import 'package:car_pooling/view/menu/local_compoent/profile_image_selector.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EditChildScreen extends StatelessWidget {
-  EditChildScreen({super.key});
+  EditChildScreen({super.key, this.isSpouse  = false});
+
+  final bool isSpouse;
 
   final MenuProfileController controller = Get.put(MenuProfileController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Edit child".tr),
+      appBar: customAppBar1(isSpouse? AppLocalizations.of(context)!.editSpouse : AppLocalizations.of(context)!.editChild),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -37,22 +40,23 @@ class EditChildScreen extends StatelessWidget {
 
                     CustomInputField(
                       controller: controller.firstNameController,
-                      hintText: "First Name".tr,
+                      hintText: "First Name",
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      hintText: "Last Name".tr,
+                      hintText: "Last Name",
                     ),
+                    if(!isSpouse)
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      hintText: "School Name".tr,
+                      hintText: "School Name",
                     ),
+                    CustomButton(buttonTitle: AppLocalizations.of(context)!.save, onTap: () {}),
                   ],
                 ),
               ),
             ),
 
-            CustomButton(buttonTitle: "Save".tr, onTap: () {}),
             SizedBox(height: 30.h),
           ],
         ),

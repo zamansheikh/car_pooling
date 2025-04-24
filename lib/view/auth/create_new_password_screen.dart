@@ -7,16 +7,18 @@ import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
   CreateNewPasswordScreen({super.key});
 
   final AuthController controller = Get.find<AuthController>();
+  final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create new password".tr),
+      appBar: customAppBar1(AppLocalizations.of(context)!.createNewPassword),
       backgroundColor: AppColors.white,
       body: SafeArea(
         child: Padding(
@@ -24,40 +26,37 @@ class CreateNewPasswordScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 24.h,
-                children: [
-                  Text(
-                    "Create new password here".tr,
-                    style: AppStyle.baseRegular.copyWith(
-                      color: AppColors.darkGray,
+              Form(
+                key: _formkey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 24.h,
+                  children: [
+                    CustomInputField(
+                      controller: controller.newPassController,
+                      title: "New password",
+                      isPassword: true,
                     ),
-                  ),
-                  CustomInputField(
-                    controller: controller.newPassController,
-                    title: "New password".tr,
-                    isPassword: true,
-                  ),
-                  CustomInputField(
-                    controller: controller.confirmNewPassController,
-                    title: "Retype new password".tr,
-                    isPassword: true,
-                  ),
-                ],
-              ),
-              SizedBox(height: 24.h),
+                    CustomInputField(
+                      controller: controller.confirmNewPassController,
+                      title: "Retype new password",
+                      isPassword: true,
+                    ),
+                    SizedBox(height: 24.h),
 
-              Obx(() {
-                return CustomButton(
-                  buttonTitle: "Done".tr,
-                  isLoading: controller.isLoading.value,
-                  onTap: () {
-                    controller.createNewpass();
-                  },
-                );
-              }),
+                    Obx(() {
+                      return CustomButton(
+                        buttonTitle: AppLocalizations.of(context)!.done,
+                        isLoading: controller.isLoading.value,
+                        onTap: () {
+                          controller.createNewpass(_formkey);
+                        },
+                      );
+                    }),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

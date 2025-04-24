@@ -5,6 +5,7 @@ import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -37,34 +38,36 @@ class WelcomeScreen extends StatelessWidget {
                     Image.asset("assets/common/logo.png"),
                     SizedBox(height: 64.h),
                     Text(
-                      "How to Works".tr,
+                      AppLocalizations.of(context)!.howItWorks ,
                       style: AppStyle.headerRegular3.copyWith(
                         color: AppColors.primaryDark,
+                        fontSize: 28.sp
                       ),
                     ),
 
                     buildSteps(
                       step: 1,
-                      body: "Create a carpool between two points.".tr,
+                      body: AppLocalizations.of(context)!.createACarpoolBetweenTwoPoints ,
                     ),
                     buildSteps(
                       step: 2,
-                      body: "Invite your friends to carpool with you.".tr,
+                      body: AppLocalizations.of(context)!.inviteYourFriendsToCarpoolWithYou ,
                     ),
                     buildSteps(
                       step: 3,
-                      body: "Friends join and add their child's location.".tr,
+                      body: AppLocalizations.of(context)!.friendsJoinAndAddTheirChildSLocation ,
                     ),
                     buildSteps(
                       step: 4,
                       body:
-                          "Parents Volunteer to Drive. We Send reminders and optimized routes."
-                              .tr,
+                          AppLocalizations.of(context)!.parentsVolunteerToDriveWeSendRemindersAndOptimizedRoutes
+                               ,
                     ),
                     CustomButton(
-                      buttonTitle: "Next".tr,
+                      buttonTitle: AppLocalizations.of(context)!.next ,
                       onTap: () => Get.toNamed(AppRoutes.welcomeScreen2),
                     ),
+                  
                   ],
                 ),
               ),
@@ -81,7 +84,7 @@ class WelcomeScreen extends StatelessWidget {
       spacing: 8.h,
       children: [
         Text(
-          "${"Step".tr} - 0$step",
+          "${"Step" } - 0$step",
           style: AppStyle.largeMedium.copyWith(color: AppColors.primaryDark),
         ),
         Text(

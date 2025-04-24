@@ -9,9 +9,9 @@ import 'package:get/get.dart';
 AlertDialog upgradeDialog() {
   return AlertDialog(
     backgroundColor: AppColors.white,
-    title: Text("Upgrade to HadiKid Premium!".tr, style: AppStyle.headerBold3),
+    title: Text("Upgrade to HadiKid Premium!" , style: AppStyle.headerBold3),
     content: Text(
-      "Enjoy exclusive features with 7 days FREE — no strings attached! Ready to upgrade?".tr,
+      "Enjoy exclusive features with 7 days FREE — no strings attached! Ready to upgrade?" ,
       style: AppStyle.baseRegular.copyWith(color: Color(0xff424242)),
     ),
     actions: [
@@ -22,7 +22,7 @@ AlertDialog upgradeDialog() {
           SizedBox(
             width: Get.width * 0.31,
             child: CustomButton(
-              buttonTitle: "Not Now".tr,
+              buttonTitle: "Not Now" ,
               isFilled: false,
               onTap: () {
                 Get.back();
@@ -32,7 +32,7 @@ AlertDialog upgradeDialog() {
           SizedBox(
             width: Get.width * 0.31,
             child: CustomButton(
-              buttonTitle: "Learn More".tr,
+              buttonTitle: "Learn More" ,
               isFilled: false,
               onTap: () {
                 Get.toNamed(AppRoutes.packages);

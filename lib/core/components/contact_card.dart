@@ -113,17 +113,19 @@ class ContactCard extends StatelessWidget {
                         if (hasDelete)
                           InkWell(
                             onTap: () {
+                             
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return customAlertDialog(
-                                    title: "Delete Contact".tr,
+                                    title: "Delete Contact" ,
                                     content:
-                                        "Do you sure you want to delete this contact?"
-                                            .tr,
+                                        "Are you sure you want to delete this contact?"
+                                             ,
                                     asset: AppIcons.deleteIcon,
-                                    buttonText: "Delete".tr,
+                                    buttonText: "Delete" ,
                                     isConfirm: true,
+                                    isDelete: true,
                                     route:
                                         onDelete ??
                                         () {
@@ -152,14 +154,14 @@ class ContactCard extends StatelessWidget {
           SizedBox(height: 16), // Space between text and button
           // Add Contact Button
           if (!isRequest && hasAddContact)
-            CustomButton(buttonTitle: "Add Contact".tr, onTap: () {}),
+            CustomButton(buttonTitle: "Add Contact" , onTap: () {}),
           if (isRequest)
             Row(
               spacing: 12.w,
               children: [
                 Flexible(
                   child: CustomButton(
-                    buttonTitle: "Delete".tr,
+                    buttonTitle: "Delete" ,
                     isFilled: false,
                     isRed: true,
                     onTap: () {
@@ -169,7 +171,7 @@ class ContactCard extends StatelessWidget {
                 ),
                 Flexible(
                   child: CustomButton(
-                    buttonTitle: "Confirm".tr,
+                    buttonTitle: "Confirm" ,
                     onTap: () {
                       // todo: implement todo confirm request
                     },

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomInputField extends StatelessWidget {
   CustomInputField({
@@ -20,6 +21,7 @@ class CustomInputField extends StatelessWidget {
     this.background,
     this.isNumber = false,
     this.onChanged,
+    this.maxLength,
   });
 
   final String? title;
@@ -33,6 +35,7 @@ class CustomInputField extends StatelessWidget {
   final Color? background;
   final bool isNumber;
   final Function(String)? onChanged;
+  final int? maxLength;
 
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
@@ -49,7 +52,7 @@ class CustomInputField extends StatelessWidget {
         Obx(() {
           final obscure = isObscure.value;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.primaryLight),
               borderRadius: BorderRadius.circular(12),
@@ -69,46 +72,56 @@ class CustomInputField extends StatelessWidget {
                   child: TextFormField(
                     onChanged: onChanged,
                     keyboardType: isNumber ? TextInputType.number : null,
+
                     inputFormatters:
                         isNumber
                             ? [FilteringTextInputFormatter.digitsOnly]
                             : null,
                     controller: controller,
+
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
                       hintText: hintText ?? title ?? "",
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
+                      hintStyle: GoogleFonts.roboto(
+                        fontSize: 16.sp,
+                        color: AppColors.gray,
+                      ),
+                    ),
+
+                    style: GoogleFonts.roboto(
+                      // Style for the input text
+                      fontSize: 16.sp,
                     ),
 
                     obscureText: isPassword ? obscure : false,
 
                     //  The maxlines determines the number of lines that can occupy the field
                     maxLines: maxLines,
+                    // shows
+                    maxLength: maxLength,
                     // This is to validate fields based conditions
-                    validator:
-                        !isPassword
-                            ? validator
-                            : (value) {
-                              if (value == null || value.isEmpty) {
-                                // if the value of field is empty
-                                return "This field cannot be empty";
-                              }
-                              if (isEmail) {
-                                if (!RegexValidators.isValidEmail(value)) {
-                                  // if email and not validated then the following the error will be shown
-                                  return "Please Enter valid $value";
-                                }
-                              }
-                              if (isPassword) {
-                                if (!RegexValidators.isValidPassword(value)) {
-                                  // password validating on length
-                                  return "Must be 8+ chars with upper, lower, number & symbol.";
-                                }
-                              }
-                              // default return of null
-                              return null;
-                            },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        // if the value of field is empty
+                        return "This field cannot be empty.";
+                      }
+                      if (isEmail) {
+                        if (!RegexValidators.isValidEmail(value)) {
+                          // if email and not validated then the following the error will be shown
+                          return "Please Enter valid $value.";
+                        }
+                      }
+                      if (isPassword) {
+                        if (!RegexValidators.isValidPassword(value)) {
+                          // password validating on length
+                          return "Must be 8+ chars with upper, lower, number & symbol.";
+                        }
+                      }
+                      // default return of null
+                      return null;
+                    },
                   ),
                 ),
                 // for obscure and unobscure text

@@ -4,6 +4,7 @@ import 'package:car_pooling/view/menu/local_compoent/menu_option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyPorfileScreen extends StatelessWidget {
   const MyPorfileScreen({super.key});
@@ -11,20 +12,20 @@ class MyPorfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My Profile".tr),
+      appBar: customAppBar1(AppLocalizations.of(context)!.profile ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
         child: Column(
           children: [
             MenuOption(
-              title: "My Information".tr,
+              title: AppLocalizations.of(context)!.myInformation ,
               icon: Icons.person_outline,
               onPress: () {
                 Get.toNamed(AppRoutes.myInformation);
               },
             ),
             MenuOption(
-              title: "My Family Members".tr,
+              title: AppLocalizations.of(context)!.myFamilyMembers ,
               icon: Icons.person_outline,
               onPress: () {
                 Get.toNamed(AppRoutes.myChildren);

@@ -10,6 +10,7 @@ import 'package:car_pooling/view/menu/local_compoent/profile_image_selector.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyInformationScreen extends StatelessWidget {
   MyInformationScreen({super.key});
@@ -19,7 +20,7 @@ class MyInformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My Information".tr),
+      appBar: customAppBar1(AppLocalizations.of(context)!.myInformation ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
         child: ListView(
@@ -108,13 +109,15 @@ class MyInformationScreen extends StatelessWidget {
                       SizedBox(),
                       Row(
                         spacing: 6,
-                        children: [Icon(Icons.add), Text("add address")],
+                        children: [Icon(Icons.add), Text("Add an address")],
                       ),
                     ],
                   ),
                 ),
                 //  Save button
-                CustomButton(buttonTitle: "Done".tr, onTap: () {}),
+                CustomButton(buttonTitle: AppLocalizations.of(context)!.saveBack , onTap: () {
+                  Get.back();
+                }),
               ],
             ),
           ],
@@ -135,10 +138,10 @@ class MyInformationScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Home Address".tr, style: AppStyle.headerBold5),
+                Text("Home Address" , style: AppStyle.headerBold5),
                 SizedBox(height: 4.h),
                 Text(
-                  "Your home address will allow you to send or receive ‘Add Contact’ requests to connect with HadiKid families nearby.".tr,
+                  "Your home address will allow you to send or receive ‘Add Contact’ requests to connect with HadiKid families nearby." ,
                   style: AppStyle.smallRegular.copyWith(
                     color: Colors.grey[600], // Gray color for description
                   ),

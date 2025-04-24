@@ -2,13 +2,13 @@ import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-Widget imageRenderer({url, size = 112, width, borderRadius}) {
+Widget imageRenderer({String? url, size = 112, width, borderRadius}) {
   return ClipRRect(
     borderRadius: BorderRadius.circular(
       double.parse((borderRadius ?? 12).toString()),
     ),
     child: Image.network(
-      (url == null || url == "")
+      (url == null || url.isEmpty)
           ? "https://w0.peakpx.com/wallpaper/961/507/HD-wallpaper-sung-jin-woo-solo-leveling-thumbnail.jpg"
           : imageUrl(
             url,

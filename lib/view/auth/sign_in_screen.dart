@@ -8,6 +8,8 @@ import 'package:car_pooling/view/auth/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
@@ -28,9 +30,9 @@ class SignInScreen extends StatelessWidget {
               // Extra column taken, so that we dont have to lay the widgets in oppostite order
               Column(
                 children: [
-                  SizedBox(height: 72.h),
+                  SizedBox(height: 52.h),
                   Text(
-                    "Sign In Your Account".tr,
+                    AppLocalizations.of(context)!.signInYourAccount ,
                     style: AppStyle.headerBold2.copyWith(
                       fontSize: 32.sp,
                       color: Color(0xFF67c28d),
@@ -44,13 +46,13 @@ class SignInScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> Text Controller <<<<<<<<<<<<<===============
                         CustomInputField(
                           controller: controller.emailController,
-                          hintText: "Email".tr,
+                          hintText: "Email" ,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.passwordController,
                           isPassword: true,
-                          hintText: "Password".tr,
+                          hintText: "Password" ,
                         ),
                         // =================>>>>>>>>>>>>> Row - check, forgot <<<<<<<<<<<<<===============
                         SizedBox(height: 4.h),
@@ -70,7 +72,7 @@ class SignInScreen extends StatelessWidget {
                                   );
                                 }),
                                 Text(
-                                  "Remember me".tr,
+                                  AppLocalizations.of(context)!.rememberMe ,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
@@ -83,7 +85,7 @@ class SignInScreen extends StatelessWidget {
                                 Get.to(ForgotPasswordScreen(isReset: true));
                               },
                               child: Text(
-                                "Forgot password?".tr,
+                                AppLocalizations.of(context)!.forgotPassword ,
                                 style: AppStyle.baseSmallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),
@@ -95,7 +97,7 @@ class SignInScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> SignInButton <<<<<<<<<<<<<===============
                         Obx(() {
                           return CustomButton(
-                            buttonTitle: "Sign In".tr,
+                            buttonTitle: AppLocalizations.of(context)!.signIn ,
                             onTap: () {
                               controller.userSignIn(_formKey);
                             },
@@ -112,7 +114,7 @@ class SignInScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an account?".tr,
+                        AppLocalizations.of(context)!.donTHaveAnAccount ,
                         style: AppStyle.smallRegular.copyWith(
                           color: AppColors.gray,
                         ),
@@ -122,7 +124,7 @@ class SignInScreen extends StatelessWidget {
                           Get.toNamed(AppRoutes.signUp);
                         },
                         child: Text(
-                          "Sign Up".tr,
+                          AppLocalizations.of(context)!.signUp ,
                           style: AppStyle.smallMedium.copyWith(
                             color: AppColors.primary,
                           ),

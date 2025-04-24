@@ -8,6 +8,7 @@ import 'package:car_pooling/view/inbox/local%20components/chat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class InboxScreen extends StatelessWidget {
   InboxScreen({super.key});
@@ -19,13 +20,13 @@ class InboxScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: customAppBar1(
-          "Inbox".tr,
+          AppLocalizations.of(context)!.inbox ,
           hasBack: false,
           hasTabBar: true,
           tabs: [
-            Tab(text: "Chats".tr),
-            Tab(text: "Contact Invites".tr),
-            Tab(text: "Carpool Invites".tr),
+            Tab(text: AppLocalizations.of(context)!.chats ),
+            Tab(text: AppLocalizations.of(context)!.contactInvites ),
+            Tab(text: AppLocalizations.of(context)!.carpoolInvites ),
           ],
         ),
         body: Padding(
@@ -44,7 +45,7 @@ class InboxScreen extends StatelessWidget {
 
   Widget buildTabView3(List<CarpoolInvitationModel> invitations) {
     return invitations.isEmpty
-        ? Center(child: Text('No carpool invitations yet'.tr))
+        ? Center(child: Text(AppLocalizations.of(Get.context!)!.noCarpoolInvitationsYet ))
         : ListView.builder(
           itemCount: invitations.length,
           itemBuilder: (context, index) {
@@ -62,7 +63,7 @@ class InboxScreen extends StatelessWidget {
 
   Widget buildTabView(List<ChatModel> carpools) {
     return carpools.isEmpty
-        ? Center(child: Text('No chats yet'.tr))
+        ? Center(child: Text(AppLocalizations.of(Get.context!)!.noChatsYet ))
         : ListView.builder(
           itemCount: carpools.length,
           itemBuilder: (context, index) {
@@ -79,7 +80,7 @@ class InboxScreen extends StatelessWidget {
 
   Widget buildTabView2(List<ContactModel> contacts) {
     return contacts.isEmpty
-        ? Center(child: Text('No invitations yet'.tr))
+        ? Center(child: Text(AppLocalizations.of(Get.context!)!.noInvitationsYet ))
         : ListView.builder(
           itemCount: contacts.length,
           itemBuilder: (context, index) {

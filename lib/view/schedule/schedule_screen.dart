@@ -6,6 +6,7 @@ import 'package:car_pooling/view/auth/welcome_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ScheduleScreen extends StatelessWidget {
   ScheduleScreen({super.key});
@@ -15,19 +16,20 @@ class ScheduleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       // DefaultTabController is needed to use tabbar with appbar
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: customAppBar1(
-          "Schedule".tr,
+          "Schedule" ,
           hasBack: false,
           hasTabBar: true,
-          tabs: [Tab(text: "Attending".tr), Tab(text: "Driving".tr)],
+          tabs: [Tab(text: AppLocalizations.of(context)!.attending ), Tab(text: AppLocalizations.of(context)!.organizing ), Tab(text: AppLocalizations.of(context)!.driving )],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: TabBarView(
             children: [
               buildTabView(controller.carpoolList, true),
+              buildTabView(controller.carpoolList, false),
               buildTabView(controller.carpoolList, false),
             ],
           ),

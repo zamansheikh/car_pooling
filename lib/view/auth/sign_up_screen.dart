@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -31,7 +32,7 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 48.h),
                   Text(
-                    "Let’s set up an account".tr,
+                    AppLocalizations.of(context)!.letSSetUpAnAccount ,
                     style: AppStyle.headerBold2.copyWith(
                       fontSize: 32.sp,
                       color: Color(0xFF67c28d),
@@ -45,22 +46,23 @@ class SignUpScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> Text Controller <<<<<<<<<<<<<===============
                         CustomInputField(
                           controller: controller.firstNameController,
-                          hintText: "First Name".tr,
+                          hintText: "First Name" ,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.lastNameController,
-                          hintText: "Last Name".tr,
+                          hintText: "Last Name" ,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.emailController,
-                          hintText: "Email".tr,
+                          hintText: "Email" ,
+                          isEmail: true,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.passwordController,
-                          hintText: "Password".tr,
+                          hintText: "Password" ,
                           isPassword: true,
                         ),
                         SizedBox(height: 12.h),
@@ -83,13 +85,13 @@ class SignUpScreen extends StatelessWidget {
                             Flexible(
                               child: RichText(
                                 text: TextSpan(
-                                  text: "I agree to HadiKid's ".tr,
+                                  text: AppLocalizations.of(context)!.iAgreeToHadikidS ,
                                   style: AppStyle.baseSmallMedium.copyWith(
                                     color: AppColors.gray,
                                   ),
                                   children: [
                                     TextSpan(
-                                      text: "Terms & Conditions".tr,
+                                      text: "Terms & Conditions" ,
                                       style: AppStyle.baseSmallMedium.copyWith(
                                         color: AppColors.primary.withOpacity(
                                           0.8,
@@ -106,9 +108,9 @@ class SignUpScreen extends StatelessWidget {
                                               );
                                             },
                                     ),
-                                    TextSpan(text: " and ".tr),
+                                    TextSpan(text: " and " ),
                                     TextSpan(
-                                      text: "Privacy Policy".tr,
+                                      text: "Privacy Policy" ,
                                       style: AppStyle.baseSmallMedium.copyWith(
                                         color: AppColors.primary.withOpacity(
                                           0.8,
@@ -135,7 +137,7 @@ class SignUpScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> SignUpButton <<<<<<<<<<<<<===============
                         Obx(() {
                           return CustomButton(
-                            buttonTitle: "Sign Up".tr,
+                            buttonTitle: AppLocalizations.of(context)!.signUp ,
                             onTap: () {
                               controller.userSignUp(_formKey);
                             },
@@ -149,7 +151,7 @@ class SignUpScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Already have an account?".tr,
+                              AppLocalizations.of(context)!.alreadyHaveAnAccount ,
                               style: AppStyle.smallRegular.copyWith(
                                 color: AppColors.gray,
                               ),
@@ -159,7 +161,7 @@ class SignUpScreen extends StatelessWidget {
                                 Get.toNamed(AppRoutes.signIn);
                               },
                               child: Text(
-                                "Sign In".tr,
+                                AppLocalizations.of(context)!.signIn ,
                                 style: AppStyle.smallMedium.copyWith(
                                   color: AppColors.primary,
                                 ),

@@ -4,6 +4,7 @@ import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyContactListScreen extends StatelessWidget {
   MyContactListScreen({super.key});
@@ -11,7 +12,7 @@ class MyContactListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("My contact list".tr, hasInvite: true),
+      appBar: customAppBar1(AppLocalizations.of(context)!.contactList , hasInvite: true),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Obx(() {

@@ -9,6 +9,7 @@ import 'package:car_pooling/view/auth/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddChildScreen extends StatelessWidget {
   AddChildScreen({super.key});
@@ -20,7 +21,7 @@ class AddChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Add a child".tr),
+      appBar: customAppBar1(AppLocalizations.of(context)!.addAChild ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -52,15 +53,15 @@ class AddChildScreen extends StatelessWidget {
                   children: [
                     CustomInputField(
                       controller: controller.firstNameController,
-                      hintText: "Child's first name".tr,
+                      hintText: "Child's first name" ,
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      hintText: "child's last name".tr,
+                      hintText: "Child's last name" ,
                     ),
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      hintText: "child's school name".tr,
+                      hintText: "Child's school name" ,
                     ),
                     // add child data custom button
                     Row(
@@ -77,7 +78,7 @@ class AddChildScreen extends StatelessWidget {
                                 size: 18,
                               ),
                               Text(
-                                "Add child".tr,
+                                AppLocalizations.of(context)!.addChild ,
                                 style: AppStyle.baseSmallRegular.copyWith(
                                   color: AppColors.primary,
                                 ),
@@ -90,7 +91,7 @@ class AddChildScreen extends StatelessWidget {
 
                     // Custom button
                     CustomButton(
-                      buttonTitle: "Next".tr,
+                      buttonTitle: AppLocalizations.of(context)!.next ,
                       onTap: () => Get.to(ForgotPasswordScreen(isReset: false)),
                     ),
                   ],

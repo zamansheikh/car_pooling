@@ -1,3 +1,4 @@
+import 'package:car_pooling/core/components/show_custom_snackbar.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/model/child_model.dart';
 import 'package:car_pooling/model/contact_model.dart';
@@ -13,6 +14,9 @@ class CarpoolingController extends GetxController {
   TextEditingController returnDateController = TextEditingController();
   TextEditingController searchContactController = TextEditingController();
   TextEditingController addMessageController = TextEditingController();
+  TextEditingController startDate = TextEditingController();
+
+
   RxString startLocationText = "".obs;
   RxString mySelectedRole = "Attend".obs;
   // Observable for selected days of the week
@@ -47,6 +51,10 @@ class CarpoolingController extends GetxController {
   RxBool isReturnTrip = false.obs;
   final Rx<Time> timePicker =
       Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
+  final Rx<Time> startTime =
+      Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
+  final Rx<Time> dropOffTime =
+      Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
 
   final List<String> availableOptions = [
     "Does not repeat",
@@ -54,6 +62,25 @@ class CarpoolingController extends GetxController {
     "Every week",
     "Custom",
   ];
+
+  Future create1Tocreate2() async {
+    bool isSelected = false;
+
+    for (int i  = 0; i< availableChildren.length; i++ ) {
+      if(availableChildren[i].isSelected) {
+        isSelected = true;
+      }
+    }
+
+
+    if(isSelected) {
+
+    Get.toNamed(AppRoutes.createCarpool2);
+    } else {
+      showCustomSnackBar("Select at least one child to continue!", isError: true);
+    }
+    
+  }
 
   Future previewAndInvites(formKey) async {
     if (!formKey.currentState!.validate()) {

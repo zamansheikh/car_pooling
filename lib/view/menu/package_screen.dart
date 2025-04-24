@@ -9,23 +9,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class PackageScreen extends StatelessWidget {
-  PackageScreen({super.key});
+  PackageScreen({super.key, this.initialIndex = 0});
 
   final MenuProfileController controller = Get.put(MenuProfileController());
+
+  final int initialIndex;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: initialIndex,
       length: 2,
       child: Scaffold(
         appBar: customAppBar1(
-          "Packages".tr,
+          "Packages",
           hasTabBar: true,
-          tabs: [Tab(text: "Hadikid Free".tr), Tab(text: "Hadikid Premium".tr)],
+          tabs: [Tab(text: "Hadikid No Ads"), Tab(text: "Hadikid Premium")],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-          child: TabBarView(children: [buildHadikidFree(), buildHadikidFree()]),
+          child: TabBarView(children: [buildHadikidFree(), buildHadikidPremium()]),
         ),
       ),
     );
@@ -36,14 +39,14 @@ class PackageScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Feature List
-        FeatureItem(text: 'HadiKid No Ads'.tr),
-        FeatureItem(text: 'Live Tracking'.tr),
-        FeatureItem(text: 'Added Notification'.tr),
-        FeatureItem(text: 'Carpool History'.tr),
-        FeatureItem(text: 'Add message'.tr),
+        FeatureItem(text: 'HadiKid No Ads'),
+        FeatureItem(text: 'Live Tracking'),
+        FeatureItem(text: 'Added Notification'),
+        FeatureItem(text: 'Carpool History'),
+        FeatureItem(text: 'Add message'),
         SizedBox(height: 24),
         Text(
-          'Choose between monthly or yearly billing and start enjoying your premium features.'.tr,
+          'Choose between monthly or yearly billing and start enjoying HadiKid without ads.',
           style: AppStyle.baseRegular.copyWith(color: AppColors.primaryDark),
         ),
         SizedBox(height: 16),
@@ -73,13 +76,87 @@ class PackageScreen extends StatelessWidget {
             }),
           ],
         ),
+
+        SizedBox(height: 12),
+        Obx(()=> Center(child: Text("Upgrade to ${controller.isYearly.value} Plan", style: TextStyle(fontSize: 14, color: Colors.black54))),),
         SizedBox(height: 24),
 
         // Upgrade Button
         SizedBox(
           width: double.infinity,
           child: CustomButton(
-            buttonTitle: "Upgrade plan".tr,
+            buttonTitle: "Upgrade plan",
+            onTap: () {
+              Get.toNamed(AppRoutes.payment);
+            },
+          ),
+        ),
+        SizedBox(height: 16),
+
+        // Footer Text
+        Center(
+          child: Text(
+            'You\'re currently using HadiKid Free',
+            style: TextStyle(fontSize: 14, color: Colors.black54),
+          ),
+        ),
+      ],
+    );
+  }
+
+  buildHadikidPremium() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Feature List
+        FeatureItem(text: 'HadiKid No Ads'),
+        FeatureItem(text: 'Live Tracking'),
+        FeatureItem(text: 'Added Notification'),
+        FeatureItem(text: 'Carpool History'),
+
+        SizedBox(height: 24),
+        Text(
+          'Choose between monthly or yearly billing and start enjoying HadiKid Premium features.',
+          style: AppStyle.baseRegular.copyWith(color: AppColors.primaryDark),
+        ),
+        SizedBox(height: 16),
+        // Billing Options
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Obx(() {
+              return BillingOption(
+                title: 'Yearly',
+                price: '\$39.99 per year',
+                isSelected: controller.isYearly.value == "Yearly",
+                onTap: () {
+                  controller.isYearly.value = "Yearly";
+                },
+              );
+            }),
+            Obx(() {
+              return BillingOption(
+                title: 'Monthly',
+                price: '\$3.99 per month',
+                isSelected: controller.isYearly.value == "Monthly",
+                onTap: () {
+                  controller.isYearly.value = "Monthly";
+                },
+              );
+            }),
+          ],
+        ),
+
+        SizedBox(height: 12,),
+                Obx(()=> Center(child: Text("Upgrade to ${controller.isYearly.value} Plan", style: TextStyle(fontSize: 14, color: Colors.black54))),),
+
+        SizedBox(height: 24),
+
+        // Upgrade Button
+        SizedBox(
+          width: double.infinity,
+          child: CustomButton(
+            buttonTitle: "Upgrade plan",
             onTap: () {
               Get.toNamed(AppRoutes.payment);
             },
