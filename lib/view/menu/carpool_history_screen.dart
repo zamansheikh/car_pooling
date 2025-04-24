@@ -2,6 +2,7 @@ import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/carpool_card.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_date_input.dart';
+import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/model/carpool_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +20,8 @@ class CarpoolHistoryScreen extends StatelessWidget {
           child: Column(
             children: [
               CustomDateInput(dateController: TextEditingController(), hintText: "Sort by date"),
+              SizedBox(height: 6.h,),
+              Text(" You can view up to three months of past carpool events", style: AppStyle.smallRegular,),
               SizedBox(height: 12.h),
               Obx(() => Expanded(child: buildTabView(controller.myCarPoolHistory))),
             ],
