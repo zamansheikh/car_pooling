@@ -22,7 +22,7 @@ class WelcomeScreen2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                AppLocalizations.of(context)!.welcomeToHadikid ,
+                AppLocalizations.of(context)!.welcomeToHadikid,
                 style: AppStyle.headerBold1.copyWith(fontSize: 40.sp),
                 textAlign: TextAlign.center,
               ),
@@ -44,7 +44,9 @@ class WelcomeScreen2 extends StatelessWidget {
                 ),
               ),
               Text(
-                AppLocalizations.of(context)!.getStartedByInvitingFriendsToJoinYourCarpool ,
+                AppLocalizations.of(
+                  context,
+                )!.getStartedByInvitingFriendsToJoinYourCarpool,
                 style: AppStyle.baseRegular.copyWith(
                   color: AppColors.darkGray,
                   fontSize: 16.sp,
@@ -53,9 +55,17 @@ class WelcomeScreen2 extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               CustomButton(
-                buttonTitle: AppLocalizations.of(context)!.createCarpool ,
+                buttonTitle: AppLocalizations.of(context)!.createCarpool,
                 onTap: () {
                   Get.toNamed(AppRoutes.createCarpool1);
+                },
+              ),
+              SizedBox(height: 24.h),
+              CustomButton(
+                buttonTitle: AppLocalizations.of(context)!.createCarpoolLater,
+
+                onTap: () {
+                  Get.toNamed(AppRoutes.homeSCreen);
                 },
               ),
               SizedBox(height: 16.h),
