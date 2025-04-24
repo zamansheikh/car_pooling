@@ -49,5 +49,6 @@
   "removeAttendee": "Remove Attendee",
   "areYouSureYouWantToRemoveThisAttendee": "Are you sure you want to remove this attendee?",
   "invite": "invite",
-  "dropOffComplete": "Drop-Off Complete"
+  "dropOffComplete": "Drop-Off Complete",
+  "myRole": "My Role"
 }

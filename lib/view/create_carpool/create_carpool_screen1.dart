@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreateCarpoolScreen1 extends StatelessWidget {
   CreateCarpoolScreen1({super.key});
@@ -18,7 +19,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1("Create Carpool" , hasBack: false),
+      appBar: customAppBar1(AppLocalizations.of(context)!.createCarpool , hasBack: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
@@ -62,7 +63,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                         children: [
                           Icon(Icons.add, color: AppColors.primaryDark),
                           Text(
-                            "Add a child" ,
+                            AppLocalizations.of(context)!.addAChild ,
                             style: AppStyle.baseMedium.copyWith(
                               color: AppColors.primary,
                             ),
@@ -74,7 +75,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 24.h),
-              Text("My Role" , style: AppStyle.largeMedium),
+              Text(AppLocalizations.of(context)!.myRole , style: AppStyle.largeMedium),
               SizedBox(height: 12.h),
 
               // =========>>>>>>>>> Choose my role <<<<<<<<<=========
