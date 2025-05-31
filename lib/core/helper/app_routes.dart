@@ -8,7 +8,6 @@ import 'package:car_pooling/view/auth/sign_up_screen.dart';
 import 'package:car_pooling/view/auth/splash_screen.dart';
 import 'package:car_pooling/view/auth/welcome_screen.dart';
 import 'package:car_pooling/view/auth/welcome_screen2.dart';
-import 'package:car_pooling/view/create_carpool/carpool_details_screen.dart';
 import 'package:car_pooling/view/create_carpool/create_carpool_screen1.dart';
 import 'package:car_pooling/view/create_carpool/create_carpool_screen2.dart';
 import 'package:car_pooling/view/create_carpool/create_carpool_screen3.dart';
