@@ -113,17 +113,16 @@ class ContactCard extends StatelessWidget {
                         if (hasDelete)
                           InkWell(
                             onTap: () {
-                             
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return customAlertDialog(
-                                    title: "Delete Contact" ,
+                                    centerHeading: true,
+                                    title: "Delete Contact",
                                     content:
-                                        "Are you sure you want to delete this contact?"
-                                             ,
-                                    asset: AppIcons.deleteIcon,
-                                    buttonText: "Delete" ,
+                                        "Are you sure you want to delete this contact?",
+
+                                    buttonText: "Delete",
                                     isConfirm: true,
                                     isDelete: true,
                                     route:
@@ -154,26 +153,66 @@ class ContactCard extends StatelessWidget {
           SizedBox(height: 16), // Space between text and button
           // Add Contact Button
           if (!isRequest && hasAddContact)
-            CustomButton(buttonTitle: "Add Contact" , onTap: () {}),
+            CustomButton(buttonTitle: "Add Contact", onTap: () {}),
           if (isRequest)
             Row(
               spacing: 12.w,
               children: [
                 Flexible(
                   child: CustomButton(
-                    buttonTitle: "Delete" ,
-                    isFilled: false,
-                    isRed: true,
+                    buttonTitle: "Confirm",
                     onTap: () {
-                      // Todo: implement delete request
+                      // todo: implement todo confirm request
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return customAlertDialog(
+                            centerHeading: true,
+                            title: "Confirm Invitation",
+                            content:
+                                "Are you sure you want to confirm the invitation?",
+
+                            buttonText: "Confirm",
+                            isConfirm: true,
+
+                            route:
+                                onDelete ??
+                                () {
+                                  Get.back();
+                                },
+                          );
+                        },
+                      );
                     },
                   ),
                 ),
                 Flexible(
                   child: CustomButton(
-                    buttonTitle: "Confirm" ,
+                    buttonTitle: "Delete",
+                    isFilled: false,
+                    isRed: true,
                     onTap: () {
-                      // todo: implement todo confirm request
+                      // Todo: implement delete request
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return customAlertDialog(
+                            centerHeading: true,
+                            title: "Delete Invitation",
+                            content:
+                                "Are you sure you want to delete the invitation?",
+
+                            buttonText: "Delete",
+                            isConfirm: true,
+                            isDelete: true,
+                            route:
+                                onDelete ??
+                                () {
+                                  Get.back();
+                                },
+                          );
+                        },
+                      );
                     },
                   ),
                 ),

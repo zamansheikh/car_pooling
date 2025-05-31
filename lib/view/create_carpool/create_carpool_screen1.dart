@@ -8,7 +8,8 @@ import 'package:car_pooling/core/wrappers/option_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class CreateCarpoolScreen1 extends StatelessWidget {
   CreateCarpoolScreen1({super.key});
@@ -62,7 +63,7 @@ class CreateCarpoolScreen1 extends StatelessWidget {
                         children: [
                           Icon(Icons.add, color: AppColors.primaryDark),
                           Text(
-                            AppLocalizations.of(context)!.addAChild ,
+                            AppLocalizations.of(context)!.addChild,
                             style: AppStyle.baseMedium.copyWith(
                               color: AppColors.primary,
                             ),

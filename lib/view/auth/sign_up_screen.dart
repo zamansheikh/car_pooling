@@ -9,7 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -46,12 +47,12 @@ class SignUpScreen extends StatelessWidget {
                         // =================>>>>>>>>>>>>> Text Controller <<<<<<<<<<<<<===============
                         CustomInputField(
                           controller: controller.firstNameController,
-                          hintText: "First Name" ,
+                          hintText: "First name" ,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(
                           controller: controller.lastNameController,
-                          hintText: "Last Name" ,
+                          hintText: "Last name" ,
                         ),
                         SizedBox(height: 16.h),
                         CustomInputField(

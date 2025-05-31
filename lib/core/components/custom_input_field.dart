@@ -40,110 +40,113 @@ class CustomInputField extends StatelessWidget {
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
 
+  final _border = OutlineInputBorder(
+    borderSide: BorderSide(color: AppColors.primaryLight),
+    borderRadius: BorderRadius.circular(12.w),
+  );
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // the title with the sizedbox will only be rendered when it is provided
-        // if (title != null) Text(title!, style: AppStyle.baseSmallRegular),
-        // if (title != null) SizedBox(height: 8.h),
-        // To design the text field container is used
-        Obx(() {
-          final obscure = isObscure.value;
-          return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.primaryLight),
-              borderRadius: BorderRadius.circular(12),
-              color: background,
-            ),
-            // Row is used for prefix icons and suffix icons
-            child: Row(
-              crossAxisAlignment:
-                  maxLines == 1
-                      ? CrossAxisAlignment.center
-                      : CrossAxisAlignment.start,
-              children: [
-                if (prefixIcon != null)
-                  SvgPicture.asset(prefixIcon!, height: 20.h, width: 20.w),
-                if (prefixIcon != null) SizedBox(width: 12.w),
-                Flexible(
-                  child: TextFormField(
-                    onChanged: onChanged,
-                    keyboardType: isNumber ? TextInputType.number : null,
-
-                    inputFormatters:
-                        isNumber
-                            ? [FilteringTextInputFormatter.digitsOnly]
-                            : null,
-                    controller: controller,
-
-                    // To remove default styling and setting hint text
-                    decoration: InputDecoration(
-                      hintText: hintText ?? title ?? "",
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.zero,
-                      hintStyle: GoogleFonts.roboto(
-                        fontSize: 16.sp,
-                        color: AppColors.gray,
-                      ),
-                    ),
-
-                    style: GoogleFonts.roboto(
-                      // Style for the input text
-                      fontSize: 16.sp,
-                    ),
-
-                    obscureText: isPassword ? obscure : false,
-
-                    //  The maxlines determines the number of lines that can occupy the field
-                    maxLines: maxLines,
-                    // shows
-                    maxLength: maxLength,
-                    // This is to validate fields based conditions
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        // if the value of field is empty
-                        return "This field cannot be empty.";
-                      }
-                      if (isEmail) {
-                        if (!RegexValidators.isValidEmail(value)) {
-                          // if email and not validated then the following the error will be shown
-                          return "Please Enter valid $value.";
-                        }
-                      }
-                      if (isPassword) {
-                        if (!RegexValidators.isValidPassword(value)) {
-                          // password validating on length
-                          return "Must be 8+ chars with upper, lower, number & symbol.";
-                        }
-                      }
-                      // default return of null
-                      return null;
-                    },
-                  ),
-                ),
-                // for obscure and unobscure text
-                if (isPassword) SizedBox(width: 12.h),
-                if (isPassword)
-                  Obx(() {
+    return Obx(() {
+      final obscure = isObscure.value;
+      return TextFormField(
+        onChanged: onChanged,
+        keyboardType: isNumber ? TextInputType.number : null,
+    
+        inputFormatters:
+            isNumber ? [FilteringTextInputFormatter.digitsOnly] : null,
+        controller: controller,
+    
+        // To remove default styling and setting hint text
+        decoration: InputDecoration(
+          fillColor: background ?? AppColors.background,
+          filled: true,
+          hintText: hintText ?? title ?? "",
+          suffixIcon:
+              isPassword
+                  ? Obx(() {
                     return InkWell(
                       borderRadius: BorderRadius.circular(100),
                       onTap: () {
                         isObscure.value = !isObscure.value;
                       },
-                      child: Icon(
-                        isObscure.value ? Icons.visibility : Icons.visibility,
-                        size: 20,
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 12.w),
+                        child: Icon(
+                          isObscure.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          size: 20,
+                          color: AppColors.gray,
+                        ),
                       ),
                     );
-                  }),
-              ],
-            ),
-          );
-        }),
-      ],
-    );
+                  })
+                  : null,
+          prefixIcon:
+              prefixIcon != null
+                  ? SizedBox(
+                    width: 18.w,
+                    height: 18.w,
+                    child: Center(
+                      child: SvgPicture.asset(
+                        prefixIcon!,
+                        width: 22.w,
+                        height: 22.w,
+                        color: AppColors.gray,
+                      ),
+                    ),
+                  )
+                  : null,
+          border: _border,
+          enabledBorder: _border,
+          focusedBorder: _border,
+          errorBorder: _border,
+          focusedErrorBorder: _border,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 16.w,
+            vertical: 18.h,
+          ),
+          hintStyle: GoogleFonts.roboto(
+            fontSize: 16.sp,
+            color: AppColors.gray,
+          ),
+        ),
+    
+        style: GoogleFonts.roboto(
+          // Style for the input text
+          fontSize: 16.sp,
+        ),
+    
+        obscureText: isPassword ? obscure : false,
+    
+        //  The maxlines determines the number of lines that can occupy the field
+        maxLines: maxLines,
+        // shows
+        maxLength: maxLength,
+    
+        // This is to validate fields based conditions
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            // if the value of field is empty
+            return "This field cannot be empty.";
+          }
+          if (isEmail) {
+            if (!RegexValidators.isValidEmail(value)) {
+              // if email and not validated then the following the error will be shown
+              return "Please enter a valid email address.";
+            }
+          }
+          if (isPassword) {
+            if (!RegexValidators.isValidPassword(value)) {
+              // password validating on length
+              return "Must be 8+ chars with upper, lower, number & symbol.";
+            }
+          }
+          // default return of null
+          return null;
+        },
+      );
+    });
   }
 }

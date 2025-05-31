@@ -5,7 +5,8 @@ import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -13,64 +14,70 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      body: SafeArea(
-        child: SizedBox(
-          width: Get.width,
+      backgroundColor: Color(0xFFF0F3EC),
+      body: SizedBox(
+        width: Get.width,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.h),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                padding: EdgeInsets.only(
-                  top: 32.h,
-                  bottom: 48.h,
-                  left: 20.w,
-                  right: 20.w,
-                ),
-                width: Get.width,
-                decoration: BoxDecoration(color: AppColors.white),
-
-                child: Column(
-                  spacing: 16.h,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                  children: [
-                    Image.asset("assets/common/logo.png"),
-                    SizedBox(height: 64.h),
-                    Text(
-                      AppLocalizations.of(context)!.howItWorks ,
-                      style: AppStyle.headerRegular3.copyWith(
-                        color: AppColors.primaryDark,
-                        fontSize: 28.sp
-                      ),
-                    ),
-
-                    buildSteps(
-                      step: 1,
-                      body: AppLocalizations.of(context)!.createACarpoolBetweenTwoPoints ,
-                    ),
-                    buildSteps(
-                      step: 2,
-                      body: AppLocalizations.of(context)!.inviteYourFriendsToCarpoolWithYou ,
-                    ),
-                    buildSteps(
-                      step: 3,
-                      body: AppLocalizations.of(context)!.friendsJoinAndAddTheirChildSLocation ,
-                    ),
-                    buildSteps(
-                      step: 4,
-                      body:
-                          AppLocalizations.of(context)!.parentsVolunteerToDriveWeSendRemindersAndOptimizedRoutes
-                               ,
-                    ),
-                    CustomButton(
-                      buttonTitle: AppLocalizations.of(context)!.next ,
-                      onTap: () => Get.toNamed(AppRoutes.welcomeScreen2),
-                    ),
-                  
-                  ],
+              // SizedBox(height: 8.h),
+              Padding(
+                padding: EdgeInsets.only(top: 36.h),
+                child: Center(
+                  child: Image.asset("assets/common/logo.png", height: 88.h),
                 ),
               ),
+              Spacer(flex: 1),
+              Center(
+                child: Text(
+                  AppLocalizations.of(context)!.howItWorks,
+                  style: AppStyle.headerRegular3.copyWith(
+                    color: AppColors.primaryDark,
+                    fontSize: 28.sp,
+                  ),
+                ),
+              ),
+              SizedBox(height: 28.h),
+              buildSteps(
+                step: 1,
+                body:
+                    AppLocalizations.of(
+                      context,
+                    )!.createACarpoolBetweenTwoPoints,
+              ),
+              SizedBox(height: 16.h),
+              buildSteps(
+                step: 2,
+                body:
+                    AppLocalizations.of(
+                      context,
+                    )!.inviteYourFriendsToCarpoolWithYou,
+              ),
+              SizedBox(height: 16.h),
+              buildSteps(
+                step: 3,
+                body:
+                    AppLocalizations.of(
+                      context,
+                    )!.friendsJoinAndAddTheirChildSLocation,
+              ),
+              SizedBox(height: 16.h),
+              buildSteps(
+                step: 4,
+                body:
+                    AppLocalizations.of(
+                      context,
+                    )!.parentsVolunteerToDriveWeSendRemindersAndOptimizedRoutes,
+              ),
+              Spacer(flex: 2),
+              CustomButton(
+                buttonTitle: AppLocalizations.of(context)!.next,
+                onTap: () => Get.toNamed(AppRoutes.welcomeScreen2),
+              ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
@@ -84,7 +91,7 @@ class WelcomeScreen extends StatelessWidget {
       spacing: 8.h,
       children: [
         Text(
-          "${"Step" } - 0$step",
+          "${"Step"} - 0$step",
           style: AppStyle.largeMedium.copyWith(color: AppColors.primaryDark),
         ),
         Text(

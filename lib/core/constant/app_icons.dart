@@ -17,5 +17,4 @@ class AppIcons {
   static String mailIcon = "assets/icons/mail_icon.svg";
   static String personIcon = "assets/icons/person_icon.svg";
   static String timeIcon = "assets/icons/time_icon.svg";
-
 }

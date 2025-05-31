@@ -6,6 +6,7 @@ class CarpoolInvitationModel {
   final String address;
   final String distance;
 
+
   CarpoolInvitationModel({
     this.image = '',
     this.firstName = 'Unknown',

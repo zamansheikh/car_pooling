@@ -2,11 +2,12 @@ import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
-import 'package:car_pooling/view/menu/local_compoent/profile_image_selector.dart';
+import 'package:car_pooling/view/menu/local_component/profile_image_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class EditChildScreen extends StatelessWidget {
   EditChildScreen({super.key, this.isSpouse  = false});
@@ -40,16 +41,16 @@ class EditChildScreen extends StatelessWidget {
 
                     CustomInputField(
                       controller: controller.firstNameController,
-                      hintText: "First Name",
+                      hintText: "First name",
                     ),
                     CustomInputField(
                       controller: controller.lastNameController,
-                      hintText: "Last Name",
+                      hintText: "Last name",
                     ),
                     if(!isSpouse)
                     CustomInputField(
                       controller: controller.schoolNameController,
-                      hintText: "School Name",
+                      hintText: "School name",
                     ),
                     CustomButton(buttonTitle: AppLocalizations.of(context)!.save, onTap: () {}),
                   ],

@@ -1,10 +1,12 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/contact_card.dart';
-import 'package:car_pooling/core/components/custom_app_bar.dart';
+import 'package:car_pooling/core/constant/app_colors.dart';
+import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class MyContactListScreen extends StatelessWidget {
   MyContactListScreen({super.key});
@@ -12,7 +14,49 @@ class MyContactListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(AppLocalizations.of(context)!.contactList , hasInvite: true),
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(Icons.chevron_left_sharp, size: 32.sp),
+        ),
+        title: Text(
+          AppLocalizations.of(context)!.contactList,
+          style: AppStyle.largeMedium,
+        ),
+        actions: [
+          InkWell(
+            child: Container(
+              margin: EdgeInsets.only(right: 20.w),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+              decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.add,
+                    color: AppColors.white,
+                    size: 18.sp,
+                  ),
+                  SizedBox(width: 4.w),
+                  Text(
+                    AppLocalizations.of(context)!.addContact,
+                    style: AppStyle.baseSmallMedium.copyWith(
+                      color: AppColors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Obx(() {

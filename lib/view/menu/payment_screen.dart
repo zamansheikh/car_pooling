@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class PaymentScreen extends StatelessWidget {
   PaymentScreen({super.key});
@@ -46,6 +47,7 @@ class PaymentScreen extends StatelessWidget {
             ),
             CustomInputField(
               isNumber: true,
+              maxLength: 16,
               controller: controller.cardNumberController,
               hintText: "Card Number" ,
               onChanged: (p0) {
@@ -85,5 +87,3 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 }
-
-// Widget for the Credit Card UI

@@ -28,7 +28,9 @@ class PackageScreen extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-          child: TabBarView(children: [buildHadikidFree(), buildHadikidPremium()]),
+          child: TabBarView(
+            children: [buildHadikidFree(), buildHadikidPremium()],
+          ),
         ),
       ),
     );
@@ -39,15 +41,16 @@ class PackageScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Feature List
-        FeatureItem(text: 'HadiKid No Ads'),
-        FeatureItem(text: 'Live Tracking'),
-        FeatureItem(text: 'Added Notification'),
-        FeatureItem(text: 'Carpool History'),
-        FeatureItem(text: 'Add message'),
+        FeatureItem(text: 'Ad-free Experience'),
+        FeatureItem(text: 'Creating and Joining Events'),
+        FeatureItem(text: 'Invitation and Approval System'),
+        FeatureItem(text: 'Messaging Feature'),
+        FeatureItem(text: 'Limited Notification'),
         SizedBox(height: 24),
         Text(
           'Choose between monthly or yearly billing and start enjoying HadiKid without ads.',
           style: AppStyle.baseRegular.copyWith(color: AppColors.primaryDark),
+          textAlign: TextAlign.center,
         ),
         SizedBox(height: 16),
         // Billing Options
@@ -78,14 +81,21 @@ class PackageScreen extends StatelessWidget {
         ),
 
         SizedBox(height: 12),
-        Obx(()=> Center(child: Text("Upgrade to ${controller.isYearly.value} Plan", style: TextStyle(fontSize: 14, color: Colors.black54))),),
+        Obx(
+          () => Center(
+            child: Text(
+              "Upgrade to ${controller.isYearly.value} Plan",
+              style: TextStyle(fontSize: 14, color: Colors.black54),
+            ),
+          ),
+        ),
         SizedBox(height: 24),
 
         // Upgrade Button
         SizedBox(
           width: double.infinity,
           child: CustomButton(
-            buttonTitle: "Upgrade plan",
+            buttonTitle: "Upgrade Plan",
             onTap: () {
               Get.toNamed(AppRoutes.payment);
             },
@@ -96,7 +106,7 @@ class PackageScreen extends StatelessWidget {
         // Footer Text
         Center(
           child: Text(
-            'You\'re currently using HadiKid Free',
+            'You\'re currently using HadiKid Free.',
             style: TextStyle(fontSize: 14, color: Colors.black54),
           ),
         ),
@@ -111,6 +121,7 @@ class PackageScreen extends StatelessWidget {
         // Feature List
         FeatureItem(text: 'HadiKid No Ads'),
         FeatureItem(text: 'Live Tracking'),
+        FeatureItem(text: 'Dynamic Route Optimization'),
         FeatureItem(text: 'Added Notification'),
         FeatureItem(text: 'Carpool History'),
 
@@ -118,6 +129,7 @@ class PackageScreen extends StatelessWidget {
         Text(
           'Choose between monthly or yearly billing and start enjoying HadiKid Premium features.',
           style: AppStyle.baseRegular.copyWith(color: AppColors.primaryDark),
+          textAlign: TextAlign.center,
         ),
         SizedBox(height: 16),
         // Billing Options
@@ -147,8 +159,15 @@ class PackageScreen extends StatelessWidget {
           ],
         ),
 
-        SizedBox(height: 12,),
-                Obx(()=> Center(child: Text("Upgrade to ${controller.isYearly.value} Plan", style: TextStyle(fontSize: 14, color: Colors.black54))),),
+        SizedBox(height: 12),
+        Obx(
+          () => Center(
+            child: Text(
+              "Upgrade to ${controller.isYearly.value} Plan",
+              style: TextStyle(fontSize: 14, color: Colors.black54),
+            ),
+          ),
+        ),
 
         SizedBox(height: 24),
 
@@ -156,7 +175,7 @@ class PackageScreen extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: CustomButton(
-            buttonTitle: "Upgrade plan",
+            buttonTitle: "Upgrade Plan",
             onTap: () {
               Get.toNamed(AppRoutes.payment);
             },
@@ -167,7 +186,7 @@ class PackageScreen extends StatelessWidget {
         // Footer Text
         Center(
           child: Text(
-            'You\'re currently using HadiKid Free',
+            'You\'re currently using HadiKid Free.',
             style: TextStyle(fontSize: 14, color: Colors.black54),
           ),
         ),
@@ -189,7 +208,7 @@ class FeatureItem extends StatelessWidget {
       child: Row(
         children: [
           const Icon(
-            Icons.check,
+            Icons.done_all_rounded,
             color: Colors.teal, // Green checkmark
             size: 24,
           ),

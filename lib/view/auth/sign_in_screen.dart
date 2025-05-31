@@ -4,11 +4,11 @@ import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
+import 'package:car_pooling/l10n/app_localizations.dart';
 import 'package:car_pooling/view/auth/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class SignInScreen extends StatelessWidget {
@@ -45,6 +45,7 @@ class SignInScreen extends StatelessWidget {
                       children: [
                         // =================>>>>>>>>>>>>> Text Controller <<<<<<<<<<<<<===============
                         CustomInputField(
+                          isEmail: true,
                           controller: controller.emailController,
                           hintText: "Email" ,
                         ),
@@ -101,7 +102,7 @@ class SignInScreen extends StatelessWidget {
                             onTap: () {
                               controller.userSignIn(_formKey);
                             },
-                            isLoading: controller.isLoading.value,
+                            isLoading: controller.isLoading.value
                           );
                         }),
                       ],

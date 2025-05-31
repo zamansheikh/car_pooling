@@ -7,26 +7,36 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 AlertDialog customAlertDialog({
-  title,
-  content,
-  asset,
-  buttonText = "OK",
-  route,
-  isConfirm = false,
-
-  isDelete = false,
+  required String title,
+  required String content,
+  bool centerHeading = false,
+  String? icon,
+  String buttonText = "OK",
+  required void Function()? route,
+  bool isConfirm = false,
+  bool isDelete = false,
 }) {
   return AlertDialog(
     icon:
-        asset != null
+        icon != null
             ? Padding(
               padding: EdgeInsets.only(top: 40.h),
-              child: SvgPicture.asset(asset),
+              child: SvgPicture.asset(icon),
             )
             : null,
-    title: Text(
-      title,
-      style: AppStyle.headerRegular3.copyWith(color: AppColors.primary),
+    title: Row(
+      mainAxisAlignment:
+          centerHeading ? MainAxisAlignment.center : MainAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: AppStyle.headerRegular3.copyWith(
+            color: AppColors.primary,
+            // fontSize: 18.sp,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
     ),
     content: Text(
       content,
@@ -42,9 +52,8 @@ AlertDialog customAlertDialog({
             SizedBox(
               width: Get.width / 3.3,
               child: CustomButton(
-                buttonTitle: "Cancel" ,
+                buttonTitle: "Cancel",
                 isFilled: false,
-
                 onTap: () {
                   Get.back();
                 },
@@ -57,7 +66,8 @@ AlertDialog customAlertDialog({
               isFilled: true,
               isRed: isDelete,
               onTap: () {
-                route();
+                Get.back();
+                route?.call();
               },
             ),
           ),

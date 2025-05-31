@@ -42,7 +42,7 @@ class AppRoutes {
   static String welcomeScreen = "/welcome_screen";
   static String welcomeScreen2 = "/welcome_screen_2";
 
-  static String homeSCreen = '/home_screen';
+  static String homeScreen = '/home_screen';
   // =================>>>>>>>>>>>>> Find Families <<<<<<<<<<<<<===============
   static String findFamily = "/find_family";
 
@@ -85,7 +85,7 @@ class AppRoutes {
     GetPage(name: welcomeScreen, page: () => WelcomeScreen()),
     GetPage(name: welcomeScreen2, page: () => WelcomeScreen2()),
 
-    GetPage(name: homeSCreen, page: () => HomeScreen()),
+    GetPage(name: homeScreen, page: () => HomeScreen()),
     // =================>>>>>>>>>>>>> Find Families <<<<<<<<<<<<<===============
     GetPage(name: findFamily, page: () => FindFamilyScreen()),
 
@@ -101,7 +101,7 @@ class AppRoutes {
     GetPage(name: createCarpool2, page: () => CreateCarpoolScreen2()),
     GetPage(name: createCarpool3, page: () => CreateCarpoolScreen3()),
     GetPage(name: createCarpool4, page: () => CreateCarpoolScreen4()),
-    GetPage(name: carpoolDetails, page: () => CarpoolDetailsScreen()),
+    // GetPage(name: carpoolDetails, page: () => CarpoolDetailsScreen()),
     // =================>>>>>>>>>>>>> Menu <<<<<<<<<<<<<===============
     GetPage(name: myCarpools, page: () => MyCarpoolsScreen()),
     GetPage(name: carpoolHistory, page: () => CarpoolHistoryScreen()),

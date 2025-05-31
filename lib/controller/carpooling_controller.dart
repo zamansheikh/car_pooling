@@ -16,7 +16,6 @@ class CarpoolingController extends GetxController {
   TextEditingController addMessageController = TextEditingController();
   TextEditingController startDate = TextEditingController();
 
-
   RxString startLocationText = "".obs;
   RxString mySelectedRole = "Attend".obs;
   // Observable for selected days of the week
@@ -36,25 +35,50 @@ class CarpoolingController extends GetxController {
   RxList<ContactModel> myContact =
       <ContactModel>[
         ContactModel(
+          id: "01",
           firstName: "Adam",
           lastName: "Brown",
           cellNumber: "+880 178 020 2564",
         ),
         ContactModel(
+          id: "02",
+          firstName: "Sabbir",
+          lastName: "Hassan",
+          cellNumber: "+880 178 020 2564",
+        ),
+        ContactModel(
+          id: "03",
+          firstName: "Murad",
+          lastName: "Islam",
+          cellNumber: "+880 178 020 2564",
+        ),
+        ContactModel(
+          id: "04",
+          firstName: "Adam",
+          lastName: "Brown",
+          cellNumber: "+880 178 020 2564",
+        ),
+        ContactModel(
+          id: "05",
+          firstName: "Adam",
+          lastName: "Brown",
+          cellNumber: "+880 178 020 2564",
+        ),
+        ContactModel(
+          id: "06",
           firstName: "Adam",
           lastName: "Brown",
           cellNumber: "+880 178 020 2564",
         ),
       ].obs;
 
-  RxString selectedOption = "Custom".obs;
+  RxString selectedOption = "Does not repeat".obs;
   RxBool isReturnTrip = false.obs;
-  final Rx<Time> timePicker =
-      Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
-  final Rx<Time> startTime =
-      Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
-  final Rx<Time> dropOffTime =
-      Time(hour: DateTime.now().hour, minute: DateTime.now().minute).obs;
+  final Rx<Time?> timePicker = Rx<Time?>(null);
+  final Rx<Time?> startTime = Rx<Time?>(null);
+  final Rx<Time?> dropOffTime = Rx<Time?>(null);
+  final Rx<Time?> returnStartTime = Rx<Time?>(null);
+  final Rx<Time?> returnEndTime = Rx<Time?>(null);
 
   final List<String> availableOptions = [
     "Does not repeat",
@@ -63,27 +87,39 @@ class CarpoolingController extends GetxController {
     "Custom",
   ];
 
+  void removeContact(ContactModel item) {
+    myContact.value =
+        myContact.where((element) => element.id != item.id).toList().obs;
+  }
+
   Future create1Tocreate2() async {
     bool isSelected = false;
 
-    for (int i  = 0; i< availableChildren.length; i++ ) {
-      if(availableChildren[i].isSelected) {
+    for (int i = 0; i < availableChildren.length; i++) {
+      if (availableChildren[i].isSelected) {
         isSelected = true;
       }
     }
 
-
-    if(isSelected) {
-
-    Get.toNamed(AppRoutes.createCarpool2);
+    if (isSelected) {
+      Get.toNamed(AppRoutes.createCarpool2);
     } else {
-      showCustomSnackBar("Select at least one child to continue!", isError: true);
+      showCustomSnackBar(
+        "Select at least one child to continue!",
+        isError: true,
+      );
     }
-    
   }
 
   Future previewAndInvites(formKey) async {
     if (!formKey.currentState!.validate()) {
+      return;
+    }
+    if (startTime.value == null || dropOffTime.value == null) {
+      showCustomSnackBar("Please select time", isError: true);
+      return;
+    } else if (startDate.text.isEmpty) {
+      showCustomSnackBar("Please select Date", isError: true);
       return;
     }
     Get.toNamed(AppRoutes.createCarpool3);

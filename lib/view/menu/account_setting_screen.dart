@@ -1,13 +1,14 @@
 import 'package:car_pooling/controller/menu_controller.dart';
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/components/custom_button.dart';
-import 'package:car_pooling/view/menu/local_compoent/section_container.dart';
-import 'package:car_pooling/view/menu/local_compoent/toggle_options.dart';
+import 'package:car_pooling/view/menu/local_component/section_container.dart';
+import 'package:car_pooling/view/menu/local_component/toggle_options.dart';
 import 'package:car_pooling/view/menu/package_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 class AccountSettingScreen extends StatelessWidget {
   AccountSettingScreen({super.key});
 
@@ -17,8 +18,9 @@ class AccountSettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar1(AppLocalizations.of(context)!.accountSettings ),
-
-      body: Padding(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
           child: Obx(() {
@@ -174,7 +176,7 @@ class AccountSettingScreen extends StatelessWidget {
                      Get.to(()=> PackageScreen(initialIndex: 1,));
                   },
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 12.h),
               ],
             );
           }),

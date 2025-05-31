@@ -1,9 +1,11 @@
+import 'package:car_pooling/core/components/custom_alert_dialog.dart';
 import 'package:car_pooling/core/components/image_renderer.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
 import 'package:car_pooling/core/wrappers/card_wrapper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class ChatCard extends StatelessWidget {
@@ -59,11 +61,40 @@ class ChatCard extends StatelessWidget {
                   ),
                   SizedBox(height: 4),
                   // Message Text
-                  Text(
-                    'Sequi quae aliquid numquam...',
-                    style: AppStyle.baseSmallRegular.copyWith(
-                      color: AppColors.darkGray,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        'Sequi quae aliquid numquam...',
+                        style: AppStyle.baseSmallRegular.copyWith(
+                          color: AppColors.darkGray,
+                        ),
+                      ),
+                      Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: Get.context!,
+                            builder: (context) {
+                              return customAlertDialog(
+                                centerHeading: true,
+                                title: 'Delete Chat',
+                                content:
+                                    'Are you sure you want to delete this chat?',
+                                isConfirm: true,
+                                isDelete: true,
+                                buttonText: 'Delete',
+                                route: () {},
+                              );
+                            },
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          'assets/icons/delete_icon.svg',
+                          width: 18,
+                          height: 18,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

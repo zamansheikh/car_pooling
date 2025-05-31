@@ -134,5 +134,11 @@
   "organizing": "Organizatör",
   "attending": "Katılımcı",
   "driving": "Sürücü",
-  "createCarpoolLater": "Sonra Araç Paylaşımı Oluştur"
+  "type": "Tür",
+  "enterTheCodeBelowToContinue": "Devam etmek için aşağıdaki kodu girin",
+  "addAContact": "Kişi Ekle",
+  "addContact": "Kişi Ekle",
+  "addSpouse": "Eş Ekle",
+  "startTime": "Başlangıç Zamanı",
+  "estimatedEndTime": "Tahmini Bitiş Zamanı"
 }

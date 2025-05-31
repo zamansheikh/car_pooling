@@ -4,7 +4,7 @@ import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/view/inbox/local%20components/message_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 
 class MessagesScreen extends StatelessWidget {
   MessagesScreen({super.key});

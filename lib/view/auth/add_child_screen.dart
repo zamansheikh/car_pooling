@@ -5,11 +5,11 @@ import 'package:car_pooling/core/components/custom_button.dart';
 import 'package:car_pooling/core/components/custom_input_field.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
+import 'package:car_pooling/l10n/app_localizations.dart';
 import 'package:car_pooling/view/auth/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddChildScreen extends StatelessWidget {
   AddChildScreen({super.key});
@@ -21,7 +21,7 @@ class AddChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar1(AppLocalizations.of(context)!.addAChild ),
+      appBar: customAppBar1(AppLocalizations.of(context)!.addChild ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),

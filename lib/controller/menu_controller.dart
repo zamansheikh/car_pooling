@@ -131,7 +131,8 @@ class MenuProfileController extends GetxController {
         fromLocation: 'Downtown Office',
         toLocation: 'Convention Center',
         date: DateTime.now().add(Duration(days: 2)).toString().split(' ')[0],
-        time: '09:00',
+        startTime: '09:00',
+        estimatedEndTime: '09:00',
         canDrive: true,
       ),
       CarpoolModel(
@@ -141,7 +142,8 @@ class MenuProfileController extends GetxController {
         fromLocation: 'City Center',
         toLocation: 'Mountain Trail',
         date: DateTime.now().add(Duration(days: 5)).toString().split(' ')[0],
-        time: '07:30',
+        startTime: '07:30',
+        estimatedEndTime: '07:30',
         canDrive: false,
       ),
       CarpoolModel(
@@ -151,7 +153,8 @@ class MenuProfileController extends GetxController {
         fromLocation: 'Residential Area',
         toLocation: 'Art Gallery',
         date: DateTime.now().add(Duration(days: 7)).toString().split(' ')[0],
-        time: '14:00',
+        startTime: '14:00',
+        estimatedEndTime: '14:00',
         canDrive: false,
       ),
       CarpoolModel(
@@ -161,7 +164,8 @@ class MenuProfileController extends GetxController {
         fromLocation: 'Suburb A',
         toLocation: 'Stadium',
         date: DateTime.now().add(Duration(days: 10)).toString().split(' ')[0],
-        time: '18:00',
+        startTime: '18:00',
+        estimatedEndTime: '18:00',
         canDrive: true,
       ),
       CarpoolModel(
@@ -171,7 +175,8 @@ class MenuProfileController extends GetxController {
         fromLocation: 'Suburb B',
         toLocation: 'Festival Grounds',
         date: DateTime.now().add(Duration(days: 14)).toString().split(' ')[0],
-        time: '16:00',
+        startTime: '16:00',
+        estimatedEndTime: '16:00',
         canDrive: true,
       ),
       CarpoolModel(
@@ -181,7 +186,8 @@ class MenuProfileController extends GetxController {
         fromLocation: 'Local Park',
         toLocation: 'Community Center',
         date: DateTime.now().add(Duration(days: 3)).toString().split(' ')[0],
-        time: '19:00',
+        startTime: '19:00',
+        estimatedEndTime: '19:00',
         canDrive: false,
       ),
       CarpoolModel(
@@ -191,7 +197,8 @@ class MenuProfileController extends GetxController {
         fromLocation: 'Coffee Shop',
         toLocation: 'Library',
         date: DateTime.now().add(Duration(days: 4)).toString().split(' ')[0],
-        time: '15:30',
+        startTime: '15:30',
+        estimatedEndTime: '15:30',
         canDrive: true,
       ),
     ]);
@@ -251,6 +258,7 @@ class MenuProfileController extends GetxController {
   void fetchMyContactList() {
     final List<ContactModel> contacts = [
       ContactModel(
+        id: "01",
         image:
             "https://thispersondoesnotexist.com/", // Replace with a valid image URL
         firstName: "John",
@@ -260,6 +268,7 @@ class MenuProfileController extends GetxController {
         distance: "2.5 km",
       ),
       ContactModel(
+        id: "02",
         firstName: "Jane",
         lastName: "Smith",
         cellNumber: "+1 987 654 3210",

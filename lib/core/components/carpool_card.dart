@@ -17,22 +17,26 @@ class CarpoolCard extends StatelessWidget {
     required this.fromLocation,
     required this.toLocation,
     required this.date,
-    required this.time,
+    required this.startTime,
+    required this.estimatedEndTime,
     required this.canDrive,
+    required this.type,
   });
   final String image;
   final String eventName;
   final String fromLocation;
   final String toLocation;
   final String date;
-  final String time;
+  final String startTime;
+  final String estimatedEndTime;
   final bool canDrive;
+  final CarpoolDetailsType type;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(()=> CarpoolDetailsScreen());
+        Get.to(() => CarpoolDetailsScreen(type: type));
       },
       child: CardWrapper(
         child: Row(
@@ -46,7 +50,11 @@ class CarpoolCard extends StatelessWidget {
                 child:
                     image == ''
                         ? Text(eventName[0], style: AppStyle.headerRegular3)
-                        : imageRenderer(url: image, borderRadius: 100, size: 64),
+                        : imageRenderer(
+                          url: image,
+                          borderRadius: 100,
+                          size: 64,
+                        ),
               ),
             SizedBox(width: 16),
             // Text and Icons Column
@@ -87,7 +95,7 @@ class CarpoolCard extends StatelessWidget {
                       Icon(Icons.access_time, color: Colors.teal, size: 20),
                       SizedBox(width: 8),
                       Text(
-                        '${DateFormat('MMMM d,').format(DateTime.parse(date))}, $time',
+                        '${DateFormat('MMMM d,').format(DateTime.parse(date))}, $startTime',
                         style: AppStyle.baseSmallRegular.copyWith(
                           color: AppColors.gray,
                         ),
@@ -97,7 +105,7 @@ class CarpoolCard extends StatelessWidget {
                   SizedBox(height: 12),
                   if (canDrive)
                     CustomButton(
-                      buttonTitle: 'Drive' ,
+                      buttonTitle: 'Drive',
                       isRounded: false,
                       onTap: () {
                         // Todo: add drive functionality

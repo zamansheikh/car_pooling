@@ -6,7 +6,8 @@ class CarpoolModel {
   final String fromLocation;
   final String toLocation;
   final String date;
-  final String time;
+  final String startTime;
+  final String estimatedEndTime;
   final bool canDrive;
 
   CarpoolModel({
@@ -16,7 +17,12 @@ class CarpoolModel {
     this.toLocation = 'Unknown Destination',
     this.canDrive = false,
     String? date,
-    String? time,
+    String? startTime,
+    String? estimatedEndTime,
   }) : date = date ?? DateTime.now().toString(),
-       time = time ?? '${TimeOfDay.now().hour}:${TimeOfDay.now().minute}';
+       startTime =
+           startTime ?? '${TimeOfDay.now().hour}:${TimeOfDay.now().minute}',
+       estimatedEndTime =
+           estimatedEndTime ??
+           '${TimeOfDay.now().hour}:${TimeOfDay.now().minute}';
 }

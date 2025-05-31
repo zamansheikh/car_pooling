@@ -8,7 +8,8 @@ import 'package:car_pooling/view/inbox/local%20components/chat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class InboxScreen extends StatelessWidget {
   InboxScreen({super.key});

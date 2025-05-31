@@ -1,13 +1,13 @@
 import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
-import 'package:car_pooling/view/menu/local_compoent/menu_option.dart';
-import 'package:car_pooling/view/menu/local_compoent/upgrade_dialog.dart';
+import 'package:car_pooling/view/menu/local_component/menu_option.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -27,21 +27,21 @@ class MenuScreen extends StatelessWidget {
               Get.toNamed(AppRoutes.myCarpools);
             },
           ),
-          MenuOption(
-            title: AppLocalizations.of(context)!.carpoolHistory,
-            icon: Icons.directions_car,
-            isPremium: true,
-            showChevron: true,
-            onPress: () {
-              showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return upgradeDialog();
-                    },
-                  );
-              // Get.toNamed(AppRoutes.carpoolHistory);
-            },
-          ),
+          // MenuOption(
+          //   title: AppLocalizations.of(context)!.carpoolHistory,
+          //   icon: Icons.directions_car,
+          //   isPremium: true,
+          //   showChevron: true,
+          //   onPress: () {
+          //     showDialog(
+          //           context: context,
+          //           builder: (BuildContext context) {
+          //             return upgradeDialog();
+          //           },
+          //         );
+          //     // Get.toNamed(AppRoutes.carpoolHistory);
+          //   },
+          // ),
           MenuOption(
             title: AppLocalizations.of(context)!.profile,
             icon: Icons.person_outline,
@@ -218,7 +218,7 @@ class MenuScreen extends StatelessWidget {
                         Navigator.pop(context); // Close the modal
                       },
                       style: OutlinedButton.styleFrom(
-                        side: BorderSide(color: Colors.grey),
+                        side: BorderSide(color: AppColors.primary),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -226,7 +226,7 @@ class MenuScreen extends StatelessWidget {
                       ),
                       child: Text(
                         AppLocalizations.of(context)!.cancel,
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: AppColors.primary),
                       ),
                     ),
                   ),

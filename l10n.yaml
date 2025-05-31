@@ -1,20 +1,27 @@
 # l10n.yaml (extension specific options)
 
-# Enable translation 
-translate: false              
+# Enable translation
+translate: false
 
-# Auto run flutter gen-l10n               
+# Auto run flutter gen-l10n
 generate : true       
 
-# Key prefix for translation             
-key-prefix: AppLocalizations.of(context)!.  
+# Key prefix for translation
+key-prefix: AppLocalizations.of(context)!.
 
-# Generate key name 
-# "ask" : prompt with pre-filled text | true : infer from text | false : prompt  
-auto-name-key: true       
+# Generate key names
+# "ask" : prompt with pre-filled text | true : infer from text | false : prompt
+auto-name-key: true
 
-# Language to use for key name                  
-key-name-language: en       
+# Language to use for key names
+key-name-language: en
 
-# Import line if needed                
-import-line: ""          
+# Import line if needed
+import-line: ""
+
+# Deprecated fix
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+synthetic-package: false
+untranslated-messages-file: untranslated.json

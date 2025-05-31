@@ -3,10 +3,12 @@ import 'package:car_pooling/core/constant/app_assets.dart';
 import 'package:car_pooling/core/constant/app_colors.dart';
 import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:car_pooling/core/helper/app_routes.dart';
+import 'package:car_pooling/view/auth/explore_app_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class WelcomeScreen2 extends StatelessWidget {
   const WelcomeScreen2({super.key});
@@ -62,10 +64,10 @@ class WelcomeScreen2 extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               CustomButton(
-                buttonTitle: AppLocalizations.of(context)!.createCarpoolLater,
-
+                buttonTitle: "Explore the App!",
+                isFilled: false,
                 onTap: () {
-                  Get.toNamed(AppRoutes.homeSCreen);
+                  Get.to(() => ExploreAppScreen());
                 },
               ),
               SizedBox(height: 16.h),

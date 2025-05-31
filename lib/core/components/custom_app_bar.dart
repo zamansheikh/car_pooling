@@ -16,10 +16,12 @@ AppBar customAppBar1(
   backgroundColor = Colors.white,
   Widget? button,
   List<Widget>? tabs,
+  Function(int)? onTabSelect,
 }) {
   return AppBar(
     backgroundColor: backgroundColor,
     forceMaterialTransparency: true,
+    automaticallyImplyLeading: false,
     elevation: hasShadow ? 3.0 : 0,
     shadowColor: hasShadow ? Colors.black.withAlpha((0.7 * 255).toInt()) : null,
     leading:
@@ -30,7 +32,7 @@ AppBar customAppBar1(
               },
               child: Icon(Icons.chevron_left_sharp, size: 32.sp),
             )
-            : Container(),
+            : null,
     title: Text(title, style: AppStyle.largeMedium),
     bottom:
         hasTabBar
@@ -41,32 +43,28 @@ AppBar customAppBar1(
               labelColor: AppColors.primary,
               unselectedLabelColor: AppColors.gray,
               tabs: tabs!,
+              onTap: (value) {
+                onTabSelect?.call(value);
+              },
             )
             : null,
-    actions:
-        [
-              if(hasInvite)
-              InkWell(
-                child: Container(
-                  margin: EdgeInsets.only(right: 26.w),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.w,
-                    vertical: 7.h,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    "Add Contact",
-                    style: AppStyle.baseSmallMedium.copyWith(
-                      color: AppColors.white,
-                    ),
-                  ),
-                ),
-              ),
-              button ?? SizedBox.shrink(),
-            ]
-            
+    actions: [
+      if (hasInvite)
+        InkWell(
+          child: Container(
+            margin: EdgeInsets.only(right: 26.w),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 7.h),
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              "Add Contact",
+              style: AppStyle.baseSmallMedium.copyWith(color: AppColors.white),
+            ),
+          ),
+        ),
+      button ?? SizedBox.shrink(),
+    ],
   );
 }

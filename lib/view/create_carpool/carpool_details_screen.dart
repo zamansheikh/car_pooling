@@ -10,10 +10,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
+
+enum CarpoolDetailsType { attending, organizing, driving }
 
 class CarpoolDetailsScreen extends StatelessWidget {
-  const CarpoolDetailsScreen({super.key});
+  final CarpoolDetailsType? type;
+  const CarpoolDetailsScreen({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -112,22 +116,37 @@ class CarpoolDetailsScreen extends StatelessWidget {
                 SizedBox(height: 12.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  spacing: 10.w,
                   children: [
                     SvgPicture.asset(AppIcons.carIcon),
+                    SizedBox(width: 8.w),
                     Text(
-                      AppLocalizations.of(context)!.from,
+                      '${AppLocalizations.of(context)!.from}:',
                       style: AppStyle.baseRegular.copyWith(
                         color: AppColors.gray,
                       ),
                     ),
+                    SizedBox(width: 8.w),
                     Text(
                       "123 Mple St",
                       style: AppStyle.baseRegular.copyWith(
                         color: AppColors.gray,
                       ),
                     ),
-                    Icon(Icons.arrow_forward, color: AppColors.gray),
+                    SizedBox(width: 12.w),
+                    Text(
+                      "-",
+                      style: AppStyle.baseRegular.copyWith(
+                        color: AppColors.gray,
+                      ),
+                    ),
+                    SizedBox(width: 12.w),
+                    Text(
+                      '${AppLocalizations.of(context)!.to}:',
+                      style: AppStyle.baseRegular.copyWith(
+                        color: AppColors.gray,
+                      ),
+                    ),
+                    SizedBox(width: 8.w),
                     Text(
                       "123 Mple St",
                       style: AppStyle.baseRegular.copyWith(
@@ -137,29 +156,63 @@ class CarpoolDetailsScreen extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: 24.h),
-                Text(
-                  AppLocalizations.of(context)!.time,
-                  style: GoogleFonts.roboto(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(height: 12.h),
+                SizedBox(height: 36.h),
                 Row(
-                  spacing: 8.w,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SvgPicture.asset(AppIcons.timeIcon),
-                    Text(
-                      "Jan 24, 3:30PM",
-                      style: AppStyle.baseRegular.copyWith(
-                        color: AppColors.gray,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.startTime,
+                          style: GoogleFonts.roboto(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 12.h),
+                        Row(
+                          spacing: 8.w,
+                          children: [
+                            SvgPicture.asset(AppIcons.timeIcon),
+                            Text(
+                              "Jan 24, 3:30PM",
+                              style: AppStyle.baseRegular.copyWith(
+                                color: AppColors.gray,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.estimatedEndTime,
+                          style: GoogleFonts.roboto(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 12.h),
+                        Row(
+                          spacing: 8.w,
+                          children: [
+                            SvgPicture.asset(AppIcons.timeIcon),
+                            Text(
+                              "Jan 24, 3:30PM",
+                              style: AppStyle.baseRegular.copyWith(
+                                color: AppColors.gray,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ],
                 ),
-
-                SizedBox(height: 24.h),
+                SizedBox(height: 36.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -177,24 +230,34 @@ class CarpoolDetailsScreen extends StatelessWidget {
                         // can remove on tap if logged in as driver
                         GestureDetector(
                           onTap: () {
-                         
+                            if (type != CarpoolDetailsType.driving) return;
+
                             showDialog(
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: Text(AppLocalizations.of(context)!.deleteDriver),
-                                  content: Text(AppLocalizations.of(context)!.areYouSureYouWantToRemoveYourselfFromThisCarpool),
+                                  title: Text(
+                                    AppLocalizations.of(context)!.deleteDriver,
+                                  ),
+                                  content: Text(
+                                    AppLocalizations.of(
+                                      context,
+                                    )!.areYouSureYouWantToRemoveYourselfFromThisCarpool,
+                                  ),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
-                                        Navigator.of(context).pop(); // Close the dialog
+                                        Navigator.of(
+                                          context,
+                                        ).pop(); // Close the dialog
                                       },
                                       child: Text("Cancel"),
                                     ),
                                     TextButton(
                                       onPressed: () {
-                                 
-                                        Navigator.of(context).pop(); // Close the dialog
+                                        Navigator.of(
+                                          context,
+                                        ).pop(); // Close the dialog
                                       },
                                       child: Text("Delete"),
                                     ),
@@ -238,31 +301,42 @@ class CarpoolDetailsScreen extends StatelessWidget {
                         // can remove on tap if logged in as attandee
                         GestureDetector(
                           onTap: () {
-                      
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text(AppLocalizations.of(context)!.removeAttendee),
-                                  content: Text(AppLocalizations.of(context)!.areYouSureYouWantToRemoveThisAttendee),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop(); // Close the dialog
-                                      },
-                                      child: Text("Cancel"),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {
-                                        // TODO: Add logic to remove attendee
-                                        Navigator.of(context).pop(); // Close the dialog
-                                      },
-                                      child: Text("Remove"),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                            // showDialog(
+                            //   context: context,
+                            //   builder: (BuildContext context) {
+                            //     return AlertDialog(
+                            //       title: Text(
+                            //         AppLocalizations.of(
+                            //           context,
+                            //         )!.removeAttendee,
+                            //       ),
+                            //       content: Text(
+                            //         AppLocalizations.of(
+                            //           context,
+                            //         )!.areYouSureYouWantToRemoveThisAttendee,
+                            //       ),
+                            //       actions: [
+                            //         TextButton(
+                            //           onPressed: () {
+                            //             Navigator.of(
+                            //               context,
+                            //             ).pop(); // Close the dialog
+                            //           },
+                            //           child: Text("Cancel"),
+                            //         ),
+                            //         TextButton(
+                            //           onPressed: () {
+                            //             // TODO: Add logic to remove attendee
+                            //             Navigator.of(
+                            //               context,
+                            //             ).pop(); // Close the dialog
+                            //           },
+                            //           child: Text("Remove"),
+                            //         ),
+                            //       ],
+                            //     );
+                            //   },
+                            // );
                           },
                           child: Row(
                             spacing: 8.w,
@@ -288,37 +362,31 @@ class CarpoolDetailsScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 24.h),
-                Row(
-                  spacing: 12.w,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SvgPicture.asset(AppIcons.inviteIcon),
-                    Text(
-                      AppLocalizations.of(context)!.invite,
-                      style: AppStyle.baseRegular.copyWith(
-                        color: AppColors.gray,
+                if (type == CarpoolDetailsType.organizing)
+                  Row(
+                    spacing: 12.w,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SvgPicture.asset(AppIcons.inviteIcon),
+                      Text(
+                        AppLocalizations.of(context)!.invite,
+                        style: AppStyle.baseRegular.copyWith(
+                          color: AppColors.gray,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(18),
-            width: Get.width,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 1,
-                  offset: Offset(0, 1),
-                ),
-              ],
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: CustomButton(
+                buttonTitle: AppLocalizations.of(context)!.dropOffComplete,
+                onTap: () {},
+              ),
             ),
-            child: CustomButton(buttonTitle: AppLocalizations.of(context)!.dropOffComplete, onTap: () {}),
           ),
         ],
       ),

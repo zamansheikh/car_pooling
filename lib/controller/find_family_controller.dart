@@ -8,6 +8,7 @@ class FindFamilyController extends GetxController {
   RxList<ContactModel> myContacts =
       <ContactModel>[
         ContactModel(
+          id: "01",
           address: "4140 Parker Rd. Allentown, New Mexico 31134",
           cellNumber: "+880 199 2670 456",
           distance: "1.5km",
@@ -15,6 +16,7 @@ class FindFamilyController extends GetxController {
           lastName: "brown",
         ),
         ContactModel(
+          id: "02",
           address: "4140 Parker Rd. Allentown, New Mexico 31134",
           cellNumber: "+880 199 2670 456",
           distance: "1.5km",

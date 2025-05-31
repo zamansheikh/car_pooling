@@ -14,6 +14,7 @@ class InboxController extends GetxController {
   RxList<ContactModel> myContactInvitations =
       <ContactModel>[
         ContactModel(
+          id: "01",
           address: "4140 Parker Rd. Allentown, New Mexico 31134",
           cellNumber: "+880 178 020 2564",
           distance: "2.5Km",
@@ -22,6 +23,7 @@ class InboxController extends GetxController {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2IhVC1-MwIU4lXET8N6pI-1rzjetYi2ZvQ&s",
         ),
         ContactModel(
+          id: "02",
           address: "4140 Parker Rd. Allentown, New Mexico 31134",
           cellNumber: "+880 178 020 2564",
           distance: "2.5Km",
@@ -30,6 +32,7 @@ class InboxController extends GetxController {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2IhVC1-MwIU4lXET8N6pI-1rzjetYi2ZvQ&s",
         ),
         ContactModel(
+          id: "03",
           address: "4140 Parker Rd. Allentown, New Mexico 31134",
           cellNumber: "+880 178 020 2564",
           distance: "2.5Km",

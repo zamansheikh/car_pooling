@@ -3,7 +3,8 @@ import 'package:car_pooling/core/components/custom_app_bar.dart';
 import 'package:car_pooling/core/helper/prefs_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class LangugeScreen extends StatelessWidget {
   LangugeScreen({super.key});

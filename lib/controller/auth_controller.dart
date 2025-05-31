@@ -50,7 +50,7 @@ class AuthController extends GetxController {
 
     showCustomSnackBar("Signed in successfully!", isError: false);
     clearControllers();
-    Get.toNamed(AppRoutes.homeSCreen);
+    Get.toNamed(AppRoutes.homeScreen);
   }
 
   Future userSignUp(formKey) async {
@@ -60,7 +60,7 @@ class AuthController extends GetxController {
 
     if (!checkBoxStatus.value) {
       showCustomSnackBar(
-        "You must agree to the Terms & Conditions and Privacy Policy to continue",
+        "You must agree to the Terms & Conditions and Privacy Policy to continue.",
         isError: true,
       );
       return;
@@ -79,7 +79,7 @@ class AuthController extends GetxController {
 
     debugPrint("=========>>>>>>>>>>>>> userSignIn: $body");
 
-    showCustomSnackBar("User created successfully", isError: false);
+    showCustomSnackBar("User created successfully!", isError: false);
 
     Get.toNamed(AppRoutes.addChild);
     clearControllers();
@@ -141,7 +141,7 @@ class AuthController extends GetxController {
     await Future.delayed(Duration(seconds: 2));
     isLoading.value = false;
 
-    showCustomSnackBar("OTP Rsend to $sendTo", isError: false);
+    showCustomSnackBar("OTP resent to $sendTo.", isError: false);
     clearControllers();
   }
 
@@ -162,11 +162,12 @@ class AuthController extends GetxController {
         context: Get.context!,
         builder: (BuildContext context) {
           return customAlertDialog(
+            centerHeading: true,
             title: "Congratulations!",
-            asset: AppIcons.congratsIcon,
+            icon: AppIcons.congratsIcon,
             content:
                 "Your HadiKid account has been successfully created and verified!",
-            buttonText: "Ok",
+            buttonText: "OK",
             route: () => Get.offAllNamed(AppRoutes.welcomeScreen),
           );
         },
@@ -178,7 +179,7 @@ class AuthController extends GetxController {
   }
 
   Future createNewpass(formkey) async {
-        if (!formkey.currentState!.validate()) {
+    if (!formkey.currentState!.validate()) {
       return;
     }
     final body = {
@@ -202,7 +203,7 @@ class AuthController extends GetxController {
         return customAlertDialog(
           title: "Password Changed!",
           content: "You have successfully changed your password.",
-          asset: AppIcons.congratsIcon,
+          icon: AppIcons.congratsIcon,
           buttonText: "OK",
           route: () => Get.toNamed(AppRoutes.signIn),
         );

@@ -9,7 +9,8 @@ import 'package:car_pooling/core/constant/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class CreateCarpoolScreen2 extends StatelessWidget {
   CreateCarpoolScreen2({super.key});
@@ -25,7 +26,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
     });
 
     return Scaffold(
-      appBar: customAppBar1(AppLocalizations.of(context)!.createCarpool ),
+      appBar: customAppBar1(AppLocalizations.of(context)!.createCarpool),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
@@ -37,36 +38,44 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                 SizedBox(height: 24.h),
                 Row(
                   spacing: 4.w,
-                  children: [Text(AppLocalizations.of(context)!.what , style: AppStyle.largeMedium)],
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.what,
+                      style: AppStyle.largeMedium,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.eventNameController,
-                  hintText: "Event name" ,
+                  hintText: "Event name",
                 ),
                 SizedBox(height: 24.h),
                 // Where
-                Text(AppLocalizations.of(context)!.where , style: AppStyle.largeMedium),
+                Text(
+                  AppLocalizations.of(context)!.where,
+                  style: AppStyle.largeMedium,
+                ),
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.startLocationController,
-                  hintText: "Start location" ,
+                  hintText: "Start location",
                 ),
                 SizedBox(height: 12.h),
                 CustomInputField(
                   controller: controller.endLocationController,
-                  hintText: "End location" ,
+                  hintText: "End location",
                 ),
                 SizedBox(height: 12.h),
-
                 Obx(() {
                   return controller.startLocationText.value.length > 3
                       ? Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            AppLocalizations.of(context)!.wouldYouLikeToSetThisLocationAsYourHomeAddress
-                                 ,
+                            AppLocalizations.of(
+                              context,
+                            )!.wouldYouLikeToSetThisLocationAsYourHomeAddress,
                             style: AppStyle.baseSmallRegular.copyWith(
                               color: AppColors.gray,
                             ),
@@ -80,7 +89,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                                 InkWell(
                                   onTap: () {},
                                   child: Text(
-                                    AppLocalizations.of(context)!.okay ,
+                                    AppLocalizations.of(context)!.okay,
                                     style: AppStyle.baseRegular.copyWith(
                                       color: AppColors.primary,
                                     ),
@@ -89,7 +98,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                                 InkWell(
                                   onTap: () {},
                                   child: Text(
-                                    AppLocalizations.of(context)!.later ,
+                                    AppLocalizations.of(context)!.later,
                                     style: AppStyle.baseRegular.copyWith(
                                       color: AppColors.primary,
                                     ),
@@ -106,7 +115,10 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   SizedBox(height: 12.h),
                 if (controller.startLocationText.value.length > 3)
                   SizedBox(height: 24.h),
-                Text(AppLocalizations.of(context)!.when , style: AppStyle.largeMedium),
+                Text(
+                  AppLocalizations.of(context)!.type,
+                  style: AppStyle.largeMedium,
+                ),
                 // ==========>>>>>>>>> repeat option selector <<<<<<<<=========
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -118,8 +130,8 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildOption("Does not repeat" ),
-                            buildOption("Daily" ),
+                            buildOption("Does not repeat"),
+                            buildOption("Daily"),
                           ],
                         ),
                         Column(
@@ -142,7 +154,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Select Days" , style: AppStyle.baseMedium),
+                          Text("Select Days", style: AppStyle.baseMedium),
                           SizedBox(height: 8.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -194,7 +206,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                           ),
                           SizedBox(height: 16.h),
                           if (controller.selectedOption.value != 'Every week')
-                            Text("Repeat Until" , style: AppStyle.baseMedium),
+                            Text("Repeat Until", style: AppStyle.baseMedium),
                           if (controller.selectedOption.value != 'Every week')
                             SizedBox(height: 8.h),
                           if (controller.selectedOption.value != 'Every week')
@@ -230,7 +242,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                                               .toLocal()
                                               .toString()
                                               .split(" ")[0]
-                                          : "Select a date" ,
+                                          : "Select a date",
                                       style: AppStyle.baseRegular,
                                     ),
                                   ],
@@ -243,25 +255,32 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   ],
                 ),
                 // =========>>>>>>>> start date time <<<<<<<<<==========
-                SizedBox(height: 24.h,),
-                Text(AppLocalizations.of(context)!.starting, style: AppStyle.largeMedium ,),
-                SizedBox(height: 16.h,),
-               CustomDateInput(
-                    dateController: controller.startDate,
-                    hintText: "${"Enter Return date" }...",
-                    isEnabled: true,
-                  ),
-             
-                SizedBox(height: 16.w,),
-                  Row(
+                SizedBox(height: 24.h),
+                Text(
+                  AppLocalizations.of(context)!.when,
+                  style: AppStyle.largeMedium,
+                ),
+                SizedBox(height: 16.h),
+                CustomDateInput(
+                  dateController: controller.startDate,
+                  hintText: "Start date",
+                  isEnabled: true,
+                ),
+
+                SizedBox(height: 16.w),
+                Row(
                   spacing: 16.w,
                   children: [
-                    
                     Flexible(
                       child: Obx(() {
                         return CustomTimeInput(
                           isEnabled: true,
+                          hintText: "Starting",
                           time: controller.startTime.value,
+                          hintStyle: TextStyle(
+                            color: AppColors.gray,
+                            fontSize: 16.sp,
+                          ),
                           onChange: (p0) {
                             controller.startTime.value = p0;
                           },
@@ -272,7 +291,12 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                       child: Obx(() {
                         return CustomTimeInput(
                           isEnabled: true,
+                          hintText: "Ending (Estimated)",
                           time: controller.dropOffTime.value,
+                          hintStyle: TextStyle(
+                            color: AppColors.gray,
+                            fontSize: 16.sp,
+                          ),
                           onChange: (p0) {
                             controller.dropOffTime.value = p0;
                           },
@@ -282,11 +306,12 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   ],
                 ),
                 // =========>>>>>>>> Create return trip <<<<<<<<<==========
+                SizedBox(height: 12.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      AppLocalizations.of(context)!.createReturnTrip ,
+                      AppLocalizations.of(context)!.createReturnTrip,
                       style: TextStyle(
                         fontSize: 18.0,
                       ), // Adjust font size as needed
@@ -305,34 +330,61 @@ class CreateCarpoolScreen2 extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 12.h),
-                Row(
-                  spacing: 16.w,
-                  children: [
-                    Flexible(
-                      child: Obx(() {
-                        return CustomDateInput(
-                          dateController: controller.returnDateController,
-                          hintText: "${"Enter Return date" }...",
-                          isEnabled: controller.isReturnTrip.value,
-                        );
-                      }),
-                    ),
-                    Flexible(
-                      child: Obx(() {
-                        return CustomTimeInput(
-                          isEnabled: controller.isReturnTrip.value,
-                          time: controller.timePicker.value,
-                          onChange: (p0) {
-                            controller.timePicker.value = p0;
-                          },
-                        );
-                      }),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 24.h),
+                Obx(() {
+                  if (!controller.isReturnTrip.value) return Container();
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomDateInput(
+                        dateController: controller.startDate,
+                        hintText: "Return date",
+                        isEnabled: true,
+                      ),
+                      SizedBox(height: 16.w),
+                      Row(
+                        spacing: 16.w,
+                        children: [
+                          Flexible(
+                            child: Obx(() {
+                              return CustomTimeInput(
+                                isEnabled: controller.isReturnTrip.value,
+                                hintText: "Starting",
+                                time: controller.returnStartTime.value,
+                                hintStyle: TextStyle(
+                                  color: AppColors.gray,
+                                  fontSize: 16.sp,
+                                ),
+                                onChange: (p0) {
+                                  controller.returnStartTime.value = p0;
+                                },
+                              );
+                            }),
+                          ),
+                          Flexible(
+                            child: Obx(() {
+                              return CustomTimeInput(
+                                isEnabled: controller.isReturnTrip.value,
+                                hintText: "Ending (Estimated)",
+                                time: controller.returnEndTime.value,
+                                hintStyle: TextStyle(
+                                  color: AppColors.gray,
+                                  fontSize: 16.sp,
+                                ),
+                                onChange: (p0) {
+                                  controller.returnEndTime.value = p0;
+                                },
+                              );
+                            }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                }),
+
+                SizedBox(height: 36.h),
                 CustomButton(
-                  buttonTitle: AppLocalizations.of(context)!.previewInvites ,
+                  buttonTitle: AppLocalizations.of(context)!.previewInvites,
                   isRounded: false,
                   onTap: () {
                     controller.previewAndInvites(_formKey);
@@ -368,7 +420,7 @@ class CreateCarpoolScreen2 extends StatelessWidget {
               ),
             ),
             Text(
-              option ,
+              option,
               style: AppStyle.baseMedium.copyWith(color: AppColors.darkGray),
             ),
           ],

@@ -54,9 +54,8 @@ class _CustomDateInputState extends State<CustomDateInput> {
         String format = widget.monthYearOnly ? widget.monthYearFormat : widget.dateFormat;
         _selectedDate = DateFormat(format).parse(widget.dateController.text);
       } catch (e) {
-        // Handle or log parsing error if the initial text doesn't match the format
-        debugPrint("Error parsing initial date from controller: $e");
-        _selectedDate = null; // Reset if parsing fails
+        print("Error parsing initial date from controller: $e");
+        _selectedDate = null;
       }
     }
   }

@@ -1,4 +1,5 @@
 class ContactModel {
+  final String id;
   final String image;
   final String firstName;
   final String lastName;
@@ -7,6 +8,7 @@ class ContactModel {
   final String distance;
 
   ContactModel({
+    required this.id,
     this.image = '',
     this.firstName = 'Unknown',
     this.lastName = 'Unknown',
